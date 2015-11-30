@@ -381,7 +381,7 @@ function printFunctions($xmlDoc, $node, $tab, $floor, $room, $name){
 }
 
 //----------------------------------------
-$xmlDoc = simplexml_load_file("0.xml") or die("Error: Cannot create object");
+$xmlDoc = simplexml_load_file("uploads/0.xml") or die("Error: Cannot create object");
 
 foreach($xmlDoc->getDocNamespaces() as $strPrefix => $strNamespace) {
     if(strlen($strPrefix)==0) {
