@@ -1,0 +1,128 @@
+.widget_container {
+    width: 100%;
+}
+
+.page {
+  overflow-y: auto;
+	overflow-x: auto;
+}
+
+body
+{
+	overflow-y: auto;
+	overflow-x: auto;
+}
+
+.group { 
+	margin: 0.2em 0.1em;
+}
+
+#header .header .actor.switchUnpressed,
+#header .header .actor.switchPressed {
+	width: 72px !important;
+	float: left;
+}
+
+#header .header .actor .value {
+	width: 72px;
+	float: left;
+}
+
+#header .header img {
+	padding-left: 24px;
+	padding-right: 24px;
+	vertical-align: abs-middle;
+	display: inline;
+	width: 24px;
+}
+
+#main {
+	margin-left: 0px !important;
+}
+
+#header .header.title{
+	margin-left: 0px;
+}
+
+#menu .menu {
+	-webkit-box-shadow: 0px 0px 8px gray;
+  -moz-box-shadow: 0px 0px 8px gray;
+  box-shadow: 0px 0px 8px gray;
+	min-height: 500px;
+}
+
+/* #navbarLeft,
+#navbarLeft > .navbar, */
+#navbarRight,
+#navbarRight > .navbar
+{
+	display: none !important;
+	width: 0 !important;
+}
+
+#navbarLeft
+{
+	width: 100% !important;
+	overflow-y: scroll !important;
+	background-color: rgba(0,0,0,0.3);
+}
+
+#navbarLeft .navbar {
+	width: 250px !important;
+	position: relative !important;
+	top: 0px !important;
+	left: 0px !important;
+	z-index: 0 !important;
+	height: 100% !important;
+	background-color: rgba(255,255,255,1);
+} 
+
+#bottom {
+    /* display: none !important; */
+}
+
+.widget .ui-slider
+{
+  width: 40%;
+}
+
+/* #navbarLeft {
+	width: 100% !important;
+	position: relative !important;
+	margin-top: -66px !important;
+	left: 0px !important;
+	z-index: 10 !important;
+	height: 100% !important;
+	background-color: rgba(0,0,0,0.3);
+	overflow-y: hidden !important;
+} */
+
+/* #navbarLeft .navbar {
+	width: 300px !important;
+	position: relative !important;
+	top: 0px !important;
+	left: 0px !important;
+	z-index: 0 !important;
+	height: 100% !important;
+	background-color: rgba(255,255,255,1);
+	overflow-y: hidden !important;
+} */
+
+/* #navbarTop > .navbar > div, #navbarTop > .navbar > hr {
+ 	display: inline-block;
+	float: none;
+}
+
+#navbarTop > .navbar , #navbarBottom > .navbar {
+ 	overflow-y: hidden;
+	overflow-x: auto;
+	white-space: nowrap;
+} */
+
+#navbarTop {
+	margin-left: 0px;
+}
+
+#navbarTop .navbar .pagejump:hover {
+    background-color: transparent;
+}

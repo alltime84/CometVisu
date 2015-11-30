@@ -67,6 +67,32 @@
           (typeof window === 'undefined') || 
           window.location.href.indexOf('forceReload=true') < 0 ? '' : '_=' + (+new Date)
       };
+			
+			function isTouchDevice(){
+				try{
+					document.createEvent("TouchEvent");
+					return true;
+				}catch(e){
+					return false;
+				}
+			}
+			
+			function touchScroll(id){
+				if(isTouchDevice()){ //if touch events exist...
+					var el=document.getElementById(id);
+					var scrollStartPos=0;
+
+					document.getElementById(id).addEventListener("touchstart", function(event) {
+						scrollStartPos=this.scrollTop+event.touches[0].pageY;
+						event.preventDefault();
+					},false);
+
+					document.getElementById(id).addEventListener("touchmove", function(event) {
+						this.scrollTop=scrollStartPos-event.touches[0].pageY;
+						event.preventDefault();
+					},false);
+				}
+			}
     </script>
     <script data-main="lib/templateengine" src="dependencies/require-2.1.15.min.js" type="text/javascript"></script>
     <style type="text/css">
@@ -78,24 +104,29 @@
   <body>
     <div id="top" class="loading">
       <div class="nav_path">-</div>
+			<div class="footer"></div>
     </div>
-    <div id="navbarTop" class="loading"></div>
+		
+		<div id="navbarTop" class="loading"></div>
     <div id="centerContainer">
-      <div id="navbarLeft" class="loading page"></div>
-      <div id="main" style="width:900px;position:relative; overflow: hidden;" class="loading">
-        <div id="pages" class="clearfix" style="width:20000em; position:relative;clear:both;">
+      <div id="main" style="overflow: hidden" class="loading">
+        <div id="pages" class="clearfix" style="">
           <!-- all pages will be inserted here -->
         </div>
       </div>
       <div id="navbarRight" class="loading page"></div>
     </div>
+		<div id="navbarLeft" class="loading" style=""></div>
     <div id="navbarBottom" class="loading"></div>
-    <div id="bottom" class="loading">
-      <hr />
-      <div class="footer"></div>
+		<div id="bottom" class="loading">
+			<hr/>
     </div>
     <div id="loading" style="text-align: center; width: 100%; margin: auto;">
       Loading ...
     </div>
+		
+		<script>			
+			touchScroll("navbarLeft");
+		</script>
   </body>
 </html>

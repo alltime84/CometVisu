@@ -1,79 +1,3604 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pages xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" lib_version="8" design="pure" xsi:noNamespaceSchemaLocation="../visu_config.xsd">
+<pages lib_version="8" design="material" backend="cgi-bin" enable_column_adjustment="true" bind_click_to_widget="false" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../visu_config.xsd">
   <meta>
-    <plugins>
-      <plugin name="colorchooser"/>
-      <plugin name="diagram"/>
-      <plugin name="upnpcontroller"/>
-    </plugins>
+    <icons>
+      <icon-definition name="menu" uri="config/media/material/ic_menu_white_24dp_1x.png"/>
+      <icon-definition name="switch_on" uri="config/media/switch_on_green.png"/>
+      <icon-definition name="switch_off" uri="config/media/switch_off_green.png"/>
+			<icon-definition name="check_box_outline" uri="config/media/material/ic_check_box_outline_blank_white_24dp_1x.png"/>
+      <icon-definition name="check_box" uri="config/media/material/ic_check_box_white_24dp_1x.png"/>
+			<icon-definition name="lamp" uri="config/media/material/ic_wb_incandescent_white_24dp_1x.png"/>
+    </icons>
     <mappings>
-      <mapping name="Close_Open">
-        <entry value="0">zu</entry>
+      <mapping name="OpenClose">
         <entry value="1">offen</entry>
+        <entry value="0">geschlossen</entry>
       </mapping>
-      <mapping name="Open_Close">
-        <entry value="0">offen</entry>
-        <entry value="1">zu</entry>
+      <mapping name="DoorOpenClose">
+        <entry value="1">
+          <icon name="fts_door_open" color="orange"/>
+        </entry>
+        <entry value="0">
+          <icon name="fts_door"/>
+        </entry>
       </mapping>
-      <mapping name="Off_On">
+      <mapping name="UpDown">
+        <entry value="0">
+          <icon name="control_arrow_up" color="#4CAF50"/>
+        </entry>
+        <entry value="1">
+          <icon name="control_arrow_down" color="#4CAF50"/>
+        </entry>
+      </mapping>
+			<mapping name="Stop">
+        <entry value="0">
+          <icon name="audio_pause" color="#4CAF50"/>
+        </entry>
+      </mapping>
+      <mapping name="OnOff">
+        <entry value="0">
+          <icon name="switch_off"/>
+        </entry>
+        <entry value="1">
+          <icon name="switch_on"/>
+        </entry>
+      </mapping>
+			<mapping name="automatic">
+        <entry value="0">
+          <icon name="time_automatic" color="#888888"/>
+        </entry>
+        <entry value="1">
+          <icon name="time_automatic" color="#4CAF50"/>
+        </entry>
+      </mapping>
+      <mapping name="AudioMute">
+        <entry value="0">
+          <icon name="audio_audio"/>
+        </entry>
+        <entry value="1">
+          <icon name="audio_audio"/>
+        </entry>
+      </mapping>
+      <mapping name="ScharfUnscharf">
+        <entry value="1">
+          <icon name="secur_alarm" color="orange"/>
+        </entry>
+        <entry value="0">
+          <icon name="secur_alarm"/>
+        </entry>
+      </mapping>
+      <mapping name="AlarnNormal">
+        <entry value="1">
+          <icon name="message_attention" color="orange"/>
+        </entry>
+        <entry value="0">
+          <icon name="message_attention"/>
+        </entry>
+      </mapping>
+      <mapping name="Text_EinAus">
+        <entry value="0">AUS</entry>
+        <entry value="1">EIN</entry>
+      </mapping>
+      <mapping name="AufZu">
+        <entry value="0">Zu</entry>
+        <entry value="1">Auf</entry>
+      </mapping>
+      <mapping name="AufZuFensterSymbol">
+        <entry value="0">
+          <icon name="fts_window_2w" flavour="white"/>
+        </entry>
+        <entry value="1">
+          <icon name="fts_window_2w_open" flavour="red"/>
+        </entry>
+      </mapping>
+      <mapping name="AufZuTuerSymbol">
+        <entry value="0">
+          <icon name="fts_door" flavour="white"/>
+        </entry>
+        <entry value="1">
+          <icon name="fts_door_open" flavour="red"/>
+        </entry>
+      </mapping>
+      <mapping name="GesamtAufZu">
+        <entry value="0">Alle Zu</entry>
+        <entry value="1">Auf</entry>
+      </mapping>
+      <mapping name="AnAus">
         <entry value="0">Aus</entry>
         <entry value="1">An</entry>
       </mapping>
-      <mapping name="On_Off">
-        <entry value="0">An</entry>
-        <entry value="1">Aus</entry>
+      <mapping name="AnAusSymbol">
+        <entry value="0">
+          <icon name="control_home" flavour="black"/>
+        </entry>
+        <entry value="1">
+          <icon name="control_on_off" flavour="green"/>
+        </entry>
+      </mapping>
+      <mapping name="AnStandbySymbol">
+        <entry value="0">
+          <icon name="control_standby" flavour="white"/>
+        </entry>
+        <entry value="1">
+          <icon name="control_on_off" flavour="green"/>
+        </entry>
+      </mapping>
+      <mapping name="AnAusLichtSymbol">
+        <entry value="0">
+          <icon name="light_light" flavour="white"/>
+        </entry>
+        <entry value="1">
+          <icon name="light_light_dim_100" flavour="orange"/>
+        </entry>
+      </mapping>
+      <mapping name="AufAbSymbol">
+        <entry value="0">
+          <icon name="control_arrow_up" color="#4CAF50"/>
+        </entry>
+        <entry value="1">
+          <icon name="control_arrow_down" color="#4CAF50"/>
+        </entry>
+      </mapping>
+      <mapping name="HaltSymbol">
+        <entry value="0"/>
+        <entry value="1">
+          <icon name="control_x"/>
+        </entry>
+      </mapping>
+      <mapping name="LichtSymbol">
+        <entry range_min="0" range_max="0">
+          <icon name="light_light_dim_00" flavour="white"/>
+        </entry>
+        <entry range_min="0" range_max="10">
+          <icon name="light_light_dim__10" flavour="orange"/>
+        </entry>
+        <entry range_min="10" range_max="20">
+          <icon name="light_light_dim__20" flavour="orange"/>
+        </entry>
+        <entry range_min="20" range_max="30">
+          <icon name="light_light_dim__30" flavour="orange"/>
+        </entry>
+        <entry range_min="30" range_max="40">
+          <icon name="light_light_dim__40" flavour="orange"/>
+        </entry>
+        <entry range_min="40" range_max="50">
+          <icon name="light_light_dim__50" flavour="orange"/>
+        </entry>
+        <entry range_min="50" range_max="60">
+          <icon name="light_light_dim__60" flavour="orange"/>
+        </entry>
+        <entry range_min="60" range_max="70">
+          <icon name="light_light_dim__70" flavour="orange"/>
+        </entry>
+        <entry range_min="70" range_max="80">
+          <icon name="light_light_dim__80" flavour="orange"/>
+        </entry>
+        <entry range_min="80" range_max="90">
+          <icon name="light_light_dim__90" flavour="orange"/>
+        </entry>
+        <entry range_min="90" range_max="100">
+          <icon name="light_light_dim__100" flavour="orange"/>
+        </entry>
+      </mapping>
+      <mapping name="RolloSymbol">
+        <entry range_min="0" range_max="0">
+          <icon name="fts_window_2w" flavour="white"/>
+        </entry>
+        <entry range_min="0" range_max="10">
+          <icon name="fts_shutter_10" flavour="white"/>
+        </entry>
+        <entry range_min="10" range_max="20">
+          <icon name="fts_shutter_20" flavour="white"/>
+        </entry>
+        <entry range_min="20" range_max="30">
+          <icon name="fts_shutter_30" flavour="white"/>
+        </entry>
+        <entry range_min="30" range_max="40">
+          <icon name="fts_shutter_40" flavour="white"/>
+        </entry>
+        <entry range_min="40" range_max="50">
+          <icon name="fts_shutter_50" flavour="white"/>
+        </entry>
+        <entry range_min="50" range_max="60">
+          <icon name="fts_shutter_60" flavour="white"/>
+        </entry>
+        <entry range_min="60" range_max="70">
+          <icon name="fts_shutter_70" flavour="white"/>
+        </entry>
+        <entry range_min="70" range_max="80">
+          <icon name="fts_shutter_80" flavour="white"/>
+        </entry>
+        <entry range_min="80" range_max="90">
+          <icon name="fts_shutter_90" flavour="white"/>
+        </entry>
+        <entry range_min="90" range_max="100">
+          <icon name="fts_shutter_100" flavour="white"/>
+        </entry>
+      </mapping>
+      <mapping name="GesamtAnAus">
+        <entry value="0">Alle Aus</entry>
+        <entry value="1">An</entry>
+      </mapping>
+      <mapping name="AktivNichtAktiv">
+        <entry value="0">Nicht Aktiv</entry>
+        <entry value="1">Aktiv</entry>
+      </mapping>
+      <mapping name="Aktiv">
+        <entry value="0"/>
+        <entry value="1">Aktiv</entry>
+      </mapping>
+      <mapping name="AchtungSymbol">
+        <entry value="0"/>
+        <entry value="1">
+          <icon name="message_attention" flavour="red"/>
+        </entry>
+      </mapping>
+      <mapping name="OkaySymbol">
+        <entry value="0"/>
+        <entry value="1">
+          <icon name="message_ok"/>
+        </entry>
+      </mapping>
+      <mapping name="ReturnSymbol">
+        <entry value="0"/>
+        <entry value="1">
+          <icon name="control_return"/>
+        </entry>
+      </mapping>
+      <mapping name="ServiceSymbol">
+        <entry value="0"/>
+        <entry value="1">
+          <icon name="message_service" flavour="red"/>
+        </entry>
+      </mapping>
+      <mapping name="ServiceDauerSymbol">
+        <entry value="0">
+          <icon name="message_service" flavour="white"/>
+        </entry>
+        <entry value="1">
+          <icon name="message_service" flavour="red"/>
+        </entry>
+      </mapping>
+      <mapping name="SoundSymbol">
+        <entry value="1">
+          <icon name="audio_sound" flavour="white"/>
+        </entry>
+      </mapping>
+      <mapping name="PlayPauseSymbol">
+        <entry value="0">
+          <icon name="audio_pause" flavour="white"/>
+        </entry>
+        <entry value="1">
+          <icon name="audio_play" flavour="white"/>
+        </entry>
+      </mapping>
+      <mapping name="AudioSymbol">
+        <entry value="0">
+          <icon name="audio_volume_mute" flavour="white"/>
+        </entry>
+        <entry value="1">
+          <icon name="audio_audio" flavour="white"/>
+        </entry>
+      </mapping>
+      <mapping name="BWMsymbol">
+        <entry value="0">
+          <icon name="message_presence_disabled" flavour="white"/>
+        </entry>
+        <entry value="1">
+          <icon name="message_presence" flavour="white"/>
+        </entry>
+      </mapping>
+      <mapping name="BWMsymbolDauer">
+        <entry value="0">
+          <icon name="message_presence" flavour="white"/>
+        </entry>
+        <entry value="1">
+          <icon name="message_presence" flavour="white"/>
+        </entry>
+      </mapping>
+      <mapping name="PositivNegativ">
+        <entry range_min="-1e99" range_max="0">Negativ</entry>
+        <entry value="0">Null</entry>
+        <entry range_min="0" range_max="1e99">Positiv</entry>
       </mapping>
       <mapping name="KonnexHVAC">
-        <entry value="auto">Auto</entry>
-        <entry value="comfort">Komfort</entry>
-        <entry value="standby">Stand By</entry>
-        <entry value="economy">Economy</entry>
-        <entry value="building_protection">Haus-Schutz</entry>
+        <entry value="0">Auto</entry>
+        <entry value="1">Komfort</entry>
+        <entry value="2">Standby</entry>
+        <entry value="3">Nacht</entry>
+        <entry value="4">Frostschutz</entry>
+      </mapping>
+      <mapping name="KonnexHVACSymbol">
+        <entry value="0">
+          <icon name="status_automatic" flavour="white"/>
+        </entry>
+        <entry value="1">
+          <icon name="status_available" flavour="white"/>
+        </entry>
+        <entry value="2">
+          <icon name="status_away_1" flavour="white"/>
+        </entry>
+        <entry value="3">
+          <icon name="status_night" flavour="white"/>
+        </entry>
+        <entry value="4">
+          <icon name="status_frost" flavour="white"/>
+        </entry>
+      </mapping>
+      <mapping name="ZwangKonnexHVACSymbol">
+        <entry value="0">
+          <icon name="time_automatic" flavour="white"/>
+        </entry>
+        <entry value="1">
+          <icon name="time_manual_mode" flavour="white"/>
+          <icon name="status_available" flavour="white"/>
+        </entry>
+        <entry value="2">
+          <icon name="time_manual_mode" flavour="white"/>
+          <icon name="status_away_1" flavour="white"/>
+        </entry>
+        <entry value="3">
+          <icon name="time_manual_mode" flavour="white"/>
+          <icon name="status_night" flavour="white"/>
+        </entry>
+        <entry value="4">
+          <icon name="time_manual_mode" flavour="white"/>
+          <icon name="status_frost" flavour="white"/>
+        </entry>
+      </mapping>
+      <mapping name="SzeneUG">
+        <entry value="0"/>
+        <entry value="1">Allgemein</entry>
+        <entry value="2">Essen</entry>
+        <entry value="3">Kochen</entry>
+      </mapping>
+      <mapping name="SzeneUGSymbol">
+        <entry value="0"/>
+        <entry value="1">
+          <icon name="scene_livingroom" flavour="white"/>
+        </entry>
+        <entry value="2">
+          <icon name="scene_dinner" flavour="white"/>
+        </entry>
+        <entry value="3">
+          <icon name="scene_cooking" flavour="white"/>
+        </entry>
+      </mapping>
+      <mapping name="Entsorgungsdaten">
+        <entry value="0"/>
+        <entry value="1">Keine Daten!</entry>
+        <entry value="2">Mülltonne</entry>
+        <entry value="4">Papiertonne</entry>
+        <entry value="6">Müll- und Papiertonne</entry>
+      </mapping>
+      <mapping name="SommerWinterSymbol">
+        <entry value="0">
+          <icon name="weather_winter" flavour="white"/>
+        </entry>
+        <entry value="1">
+          <icon name="weather_summer" flavour="white"/>
+        </entry>
+      </mapping>
+      <mapping name="Himmelsrichtung_°_lang">
+        <entry range_min="0" range_max="11.25">Nord</entry>
+        <entry range_min="11.25" range_max="33.75">Nordnordost</entry>
+        <entry range_min="33.75" range_max="56.25">Nordost</entry>
+        <entry range_min="56.25" range_max="78.75">Ostnordost</entry>
+        <entry range_min="78.75" range_max="101.25">Ost</entry>
+        <entry range_min="101.25" range_max="123.75">Ostsüdost</entry>
+        <entry range_min="123.75" range_max="146.25">Südost</entry>
+        <entry range_min="146.25" range_max="168.75">Südsüdost</entry>
+        <entry range_min="168.75" range_max="191.25">Süd</entry>
+        <entry range_min="191.25" range_max="213.75">Südsüdwest</entry>
+        <entry range_min="213.75" range_max="236.25">Südwest</entry>
+        <entry range_min="236.25" range_max="258.75">Westsüdwest</entry>
+        <entry range_min="258.75" range_max="281.25">West</entry>
+        <entry range_min="281.25" range_max="303.75">Westnordwest</entry>
+        <entry range_min="303.75" range_max="326.25">Nordwest</entry>
+        <entry range_min="326.25" range_max="348.75">Nordnordwest</entry>
+        <entry range_min="348.75" range_max="360">Nord</entry>
+      </mapping>
+      <mapping name="Himmelsrichtung_°_kurz">
+        <entry range_min="0" range_max="11.25">N</entry>
+        <entry range_min="11.25" range_max="33.75">N-NO</entry>
+        <entry range_min="33.75" range_max="56.25">NO</entry>
+        <entry range_min="56.25" range_max="78.75">O-NO</entry>
+        <entry range_min="78.75" range_max="101.25">O</entry>
+        <entry range_min="101.25" range_max="123.75">O-SO</entry>
+        <entry range_min="123.75" range_max="146.25">SO</entry>
+        <entry range_min="146.25" range_max="168.75">S-SO</entry>
+        <entry range_min="168.75" range_max="191.25">S</entry>
+        <entry range_min="191.25" range_max="213.75">S-SW</entry>
+        <entry range_min="213.75" range_max="236.25">SW</entry>
+        <entry range_min="236.25" range_max="258.75">W-SW</entry>
+        <entry range_min="258.75" range_max="281.25">W</entry>
+        <entry range_min="281.25" range_max="303.75">W-NW</entry>
+        <entry range_min="303.75" range_max="326.25">NW</entry>
+        <entry range_min="326.25" range_max="348.75">N-NW</entry>
+        <entry range_min="348.75" range_max="360">N</entry>
+      </mapping>
+      <mapping name="Windstärke_m/s_lang">
+        <entry range_min="0" range_max="0.2">Windstille - Keine Luftbewegung. Rauch steigt senkrecht empor</entry>
+        <entry range_min="0.2" range_max="1.5">Geringer Wind - Kaum merklich. Rauch treibt leicht ab</entry>
+        <entry range_min="1.5" range_max="3.3">Leichter Wind - Blätter rascheln. Wind im Gesicht spürbar</entry>
+        <entry range_min="3.3" range_max="5.4">Schwacher Wind - Blätter und dünne Zweige bewegen sich, Wimpel werden gestreckt</entry>
+        <entry range_min="5.4" range_max="7.9">Mäßiger Wind - Zweige bewegen sich, loses Papier wird vom Boden gehoben</entry>
+        <entry range_min="7.9" range_max="10.9">Frischer Wind - Größere Zweige und Bäume bewegen sich, Wind deutlich hörbar</entry>
+        <entry range_min="10.9" range_max="13.8">Starker Wind - Dicke Äste bewegen sich, hörbares Pfeifen an Drahtseilen, in Telefonleitungen</entry>
+        <entry range_min="13.8" range_max="17.1">Steifer Wind - Bäume schwanken, Widerstand beim Gehen gegen den Wind</entry>
+        <entry range_min="17.1" range_max="20.7">Stürmischer Wind - Große Bäume werden bewegt, Fensterläden werden geöffnet, Zweige brechen von Bäumen, beim Gehen erhebliche Behinderung</entry>
+        <entry range_min="20.7" range_max="24.4">Sturm - Äste brechen, kleinere Schäden an Häusern, Ziegel und Rauchhauben werden von Dächern gehoben, Gartenmöbel werden umgeworfen und verweht, beim Gehen erhebliche Behinderung</entry>
+        <entry range_min="24.4" range_max="28.4">schwerer Sturm - Bäume werden entwurzelt, Baumstämme brechen, Gartenmöbel werden weggeweht, größere Schäden an Häusern; selten im Landesinneren</entry>
+        <entry range_min="28.4" range_max="32.6">orkanartiker Sturm - heftige Böen, schwere Sturmschäden, schwere Schäden an Wäldern (Windbruch), Dächer werden abgedeckt, Autos werden aus der Spur geworfen, dicke Mauern werden beschädigt, Gehen ist unmöglich; sehr selten im Landesinneren</entry>
+        <entry range_min="32.6" range_max="1e99">Orkan - Schwerste Sturmschäden und Verwüstungen; sehr selten im Landesinneren</entry>
+      </mapping>
+      <mapping name="Windstärke_km/h_lang">
+        <entry range_min="0" range_max="2">Windstille - Keine Luftbewegung. Rauch steigt senkrecht empor</entry>
+        <entry range_min="2" range_max="6">Geringer Wind - Kaum merklich. Rauch treibt leicht ab</entry>
+        <entry range_min="6" range_max="12">Leichter Wind - Blätter rascheln. Wind im Gesicht spürbar</entry>
+        <entry range_min="12" range_max="20">Schwacher Wind - Blätter und dünne Zweige bewegen sich, Wimpel werden gestreckt</entry>
+        <entry range_min="20" range_max="29">Mäßiger Wind - Zweige bewegen sich, loses Papier wird vom Boden gehoben</entry>
+        <entry range_min="29" range_max="39">Frischer Wind - Größere Zweige und Bäume bewegen sich, Wind deutlich hörbar</entry>
+        <entry range_min="39" range_max="50">Starker Wind - Dicke Äste bewegen sich, hörbares Pfeifen an Drahtseilen, in Telefonleitungen</entry>
+        <entry range_min="50" range_max="62">Steifer Wind - Bäume schwanken, Widerstand beim Gehen gegen den Wind</entry>
+        <entry range_min="62" range_max="75">Stürmischer Wind - Große Bäume werden bewegt, Fensterläden werden geöffnet, Zweige brechen von Bäumen, beim Gehen erhebliche Behinderung</entry>
+        <entry range_min="75" range_max="89">Sturm - Äste brechen, kleinere Schäden an Häusern, Ziegel und Rauchhauben werden von Dächern gehoben, Gartenmöbel werden umgeworfen und verweht, beim Gehen erhebliche Behinderung</entry>
+        <entry range_min="89" range_max="103">schwerer Sturm - Bäume werden entwurzelt, Baumstämme brechen, Gartenmöbel werden weggeweht, größere Schäden an Häusern; selten im Landesinneren</entry>
+        <entry range_min="103" range_max="117">orkanartiker Sturm - heftige Böen, schwere Sturmschäden, schwere Schäden an Wäldern (Windbruch), Dächer werden abgedeckt, Autos werden aus der Spur geworfen, dicke Mauern werden beschädigt, Gehen ist unmöglich; sehr selten im Landesinneren</entry>
+        <entry range_min="117" range_max="1e99">Orkan - Schwerste Sturmschäden und Verwüstungen; sehr selten im Landesinneren</entry>
+      </mapping>
+      <mapping name="Windstärke_m/s_kurz">
+        <entry range_min="0" range_max="0.2">Windstille</entry>
+        <entry range_min="0.2" range_max="1.5">Geringer Wind</entry>
+        <entry range_min="1.5" range_max="3.3">Leichter Wind</entry>
+        <entry range_min="3.3" range_max="5.4">Schwacher Wind</entry>
+        <entry range_min="5.4" range_max="7.9">Mäßiger Wind</entry>
+        <entry range_min="7.9" range_max="10.9">Frischer Wind</entry>
+        <entry range_min="10.9" range_max="13.8">Starker Wind</entry>
+        <entry range_min="13.8" range_max="17.1">Steifer Wind</entry>
+        <entry range_min="17.1" range_max="20.7">Stürmischer Wind</entry>
+        <entry range_min="20.7" range_max="24.4">Sturm</entry>
+        <entry range_min="24.4" range_max="28.4">schwerer Sturm</entry>
+        <entry range_min="28.4" range_max="32.6">orkanartiker Sturm</entry>
+        <entry range_min="32.6" range_max="1e99">Orkan</entry>
+      </mapping>
+      <mapping name="Windstärke_km/h_kurz">
+        <entry range_min="0" range_max="2">Windstille</entry>
+        <entry range_min="2" range_max="5">leiser Zug</entry>
+        <entry range_min="6" range_max="11">leichte Brise</entry>
+        <entry range_min="12" range_max="19">schwache Brise</entry>
+        <entry range_min="20" range_max="28">mäßige Brise</entry>
+        <entry range_min="29" range_max="38">frische Brise</entry>
+        <entry range_min="39" range_max="49">starker Wind</entry>
+        <entry range_min="50" range_max="61">steifer Wind</entry>
+        <entry range_min="62" range_max="74">stürmischer Wind</entry>
+        <entry range_min="75" range_max="88">Sturm</entry>
+        <entry range_min="89" range_max="102">schwerer Sturm</entry>
+        <entry range_min="103" range_max="117">orkanartiker Sturm</entry>
+        <entry range_min="117" range_max="1e99">Orkan</entry>
+      </mapping>
+      <mapping name="Windstärke_m/s_bft">
+        <entry range_min="0" range_max="0.2">0</entry>
+        <entry range_min="0.2" range_max="1.5">1</entry>
+        <entry range_min="1.5" range_max="3.3">2</entry>
+        <entry range_min="3.3" range_max="5.4">3</entry>
+        <entry range_min="5.4" range_max="7.9">4</entry>
+        <entry range_min="7.9" range_max="10.9">5</entry>
+        <entry range_min="10.9" range_max="13.8">6</entry>
+        <entry range_min="13.8" range_max="17.1">7</entry>
+        <entry range_min="17.1" range_max="20.7">8</entry>
+        <entry range_min="20.7" range_max="24.4">9</entry>
+        <entry range_min="24.4" range_max="28.4">10</entry>
+        <entry range_min="28.4" range_max="32.6">11</entry>
+        <entry range_min="32.6" range_max="1e99">12</entry>
+      </mapping>
+      <mapping name="Windstärke_km/h_bft">
+        <entry range_min="0" range_max="2">0</entry>
+        <entry range_min="2" range_max="5">1</entry>
+        <entry range_min="6" range_max="11">2</entry>
+        <entry range_min="12" range_max="19">3</entry>
+        <entry range_min="20" range_max="28">4</entry>
+        <entry range_min="29" range_max="38">5</entry>
+        <entry range_min="39" range_max="49">6</entry>
+        <entry range_min="50" range_max="61">7</entry>
+        <entry range_min="62" range_max="74">8</entry>
+        <entry range_min="75" range_max="88">9</entry>
+        <entry range_min="89" range_max="102">10</entry>
+        <entry range_min="103" range_max="117">11</entry>
+        <entry range_min="117" range_max="1e99">12</entry>
+      </mapping>
+      <mapping name="Wetterzustand">
+        <entry value="0">heiter</entry>
+        <entry value="1">leicht bewölkt</entry>
+        <entry value="2">partiell bewölkt</entry>
+        <entry value="3">bewölkt</entry>
+        <entry value="4">neblig</entry>
+        <entry value="5">Nieselregen</entry>
+        <entry value="6">Regen</entry>
+        <entry value="7">Schnee</entry>
+        <entry value="8">Regenschauer</entry>
+        <entry value="9">Gewitter</entry>
+      </mapping>
+      <mapping name="Unwetter_Warnstufe">
+        <entry value="1">Stufe: Gelb</entry>
+        <entry value="2">Stufe: Orange</entry>
+        <entry value="3">Stufe: Rot</entry>
+        <entry value="4">Stufe: Violett</entry>
+      </mapping>
+      <mapping name="Unwetter_Warntyp">
+        <entry value="1">Gewitter</entry>
+        <entry value="2">Eisregen</entry>
+        <entry value="3">Regen</entry>
+        <entry value="4">Schnee</entry>
+        <entry value="5">Sturm</entry>
+        <entry value="6">Temperatur</entry>
+        <entry value="7">Straßenglätte</entry>
       </mapping>
     </mappings>
     <stylings>
-      <styling name="Red_Green">
-        <entry value="0">red</entry>
-        <entry value="1">green</entry>
-      </styling>
-      <styling name="Green_Red">
+      <styling name="OpenClose">
         <entry value="0">green</entry>
         <entry value="1">red</entry>
       </styling>
-      <styling name="Blue_Green_Red">
-        <entry range_min="-100" range_max="20">blue</entry>
-        <entry range_min="20" range_max="22">green</entry>
-        <entry range_min="22" range_max="100">red</entry>
+      <styling name="GreyGreen">
+        <entry value="0">grey</entry>
+        <entry value="1">green</entry>
+      </styling>
+      <styling name="GreyGrey">
+        <entry value="0">grey</entry>
+        <entry value="1">grey</entry>
+      </styling>
+      <styling name="BluePurpleRedTemp">
+        <entry range_min="0" range_max="18">blue</entry>
+        <entry range_min="18" range_max="21">purple</entry>
+        <entry range_min="21" range_max="100">red</entry>
+      </styling>
+      <styling name="GreenRedBlueHum">
+        <entry range_min="0" range_max="50">green</entry>
+        <entry range_min="50" range_max="60">red</entry>
+        <entry range_min="60" range_max="100">blue</entry>
+      </styling>
+      <styling name="GreenRedBlueCo">
+        <entry range_min="0" range_max="800">green</entry>
+        <entry range_min="800" range_max="1200">red</entry>
+        <entry range_min="1200" range_max="9000">blue</entry>
+      </styling>
+      <styling name="BluePurpleRedBrauchwasser">
+        <entry range_min="0" range_max="49">blue</entry>
+        <entry range_min="49" range_max="54">purple</entry>
+        <entry range_min="54" range_max="90">red</entry>
+      </styling>
+      <styling name="BluePurpleRedHeizung">
+        <entry range_min="0" range_max="20">blue</entry>
+        <entry range_min="20" range_max="25">purple</entry>
+        <entry range_min="25" range_max="40">red</entry>
+      </styling>
+      <styling name="grau/orange ventilator">
+        <entry value="0">grey</entry>
+        <entry value="1">orange</entry>
       </styling>
     </stylings>
+    <plugins>
+      <plugin name="diagram"/>
+      <plugin name="colorchooser"/>
+      <plugin name="strftime"/>
+      <plugin name="rsslog"/>
+			<plugin name="header"/>
+			<plugin name="menu"/>
+    </plugins>
     <statusbar>
-      <status type="html"><![CDATA[
-          <img src="icon/comet_64_ff8000.png" alt="CometVisu" /> by <a href="http://www.cometvisu.org/">CometVisu.org</a>
-          - <a href=".?forceReload=true">Reload</a>
-        ]]></status>
-      <status type="html" condition="!edit" hrefextend="config"><![CDATA[
-          - <a href="editor/">Edit</a>
-        ]]></status>
-      <status type="html" condition="edit" hrefextend="config"><![CDATA[
-          - <a href=".">normal Mode</a>
-        ]]></status>
-      <status type="html"><![CDATA[
-          - <a href="?config=demo">Widget Demo</a>
-        ]]></status>
-      <status type="html" hrefextend="config"><![CDATA[
-          - <a href="check_config.php">Check Config</a>
-        ]]></status>
+      <status type="html">&lt;a href=".?forceReload=true"&gt;Reload&lt;/a&gt;</status>
+      <status type="html" condition="!edit" hrefextend="config">- &lt;a href="editor/"&gt;Edit&lt;/a&gt;</status>
+      <status type="html" hrefextend="config">- &lt;a href="check_config.php"&gt;Check Config&lt;/a&gt;</status>
     </statusbar>
   </meta>
-  <page name="Start">
-    <line>
-      <layout colspan="12"/>
-    </line>
-    <text align="center">
-      <label>Welcome to the CometVisu!</label>
-    </text>
-    <line>
-      <layout colspan="12"/>
-    </line>
+
+  <page name="Start" showtopnavigation="true" showfooter="false" shownavbar-left="true">
+    <navbar position="top">
+      <header></header>
+    </navbar>
+    <navbar position="left" dynamic="true" width="250">
+      <text>
+        <label>CometVisu</label>
+      </text>
+      <line/>
+      <menu>
+      </menu>
+			<line/>
+			<pagejump target="[Settings]Settings">
+				<layout colspan="6"/>
+				<label>Settings</label>
+			</pagejump>
+    </navbar>
+
+		<page name="[Settings]Settings" visible="false">
+			<group name="setup">
+				<layout colspan="12" rowspan="12"/>
+				<web src="designs/material/xmlparser/parser.html" width="800px" height="400px" frameborder="false" background="white">
+				</web>
+			</group>
+		</page>
+		
+    <page name="[Tabs][0.0.0]Zentral" visible="false">
+      <navbar position="top">
+        <pagejump target="[Licht][0.0.1]Zentral">
+          <layout colspan="0"/>
+          <label>Licht</label>
+        </pagejump>
+        <pagejump target="[Fenster][0.0.2]Zentral">
+          <layout colspan="0"/>
+          <label>Fenster</label>
+        </pagejump>
+      </navbar>
+      <page name="[Licht][0.0.1]Zentral">
+        <group name="Licht schalten">
+          <switch mapping="OnOff" bind_click_to_widget="false">
+            <label>Schalten</label>
+            <address transform="DPT:1.001" mode="readwrite">10/0/0</address>
+          </switch>
+        </group>
+      </page>
+      <page name="[Fenster][0.0.2]Zentral">
+        <group name="Sonnenschutz">
+          <layout colspan="3" />
+          <group nowidget="true" >
+            <layout colspan="3" />
+            <trigger value="0" mapping="AufAbSymbol" align="right">
+              <layout colspan="1"/>
+              <address transform="DPT:1.008" mode="readwrite">20/0/0</address>
+            </trigger>
+            <trigger value="0" mapping="Stop" align="right">
+              <layout colspan="1"/>
+              <address transform="DPT:1.009" mode="readwrite">20/0/1</address>
+            </trigger>
+            <trigger value="1" mapping="AufAbSymbol" align="right">
+              <layout colspan="1"/>
+              <address transform="DPT:1.008" mode="readwrite">20/0/0</address>
+            </trigger>
+            <break/>
+            <text align="left">
+              <layout colspan="0"/>
+              <label>
+                <icon name="fts_shutter_10" color="#888888"/>
+              </label>
+            </text>
+            <slide min="0" max="100" step="10" format="%d%%">
+              <layout colspan="2"/>
+              <address transform="DPT:5.001" mode="readwrite">20/0/2</address>
+            </slide>
+            <text align="right">
+              <layout colspan="0"/>
+              <label>
+                <icon name="fts_shutter_100" color="#888888"/>
+              </label>
+            </text>
+            <break/>
+            <text align="left">
+              <layout colspan="0"/>
+              <label>
+                <icon name="fts_blade_s_00" color="#888888"/>
+              </label>
+            </text>
+            <slide min="0" max="100" step="10" format="%d%%">
+              <layout colspan="2"/>
+              <address transform="DPT:5.001" mode="readwrite">20/0/4</address>
+            </slide>
+            <text align="right">
+              <layout colspan="0"/>
+              <label>
+                <icon name="fts_blade_s_100" color="#888888"/>
+              </label>
+            </text>
+            <break/>
+          </group>
+        </group>
+      </page>
+    </page>
+    <page name="[Menu][1.0.0]Kellergeschoss" visible="false">
+      <page name="[Tabs][1.0.0]Zentral" visible="false">
+        <navbar position="top">
+          <pagejump target="[Licht][1.0.1]Zentral">
+            <layout colspan="0"/>
+            <label>Licht</label>
+          </pagejump>
+          <pagejump target="[Fenster][1.0.2]Zentral">
+            <layout colspan="0"/>
+            <label>Fenster</label>
+          </pagejump>
+        </navbar>
+        <page name="[Licht][1.0.1]Zentral">
+          <group name="Licht">
+            <switch mapping="OnOff" bind_click_to_widget="false">
+              <label>Schalten</label>
+              <address transform="DPT:1.001" mode="readwrite">10/1/0</address>
+            </switch>
+          </group>
+        </page>
+        <page name="[Fenster][1.0.2]Zentral">
+          <group name="Sonnenschutz">
+            <layout colspan="3" />
+            <group nowidget="true" >
+              <layout colspan="3" />
+              <switch mapping="OpenClose" styling="OpenClose" bind_click_to_widget="false">
+                <layout colspan="3"/>
+                <label>Status</label>
+                <address transform="DPT:1.019" mode="read">0/3/10</address>
+              </switch>
+              <break/>
+            </group>
+          </group>
+        </page>
+      </page>
+      <page name="[Header][1.1.1]Flur">
+        <group name="Deckenlicht">
+          <switch mapping="OnOff" bind_click_to_widget="false">
+            <label>Schalten</label>
+            <address transform="DPT:1.001" mode="readwrite">11/1/20</address>
+          </switch>
+        </group>
+        <group name="Treppenspots">
+          <switch mapping="OnOff" bind_click_to_widget="false">
+            <label>Schalten</label>
+            <address transform="DPT:1.001" mode="readwrite">11/1/30</address>
+          </switch>
+        </group>
+        <group name="Licht">
+          <switch mapping="OnOff" bind_click_to_widget="false">
+            <label>Schalten</label>
+            <address transform="DPT:1.001" mode="readwrite">10/1/10</address>
+          </switch>
+        </group>
+      </page>
+      <page name="[Tabs][1.2.0]Party WC" visible="false">
+        <navbar position="top">
+          <pagejump target="[Licht][1.2.1]Party WC">
+            <layout colspan="0"/>
+            <label>Licht</label>
+          </pagejump>
+          <pagejump target="[Heizung][1.2.3]Party WC">
+            <layout colspan="0"/>
+            <label>Heizung</label>
+          </pagejump>
+        </navbar>
+        <page name="[Licht][1.2.1]Party WC">
+          <group name="Deckenlicht">
+            <switch mapping="OnOff" bind_click_to_widget="false">
+              <label>Schalten</label>
+              <address transform="DPT:1.001" mode="readwrite">11/1/50</address>
+            </switch>
+          </group>
+        </page>
+        <page name="[Heizung][1.2.3]Party WC">
+          <group name="Fußbodenheizung">
+            <layout colspan="12"/>
+            <info format="%.1f °C">
+              <label>Ist</label>
+              <address transform="DPT:9.001" mode="read">31/1/22</address>
+            </info>
+            <slide min="17" max="23" step="0.5" format="%.1f °C">
+              <layout colspan="6"/>
+              <label>Soll</label>
+              <address transform="DPT:9.001" mode="readwrite">31/1/20</address>
+            </slide>
+            <multitrigger button1label="Auto" button1value="auto" button2label="Komfort" button2value="comfort" button3label="Standy By" button3value="standby" button4label="Economy" button4value="economy" showstatus="true">
+              <label>Betriebsart</label>
+              <address transform="DPT:20.102" mode="readwrite">31/1/24</address>
+            </multitrigger>
+          </group>
+        </page>
+      </page>
+      <page name="[Tabs][1.3.0]Hobby" visible="false">
+        <navbar position="top">
+          <pagejump target="[Licht][1.3.1]Hobby">
+            <layout colspan="0"/>
+            <label>Licht</label>
+          </pagejump>
+          <pagejump target="[Fenster][1.3.2]Hobby">
+            <layout colspan="0"/>
+            <label>Fenster</label>
+          </pagejump>
+          <pagejump target="[Heizung][1.3.3]Hobby">
+            <layout colspan="0"/>
+            <label>Heizung</label>
+          </pagejump>
+        </navbar>
+        <page name="[Licht][1.3.1]Hobby">
+          <group name="Deckenlicht">
+            <switch mapping="OnOff" bind_click_to_widget="false">
+              <label>Schalten</label>
+              <address transform="DPT:1.001" mode="readwrite">11/1/70</address>
+            </switch>
+          </group>
+          <group name="Licht">
+            <switch mapping="OnOff" bind_click_to_widget="false">
+              <label>Schalten</label>
+              <address transform="DPT:1.001" mode="readwrite">10/1/30</address>
+            </switch>
+          </group>
+          <group name="Barlicht">
+            <switch mapping="OnOff" bind_click_to_widget="false">
+              <label>Schalten</label>
+              <address transform="DPT:1.001" mode="readwrite">11/1/80</address>
+            </switch>
+          </group>
+        </page>
+        <page name="[Fenster][1.3.2]Hobby">
+          <group name="Fenster">
+            <layout colspan="3" />
+            <group nowidget="true" >
+              <layout colspan="3" />
+              <switch mapping="OpenClose" styling="OpenClose" bind_click_to_widget="false">
+                <layout colspan="3"/>
+                <label>Status</label>
+                <address transform="DPT:1.019" mode="read">0/3/11</address>
+              </switch>
+              <break/>
+            </group>
+          </group>
+        </page>
+        <page name="[Heizung][1.3.3]Hobby">
+          <group name="Fußbodenheizung">
+            <layout colspan="12"/>
+            <info format="%.1f °C">
+              <label>Ist</label>
+              <address transform="DPT:9.001" mode="read">31/1/42</address>
+            </info>
+            <slide min="17" max="23" step="0.5" format="%.1f °C">
+              <layout colspan="6"/>
+              <label>Soll</label>
+              <address transform="DPT:9.001" mode="readwrite">31/1/47</address>
+            </slide>
+            <multitrigger button1label="Auto" button1value="auto" button2label="Komfort" button2value="comfort" button3label="Standy By" button3value="standby" button4label="Economy" button4value="economy" showstatus="true">
+              <label>Betriebsart</label>
+              <address transform="DPT:20.102" mode="readwrite">31/1/44</address>
+            </multitrigger>
+          </group>
+        </page>
+      </page>
+      <page name="[Tabs][1.4.0]Keller" visible="false">
+        <navbar position="top">
+          <pagejump target="[Licht][1.4.1]Keller">
+            <layout colspan="0"/>
+            <label>Licht</label>
+          </pagejump>
+          <pagejump target="[Heizung][1.4.3]Keller">
+            <layout colspan="0"/>
+            <label>Heizung</label>
+          </pagejump>
+        </navbar>
+        <page name="[Licht][1.4.1]Keller">
+          <group name="Deckenlicht">
+            <switch mapping="OnOff" bind_click_to_widget="false">
+              <label>Schalten</label>
+              <address transform="DPT:1.001" mode="readwrite">11/1/100</address>
+            </switch>
+          </group>
+        </page>
+        <page name="[Heizung][1.4.3]Keller">
+          <group name="Temperatur">
+            <layout colspan="12"/>
+            <info format="%.1f °C">
+              <label>Ist</label>
+              <address transform="DPT:9.001" mode="read">31/1/50</address>
+            </info>
+          </group>
+        </page>
+      </page>
+      <page name="[Tabs][1.5.0]Sauna" visible="false">
+        <navbar position="top">
+          <pagejump target="[Licht][1.5.1]Sauna">
+            <layout colspan="0"/>
+            <label>Licht</label>
+          </pagejump>
+          <pagejump target="[Heizung][1.5.3]Sauna">
+            <layout colspan="0"/>
+            <label>Heizung</label>
+          </pagejump>
+        </navbar>
+        <page name="[Licht][1.5.1]Sauna">
+          <group name="Licht">
+            <switch mapping="OnOff" bind_click_to_widget="false">
+              <label>Schalten</label>
+              <address transform="DPT:1.001" mode="readwrite">10/1/50</address>
+            </switch>
+          </group>
+          <group name="Deckenlicht">
+            <switch mapping="OnOff" bind_click_to_widget="false">
+              <label>Schalten</label>
+              <address transform="DPT:1.001" mode="readwrite">11/1/120</address>
+            </switch>
+          </group>
+          <group name="Duschlicht">
+            <switch mapping="OnOff" bind_click_to_widget="false">
+              <label>Schalten</label>
+              <address transform="DPT:1.001" mode="readwrite">11/1/130</address>
+            </switch>
+          </group>
+        </page>
+        <page name="[Heizung][1.5.3]Sauna">
+          <group name="Fußbodenheizung">
+            <layout colspan="12"/>
+            <info format="%.1f °C">
+              <label>Ist</label>
+              <address transform="DPT:9.001" mode="read">31/1/62</address>
+            </info>
+            <slide min="17" max="23" step="0.5" format="%.1f °C">
+              <layout colspan="6"/>
+              <label>Soll</label>
+              <address transform="DPT:9.001" mode="readwrite">31/1/60</address>
+            </slide>
+            <multitrigger button1label="Auto" button1value="auto" button2label="Komfort" button2value="comfort" button3label="Standy By" button3value="standby" button4label="Economy" button4value="economy" showstatus="true">
+              <label>Betriebsart</label>
+              <address transform="DPT:20.102" mode="readwrite">31/1/64</address>
+            </multitrigger>
+          </group>
+        </page>
+      </page>
+      <page name="[Header][1.6.1]Waschraum">
+        <group name="Deckenlicht">
+          <switch mapping="OnOff" bind_click_to_widget="false">
+            <label>Schalten</label>
+            <address transform="DPT:1.001" mode="readwrite">11/1/150</address>
+          </switch>
+        </group>
+      </page>
+      <page name="[Header][1.7.1]HAR">
+        <group name="Deckenlicht">
+          <switch mapping="OnOff" bind_click_to_widget="false">
+            <label>Schalten</label>
+            <address transform="DPT:1.001" mode="readwrite">11/1/170</address>
+          </switch>
+        </group>
+      </page>
+    </page>
+    <page name="[Menu][2.0.0]Erdgeschoss" visible="false">
+      <page name="[Tabs][2.0.0]Zentral" visible="false">
+        <navbar position="top">
+          <pagejump target="[Licht][2.0.1]Zentral">
+            <layout colspan="0"/>
+            <label>Licht</label>
+          </pagejump>
+          <pagejump target="[Fenster][2.0.2]Zentral">
+            <layout colspan="0"/>
+            <label>Fenster</label>
+          </pagejump>
+        </navbar>
+        <page name="[Licht][2.0.1]Zentral">
+          <group name="Licht">
+            <switch mapping="OnOff" bind_click_to_widget="false">
+              <label>Schalten</label>
+              <address transform="DPT:1.001" mode="readwrite">10/2/0</address>
+            </switch>
+          </group>
+        </page>
+        <page name="[Fenster][2.0.2]Zentral">
+          <group name="Sonnenschutz">
+            <layout colspan="3" />
+            <group nowidget="true" >
+              <layout colspan="3" />
+              <trigger value="0" mapping="AufAbSymbol" align="right">
+                <layout colspan="1"/>
+                <address transform="DPT:1.008" mode="readwrite">20/2/0</address>
+              </trigger>
+              <trigger value="0" mapping="Stop" align="right">
+                <layout colspan="1"/>
+                <address transform="DPT:1.009" mode="readwrite">20/2/1</address>
+              </trigger>
+              <trigger value="1" mapping="AufAbSymbol" align="right">
+                <layout colspan="1"/>
+                <address transform="DPT:1.008" mode="readwrite">20/2/0</address>
+              </trigger>
+              <break/>
+              <text align="left">
+                <layout colspan="0"/>
+                <label>
+                  <icon name="fts_shutter_10" color="#888888"/>
+                </label>
+              </text>
+              <slide min="0" max="100" step="10" format="%d%%">
+                <layout colspan="2"/>
+                <address transform="DPT:5.001" mode="readwrite">20/2/2</address>
+              </slide>
+              <text align="right">
+                <layout colspan="0"/>
+                <label>
+                  <icon name="fts_shutter_100" color="#888888"/>
+                </label>
+              </text>
+              <break/>
+              <text align="left">
+                <layout colspan="0"/>
+                <label>
+                  <icon name="fts_blade_s_00" color="#888888"/>
+                </label>
+              </text>
+              <slide min="0" max="100" step="10" format="%d%%">
+                <layout colspan="2"/>
+                <address transform="DPT:5.001" mode="readwrite">20/2/4</address>
+              </slide>
+              <text align="right">
+                <layout colspan="0"/>
+                <label>
+                  <icon name="fts_blade_s_100" color="#888888"/>
+                </label>
+              </text>
+              <break/>
+            </group>
+          </group>
+        </page>
+      </page>
+      <page name="[Tabs][2.1.0]Flur" visible="false">
+        <navbar position="top">
+          <pagejump target="[Licht][2.1.1]Flur">
+            <layout colspan="0"/>
+            <label>Licht</label>
+          </pagejump>
+          <pagejump target="[Heizung][2.1.3]Flur">
+            <layout colspan="0"/>
+            <label>Heizung</label>
+          </pagejump>
+        </navbar>
+        <page name="[Licht][2.1.1]Flur">
+          <group name="Licht">
+            <switch mapping="OnOff" bind_click_to_widget="false">
+              <label>Schalten</label>
+              <address transform="DPT:1.001" mode="readwrite">10/2/10</address>
+            </switch>
+          </group>
+          <group name="Deckenspots">
+            <switch mapping="OnOff" bind_click_to_widget="false">
+              <label>Schalten</label>
+              <address transform="DPT:1.001" mode="readwrite">11/2/20</address>
+            </switch>
+          </group>
+          <group name="Treppenspots">
+            <switch mapping="OnOff" bind_click_to_widget="false">
+              <label>Schalten</label>
+              <address transform="DPT:1.001" mode="readwrite">11/2/30</address>
+            </switch>
+          </group>
+        </page>
+        <page name="[Heizung][2.1.3]Flur">
+          <group name="Raumtemperatur">
+            <layout colspan="12"/>
+            <info format="%.1f °C">
+              <label>Ist</label>
+              <address transform="DPT:9.001" mode="read">31/2/10</address>
+            </info>
+          </group>
+        </page>
+      </page>
+      <page name="[Tabs][2.2.0]Küche" visible="false">
+        <navbar position="top">
+          <pagejump target="[Licht][2.2.1]Küche">
+            <layout colspan="0"/>
+            <label>Licht</label>
+          </pagejump>
+          <pagejump target="[Fenster][2.2.2]Küche">
+            <layout colspan="0"/>
+            <label>Fenster</label>
+          </pagejump>
+          <pagejump target="[Heizung][2.2.3]Küche">
+            <layout colspan="0"/>
+            <label>Heizung</label>
+          </pagejump>
+        </navbar>
+        <page name="[Licht][2.2.1]Küche">
+          <group name="Arbeitslicht">
+            <switch mapping="OnOff" bind_click_to_widget="false">
+              <label>Schalten</label>
+              <address transform="DPT:1.001" mode="readwrite">11/2/60</address>
+            </switch>
+          </group>
+          <group name="Licht">
+            <switch mapping="OnOff" bind_click_to_widget="false">
+              <label>Schalten</label>
+              <address transform="DPT:1.001" mode="readwrite">10/2/20</address>
+            </switch>
+          </group>
+          <group name="Deckenspots">
+            <slide min="0" max="100" step="5" format="%d%%" >
+              <label>Dimmen</label>
+              <address transform="DPT:5.001" mode="readwrite">11/2/53</address>
+            </slide>
+            <slide min="0" max="100" step="5" format="%d%%" >
+              <label>Dimmen</label>
+              <address transform="DPT:5.001" mode="readwrite">11/2/54</address>
+            </slide>
+          </group>
+        </page>
+        <page name="[Fenster][2.2.2]Küche">
+          <group name="Fenster">
+            <layout colspan="3" />
+            <group nowidget="true" >
+              <layout colspan="3" />
+              <switch mapping="OpenClose" styling="OpenClose" bind_click_to_widget="false">
+                <layout colspan="3"/>
+                <label>Status</label>
+                <address transform="DPT:1.019" mode="read">0/3/21</address>
+              </switch>
+              <break/>
+              <trigger value="0" mapping="AufAbSymbol" align="right">
+                <layout colspan="1"/>
+                <address transform="DPT:1.008" mode="readwrite">21/2/20</address>
+              </trigger>
+              <trigger value="0" mapping="Stop" align="right">
+                <layout colspan="1"/>
+                <address transform="DPT:1.009" mode="readwrite">21/2/21</address>
+              </trigger>
+              <trigger value="1" mapping="AufAbSymbol" align="right">
+                <layout colspan="1"/>
+                <address transform="DPT:1.008" mode="readwrite">21/2/20</address>
+              </trigger>
+              <break/>
+              <text align="left">
+                <layout colspan="0"/>
+                <label>
+                  <icon name="fts_shutter_10" color="#888888"/>
+                </label>
+              </text>
+              <slide min="0" max="100" step="10" format="%d%%">
+                <layout colspan="2"/>
+                <address transform="DPT:5.001" mode="readwrite">21/2/22</address>
+              </slide>
+              <text align="right">
+                <layout colspan="0"/>
+                <label>
+                  <icon name="fts_shutter_100" color="#888888"/>
+                </label>
+              </text>
+              <break/>
+              <text align="left">
+                <layout colspan="0"/>
+                <label>
+                  <icon name="fts_blade_s_00" color="#888888"/>
+                </label>
+              </text>
+              <slide min="0" max="100" step="10" format="%d%%">
+                <layout colspan="2"/>
+                <address transform="DPT:5.001" mode="readwrite">21/2/23</address>
+              </slide>
+              <text align="right">
+                <layout colspan="0"/>
+                <label>
+                  <icon name="fts_blade_s_100" color="#888888"/>
+                </label>
+              </text>
+              <break/>
+            </group>
+          </group>
+          <group name="Terassentür">
+            <layout colspan="3" />
+            <group nowidget="true" >
+              <layout colspan="3" />
+              <switch mapping="OpenClose" styling="OpenClose" bind_click_to_widget="false">
+                <layout colspan="3"/>
+                <label>Status</label>
+                <address transform="DPT:1.019" mode="read">0/3/22</address>
+              </switch>
+              <break/>
+              <trigger value="0" mapping="AufAbSymbol" align="right">
+                <layout colspan="1"/>
+                <address transform="DPT:1.008" mode="readwrite">21/2/30</address>
+              </trigger>
+              <trigger value="0" mapping="Stop" align="right">
+                <layout colspan="1"/>
+                <address transform="DPT:1.009" mode="readwrite">21/2/31</address>
+              </trigger>
+              <trigger value="1" mapping="AufAbSymbol" align="right">
+                <layout colspan="1"/>
+                <address transform="DPT:1.008" mode="readwrite">21/2/30</address>
+              </trigger>
+              <break/>
+              <text align="left">
+                <layout colspan="0"/>
+                <label>
+                  <icon name="fts_shutter_10" color="#888888"/>
+                </label>
+              </text>
+              <slide min="0" max="100" step="10" format="%d%%">
+                <layout colspan="2"/>
+                <address transform="DPT:5.001" mode="readwrite">21/2/32</address>
+              </slide>
+              <text align="right">
+                <layout colspan="0"/>
+                <label>
+                  <icon name="fts_shutter_100" color="#888888"/>
+                </label>
+              </text>
+              <break/>
+              <text align="left">
+                <layout colspan="0"/>
+                <label>
+                  <icon name="fts_blade_s_00" color="#888888"/>
+                </label>
+              </text>
+              <slide min="0" max="100" step="10" format="%d%%">
+                <layout colspan="2"/>
+                <address transform="DPT:5.001" mode="readwrite">21/2/33</address>
+              </slide>
+              <text align="right">
+                <layout colspan="0"/>
+                <label>
+                  <icon name="fts_blade_s_100" color="#888888"/>
+                </label>
+              </text>
+              <break/>
+            </group>
+          </group>
+          <group name="Sonnenschutz">
+            <layout colspan="3" />
+            <group nowidget="true" >
+              <layout colspan="3" />
+              <switch mapping="OpenClose" styling="OpenClose" bind_click_to_widget="false">
+                <layout colspan="3"/>
+                <label>Status</label>
+                <address transform="DPT:1.019" mode="read">0/3/20</address>
+              </switch>
+              <break/>
+              <trigger value="0" mapping="AufAbSymbol" align="right">
+                <layout colspan="1"/>
+                <address transform="DPT:1.008" mode="readwrite">20/2/10</address>
+              </trigger>
+              <trigger value="0" mapping="Stop" align="right">
+                <layout colspan="1"/>
+                <address transform="DPT:1.009" mode="readwrite">20/2/11</address>
+              </trigger>
+              <trigger value="1" mapping="AufAbSymbol" align="right">
+                <layout colspan="1"/>
+                <address transform="DPT:1.008" mode="readwrite">20/2/10</address>
+              </trigger>
+              <break/>
+            </group>
+          </group>
+        </page>
+        <page name="[Heizung][2.2.3]Küche">
+          <group name="Fußbodenheizung">
+            <layout colspan="12"/>
+            <info format="%.1f °C">
+              <label>Ist</label>
+              <address transform="DPT:9.001" mode="read">31/2/22</address>
+            </info>
+            <slide min="17" max="23" step="0.5" format="%.1f °C">
+              <layout colspan="6"/>
+              <label>Soll</label>
+              <address transform="DPT:9.001" mode="readwrite">31/2/20</address>
+            </slide>
+            <multitrigger button1label="Auto" button1value="auto" button2label="Komfort" button2value="comfort" button3label="Standy By" button3value="standby" button4label="Economy" button4value="economy" showstatus="true">
+              <label>Betriebsart</label>
+              <address transform="DPT:20.102" mode="readwrite">31/2/24</address>
+            </multitrigger>
+          </group>
+        </page>
+      </page>
+      <page name="[Tabs][2.3.0]Wohnen" visible="false">
+        <navbar position="top">
+          <pagejump target="[Licht][2.3.1]Wohnen">
+            <layout colspan="0"/>
+            <label>Licht</label>
+          </pagejump>
+          <pagejump target="[Fenster][2.3.2]Wohnen">
+            <layout colspan="0"/>
+            <label>Fenster</label>
+          </pagejump>
+          <pagejump target="[Heizung][2.3.3]Wohnen">
+            <layout colspan="0"/>
+            <label>Heizung</label>
+          </pagejump>
+        </navbar>
+        <page name="[Licht][2.3.1]Wohnen">
+          <group name="Licht">
+						<layout colspan="12"/>
+            <switch mapping="OnOff" bind_click_to_widget="false">
+              <label>Schalten</label>
+              <address transform="DPT:1.001" mode="readwrite">10/2/30</address>
+            </switch>
+          </group>
+					<group name="Deckenspots Essen">
+            <slide min="0" max="100" step="5" format="%d%%" >
+              <label>Dimmen</label>
+              <address transform="DPT:5.001" mode="write">11/2/83</address>
+							<address transform="DPT:5.001" mode="read">11/2/84</address>
+            </slide>
+          </group>
+          <group name="Esstisch">
+            <switch mapping="OnOff" bind_click_to_widget="false">
+              <label>Schalten</label>
+              <address transform="DPT:1.001" mode="readwrite">11/2/90</address>
+            </switch>
+          </group>
+          <group name="Deckenspots Wohnen">
+            <slide min="0" max="100" step="5" format="%d%%" >
+              <label>Dimmen</label>
+              <address transform="DPT:5.001" mode="write">11/2/103</address>
+							<address transform="DPT:5.001" mode="read">11/2/104</address>
+            </slide>
+          </group>
+					<group name="Couchtisch">
+            <switch mapping="OnOff" bind_click_to_widget="false">
+              <label>Schalten</label>
+              <address transform="DPT:1.001" mode="readwrite">11/2/110</address>
+            </switch>
+          </group>
+          <group name="RF Steckdose">
+            <switch mapping="OnOff" bind_click_to_widget="false">
+              <label>Schalten</label>
+              <address transform="DPT:1.001" mode="readwrite">11/2/120</address>
+            </switch>
+          </group>
+        </page>
+        <page name="[Fenster][2.3.2]Wohnen">
+					<group name="Sonnenschutz">
+            <layout colspan="12" />
+            <group nowidget="true" >
+              <layout colspan="3" />
+              <trigger value="0" mapping="AufAbSymbol" align="right">
+                <layout colspan="1"/>
+                <address transform="DPT:1.008" mode="readwrite">20/2/40</address>
+              </trigger>
+              <trigger value="0" mapping="Stop" align="right">
+                <layout colspan="1"/>
+                <address transform="DPT:1.009" mode="readwrite">20/2/41</address>
+              </trigger>
+              <trigger value="1" mapping="AufAbSymbol" align="right">
+                <layout colspan="1"/>
+                <address transform="DPT:1.008" mode="readwrite">20/2/40</address>
+              </trigger>
+              <break/>
+              <text align="left">
+                <layout colspan="0"/>
+                <label>
+                  <icon name="fts_shutter_10" color="#888888"/>
+                </label>
+              </text>
+              <slide min="0" max="100" step="10" format="%d%%">
+                <layout colspan="2"/>
+                <address transform="DPT:5.001" mode="readwrite">20/2/42</address>
+              </slide>
+              <text align="right">
+                <layout colspan="0"/>
+                <label>
+                  <icon name="fts_shutter_100" color="#888888"/>
+                </label>
+              </text>
+              <break/>
+              <text align="left">
+                <layout colspan="0"/>
+                <label>
+                  <icon name="fts_blade_s_00" color="#888888"/>
+                </label>
+              </text>
+              <slide min="0" max="100" step="10" format="%d%%">
+                <layout colspan="2"/>
+                <address transform="DPT:5.001" mode="readwrite">20/2/44</address>
+              </slide>
+              <text align="right">
+                <layout colspan="0"/>
+                <label>
+                  <icon name="fts_blade_s_100" color="#888888"/>
+                </label>
+              </text>
+              <break/>
+            </group>
+          </group>
+					<group name="Erker">
+            <layout colspan="3" />
+            <group nowidget="true" >
+              <layout colspan="3" />
+							<switch mapping="OpenClose" styling="OpenClose" bind_click_to_widget="false">
+                <layout colspan="3"/>
+                <label>Status</label>
+                <address transform="DPT:1.019" mode="read">0/3/31</address>
+              </switch>
+							<break/>
+              <trigger value="0" mapping="AufAbSymbol" align="right">
+                <layout colspan="1"/>
+                <address transform="DPT:1.008" mode="readwrite">20/2/50</address>
+              </trigger>
+              <trigger value="0" mapping="Stop" align="right">
+                <layout colspan="1"/>
+                <address transform="DPT:1.009" mode="readwrite">20/2/51</address>
+              </trigger>
+              <trigger value="1" mapping="AufAbSymbol" align="right">
+                <layout colspan="1"/>
+                <address transform="DPT:1.008" mode="readwrite">20/2/50</address>
+              </trigger>
+              <break/>
+              <text align="left">
+                <layout colspan="0"/>
+                <label>
+                  <icon name="fts_shutter_10" color="#888888"/>
+                </label>
+              </text>
+              <slide min="0" max="100" step="10" format="%d%%">
+                <layout colspan="2"/>
+                <address transform="DPT:5.001" mode="readwrite">20/2/52</address>
+              </slide>
+              <text align="right">
+                <layout colspan="0"/>
+                <label>
+                  <icon name="fts_shutter_100" color="#888888"/>
+                </label>
+              </text>
+              <break/>
+              <text align="left">
+                <layout colspan="0"/>
+                <label>
+                  <icon name="fts_blade_s_00" color="#888888"/>
+                </label>
+              </text>
+              <slide min="0" max="100" step="10" format="%d%%">
+                <layout colspan="2"/>
+                <address transform="DPT:5.001" mode="readwrite">20/2/54</address>
+              </slide>
+              <text align="right">
+                <layout colspan="0"/>
+                <label>
+                  <icon name="fts_blade_s_100" color="#888888"/>
+                </label>
+              </text>
+              <break/>
+            </group>
+          </group>
+          <group name="Wohnen Fenster">
+            <layout colspan="3" />
+            <group nowidget="true" >
+              <layout colspan="3" />
+              <switch mapping="OpenClose" styling="OpenClose" bind_click_to_widget="false">
+                <layout colspan="3"/>
+                <label>Status</label>
+                <address transform="DPT:1.019" mode="read">0/3/32</address>
+              </switch>
+              <break/>
+              <trigger value="0" mapping="AufAbSymbol" align="right">
+                <layout colspan="1"/>
+                <address transform="DPT:1.008" mode="readwrite">21/2/100</address>
+              </trigger>
+              <trigger value="0" mapping="Stop" align="right">
+                <layout colspan="1"/>
+                <address transform="DPT:1.009" mode="readwrite">21/2/101</address>
+              </trigger>
+              <trigger value="1" mapping="AufAbSymbol" align="right">
+                <layout colspan="1"/>
+                <address transform="DPT:1.008" mode="readwrite">21/2/100</address>
+              </trigger>
+              <break/>
+              <text align="left">
+                <layout colspan="0"/>
+                <label>
+                  <icon name="fts_shutter_10" color="#888888"/>
+                </label>
+              </text>
+              <slide min="0" max="100" step="10" format="%d%%">
+                <layout colspan="2"/>
+                <address transform="DPT:5.001" mode="readwrite">21/2/102</address>
+              </slide>
+              <text align="right">
+                <layout colspan="0"/>
+                <label>
+                  <icon name="fts_shutter_100" color="#888888"/>
+                </label>
+              </text>
+              <break/>
+              <text align="left">
+                <layout colspan="0"/>
+                <label>
+                  <icon name="fts_blade_s_00" color="#888888"/>
+                </label>
+              </text>
+              <slide min="0" max="100" step="10" format="%d%%">
+                <layout colspan="2"/>
+                <address transform="DPT:5.001" mode="readwrite">21/2/103</address>
+              </slide>
+              <text align="right">
+                <layout colspan="0"/>
+                <label>
+                  <icon name="fts_blade_s_100" color="#888888"/>
+                </label>
+              </text>
+              <break/>
+            </group>
+          </group>
+          <group name="Wohnen Schiebetür">
+            <layout colspan="3" />
+            <group nowidget="true" >
+              <layout colspan="3" />
+              <switch mapping="OpenClose" styling="OpenClose" bind_click_to_widget="false">
+                <layout colspan="3"/>
+                <label>Status</label>
+                <address transform="DPT:1.019" mode="read">0/3/33</address>
+              </switch>
+              <break/>
+              <trigger value="0" mapping="AufAbSymbol" align="right">
+                <layout colspan="1"/>
+                <address transform="DPT:1.008" mode="readwrite">21/2/110</address>
+              </trigger>
+              <trigger value="0" mapping="Stop" align="right">
+                <layout colspan="1"/>
+                <address transform="DPT:1.009" mode="readwrite">21/2/111</address>
+              </trigger>
+              <trigger value="1" mapping="AufAbSymbol" align="right">
+                <layout colspan="1"/>
+                <address transform="DPT:1.008" mode="readwrite">21/2/110</address>
+              </trigger>
+              <break/>
+              <text align="left">
+                <layout colspan="0"/>
+                <label>
+                  <icon name="fts_shutter_10" color="#888888"/>
+                </label>
+              </text>
+              <slide min="0" max="100" step="10" format="%d%%">
+                <layout colspan="2"/>
+                <address transform="DPT:5.001" mode="readwrite">21/2/112</address>
+              </slide>
+              <text align="right">
+                <layout colspan="0"/>
+                <label>
+                  <icon name="fts_shutter_100" color="#888888"/>
+                </label>
+              </text>
+              <break/>
+              <text align="left">
+                <layout colspan="0"/>
+                <label>
+                  <icon name="fts_blade_s_00" color="#888888"/>
+                </label>
+              </text>
+              <slide min="0" max="100" step="10" format="%d%%">
+                <layout colspan="2"/>
+                <address transform="DPT:5.001" mode="readwrite">21/2/113</address>
+              </slide>
+              <text align="right">
+                <layout colspan="0"/>
+                <label>
+                  <icon name="fts_blade_s_100" color="#888888"/>
+                </label>
+              </text>
+              <break/>
+            </group>
+          </group>
+				</page>
+        <page name="[Heizung][2.3.3]Wohnen">
+          <group name="Fußbodenheizung">
+            <layout colspan="12"/>
+            <info format="%.1f °C">
+              <label>Ist</label>
+              <address transform="DPT:9.001" mode="read">31/2/40</address>
+            </info>
+            <slide min="17" max="23" step="0.5" format="%.1f °C">
+              <layout colspan="6"/>
+              <label>Soll</label>
+              <address transform="DPT:9.001" mode="readwrite">31/2/42</address>
+            </slide>
+            <multitrigger button1label="Auto" button1value="auto" button2label="Komfort" button2value="comfort" button3label="Standy By" button3value="standby" button4label="Economy" button4value="economy" showstatus="true">
+              <label>Betriebsart</label>
+              <address transform="DPT:20.102" mode="readwrite">31/2/44</address>
+            </multitrigger>
+          </group>
+        </page>
+      </page>
+      <page name="[Tabs][2.4.0]Wintergarten" visible="false">
+        <navbar position="top">
+          <pagejump target="[Licht][2.4.1]Wintergarten">
+            <layout colspan="0"/>
+            <label>Licht</label>
+          </pagejump>
+          <pagejump target="[Fenster][2.4.2]Wintergarten">
+            <layout colspan="0"/>
+            <label>Fenster</label>
+          </pagejump>
+          <pagejump target="[Heizung][2.4.3]Wintergarten">
+            <layout colspan="0"/>
+            <label>Heizung</label>
+          </pagejump>
+        </navbar>
+        <page name="[Licht][2.4.1]Wintergarten">
+          <group name="Deckenspots">
+            <slide min="0" max="100" step="5" format="%d%%" >
+              <label>Dimmen</label>
+              <address transform="DPT:5.001" mode="readwrite">11/2/133</address>
+            </slide>
+            <slide min="0" max="100" step="5" format="%d%%" >
+              <label>Dimmen</label>
+              <address transform="DPT:5.001" mode="readwrite">11/2/134</address>
+            </slide>
+          </group>
+        </page>
+        <page name="[Fenster][2.4.2]Wintergarten">
+          <group name="Sonnenschutz">
+            <layout colspan="12" />
+            <group nowidget="true" >
+              <layout colspan="12" />
+              <trigger value="0" mapping="AufAbSymbol" align="right">
+                <layout colspan="1"/>
+                <address transform="DPT:1.008" mode="readwrite">20/2/120</address>
+              </trigger>
+              <trigger value="0" mapping="Stop" align="right">
+                <layout colspan="1"/>
+                <address transform="DPT:1.009" mode="readwrite">20/2/121</address>
+              </trigger>
+              <trigger value="1" mapping="AufAbSymbol" align="right">
+                <layout colspan="1"/>
+                <address transform="DPT:1.008" mode="readwrite">20/2/120</address>
+              </trigger>
+							<break/>
+              <text align="left">
+                <layout colspan="0"/>
+                <label>
+                  <icon name="fts_shutter_10" color="#888888"/>
+                </label>
+              </text>
+              <slide min="0" max="100" step="10" format="%d%%">
+                <layout colspan="2"/>
+                <address transform="DPT:5.001" mode="readwrite">20/2/124</address>
+              </slide>
+              <text align="right">
+                <layout colspan="0"/>
+                <label>
+                  <icon name="fts_shutter_100" color="#888888"/>
+                </label>
+              </text>
+							<break/>
+              <text align="left">
+                <layout colspan="0"/>
+                <label>
+                  <icon name="fts_blade_s_00" color="#888888"/>
+                </label>
+              </text>
+              <slide min="0" max="100" step="10" format="%d%%">
+                <layout colspan="2"/>
+                <address transform="DPT:5.001" mode="readwrite">20/2/122</address>
+              </slide>
+              <text align="right">
+                <layout colspan="0"/>
+                <label>
+                  <icon name="fts_blade_s_100" color="#888888"/>
+                </label>
+              </text>
+              <break/>
+            </group>
+          </group>
+          <group name="Terrassentür">	
+            <layout colspan="3" />
+            <group nowidget="true" >
+              <layout colspan="3" />
+              <switch mapping="OpenClose" styling="OpenClose" bind_click_to_widget="false">
+                <layout colspan="3"/>
+                <label>Status</label>
+                <address transform="DPT:1.019" mode="read">0/3/40</address>
+              </switch>
+              <break/>
+              <trigger value="0" mapping="AufAbSymbol" align="right">
+                <layout colspan="1"/>
+                <address transform="DPT:1.008" mode="readwrite">21/2/130</address>
+              </trigger>
+              <trigger value="0" mapping="Stop" align="right">
+                <layout colspan="1"/>
+                <address transform="DPT:1.009" mode="readwrite">21/2/131</address>
+              </trigger>
+              <trigger value="1" mapping="AufAbSymbol" align="right">
+                <layout colspan="1"/>
+                <address transform="DPT:1.008" mode="readwrite">21/2/130</address>
+              </trigger>
+              <break/>
+              <text align="left">
+                <layout colspan="0"/>
+                <label>
+                  <icon name="fts_shutter_10" color="#888888"/>
+                </label>
+              </text>
+              <slide min="0" max="100" step="10" format="%d%%">
+                <layout colspan="2"/>
+                <address transform="DPT:5.001" mode="readwrite">21/2/132</address>
+              </slide>
+              <text align="right">
+                <layout colspan="0"/>
+                <label>
+                  <icon name="fts_shutter_100" color="#888888"/>
+                </label>
+              </text>
+              <break/>
+              <text align="left">
+                <layout colspan="0"/>
+                <label>
+                  <icon name="fts_blade_s_00" color="#888888"/>
+                </label>
+              </text>
+              <slide min="0" max="100" step="10" format="%d%%">
+                <layout colspan="2"/>
+                <address transform="DPT:5.001" mode="readwrite">21/2/133</address>
+              </slide>
+              <text align="right">
+                <layout colspan="0"/>
+                <label>
+                  <icon name="fts_blade_s_100" color="#888888"/>
+                </label>
+              </text>
+              <break/>
+            </group>
+          </group>
+					<group name="Fenster West">
+            <layout colspan="3" />
+            <group nowidget="true" >
+              <layout colspan="3" />
+              <trigger value="0" mapping="AufAbSymbol" align="right">
+                <layout colspan="1"/>
+                <address transform="DPT:1.008" mode="readwrite">20/2/130</address>
+              </trigger>
+              <trigger value="0" mapping="Stop" align="right">
+                <layout colspan="1"/>
+                <address transform="DPT:1.009" mode="readwrite">20/2/131</address>
+              </trigger>
+              <trigger value="1" mapping="AufAbSymbol" align="right">
+                <layout colspan="1"/>
+                <address transform="DPT:1.008" mode="readwrite">20/2/130</address>
+              </trigger>
+              <break/>
+              <text align="left">
+                <layout colspan="0"/>
+                <label>
+                  <icon name="fts_shutter_10" color="#888888"/>
+                </label>
+              </text>
+              <slide min="0" max="100" step="10" format="%d%%">
+                <layout colspan="2"/>
+                <address transform="DPT:5.001" mode="readwrite">20/2/132</address>
+              </slide>
+              <text align="right">
+                <layout colspan="0"/>
+                <label>
+                  <icon name="fts_shutter_100" color="#888888"/>
+                </label>
+              </text>
+              <break/>
+              <text align="left">
+                <layout colspan="0"/>
+                <label>
+                  <icon name="fts_blade_s_00" color="#888888"/>
+                </label>
+              </text>
+              <slide min="0" max="100" step="10" format="%d%%">
+                <layout colspan="2"/>
+                <address transform="DPT:5.001" mode="readwrite">20/2/134</address>
+              </slide>
+              <text align="right">
+                <layout colspan="0"/>
+                <label>
+                  <icon name="fts_blade_s_100" color="#888888"/>
+                </label>
+              </text>
+              <break/>
+            </group>
+          </group>
+        </page>
+        <page name="[Heizung][2.4.3]Wintergarten">
+          <group name="Fußbodenheizung">
+            <layout colspan="12"/>
+            <info format="%.1f °C">
+              <label>Ist</label>
+              <address transform="DPT:9.001" mode="read">31/2/62</address>
+            </info>
+            <slide min="17" max="23" step="0.5" format="%.1f °C">
+              <layout colspan="6"/>
+              <label>Soll</label>
+              <address transform="DPT:9.001" mode="readwrite">31/2/60</address>
+            </slide>
+            <multitrigger button1label="Auto" button1value="auto" button2label="Komfort" button2value="comfort" button3label="Standy By" button3value="standby" button4label="Economy" button4value="economy" showstatus="true">
+              <label>Betriebsart</label>
+              <address transform="DPT:20.102" mode="readwrite">31/2/64</address>
+            </multitrigger>
+          </group>
+        </page>
+      </page>
+      <page name="[Tabs][2.5.0]Büro" visible="false">
+        <navbar position="top">
+          <pagejump target="[Licht][2.5.1]Büro">
+            <layout colspan="0"/>
+            <label>Licht</label>
+          </pagejump>
+          <pagejump target="[Fenster][2.5.2]Büro">
+            <layout colspan="0"/>
+            <label>Fenster</label>
+          </pagejump>
+          <pagejump target="[Heizung][2.5.3]Büro">
+            <layout colspan="0"/>
+            <label>Heizung</label>
+          </pagejump>
+        </navbar>
+        <page name="[Licht][2.5.1]Büro">
+          <group name="Deckenlicht">
+            <switch mapping="OnOff" bind_click_to_widget="false">
+              <label>Schalten</label>
+              <address transform="DPT:1.001" mode="readwrite">11/2/150</address>
+            </switch>
+          </group>
+        </page>
+        <page name="[Fenster][2.5.2]Büro">
+          <group name="Fenster Nord">
+            <layout colspan="3" />
+            <group nowidget="true" >
+              <layout colspan="3" />
+              <trigger value="0" mapping="AufAbSymbol" align="right">
+                <layout colspan="1"/>
+                <address transform="DPT:1.008" mode="readwrite">21/2/190</address>
+              </trigger>
+              <trigger value="0" mapping="Stop" align="right">
+                <layout colspan="1"/>
+                <address transform="DPT:1.009" mode="readwrite">21/2/191</address>
+              </trigger>
+              <trigger value="1" mapping="AufAbSymbol" align="right">
+                <layout colspan="1"/>
+                <address transform="DPT:1.008" mode="readwrite">21/2/190</address>
+              </trigger>
+              <break/>
+              <text align="left">
+                <layout colspan="0"/>
+                <label>
+                  <icon name="fts_shutter_10" color="#888888"/>
+                </label>
+              </text>
+              <slide min="0" max="100" step="10" format="%d%%">
+                <layout colspan="2"/>
+                <address transform="DPT:5.001" mode="readwrite">21/2/192</address>
+              </slide>
+              <text align="right">
+                <layout colspan="0"/>
+                <label>
+                  <icon name="fts_shutter_100" color="#888888"/>
+                </label>
+              </text>
+              <break/>
+              <text align="left">
+                <layout colspan="0"/>
+                <label>
+                  <icon name="fts_blade_s_00" color="#888888"/>
+                </label>
+              </text>
+              <slide min="0" max="100" step="10" format="%d%%">
+                <layout colspan="2"/>
+                <address transform="DPT:5.001" mode="readwrite">21/2/193</address>
+              </slide>
+              <text align="right">
+                <layout colspan="0"/>
+                <label>
+                  <icon name="fts_blade_s_100" color="#888888"/>
+                </label>
+              </text>
+              <break/>
+            </group>
+          </group>
+          <group name="Fenster West">
+            <layout colspan="3" />
+            <group nowidget="true" >
+              <layout colspan="3" />
+              <trigger value="0" mapping="AufAbSymbol" align="right">
+                <layout colspan="1"/>
+                <address transform="DPT:1.008" mode="readwrite">21/2/170</address>
+              </trigger>
+              <trigger value="0" mapping="Stop" align="right">
+                <layout colspan="1"/>
+                <address transform="DPT:1.009" mode="readwrite">21/2/171</address>
+              </trigger>
+              <trigger value="1" mapping="AufAbSymbol" align="right">
+                <layout colspan="1"/>
+                <address transform="DPT:1.008" mode="readwrite">21/2/170</address>
+              </trigger>
+              <break/>
+              <text align="left">
+                <layout colspan="0"/>
+                <label>
+                  <icon name="fts_shutter_10" color="#888888"/>
+                </label>
+              </text>
+              <slide min="0" max="100" step="10" format="%d%%">
+                <layout colspan="2"/>
+                <address transform="DPT:5.001" mode="readwrite">21/2/172</address>
+              </slide>
+              <text align="right">
+                <layout colspan="0"/>
+                <label>
+                  <icon name="fts_shutter_100" color="#888888"/>
+                </label>
+              </text>
+              <break/>
+              <text align="left">
+                <layout colspan="0"/>
+                <label>
+                  <icon name="fts_blade_s_00" color="#888888"/>
+                </label>
+              </text>
+              <slide min="0" max="100" step="10" format="%d%%">
+                <layout colspan="2"/>
+                <address transform="DPT:5.001" mode="readwrite">21/2/173</address>
+              </slide>
+              <text align="right">
+                <layout colspan="0"/>
+                <label>
+                  <icon name="fts_blade_s_100" color="#888888"/>
+                </label>
+              </text>
+              <break/>
+            </group>
+          </group>
+          <group name="Sonnenschutz">
+            <layout colspan="3" />
+            <group nowidget="true" >
+              <layout colspan="3" />
+              <switch mapping="OpenClose" styling="OpenClose" bind_click_to_widget="false">
+                <layout colspan="3"/>
+                <label>Status</label>
+                <address transform="DPT:1.019" mode="read">0/3/50</address>
+              </switch>
+              <break/>
+              <text align="left">
+                <layout colspan="0"/>
+                <label>
+                  <icon name="fts_shutter_10" color="#888888"/>
+                </label>
+              </text>
+              <slide min="0" max="100" step="10" format="%d%%">
+                <layout colspan="2"/>
+                <address transform="DPT:5.001" mode="readwrite">20/2/162</address>
+              </slide>
+              <text align="right">
+                <layout colspan="0"/>
+                <label>
+                  <icon name="fts_shutter_100" color="#888888"/>
+                </label>
+              </text>
+              <break/>
+            </group>
+          </group>
+        </page>
+        <page name="[Heizung][2.5.3]Büro">
+          <group name="Fußbodenheizung">
+            <layout colspan="12"/>
+            <info format="%.1f °C">
+              <label>Ist</label>
+              <address transform="DPT:9.001" mode="read">31/2/82</address>
+            </info>
+            <slide min="17" max="23" step="0.5" format="%.1f °C">
+              <layout colspan="6"/>
+              <label>Soll</label>
+              <address transform="DPT:9.001" mode="readwrite">31/2/80</address>
+            </slide>
+            <multitrigger button1label="Auto" button1value="auto" button2label="Komfort" button2value="comfort" button3label="Standy By" button3value="standby" button4label="Economy" button4value="economy" showstatus="true">
+              <label>Betriebsart</label>
+              <address transform="DPT:20.102" mode="readwrite">31/2/84</address>
+            </multitrigger>
+          </group>
+        </page>
+      </page>
+      <page name="[Tabs][2.6.0]Gäste WC" visible="false">
+        <navbar position="top">
+          <pagejump target="[Licht][2.6.1]Gäste WC">
+            <layout colspan="0"/>
+            <label>Licht</label>
+          </pagejump>
+          <pagejump target="[Fenster][2.6.2]Gäste WC">
+            <layout colspan="0"/>
+            <label>Fenster</label>
+          </pagejump>
+          <pagejump target="[Heizung][2.6.3]Gäste WC">
+            <layout colspan="0"/>
+            <label>Heizung</label>
+          </pagejump>
+        </navbar>
+        <page name="[Licht][2.6.1]Gäste WC">
+          <group name="Spiegel">
+            <switch mapping="OnOff" bind_click_to_widget="false">
+              <label>Schalten</label>
+              <address transform="DPT:1.001" mode="readwrite">11/2/180</address>
+            </switch>
+          </group>
+          <group name="Licht">
+            <switch mapping="OnOff" bind_click_to_widget="false">
+              <label>Schalten</label>
+              <address transform="DPT:1.001" mode="readwrite">10/2/60</address>
+            </switch>
+          </group>
+          <group name="Deckenlicht">
+            <switch mapping="OnOff" bind_click_to_widget="false">
+              <label>Schalten</label>
+              <address transform="DPT:1.001" mode="readwrite">11/2/170</address>
+            </switch>
+          </group>
+        </page>
+        <page name="[Fenster][2.6.2]Gäste WC">
+          <group name="Fenster">
+            <layout colspan="3" />
+            <group nowidget="true" >
+              <layout colspan="3" />
+              <switch mapping="OpenClose" styling="OpenClose" bind_click_to_widget="false">
+                <layout colspan="3"/>
+                <label>Status</label>
+                <address transform="DPT:1.019" mode="read">0/3/60</address>
+              </switch>
+              <break/>
+              <trigger value="0" mapping="AufAbSymbol" align="right">
+                <layout colspan="1"/>
+                <address transform="DPT:1.008" mode="readwrite">21/2/210</address>
+              </trigger>
+              <trigger value="0" mapping="Stop" align="right">
+                <layout colspan="1"/>
+                <address transform="DPT:1.009" mode="readwrite">21/2/211</address>
+              </trigger>
+              <trigger value="1" mapping="AufAbSymbol" align="right">
+                <layout colspan="1"/>
+                <address transform="DPT:1.008" mode="readwrite">21/2/210</address>
+              </trigger>
+              <break/>
+              <text align="left">
+                <layout colspan="0"/>
+                <label>
+                  <icon name="fts_shutter_10" color="#888888"/>
+                </label>
+              </text>
+              <slide min="0" max="100" step="10" format="%d%%">
+                <layout colspan="2"/>
+                <address transform="DPT:5.001" mode="readwrite">21/2/212</address>
+              </slide>
+              <text align="right">
+                <layout colspan="0"/>
+                <label>
+                  <icon name="fts_shutter_100" color="#888888"/>
+                </label>
+              </text>
+              <break/>
+              <text align="left">
+                <layout colspan="0"/>
+                <label>
+                  <icon name="fts_blade_s_00" color="#888888"/>
+                </label>
+              </text>
+              <slide min="0" max="100" step="10" format="%d%%">
+                <layout colspan="2"/>
+                <address transform="DPT:5.001" mode="readwrite">21/2/213</address>
+              </slide>
+              <text align="right">
+                <layout colspan="0"/>
+                <label>
+                  <icon name="fts_blade_s_100" color="#888888"/>
+                </label>
+              </text>
+              <break/>
+            </group>
+          </group>
+        </page>
+        <page name="[Heizung][2.6.3]Gäste WC">
+          <group name="Fußbodenheizung">
+            <layout colspan="12"/>
+            <info format="%.1f °C">
+              <label>Ist</label>
+              <address transform="DPT:9.001" mode="read">31/2/102</address>
+            </info>
+            <slide min="17" max="23" step="0.5" format="%.1f °C">
+              <layout colspan="6"/>
+              <label>Soll</label>
+              <address transform="DPT:9.001" mode="readwrite">31/2/100</address>
+            </slide>
+            <multitrigger button1label="Auto" button1value="auto" button2label="Komfort" button2value="comfort" button3label="Standy By" button3value="standby" button4label="Economy" button4value="economy" showstatus="true">
+              <label>Betriebsart</label>
+              <address transform="DPT:20.102" mode="readwrite">31/2/104</address>
+            </multitrigger>
+          </group>
+        </page>
+      </page>
+      <page name="[Header][2.7.1]Speise">
+        <group name="Deckenlicht">
+          <switch mapping="OnOff" bind_click_to_widget="false">
+            <label>Schalten</label>
+            <address transform="DPT:1.001" mode="readwrite">11/2/200</address>
+          </switch>
+        </group>
+      </page>
+      <page name="[Tabs][2.8.0]Garderobe" visible="false">
+        <navbar position="top">
+          <pagejump target="[Licht][2.8.1]Garderobe">
+            <layout colspan="0"/>
+            <label>Licht</label>
+          </pagejump>
+          <pagejump target="[Fenster][2.8.2]Garderobe">
+            <layout colspan="0"/>
+            <label>Fenster</label>
+          </pagejump>
+          <pagejump target="[Heizung][2.8.3]Garderobe">
+            <layout colspan="0"/>
+            <label>Heizung</label>
+          </pagejump>
+        </navbar>
+        <page name="[Licht][2.8.1]Garderobe">
+          <group name="Deckenlicht">
+            <switch mapping="OnOff" bind_click_to_widget="false">
+              <label>Schalten</label>
+              <address transform="DPT:1.001" mode="readwrite">11/2/220</address>
+            </switch>
+          </group>
+        </page>
+        <page name="[Fenster][2.8.2]Garderobe">
+          <group name="Fenster">
+            <layout colspan="3" />
+            <group nowidget="true" >
+              <layout colspan="3" />
+              <switch mapping="OpenClose" styling="OpenClose" bind_click_to_widget="false">
+                <layout colspan="3"/>
+                <label>Status</label>
+                <address transform="DPT:1.019" mode="read">0/3/80</address>
+              </switch>
+              <break/>
+              <trigger value="0" mapping="AufAbSymbol" align="right">
+                <layout colspan="1"/>
+                <address transform="DPT:1.008" mode="readwrite">21/2/230</address>
+              </trigger>
+              <trigger value="0" mapping="Stop" align="right">
+                <layout colspan="1"/>
+                <address transform="DPT:1.009" mode="readwrite">21/2/231</address>
+              </trigger>
+              <trigger value="1" mapping="AufAbSymbol" align="right">
+                <layout colspan="1"/>
+                <address transform="DPT:1.008" mode="readwrite">21/2/230</address>
+              </trigger>
+              <break/>
+              <text align="left">
+                <layout colspan="0"/>
+                <label>
+                  <icon name="fts_shutter_10" color="#888888"/>
+                </label>
+              </text>
+              <slide min="0" max="100" step="10" format="%d%%">
+                <layout colspan="2"/>
+                <address transform="DPT:5.001" mode="readwrite">21/2/232</address>
+              </slide>
+              <text align="right">
+                <layout colspan="0"/>
+                <label>
+                  <icon name="fts_shutter_100" color="#888888"/>
+                </label>
+              </text>
+              <break/>
+              <text align="left">
+                <layout colspan="0"/>
+                <label>
+                  <icon name="fts_blade_s_00" color="#888888"/>
+                </label>
+              </text>
+              <slide min="0" max="100" step="10" format="%d%%">
+                <layout colspan="2"/>
+                <address transform="DPT:5.001" mode="readwrite">21/2/233</address>
+              </slide>
+              <text align="right">
+                <layout colspan="0"/>
+                <label>
+                  <icon name="fts_blade_s_100" color="#888888"/>
+                </label>
+              </text>
+              <break/>
+            </group>
+          </group>
+        </page>
+        <page name="[Heizung][2.8.3]Garderobe">
+          <group name="Fußbodenheizung">
+            <layout colspan="12"/>
+            <info format="%.1f °C">
+              <label>Ist</label>
+              <address transform="DPT:9.001" mode="read">31/2/152</address>
+            </info>
+            <slide min="17" max="23" step="0.5" format="%.1f °C">
+              <layout colspan="6"/>
+              <label>Soll</label>
+              <address transform="DPT:9.001" mode="readwrite">31/2/150</address>
+            </slide>
+            <multitrigger button1label="Auto" button1value="auto" button2label="Komfort" button2value="comfort" button3label="Standy By" button3value="standby" button4label="Economy" button4value="economy" showstatus="true">
+              <label>Betriebsart</label>
+              <address transform="DPT:20.102" mode="readwrite">31/2/154</address>
+            </multitrigger>
+          </group>
+        </page>
+      </page>
+    </page>
+    <page name="[Menu][3.0.0]Obergeschoss" visible="false">
+      <page name="[Tabs][3.0.0]Zentral" visible="false">
+        <navbar position="top">
+          <pagejump target="[Licht][3.0.1]Zentral">
+            <layout colspan="0"/>
+            <label>Licht</label>
+          </pagejump>
+          <pagejump target="[Fenster][3.0.2]Zentral">
+            <layout colspan="0"/>
+            <label>Fenster</label>
+          </pagejump>
+        </navbar>
+        <page name="[Licht][3.0.1]Zentral">
+          <group name="Licht">
+            <switch mapping="OnOff" bind_click_to_widget="false">
+              <label>Schalten</label>
+              <address transform="DPT:1.001" mode="readwrite">10/3/0</address>
+            </switch>
+          </group>
+        </page>
+        <page name="[Fenster][3.0.2]Zentral">
+          <group name="Sonnenschutz">
+            <layout colspan="3" />
+            <group nowidget="true" >
+              <layout colspan="3" />
+              <trigger value="0" mapping="AufAbSymbol" align="right">
+                <layout colspan="1"/>
+                <address transform="DPT:1.008" mode="readwrite">20/3/0</address>
+              </trigger>
+              <trigger value="0" mapping="Stop" align="right">
+                <layout colspan="1"/>
+                <address transform="DPT:1.009" mode="readwrite">20/3/1</address>
+              </trigger>
+              <trigger value="1" mapping="AufAbSymbol" align="right">
+                <layout colspan="1"/>
+                <address transform="DPT:1.008" mode="readwrite">20/3/0</address>
+              </trigger>
+              <break/>
+              <text align="left">
+                <layout colspan="0"/>
+                <label>
+                  <icon name="fts_shutter_10" color="#888888"/>
+                </label>
+              </text>
+              <slide min="0" max="100" step="10" format="%d%%">
+                <layout colspan="2"/>
+                <address transform="DPT:5.001" mode="readwrite">20/3/2</address>
+              </slide>
+              <text align="right">
+                <layout colspan="0"/>
+                <label>
+                  <icon name="fts_shutter_100" color="#888888"/>
+                </label>
+              </text>
+              <break/>
+            </group>
+          </group>
+        </page>
+      </page>
+      <page name="[Header][3.1.1]Flur">
+        <group name="Licht">
+          <switch mapping="OnOff" bind_click_to_widget="false">
+            <label>Schalten</label>
+            <address transform="DPT:1.001" mode="readwrite">10/3/10</address>
+          </switch>
+        </group>
+        <group name="Deckenspots">
+          <switch mapping="OnOff" bind_click_to_widget="false">
+            <label>Schalten</label>
+            <address transform="DPT:1.001" mode="readwrite">11/3/20</address>
+          </switch>
+        </group>
+        <group name="Treppenspots">
+          <switch mapping="OnOff" bind_click_to_widget="false">
+            <label>Schalten</label>
+            <address transform="DPT:1.001" mode="readwrite">11/3/30</address>
+          </switch>
+        </group>
+      </page>
+      <page name="[Tabs][3.2.0]WC" visible="false">
+        <navbar position="top">
+          <pagejump target="[Licht][3.2.1]WC">
+            <layout colspan="0"/>
+            <label>Licht</label>
+          </pagejump>
+          <pagejump target="[Fenster][3.2.2]WC">
+            <layout colspan="0"/>
+            <label>Fenster</label>
+          </pagejump>
+          <pagejump target="[Heizung][3.2.3]WC">
+            <layout colspan="0"/>
+            <label>Heizung</label>
+          </pagejump>
+        </navbar>
+        <page name="[Licht][3.2.1]WC">
+          <group name="Deckenlicht">
+            <switch mapping="OnOff" bind_click_to_widget="false">
+              <label>Schalten</label>
+              <address transform="DPT:1.001" mode="readwrite">11/3/50</address>
+            </switch>
+          </group>
+        </page>
+        <page name="[Fenster][3.2.2]WC">
+          <group name="Fenster">
+            <layout colspan="3" />
+            <group nowidget="true" >
+              <layout colspan="3" />
+              <switch mapping="OpenClose" styling="OpenClose" bind_click_to_widget="false">
+                <layout colspan="3"/>
+                <label>Status</label>
+                <address transform="DPT:1.019" mode="read">0/3/3</address>
+              </switch>
+              <break/>
+            </group>
+          </group>
+        </page>
+        <page name="[Heizung][3.2.3]WC">
+          <group name="Fußbodenheizung">
+            <layout colspan="12"/>
+            <info format="%.1f °C">
+              <label>Ist</label>
+              <address transform="DPT:9.001" mode="read">31/3/20</address>
+            </info>
+            <slide min="17" max="23" step="0.5" format="%.1f °C">
+              <layout colspan="6"/>
+              <label>Soll</label>
+              <address transform="DPT:9.001" mode="readwrite">31/3/22</address>
+            </slide>
+            <multitrigger button1label="Auto" button1value="auto" button2label="Komfort" button2value="comfort" button3label="Standy By" button3value="standby" button4label="Economy" button4value="economy" showstatus="true">
+              <label>Betriebsart</label>
+              <address transform="DPT:20.102" mode="readwrite">31/3/24</address>
+            </multitrigger>
+          </group>
+        </page>
+      </page>
+      <page name="[Tabs][3.3.0]Kinderzimmer 1" visible="false">
+        <navbar position="top">
+          <pagejump target="[Licht][3.3.1]Kinderzimmer 1">
+            <layout colspan="0"/>
+            <label>Licht</label>
+          </pagejump>
+          <pagejump target="[Fenster][3.3.2]Kinderzimmer 1">
+            <layout colspan="0"/>
+            <label>Fenster</label>
+          </pagejump>
+          <pagejump target="[Heizung][3.3.3]Kinderzimmer 1">
+            <layout colspan="0"/>
+            <label>Heizung</label>
+          </pagejump>
+        </navbar>
+        <page name="[Licht][3.3.1]Kinderzimmer 1">
+          <group name="Licht">
+            <switch mapping="OnOff" bind_click_to_widget="false">
+              <label>Schalten</label>
+              <address transform="DPT:1.001" mode="readwrite">10/3/30</address>
+            </switch>
+          </group>
+          <group name="Deckenlicht">
+            <slide min="0" max="100" step="5" format="%d%%" >
+              <label>Dimmen</label>
+              <address transform="DPT:5.001" mode="readwrite">11/3/73</address>
+            </slide>
+            <slide min="0" max="100" step="5" format="%d%%" >
+              <label>Dimmen</label>
+              <address transform="DPT:5.001" mode="readwrite">11/3/74</address>
+            </slide>
+          </group>
+        </page>
+        <page name="[Fenster][3.3.2]Kinderzimmer 1">
+          <group name="Fenster">
+            <layout colspan="3" />
+            <group nowidget="true" >
+              <layout colspan="3" />
+              <switch mapping="OpenClose" styling="OpenClose" bind_click_to_widget="false">
+                <layout colspan="3"/>
+                <label>Status</label>
+                <address transform="DPT:1.019" mode="read">0/3/4</address>
+              </switch>
+              <break/>
+              <trigger value="0" mapping="AufAbSymbol" align="right">
+                <layout colspan="1"/>
+                <address transform="DPT:1.008" mode="readwrite">21/3/20</address>
+              </trigger>
+              <trigger value="0" mapping="Stop" align="right">
+                <layout colspan="1"/>
+                <address transform="DPT:1.009" mode="readwrite">21/3/21</address>
+              </trigger>
+              <trigger value="1" mapping="AufAbSymbol" align="right">
+                <layout colspan="1"/>
+                <address transform="DPT:1.008" mode="readwrite">21/3/20</address>
+              </trigger>
+              <break/>
+              <text align="left">
+                <layout colspan="0"/>
+                <label>
+                  <icon name="fts_shutter_10" color="#888888"/>
+                </label>
+              </text>
+              <slide min="0" max="100" step="10" format="%d%%">
+                <layout colspan="2"/>
+                <address transform="DPT:5.001" mode="readwrite">21/3/22</address>
+              </slide>
+              <text align="right">
+                <layout colspan="0"/>
+                <label>
+                  <icon name="fts_shutter_100" color="#888888"/>
+                </label>
+              </text>
+              <break/>
+              <text align="left">
+                <layout colspan="0"/>
+                <label>
+                  <icon name="fts_blade_s_00" color="#888888"/>
+                </label>
+              </text>
+              <slide min="0" max="100" step="10" format="%d%%">
+                <layout colspan="2"/>
+                <address transform="DPT:5.001" mode="readwrite">21/3/23</address>
+              </slide>
+              <text align="right">
+                <layout colspan="0"/>
+                <label>
+                  <icon name="fts_blade_s_100" color="#888888"/>
+                </label>
+              </text>
+              <break/>
+            </group>
+          </group>
+          <group name="Sonnenschutz">
+            <layout colspan="3" />
+            <group nowidget="true" >
+              <layout colspan="3" />
+              <switch mapping="OpenClose" styling="OpenClose" bind_click_to_widget="false">
+                <layout colspan="3"/>
+                <label>Status</label>
+                <address transform="DPT:1.019" mode="read">0/3/4</address>
+              </switch>
+              <break/>
+              <trigger value="0" mapping="AufAbSymbol" align="right">
+                <layout colspan="1"/>
+                <address transform="DPT:1.008" mode="readwrite">20/3/10</address>
+              </trigger>
+              <trigger value="0" mapping="Stop" align="right">
+                <layout colspan="1"/>
+                <address transform="DPT:1.009" mode="readwrite">20/3/11</address>
+              </trigger>
+              <trigger value="1" mapping="AufAbSymbol" align="right">
+                <layout colspan="1"/>
+                <address transform="DPT:1.008" mode="readwrite">20/3/10</address>
+              </trigger>
+              <break/>
+              <text align="left">
+                <layout colspan="0"/>
+                <label>
+                  <icon name="fts_shutter_10" color="#888888"/>
+                </label>
+              </text>
+              <slide min="0" max="100" step="10" format="%d%%">
+                <layout colspan="2"/>
+                <address transform="DPT:5.001" mode="readwrite">20/3/12</address>
+              </slide>
+              <text align="right">
+                <layout colspan="0"/>
+                <label>
+                  <icon name="fts_shutter_100" color="#888888"/>
+                </label>
+              </text>
+              <break/>
+            </group>
+          </group>
+          <group name="Balkontür">
+            <layout colspan="3" />
+            <group nowidget="true" >
+              <layout colspan="3" />
+              <switch mapping="OpenClose" styling="OpenClose" bind_click_to_widget="false">
+                <layout colspan="3"/>
+                <label>Status</label>
+                <address transform="DPT:1.019" mode="read">0/3/4</address>
+              </switch>
+              <break/>
+              <trigger value="0" mapping="AufAbSymbol" align="right">
+                <layout colspan="1"/>
+                <address transform="DPT:1.008" mode="readwrite">21/3/30</address>
+              </trigger>
+              <trigger value="0" mapping="Stop" align="right">
+                <layout colspan="1"/>
+                <address transform="DPT:1.009" mode="readwrite">21/3/31</address>
+              </trigger>
+              <trigger value="1" mapping="AufAbSymbol" align="right">
+                <layout colspan="1"/>
+                <address transform="DPT:1.008" mode="readwrite">21/3/30</address>
+              </trigger>
+              <break/>
+              <text align="left">
+                <layout colspan="0"/>
+                <label>
+                  <icon name="fts_shutter_10" color="#888888"/>
+                </label>
+              </text>
+              <slide min="0" max="100" step="10" format="%d%%">
+                <layout colspan="2"/>
+                <address transform="DPT:5.001" mode="readwrite">21/3/32</address>
+              </slide>
+              <text align="right">
+                <layout colspan="0"/>
+                <label>
+                  <icon name="fts_shutter_100" color="#888888"/>
+                </label>
+              </text>
+              <break/>
+              <text align="left">
+                <layout colspan="0"/>
+                <label>
+                  <icon name="fts_blade_s_00" color="#888888"/>
+                </label>
+              </text>
+              <slide min="0" max="100" step="10" format="%d%%">
+                <layout colspan="2"/>
+                <address transform="DPT:5.001" mode="readwrite">21/3/33</address>
+              </slide>
+              <text align="right">
+                <layout colspan="0"/>
+                <label>
+                  <icon name="fts_blade_s_100" color="#888888"/>
+                </label>
+              </text>
+              <break/>
+            </group>
+          </group>
+        </page>
+        <page name="[Heizung][3.3.3]Kinderzimmer 1">
+          <group name="Fußbodenheizung">
+            <layout colspan="12"/>
+            <info format="%.1f °C">
+              <label>Ist</label>
+              <address transform="DPT:9.001" mode="read">31/3/52</address>
+            </info>
+            <multitrigger button1label="Auto" button1value="auto" button2label="Komfort" button2value="comfort" button3label="Standy By" button3value="standby" button4label="Economy" button4value="economy" showstatus="true">
+              <label>Betriebsart</label>
+              <address transform="DPT:20.102" mode="readwrite">31/3/54</address>
+            </multitrigger>
+          </group>
+        </page>
+      </page>
+      <page name="[Tabs][3.4.0]Gästezimmer" visible="false">
+        <navbar position="top">
+          <pagejump target="[Licht][3.4.1]Gästezimmer">
+            <layout colspan="0"/>
+            <label>Licht</label>
+          </pagejump>
+          <pagejump target="[Fenster][3.4.2]Gästezimmer">
+            <layout colspan="0"/>
+            <label>Fenster</label>
+          </pagejump>
+          <pagejump target="[Heizung][3.4.3]Gästezimmer">
+            <layout colspan="0"/>
+            <label>Heizung</label>
+          </pagejump>
+        </navbar>
+        <page name="[Licht][3.4.1]Gästezimmer">
+          <group name="Deckenlicht">
+            <switch mapping="OnOff" bind_click_to_widget="false">
+              <label>Schalten</label>
+              <address transform="DPT:1.001" mode="readwrite">11/3/90</address>
+            </switch>
+          </group>
+        </page>
+        <page name="[Fenster][3.4.2]Gästezimmer">
+          <group name="Balkontür">
+            <layout colspan="3" />
+            <group nowidget="true" >
+              <layout colspan="3" />
+              <switch mapping="OpenClose" styling="OpenClose" bind_click_to_widget="false">
+                <layout colspan="3"/>
+                <label>Status</label>
+                <address transform="DPT:1.019" mode="read">0/3/5</address>
+              </switch>
+              <break/>
+              <trigger value="0" mapping="AufAbSymbol" align="right">
+                <layout colspan="1"/>
+                <address transform="DPT:1.008" mode="readwrite">21/3/50</address>
+              </trigger>
+              <trigger value="0" mapping="Stop" align="right">
+                <layout colspan="1"/>
+                <address transform="DPT:1.009" mode="readwrite">21/3/51</address>
+              </trigger>
+              <trigger value="1" mapping="AufAbSymbol" align="right">
+                <layout colspan="1"/>
+                <address transform="DPT:1.008" mode="readwrite">21/3/50</address>
+              </trigger>
+              <break/>
+              <text align="left">
+                <layout colspan="0"/>
+                <label>
+                  <icon name="fts_shutter_10" color="#888888"/>
+                </label>
+              </text>
+              <slide min="0" max="100" step="10" format="%d%%">
+                <layout colspan="2"/>
+                <address transform="DPT:5.001" mode="readwrite">21/3/52</address>
+              </slide>
+              <text align="right">
+                <layout colspan="0"/>
+                <label>
+                  <icon name="fts_shutter_100" color="#888888"/>
+                </label>
+              </text>
+              <break/>
+              <text align="left">
+                <layout colspan="0"/>
+                <label>
+                  <icon name="fts_blade_s_00" color="#888888"/>
+                </label>
+              </text>
+              <slide min="0" max="100" step="10" format="%d%%">
+                <layout colspan="2"/>
+                <address transform="DPT:5.001" mode="readwrite">21/3/53</address>
+              </slide>
+              <text align="right">
+                <layout colspan="0"/>
+                <label>
+                  <icon name="fts_blade_s_100" color="#888888"/>
+                </label>
+              </text>
+              <break/>
+            </group>
+          </group>
+        </page>
+        <page name="[Heizung][3.4.3]Gästezimmer">
+          <group name="Fußbodenheizung">
+            <layout colspan="12"/>
+            <info format="%.1f °C">
+              <label>Ist</label>
+              <address transform="DPT:9.001" mode="read">31/3/72</address>
+            </info>
+            <slide min="17" max="23" step="0.5" format="%.1f °C">
+              <layout colspan="6"/>
+              <label>Soll</label>
+              <address transform="DPT:9.001" mode="readwrite">31/3/77</address>
+            </slide>
+            <multitrigger button1label="Auto" button1value="auto" button2label="Komfort" button2value="comfort" button3label="Standy By" button3value="standby" button4label="Economy" button4value="economy" showstatus="true">
+              <label>Betriebsart</label>
+              <address transform="DPT:20.102" mode="readwrite">31/3/74</address>
+            </multitrigger>
+          </group>
+        </page>
+      </page>
+      <page name="[Tabs][3.5.0]Kinderzimmer 2" visible="false">
+        <navbar position="top">
+          <pagejump target="[Licht][3.5.1]Kinderzimmer 2">
+            <layout colspan="0"/>
+            <label>Licht</label>
+          </pagejump>
+          <pagejump target="[Fenster][3.5.2]Kinderzimmer 2">
+            <layout colspan="0"/>
+            <label>Fenster</label>
+          </pagejump>
+          <pagejump target="[Heizung][3.5.3]Kinderzimmer 2">
+            <layout colspan="0"/>
+            <label>Heizung</label>
+          </pagejump>
+        </navbar>
+        <page name="[Licht][3.5.1]Kinderzimmer 2">
+          <group name="Licht">
+            <switch mapping="OnOff" bind_click_to_widget="false">
+              <label>Schalten</label>
+              <address transform="DPT:1.001" mode="readwrite">10/3/50</address>
+            </switch>
+          </group>
+          <group name="Deckenlicht">
+            <slide min="0" max="100" step="5" format="%d%%" >
+              <label>Dimmen</label>
+              <address transform="DPT:5.001" mode="readwrite">11/3/114</address>
+            </slide>
+            <slide min="0" max="100" step="5" format="%d%%" >
+              <label>Dimmen</label>
+              <address transform="DPT:5.001" mode="readwrite">11/3/113</address>
+            </slide>
+          </group>
+        </page>
+        <page name="[Fenster][3.5.2]Kinderzimmer 2">
+          <group name="Fenster West">
+            <layout colspan="3" />
+            <group nowidget="true" >
+              <layout colspan="3" />
+              <switch mapping="OpenClose" styling="OpenClose" bind_click_to_widget="false">
+                <layout colspan="3"/>
+                <label>Status</label>
+                <address transform="DPT:1.019" mode="read">0/3/6</address>
+              </switch>
+              <break/>
+              <trigger value="0" mapping="AufAbSymbol" align="right">
+                <layout colspan="1"/>
+                <address transform="DPT:1.008" mode="readwrite">21/3/80</address>
+              </trigger>
+              <trigger value="0" mapping="Stop" align="right">
+                <layout colspan="1"/>
+                <address transform="DPT:1.009" mode="readwrite">21/3/81</address>
+              </trigger>
+              <trigger value="1" mapping="AufAbSymbol" align="right">
+                <layout colspan="1"/>
+                <address transform="DPT:1.008" mode="readwrite">21/3/80</address>
+              </trigger>
+              <break/>
+              <text align="left">
+                <layout colspan="0"/>
+                <label>
+                  <icon name="fts_shutter_10" color="#888888"/>
+                </label>
+              </text>
+              <slide min="0" max="100" step="10" format="%d%%">
+                <layout colspan="2"/>
+                <address transform="DPT:5.001" mode="readwrite">21/3/82</address>
+              </slide>
+              <text align="right">
+                <layout colspan="0"/>
+                <label>
+                  <icon name="fts_shutter_100" color="#888888"/>
+                </label>
+              </text>
+              <break/>
+              <text align="left">
+                <layout colspan="0"/>
+                <label>
+                  <icon name="fts_blade_s_00" color="#888888"/>
+                </label>
+              </text>
+              <slide min="0" max="100" step="10" format="%d%%">
+                <layout colspan="2"/>
+                <address transform="DPT:5.001" mode="readwrite">21/3/83</address>
+              </slide>
+              <text align="right">
+                <layout colspan="0"/>
+                <label>
+                  <icon name="fts_blade_s_100" color="#888888"/>
+                </label>
+              </text>
+              <break/>
+            </group>
+          </group>
+          <group name="Sonnenschutz">
+            <layout colspan="3" />
+            <group nowidget="true" >
+              <layout colspan="3" />
+              <switch mapping="OpenClose" styling="OpenClose" bind_click_to_widget="false">
+                <layout colspan="3"/>
+                <label>Status</label>
+                <address transform="DPT:1.019" mode="read">0/3/6</address>
+              </switch>
+              <break/>
+              <trigger value="0" mapping="AufAbSymbol" align="right">
+                <layout colspan="1"/>
+                <address transform="DPT:1.008" mode="readwrite">20/3/60</address>
+              </trigger>
+              <trigger value="0" mapping="Stop" align="right">
+                <layout colspan="1"/>
+                <address transform="DPT:1.009" mode="readwrite">20/3/61</address>
+              </trigger>
+              <trigger value="1" mapping="AufAbSymbol" align="right">
+                <layout colspan="1"/>
+                <address transform="DPT:1.008" mode="readwrite">20/3/60</address>
+              </trigger>
+              <break/>
+              <text align="left">
+                <layout colspan="0"/>
+                <label>
+                  <icon name="fts_shutter_10" color="#888888"/>
+                </label>
+              </text>
+              <slide min="0" max="100" step="10" format="%d%%">
+                <layout colspan="2"/>
+                <address transform="DPT:5.001" mode="readwrite">20/3/62</address>
+              </slide>
+              <text align="right">
+                <layout colspan="0"/>
+                <label>
+                  <icon name="fts_shutter_100" color="#888888"/>
+                </label>
+              </text>
+              <break/>
+            </group>
+          </group>
+          <group name="Fenster Süd">
+            <layout colspan="3" />
+            <group nowidget="true" >
+              <layout colspan="3" />
+              <trigger value="0" mapping="AufAbSymbol" align="right">
+                <layout colspan="1"/>
+                <address transform="DPT:1.008" mode="readwrite">21/3/70</address>
+              </trigger>
+              <trigger value="0" mapping="Stop" align="right">
+                <layout colspan="1"/>
+                <address transform="DPT:1.009" mode="readwrite">21/3/71</address>
+              </trigger>
+              <trigger value="1" mapping="AufAbSymbol" align="right">
+                <layout colspan="1"/>
+                <address transform="DPT:1.008" mode="readwrite">21/3/70</address>
+              </trigger>
+              <break/>
+              <text align="left">
+                <layout colspan="0"/>
+                <label>
+                  <icon name="fts_shutter_10" color="#888888"/>
+                </label>
+              </text>
+              <slide min="0" max="100" step="10" format="%d%%">
+                <layout colspan="2"/>
+                <address transform="DPT:5.001" mode="readwrite">21/3/72</address>
+              </slide>
+              <text align="right">
+                <layout colspan="0"/>
+                <label>
+                  <icon name="fts_shutter_100" color="#888888"/>
+                </label>
+              </text>
+              <break/>
+              <text align="left">
+                <layout colspan="0"/>
+                <label>
+                  <icon name="fts_blade_s_00" color="#888888"/>
+                </label>
+              </text>
+              <slide min="0" max="100" step="10" format="%d%%">
+                <layout colspan="2"/>
+                <address transform="DPT:5.001" mode="readwrite">21/3/73</address>
+              </slide>
+              <text align="right">
+                <layout colspan="0"/>
+                <label>
+                  <icon name="fts_blade_s_100" color="#888888"/>
+                </label>
+              </text>
+              <break/>
+            </group>
+          </group>
+        </page>
+        <page name="[Heizung][3.5.3]Kinderzimmer 2">
+          <group name="Fußbodenheizung">
+            <layout colspan="12"/>
+            <info format="%.1f °C">
+              <label>Ist</label>
+              <address transform="DPT:9.001" mode="read">31/3/92</address>
+            </info>
+            <slide min="17" max="23" step="0.5" format="%.1f °C">
+              <layout colspan="6"/>
+              <label>Soll</label>
+              <address transform="DPT:9.001" mode="readwrite">31/3/90</address>
+            </slide>
+            <multitrigger button1label="Auto" button1value="auto" button2label="Komfort" button2value="comfort" button3label="Standy By" button3value="standby" button4label="Economy" button4value="economy" showstatus="true">
+              <label>Betriebsart</label>
+              <address transform="DPT:20.102" mode="readwrite">31/3/94</address>
+            </multitrigger>
+          </group>
+        </page>
+      </page>
+      <page name="[Tabs][3.6.0]Schlafzimmer" visible="false">
+        <navbar position="top">
+          <pagejump target="[Fenster][3.6.2]Schlafzimmer">
+            <layout colspan="0"/>
+            <label>Fenster</label>
+          </pagejump>
+          <pagejump target="[Heizung][3.6.3]Schlafzimmer">
+            <layout colspan="0"/>
+            <label>Heizung</label>
+          </pagejump>
+        </navbar>
+        <page name="[Fenster][3.6.2]Schlafzimmer">
+          <group name="Fenster West">
+            <layout colspan="3" />
+            <group nowidget="true" >
+              <layout colspan="3" />
+              <switch mapping="OpenClose" styling="OpenClose" bind_click_to_widget="false">
+                <layout colspan="3"/>
+                <label>Status</label>
+                <address transform="DPT:1.019" mode="read">0/3/7</address>
+              </switch>
+              <break/>
+              <trigger value="0" mapping="AufAbSymbol" align="right">
+                <layout colspan="1"/>
+                <address transform="DPT:1.008" mode="readwrite">21/3/100</address>
+              </trigger>
+              <trigger value="0" mapping="Stop" align="right">
+                <layout colspan="1"/>
+                <address transform="DPT:1.009" mode="readwrite">21/3/101</address>
+              </trigger>
+              <trigger value="1" mapping="AufAbSymbol" align="right">
+                <layout colspan="1"/>
+                <address transform="DPT:1.008" mode="readwrite">21/3/100</address>
+              </trigger>
+              <break/>
+              <text align="left">
+                <layout colspan="0"/>
+                <label>
+                  <icon name="fts_shutter_10" color="#888888"/>
+                </label>
+              </text>
+              <slide min="0" max="100" step="10" format="%d%%">
+                <layout colspan="2"/>
+                <address transform="DPT:5.001" mode="readwrite">21/3/102</address>
+              </slide>
+              <text align="right">
+                <layout colspan="0"/>
+                <label>
+                  <icon name="fts_shutter_100" color="#888888"/>
+                </label>
+              </text>
+              <break/>
+              <text align="left">
+                <layout colspan="0"/>
+                <label>
+                  <icon name="fts_blade_s_00" color="#888888"/>
+                </label>
+              </text>
+              <slide min="0" max="100" step="10" format="%d%%">
+                <layout colspan="2"/>
+                <address transform="DPT:5.001" mode="readwrite">21/3/103</address>
+              </slide>
+              <text align="right">
+                <layout colspan="0"/>
+                <label>
+                  <icon name="fts_blade_s_100" color="#888888"/>
+                </label>
+              </text>
+              <break/>
+            </group>
+          </group>
+          <group name="Sonnenschutz">
+            <layout colspan="3" />
+            <group nowidget="true" >
+              <layout colspan="3" />
+              <switch mapping="OpenClose" styling="OpenClose" bind_click_to_widget="false">
+                <layout colspan="3"/>
+                <label>Status</label>
+                <address transform="DPT:1.019" mode="read">0/3/7</address>
+              </switch>
+              <break/>
+              <trigger value="0" mapping="AufAbSymbol" align="right">
+                <layout colspan="1"/>
+                <address transform="DPT:1.008" mode="readwrite">20/3/90</address>
+              </trigger>
+              <trigger value="0" mapping="Stop" align="right">
+                <layout colspan="1"/>
+                <address transform="DPT:1.009" mode="readwrite">20/3/91</address>
+              </trigger>
+              <trigger value="1" mapping="AufAbSymbol" align="right">
+                <layout colspan="1"/>
+                <address transform="DPT:1.008" mode="readwrite">20/3/90</address>
+              </trigger>
+              <break/>
+              <text align="left">
+                <layout colspan="0"/>
+                <label>
+                  <icon name="fts_shutter_10" color="#888888"/>
+                </label>
+              </text>
+              <slide min="0" max="100" step="10" format="%d%%">
+                <layout colspan="2"/>
+                <address transform="DPT:5.001" mode="readwrite">20/3/92</address>
+              </slide>
+              <text align="right">
+                <layout colspan="0"/>
+                <label>
+                  <icon name="fts_shutter_100" color="#888888"/>
+                </label>
+              </text>
+              <break/>
+            </group>
+          </group>
+          <group name="Fenster Nord">
+            <layout colspan="3" />
+            <group nowidget="true" >
+              <layout colspan="3" />
+              <switch mapping="OpenClose" styling="OpenClose" bind_click_to_widget="false">
+                <layout colspan="3"/>
+                <label>Status</label>
+                <address transform="DPT:1.019" mode="read">0/3/7</address>
+              </switch>
+              <break/>
+              <trigger value="0" mapping="AufAbSymbol" align="right">
+                <layout colspan="1"/>
+                <address transform="DPT:1.008" mode="readwrite">21/3/120</address>
+              </trigger>
+              <trigger value="0" mapping="Stop" align="right">
+                <layout colspan="1"/>
+                <address transform="DPT:1.009" mode="readwrite">21/3/121</address>
+              </trigger>
+              <trigger value="1" mapping="AufAbSymbol" align="right">
+                <layout colspan="1"/>
+                <address transform="DPT:1.008" mode="readwrite">21/3/120</address>
+              </trigger>
+              <break/>
+              <text align="left">
+                <layout colspan="0"/>
+                <label>
+                  <icon name="fts_shutter_10" color="#888888"/>
+                </label>
+              </text>
+              <slide min="0" max="100" step="10" format="%d%%">
+                <layout colspan="2"/>
+                <address transform="DPT:5.001" mode="readwrite">21/3/122</address>
+              </slide>
+              <text align="right">
+                <layout colspan="0"/>
+                <label>
+                  <icon name="fts_shutter_100" color="#888888"/>
+                </label>
+              </text>
+              <break/>
+              <text align="left">
+                <layout colspan="0"/>
+                <label>
+                  <icon name="fts_blade_s_00" color="#888888"/>
+                </label>
+              </text>
+              <slide min="0" max="100" step="10" format="%d%%">
+                <layout colspan="2"/>
+                <address transform="DPT:5.001" mode="readwrite">21/3/123</address>
+              </slide>
+              <text align="right">
+                <layout colspan="0"/>
+                <label>
+                  <icon name="fts_blade_s_100" color="#888888"/>
+                </label>
+              </text>
+              <break/>
+            </group>
+          </group>
+        </page>
+        <page name="[Heizung][3.6.3]Schlafzimmer">
+          <group name="Fußbodenheizung">
+            <layout colspan="12"/>
+            <info format="%.1f °C">
+              <label>Ist</label>
+              <address transform="DPT:9.001" mode="read">31/3/112</address>
+            </info>
+            <slide min="17" max="23" step="0.5" format="%.1f °C">
+              <layout colspan="6"/>
+              <label>Soll</label>
+              <address transform="DPT:9.001" mode="readwrite">31/3/110</address>
+            </slide>
+            <multitrigger button1label="Auto" button1value="auto" button2label="Komfort" button2value="comfort" button3label="Standy By" button3value="standby" button4label="Economy" button4value="economy" showstatus="true">
+              <label>Betriebsart</label>
+              <address transform="DPT:20.102" mode="readwrite">31/3/114</address>
+            </multitrigger>
+          </group>
+        </page>
+      </page>
+      <page name="[Tabs][3.7.0]Ankleide" visible="false">
+        <navbar position="top">
+          <pagejump target="[Licht][3.7.1]Ankleide">
+            <layout colspan="0"/>
+            <label>Licht</label>
+          </pagejump>
+          <pagejump target="[Fenster][3.7.2]Ankleide">
+            <layout colspan="0"/>
+            <label>Fenster</label>
+          </pagejump>
+          <pagejump target="[Heizung][3.7.3]Ankleide">
+            <layout colspan="0"/>
+            <label>Heizung</label>
+          </pagejump>
+        </navbar>
+        <page name="[Licht][3.7.1]Ankleide">
+          <group name="Deckenlicht">
+            <switch mapping="OnOff" bind_click_to_widget="false">
+              <label>Schalten</label>
+              <address transform="DPT:1.001" mode="readwrite">11/3/150</address>
+            </switch>
+          </group>
+        </page>
+        <page name="[Fenster][3.7.2]Ankleide">
+          <group name="Fenster">
+            <layout colspan="3" />
+            <group nowidget="true" >
+              <layout colspan="3" />
+              <switch mapping="OpenClose" styling="OpenClose" bind_click_to_widget="false">
+                <layout colspan="3"/>
+                <label>Status</label>
+                <address transform="DPT:1.019" mode="read">0/3/8</address>
+              </switch>
+              <break/>
+            </group>
+          </group>
+        </page>
+        <page name="[Heizung][3.7.3]Ankleide">
+          <group name="Fußbodenheizung">
+            <layout colspan="12"/>
+            <info format="%.1f °C">
+              <label>Ist</label>
+              <address transform="DPT:9.001" mode="read">31/3/132</address>
+            </info>
+            <slide min="17" max="23" step="0.5" format="%.1f °C">
+              <layout colspan="6"/>
+              <label>Soll</label>
+              <address transform="DPT:9.001" mode="readwrite">31/3/130</address>
+            </slide>
+            <multitrigger button1label="Auto" button1value="auto" button2label="Komfort" button2value="comfort" button3label="Standy By" button3value="standby" button4label="Economy" button4value="economy" showstatus="true">
+              <label>Betriebsart</label>
+              <address transform="DPT:20.102" mode="readwrite">31/3/134</address>
+            </multitrigger>
+          </group>
+        </page>
+      </page>
+      <page name="[Tabs][3.8.0]Masterbad" visible="false">
+        <navbar position="top">
+          <pagejump target="[Licht][3.8.1]Masterbad">
+            <layout colspan="0"/>
+            <label>Licht</label>
+          </pagejump>
+          <pagejump target="[Fenster][3.8.2]Masterbad">
+            <layout colspan="0"/>
+            <label>Fenster</label>
+          </pagejump>
+          <pagejump target="[Heizung][3.8.3]Masterbad">
+            <layout colspan="0"/>
+            <label>Heizung</label>
+          </pagejump>
+        </navbar>
+        <page name="[Licht][3.8.1]Masterbad">
+          <group name="Spiegel">
+            <switch mapping="OnOff" bind_click_to_widget="false">
+              <label>Schalten</label>
+              <address transform="DPT:1.001" mode="readwrite">11/3/180</address>
+            </switch>
+          </group>
+          <group name="Licht">
+            <switch mapping="OnOff" bind_click_to_widget="false">
+              <label>Schalten</label>
+              <address transform="DPT:1.001" mode="readwrite">10/3/80</address>
+            </switch>
+          </group>
+          <group name="Deckenspots">
+            <switch mapping="OnOff" bind_click_to_widget="false">
+              <label>Schalten</label>
+              <address transform="DPT:1.001" mode="readwrite">11/3/170</address>
+            </switch>
+          </group>
+          <group name="Dusch LED">
+            <switch mapping="OnOff" bind_click_to_widget="false">
+              <label>Schalten</label>
+              <address transform="DPT:1.001" mode="readwrite">11/3/190</address>
+            </switch>
+          </group>
+        </page>
+        <page name="[Fenster][3.8.2]Masterbad">
+          <group name="Fenster">
+            <layout colspan="3" />
+            <group nowidget="true" >
+              <layout colspan="3" />
+              <switch mapping="OpenClose" styling="OpenClose" bind_click_to_widget="false">
+                <layout colspan="3"/>
+                <label>Status</label>
+                <address transform="DPT:1.019" mode="read">0/3/9</address>
+              </switch>
+              <break/>
+            </group>
+          </group>
+        </page>
+        <page name="[Heizung][3.8.3]Masterbad">
+          <group name="Fußbodenheizung">
+            <layout colspan="12"/>
+            <info format="%.1f °C">
+              <label>Ist</label>
+              <address transform="DPT:9.001" mode="read">31/3/152</address>
+            </info>
+            <slide min="17" max="23" step="0.5" format="%.1f °C">
+              <layout colspan="6"/>
+              <label>Soll</label>
+              <address transform="DPT:9.001" mode="readwrite">31/3/150</address>
+            </slide>
+            <multitrigger button1label="Auto" button1value="auto" button2label="Komfort" button2value="comfort" button3label="Standy By" button3value="standby" button4label="Economy" button4value="economy" showstatus="true">
+              <label>Betriebsart</label>
+              <address transform="DPT:20.102" mode="readwrite">31/3/154</address>
+            </multitrigger>
+          </group>
+        </page>
+      </page>
+      <page name="[Tabs][3.9.0]Kinderbad" visible="false">
+        <navbar position="top">
+          <pagejump target="[Licht][3.9.1]Kinderbad">
+            <layout colspan="0"/>
+            <label>Licht</label>
+          </pagejump>
+          <pagejump target="[Fenster][3.9.2]Kinderbad">
+            <layout colspan="0"/>
+            <label>Fenster</label>
+          </pagejump>
+          <pagejump target="[Heizung][3.9.3]Kinderbad">
+            <layout colspan="0"/>
+            <label>Heizung</label>
+          </pagejump>
+        </navbar>
+        <page name="[Licht][3.9.1]Kinderbad">
+          <group name="Licht">
+            <switch mapping="OnOff" bind_click_to_widget="false">
+              <label>Schalten</label>
+              <address transform="DPT:1.001" mode="readwrite">10/3/90</address>
+            </switch>
+          </group>
+          <group name="Spiegel">
+            <switch mapping="OnOff" bind_click_to_widget="false">
+              <label>Schalten</label>
+              <address transform="DPT:1.001" mode="readwrite">11/3/220</address>
+            </switch>
+          </group>
+          <group name="Deckenspots">
+            <slide min="0" max="100" step="5" format="%d%%" >
+              <label>Dimmen</label>
+              <address transform="DPT:5.001" mode="readwrite">11/3/213</address>
+            </slide>
+            <slide min="0" max="100" step="5" format="%d%%" >
+              <label>Dimmen</label>
+              <address transform="DPT:5.001" mode="readwrite">11/3/214</address>
+            </slide>
+          </group>
+        </page>
+        <page name="[Fenster][3.9.2]Kinderbad">
+          <group name="Fenster">
+            <layout colspan="3" />
+            <group nowidget="true" >
+              <layout colspan="3" />
+              <switch mapping="OpenClose" styling="OpenClose" bind_click_to_widget="false">
+                <layout colspan="3"/>
+                <label>Status</label>
+                <address transform="DPT:1.019" mode="read">0/3/90</address>
+              </switch>
+              <break/>
+              <trigger value="0" mapping="AufAbSymbol" align="right">
+                <layout colspan="1"/>
+                <address transform="DPT:1.008" mode="readwrite">21/3/140</address>
+              </trigger>
+              <trigger value="0" mapping="Stop" align="right">
+                <layout colspan="1"/>
+                <address transform="DPT:1.009" mode="readwrite">21/3/141</address>
+              </trigger>
+              <trigger value="1" mapping="AufAbSymbol" align="right">
+                <layout colspan="1"/>
+                <address transform="DPT:1.008" mode="readwrite">21/3/140</address>
+              </trigger>
+              <break/>
+              <text align="left">
+                <layout colspan="0"/>
+                <label>
+                  <icon name="fts_shutter_10" color="#888888"/>
+                </label>
+              </text>
+              <slide min="0" max="100" step="10" format="%d%%">
+                <layout colspan="2"/>
+                <address transform="DPT:5.001" mode="readwrite">21/3/142</address>
+              </slide>
+              <text align="right">
+                <layout colspan="0"/>
+                <label>
+                  <icon name="fts_shutter_100" color="#888888"/>
+                </label>
+              </text>
+              <break/>
+              <text align="left">
+                <layout colspan="0"/>
+                <label>
+                  <icon name="fts_blade_s_00" color="#888888"/>
+                </label>
+              </text>
+              <slide min="0" max="100" step="10" format="%d%%">
+                <layout colspan="2"/>
+                <address transform="DPT:5.001" mode="readwrite">21/3/143</address>
+              </slide>
+              <text align="right">
+                <layout colspan="0"/>
+                <label>
+                  <icon name="fts_blade_s_100" color="#888888"/>
+                </label>
+              </text>
+              <break/>
+            </group>
+          </group>
+        </page>
+        <page name="[Heizung][3.9.3]Kinderbad">
+          <group name="Fußbodenheizung">
+            <layout colspan="12"/>
+            <info format="%.1f °C">
+              <label>Ist</label>
+              <address transform="DPT:9.001" mode="read">31/3/180</address>
+            </info>
+            <slide min="17" max="23" step="0.5" format="%.1f °C">
+              <layout colspan="6"/>
+              <label>Soll</label>
+              <address transform="DPT:9.001" mode="readwrite">31/3/181</address>
+            </slide>
+            <multitrigger button1label="Auto" button1value="auto" button2label="Komfort" button2value="comfort" button3label="Standy By" button3value="standby" button4label="Economy" button4value="economy" showstatus="true">
+              <label>Betriebsart</label>
+              <address transform="DPT:20.102" mode="readwrite">31/3/184</address>
+            </multitrigger>
+          </group>
+        </page>
+      </page>
+    </page>
+    <page name="[Menu][4.0.0]Dachgeschoss" visible="false">
+      <page name="[Header][4.0.1]Zentral">
+        <group name="Licht">
+          <switch mapping="OnOff" bind_click_to_widget="false">
+            <label>Schalten</label>
+            <address transform="DPT:1.001" mode="readwrite">10/4/0</address>
+          </switch>
+        </group>
+      </page>
+      <page name="[Tabs][4.1.0]Flur" visible="false">
+        <navbar position="top">
+          <pagejump target="[Licht][4.1.1]Flur">
+            <layout colspan="0"/>
+            <label>Licht</label>
+          </pagejump>
+          <pagejump target="[Heizung][4.1.3]Flur">
+            <layout colspan="0"/>
+            <label>Heizung</label>
+          </pagejump>
+        </navbar>
+        <page name="[Licht][4.1.1]Flur">
+          <group name="Licht">
+            <switch mapping="OnOff" bind_click_to_widget="false">
+              <label>Schalten</label>
+              <address transform="DPT:1.001" mode="readwrite">10/4/10</address>
+            </switch>
+          </group>
+          <group name="Wandleuchte">
+            <switch mapping="OnOff" bind_click_to_widget="false">
+              <label>Schalten</label>
+              <address transform="DPT:1.001" mode="readwrite">11/4/20</address>
+            </switch>
+          </group>
+        </page>
+        <page name="[Heizung][4.1.3]Flur">
+          <group name="Raumtemperatur">
+            <layout colspan="12"/>
+            <info format="%.1f °C">
+              <label>Ist</label>
+              <address transform="DPT:9.001" mode="read">31/4/10</address>
+            </info>
+          </group>
+        </page>
+      </page>
+      <page name="[Tabs][4.2.0]Dachboden" visible="false">
+        <navbar position="top">
+          <pagejump target="[Licht][4.2.1]Dachboden">
+            <layout colspan="0"/>
+            <label>Licht</label>
+          </pagejump>
+          <pagejump target="[Heizung][4.2.3]Dachboden">
+            <layout colspan="0"/>
+            <label>Heizung</label>
+          </pagejump>
+        </navbar>
+        <page name="[Licht][4.2.1]Dachboden">
+          <group name="Wandleuchte">
+            <switch mapping="OnOff" bind_click_to_widget="false">
+              <label>Schalten</label>
+              <address transform="DPT:1.001" mode="readwrite">11/4/50</address>
+            </switch>
+          </group>
+        </page>
+        <page name="[Heizung][4.2.3]Dachboden">
+          <group name="Raumtemperatur">
+            <layout colspan="12"/>
+            <info format="%.1f °C">
+              <label>Ist</label>
+              <address transform="DPT:9.001" mode="read">31/4/20</address>
+            </info>
+          </group>
+        </page>
+      </page>
+    </page>
+    <page name="[Menu][5.0.0]Außenbereich" visible="false">
+      <page name="[Tabs][5.0.0]Zentral" visible="false">
+        <navbar position="top">
+          <pagejump target="[Licht][5.0.1]Zentral">
+            <layout colspan="0"/>
+            <label>Licht</label>
+          </pagejump>
+          <pagejump target="[Fenster][5.0.2]Zentral">
+            <layout colspan="0"/>
+            <label>Fenster</label>
+          </pagejump>
+        </navbar>
+        <page name="[Licht][5.0.1]Zentral">
+          <group name="Licht">
+            <switch mapping="OnOff" bind_click_to_widget="false">
+              <label>Schalten</label>
+              <address transform="DPT:1.001" mode="readwrite">10/5/0</address>
+            </switch>
+          </group>
+        </page>
+        <page name="[Fenster][5.0.2]Zentral">
+          <group name="Sonnenschutz">
+            <layout colspan="3" />
+            <group nowidget="true" >
+              <layout colspan="3" />
+              <trigger value="0" mapping="AufAbSymbol" align="right">
+                <layout colspan="1"/>
+                <address transform="DPT:1.008" mode="readwrite">20/5/0</address>
+              </trigger>
+              <trigger value="0" mapping="Stop" align="right">
+                <layout colspan="1"/>
+                <address transform="DPT:1.009" mode="readwrite">20/5/1</address>
+              </trigger>
+              <trigger value="1" mapping="AufAbSymbol" align="right">
+                <layout colspan="1"/>
+                <address transform="DPT:1.008" mode="readwrite">20/5/0</address>
+              </trigger>
+              <break/>
+              <text align="left">
+                <layout colspan="0"/>
+                <label>
+                  <icon name="fts_shutter_10" color="#888888"/>
+                </label>
+              </text>
+              <slide min="0" max="100" step="10" format="%d%%">
+                <layout colspan="2"/>
+                <address transform="DPT:5.001" mode="readwrite">20/5/2</address>
+              </slide>
+              <text align="right">
+                <layout colspan="0"/>
+                <label>
+                  <icon name="fts_shutter_100" color="#888888"/>
+                </label>
+              </text>
+              <break/>
+            </group>
+          </group>
+        </page>
+      </page>
+      <page name="[Tabs][5.1.0]Garage" visible="false">
+        <navbar position="top">
+          <pagejump target="[Licht][5.1.1]Garage">
+            <layout colspan="0"/>
+            <label>Licht</label>
+          </pagejump>
+          <pagejump target="[Fenster][5.1.2]Garage">
+            <layout colspan="0"/>
+            <label>Fenster</label>
+          </pagejump>
+          <pagejump target="[Heizung][5.1.3]Garage">
+            <layout colspan="0"/>
+            <label>Heizung</label>
+          </pagejump>
+        </navbar>
+        <page name="[Licht][5.1.1]Garage">
+          <group name="Deckenlicht">
+            <switch mapping="OnOff" bind_click_to_widget="false">
+              <label>Schalten</label>
+              <address transform="DPT:1.001" mode="readwrite">11/5/20</address>
+            </switch>
+          </group>
+        </page>
+        <page name="[Fenster][5.1.2]Garage">
+          <group name="Garagentor">
+            <layout colspan="3" />
+            <group nowidget="true" >
+              <layout colspan="3" />
+              <trigger value="0" mapping="AufAbSymbol" align="right">
+                <layout colspan="1"/>
+                <address transform="DPT:1.008" mode="readwrite">21/5/10</address>
+              </trigger>
+              <trigger value="0" mapping="Stop" align="right">
+                <layout colspan="1"/>
+                <address transform="DPT:1.009" mode="readwrite">21/5/11</address>
+              </trigger>
+              <trigger value="1" mapping="AufAbSymbol" align="right">
+                <layout colspan="1"/>
+                <address transform="DPT:1.008" mode="readwrite">21/5/10</address>
+              </trigger>
+              <break/>
+            </group>
+          </group>
+        </page>
+        <page name="[Heizung][5.1.3]Garage">
+          <group name="Raumtemperatur">
+            <layout colspan="12"/>
+            <info format="%.1f °C">
+              <label>Ist</label>
+              <address transform="DPT:9.001" mode="read">31/5/10</address>
+            </info>
+          </group>
+        </page>
+      </page>
+      <page name="[Header][5.2.1]Eingangsbereich">
+        <group name="Deckenspots">
+          <switch mapping="OnOff" bind_click_to_widget="false">
+            <label>Schalten</label>
+            <address transform="DPT:1.001" mode="readwrite">11/5/40</address>
+          </switch>
+        </group>
+      </page>
+      <page name="[Tabs][5.3.0]Terrasse" visible="false">
+        <navbar position="top">
+          <pagejump target="[Licht][5.3.1]Terrasse">
+            <layout colspan="0"/>
+            <label>Licht</label>
+          </pagejump>
+          <pagejump target="[Fenster][5.3.2]Terrasse">
+            <layout colspan="0"/>
+            <label>Fenster</label>
+          </pagejump>
+        </navbar>
+        <page name="[Licht][5.3.1]Terrasse">
+          <group name="Wandleuchten">
+            <switch mapping="OnOff" bind_click_to_widget="false">
+              <label>Schalten</label>
+              <address transform="DPT:1.001" mode="readwrite">11/5/60</address>
+            </switch>
+          </group>
+          <group name="Licht">
+            <switch mapping="OnOff" bind_click_to_widget="false">
+              <label>Schalten</label>
+              <address transform="DPT:1.001" mode="readwrite">10/5/30</address>
+            </switch>
+          </group>
+          <group name="Steckdosen">
+            <switch mapping="OnOff" bind_click_to_widget="false">
+              <label>Schalten</label>
+              <address transform="DPT:1.001" mode="readwrite">11/5/70</address>
+            </switch>
+          </group>
+        </page>
+        <page name="[Fenster][5.3.2]Terrasse">
+          <group name="Markise">
+            <layout colspan="3" />
+            <group nowidget="true" >
+              <layout colspan="3" />
+              <trigger value="0" mapping="AufAbSymbol" align="right">
+                <layout colspan="1"/>
+                <address transform="DPT:1.008" mode="readwrite">21/5/20</address>
+              </trigger>
+              <trigger value="0" mapping="Stop" align="right">
+                <layout colspan="1"/>
+                <address transform="DPT:1.009" mode="readwrite">21/5/21</address>
+              </trigger>
+              <trigger value="1" mapping="AufAbSymbol" align="right">
+                <layout colspan="1"/>
+                <address transform="DPT:1.008" mode="readwrite">21/5/20</address>
+              </trigger>
+              <break/>
+              <text align="left">
+                <layout colspan="0"/>
+                <label>
+                  <icon name="fts_shutter_10" color="#888888"/>
+                </label>
+              </text>
+              <slide min="0" max="100" step="10" format="%d%%">
+                <layout colspan="2"/>
+                <address transform="DPT:5.001" mode="readwrite">21/5/22</address>
+              </slide>
+              <text align="right">
+                <layout colspan="0"/>
+                <label>
+                  <icon name="fts_shutter_100" color="#888888"/>
+                </label>
+              </text>
+              <break/>
+              <text align="left">
+                <layout colspan="0"/>
+                <label>
+                  <icon name="fts_blade_s_00" color="#888888"/>
+                </label>
+              </text>
+              <slide min="0" max="100" step="10" format="%d%%">
+                <layout colspan="2"/>
+                <address transform="DPT:5.001" mode="readwrite">21/5/23</address>
+              </slide>
+              <text align="right">
+                <layout colspan="0"/>
+                <label>
+                  <icon name="fts_blade_s_100" color="#888888"/>
+                </label>
+              </text>
+              <break/>
+            </group>
+          </group>
+        </page>
+      </page>
+      <page name="[Header][5.4.1]Balkon">
+        <group name="Wandleuchte">
+          <switch mapping="OnOff" bind_click_to_widget="false">
+            <label>Schalten</label>
+            <address transform="DPT:1.001" mode="readwrite">11/5/100</address>
+          </switch>
+        </group>
+        <group name="Licht">
+          <switch mapping="OnOff" bind_click_to_widget="false">
+            <label>Schalten</label>
+            <address transform="DPT:1.001" mode="readwrite">10/5/40</address>
+          </switch>
+        </group>
+      </page>
+      <page name="[Header][5.5.1]Garten">
+        <group name="Pool LED">
+          <switch mapping="OnOff" bind_click_to_widget="false">
+            <label>Schalten</label>
+            <address transform="DPT:1.001" mode="readwrite">11/5/120</address>
+          </switch>
+        </group>
+      </page>
+    </page>
   </page>
+	
 </pages>
