@@ -48,7 +48,11 @@ define( ['structure_custom', 'css!plugins/menu/menu' ], function( VisuDesign_Cus
       
 			return ret_val;
     },
-		
+		downaction: function( path, actor, isCanceled ) {
+			if (!$(actor).parent().hasClass("info")) {
+				templateEngine.design.defaultButtonDownAnimationInheritAction( path, actor );
+			}
+		},
 		action: function( path, actor, isCanceled ) {
 			$('.menuheader').each( function(){
 				var $menuheader = $(this);
