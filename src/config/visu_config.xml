@@ -613,7 +613,7 @@
 
 		<page name="[Settings]Settings" visible="false">
 			<group name="setup">
-				<layout colspan="12" rowspan="12"/>
+				<layout colspan="12"/>
 				<web src="designs/material/xmlparser/parser.html" width="800px" height="400px" frameborder="false" background="white">
 				</web>
 			</group>

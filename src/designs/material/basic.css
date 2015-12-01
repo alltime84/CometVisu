@@ -274,6 +274,8 @@ div#loading
 	display: block;
 	height: 48px;
 	line-height: 48px;
+	width: auto !important;
+	min-width: 88px;
 }
 
 #menu .menuitem.level1 .actor .value{
@@ -290,7 +292,7 @@ div#loading
 #menu .submenu .menuitem {
 	height: 32px;
 	line-height: 32px;
-	width: 100%;
+	width: auto;
 }
 
 #menu .submenu .menuitem.active {
@@ -300,6 +302,8 @@ div#loading
 #menu .submenu .menuitem .actor {
 	height: 32px;
 	white-space: nowrap;
+	width: auto !important;
+	min-width: 88px;
 }
 
 #menu .submenu .menuitem .actor .value{
@@ -826,7 +830,7 @@ div#loading
 
 /* widgets in group */
 
-.group .widget_container .widget:not(.trigger):not(.pagejump) {
+.group .widget_container .widget:not(.trigger):not(.pagejump):not(.web) {
 	margin: 0px 20px -1px 20px;
 	padding: 0px;
 	border-top-width: 1px;
