@@ -228,6 +228,7 @@ div#loading
 	margin: 0px;
 	top: 0px;
 	left: 0px;
+	bottom: 0px;
 	width: 100%;
 	background-color: rgba(0,0,0,0.3);
 	float: left;
@@ -240,7 +241,6 @@ div#loading
 	font-size: 18px;
 	background-color: rgba(255,255,255,1);
 	border-bottom: 1px solid #EBEBEB;
-	z-index: 100;
 }
 
 #menu .logo .actor{
@@ -253,13 +253,13 @@ div#loading
 	padding: 0px;
 	margin: 0px;
 	top: 0px;
+	bottom: 0px;
 	left: 0px;
 	width: 250px;
 	background-color: rgba(255,255,255,1);
 }
 
 #menu .menucontainer {
-	width: 100%;
 	padding: 0px;
 	margin: 0px;
 	width: 100%;

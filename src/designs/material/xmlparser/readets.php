@@ -135,9 +135,9 @@ function printFunctionsMobile($xmlDoc, $tab, $floor, $room, $name, $functions){
 	foreach ($functions as $key => $functionType){
 		if($functionType[0]->GroupAddressRef["Id"] != null || $functionType->GroupAddressRef["Id"] != null){
 			if ($functions["Fenster"][0]->GroupAddressRef["Id"] != null || $functions["Heizung"][0]->GroupAddressRef["Id"] != null){
-				echo printTab($tab)."&lt;page name=\"[".$key."][".$floor.".".$room.".".$functionnr."]".$name."\"&gt;"."<br/>";
+				echo printTab($tab)."&lt;page name=\"[".$key."][".$floor.".".$room.".".$functionnr."]".$name."\" visible=\"false\"&gt;"."<br/>";
 			} else {
-				echo printTab($tab)."&lt;page name=\"[MobileHeader][".$floor.".".$room.".".$functionnr."]".$name."\"&gt;"."<br/>";
+				echo printTab($tab)."&lt;page name=\"[MobileHeader][".$floor.".".$room.".".$functionnr."]".$name."\" visible=\"false\"&gt;"."<br/>";
 			}
 			$tab++;
 			
@@ -668,12 +668,17 @@ function printFunctionTypes($xmlDoc, $tab, $functionType, $mobile){
 						if ($mobile){
 							echo printTab($tab)."&lt;group&gt;<br/>";
 							$tab++;
-							echo printTab($tab)."&lt;layout colspan=\"3\"/&gt;<br/>";
+							echo printTab($tab)."&lt;layout colspan=\"6\"/&gt;<br/>";
 						}
 						
 						if($GAMode != null){
 							echo printTab($tab)."&lt;multitrigger button1label=\"Auto\" button1value=\"auto\" button2label=\"Komfort\" button2value=\"comfort\" button3label=\"Standy By\" button3value=\"standby\" button4label=\"Economy\" button4value=\"economy\" showstatus=\"true\"&gt;<br/>";
 							$tab++;
+							if ($mobile){
+								echo printTab($tab)."&lt;layout colspan=\"3\"/&gt;<br/>";
+							} else {
+								echo printTab($tab)."&lt;layout colspan=\"6\"/&gt;<br/>";
+							}
 							echo printTab($tab)."&lt;label&gt;Betriebsart&lt;/label&gt;<br/>";
 							echo printTab($tab)."&lt;address transform=\"DPT:20.102\" mode=\"readwrite\"&gt;".translateAddress($GAMode['Address'])."&lt;/address&gt;<br/>";
 							$tab--;
@@ -683,6 +688,11 @@ function printFunctionTypes($xmlDoc, $tab, $functionType, $mobile){
 						if($GATemperatureRead != null){
 							echo printTab($tab)."&lt;info format=\"%.1f ".utf8_decode(°)."C\"&gt;<br/>";
 							$tab++;
+							if ($mobile){
+								echo printTab($tab)."&lt;layout colspan=\"3\"/&gt;<br/>";
+							} else {
+								echo printTab($tab)."&lt;layout colspan=\"6\"/&gt;<br/>";
+							}
 							echo printTab($tab)."&lt;label&gt;Ist&lt;/label&gt;<br/>";
 							echo printTab($tab)."&lt;address transform=\"DPT:9.001\" mode=\"read\"&gt;".translateAddress($GATemperatureRead['Address'])."&lt;/address&gt;<br/>";
 							$tab--;
@@ -692,7 +702,11 @@ function printFunctionTypes($xmlDoc, $tab, $functionType, $mobile){
 						if($GATemperatureWrite != null){
 							echo printTab($tab)."&lt;slide min=\"17\" max=\"23\" step=\"0.5\" format=\"%.1f ".utf8_decode(°)."C\"&gt;<br/>";
 							$tab++;
-							echo printTab($tab)."&lt;layout colspan=\"6\"/&gt;<br/>";
+							if ($mobile){
+								echo printTab($tab)."&lt;layout colspan=\"3\"/&gt;<br/>";
+							} else {
+								echo printTab($tab)."&lt;layout colspan=\"6\"/&gt;<br/>";
+							}
 							echo printTab($tab)."&lt;label&gt;Soll&lt;/label&gt;<br/>";
 							echo printTab($tab)."&lt;address transform=\"DPT:9.001\" mode=\"readwrite\"&gt;".translateAddress($GATemperatureWrite['Address'])."&lt;/address&gt;<br/>";
 							$tab--;
@@ -907,7 +921,7 @@ for ($i = 0; $i < sizeof($floors); $i++){
 
 $tab = 1;
 
-echo printTab($tab)."&lt;page name=\"Start\" showtopnavigation=\"true\" showfooter=\"false\" shownavbar-left=\"true\"&gt;"."<br/>";
+echo printTab($tab)."&lt;page name=\"Start\" showtopnavigation=\"false\" showfooter=\"false\" shownavbar-left=\"true\"&gt;"."<br/>";
 $tab++;
 
 echo printTab($tab)."&lt;navbar position=\"top\"&gt;"."<br/>";
@@ -919,30 +933,30 @@ echo printTab($tab)."&lt;navbar position=\"left\" dynamic=\"true\" width=\"250\"
 $tab++;
 echo printTab($tab)."&lt;menu/&gt;"."<br/>";
 
-echo printTab($tab)."&lt;line/&gt;"."<br/>";
-echo printTab($tab)."&lt;pagejump target=\"[Settings]Settings\"&gt;"."<br/>";
-$tab++;
-echo printTab($tab)."&lt;layout colspan=\"6\"/&gt;"."<br/>";
-echo printTab($tab)."&lt;label&gt;Settings&lt;/label&gt;"."<br/>";
-$tab--;
-echo printTab($tab)."&lt;/pagejump&gt;"."<br/>";
+// echo printTab($tab)."&lt;line/&gt;"."<br/>";
+// echo printTab($tab)."&lt;pagejump target=\"[Settings]Settings\"&gt;"."<br/>";
+// $tab++;
+// echo printTab($tab)."&lt;layout colspan=\"6\"/&gt;"."<br/>";
+// echo printTab($tab)."&lt;label&gt;Settings&lt;/label&gt;"."<br/>";
+// $tab--;
+// echo printTab($tab)."&lt;/pagejump&gt;"."<br/>";
 $tab--;
 echo printTab($tab)."&lt;/navbar&gt;"."<br/>";
 
-echo printTab($tab)."&lt;page name=\"[Settings]Settings\" visible=\"false\"&gt;"."<br/>";
-$tab++;
-echo printTab($tab)."&lt;group name=\"setup\"&gt;"."<br/>";
-$tab++;
-echo printTab($tab)."&lt;layout colspan=\"12\"/&gt;"."<br/>";
-echo printTab($tab)."&lt;web src=\"designs/material/xmlparser/parser.html\" width=\"800px\" height=\"400px\" frameborder=\"false\" background=\"white\"&gt;"."<br/>";
-$tab++;
-echo printTab($tab)."&lt;layout colspan=\"12\"/&gt;"."<br/>";
-$tab--;
-echo printTab($tab)."&lt;/web&gt;"."<br/>";
-$tab--;
-echo printTab($tab)."&lt;/group&gt;"."<br/>";
-$tab--;
-echo printTab($tab)."&lt;/page&gt;"."<br/>";
+// echo printTab($tab)."&lt;page name=\"[Settings]Settings\" visible=\"false\"&gt;"."<br/>";
+// $tab++;
+// echo printTab($tab)."&lt;group name=\"setup\"&gt;"."<br/>";
+// $tab++;
+// echo printTab($tab)."&lt;layout colspan=\"12\"/&gt;"."<br/>";
+// echo printTab($tab)."&lt;web src=\"designs/material/xmlparser/parser.html\" width=\"800px\" height=\"400px\" frameborder=\"false\" background=\"white\"&gt;"."<br/>";
+// $tab++;
+// echo printTab($tab)."&lt;layout colspan=\"12\"/&gt;"."<br/>";
+// $tab--;
+// echo printTab($tab)."&lt;/web&gt;"."<br/>";
+// $tab--;
+// echo printTab($tab)."&lt;/group&gt;"."<br/>";
+// $tab--;
+// echo printTab($tab)."&lt;/page&gt;"."<br/>";
 
 //-------------------------------
 printFunctions($xmlDoc, $buildingXML, $tab, 0, 0, "Zentral");

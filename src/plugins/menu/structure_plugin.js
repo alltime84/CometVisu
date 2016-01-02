@@ -55,76 +55,76 @@ define( ['structure_custom', 'css!plugins/menu/menu' ], function( VisuDesign_Cus
 			}
 		},
 		action: function( path, actor, isCanceled ) {
-			$('.menuheader').each( function(){
-				var $menuheader = $(this);
-				$menuheader.removeClass('active');
-			});
-			
-			$('.menuitem').each( function(){
-				var $menuitem = $(this);
-				$menuitem.removeClass('active');
-			});
-			
 			//click on menubutton
 			if($(actor).parent().hasClass('logo')){
 				if (window.innerWidth <= templateEngine.maxMobileScreenWidth){
 					$('#navbarLeft').hide();
 				}
-			}
-
-			//click on menuitem level1
-			if($(actor).parent().hasClass('level1')){
-				var $menuitemlevel1 = $(actor).parent();
-				var $submenu = $(actor).parent().parent().children('.submenu');
-
-				$menuitemlevel1.addClass('active');
+			} else {
+				$('.menuheader').each( function(){
+					var $menuheader = $(this);
+					$menuheader.removeClass('active');
+				});
 				
-				if (!$submenu.children().length > 0) {
-					if($(actor).parent().hasClass('tabs')){
-						templateEngine.scrollToPage('id_' + $menuitemlevel1.attr('id').substring($menuitemlevel1.attr('id').indexOf('_') + 1, $menuitemlevel1.attr('id').length) + '_1_');
+				$('.menuitem').each( function(){
+					var $menuitem = $(this);
+					$menuitem.removeClass('active');
+				});
+				
+				//click on menuitem level1
+				if($(actor).parent().hasClass('level1')){
+					var $menuitemlevel1 = $(actor).parent();
+					var $submenu = $(actor).parent().parent().children('.submenu');
+
+					$menuitemlevel1.addClass('active');
+					
+					if (!$submenu.children().length > 0) {
+						if($(actor).parent().hasClass('tabs')){
+							templateEngine.scrollToPage('id_' + $menuitemlevel1.attr('id').substring($menuitemlevel1.attr('id').indexOf('_') + 1, $menuitemlevel1.attr('id').length) + '_1_');
+						} else {
+							templateEngine.scrollToPage('id_' + $menuitemlevel1.attr('id').substring($menuitemlevel1.attr('id').indexOf('_') + 1, $menuitemlevel1.attr('id').length) + '_');
+						}
 					} else {
-						templateEngine.scrollToPage('id_' + $menuitemlevel1.attr('id').substring($menuitemlevel1.attr('id').indexOf('_') + 1, $menuitemlevel1.attr('id').length) + '_');
-					}
-				} else {
-					if($submenu.is(":visible")){
-						$submenu.hide("slide", { direction: "up" }, 200);
-					} else {
-						$('.submenu').each( function(){
-							var $currentsubmenu = $(this);
-							$currentsubmenu.hide();
-						});
-						$submenu.show("slide", { direction: "up" }, 200);
+						if($submenu.is(":visible")){
+							$submenu.hide("slide", { direction: "up" }, 200);
+						} else {
+							$('.submenu').each( function(){
+								var $currentsubmenu = $(this);
+								$currentsubmenu.hide();
+							});
+							$submenu.show("slide", { direction: "up" }, 200);
+						}
 					}
 				}
-			}
-			
-			//click on menuitem level2
-			if($(actor).parent().hasClass('level2') && !$(actor).parent().hasClass('tabs')){
-				var $submenu = $(actor).parent().parent();
-				var $menuitemlevel2 = $(actor).parent();
-				var $menuitemlevel1 = $(actor).parent().parent().parent().children('.menuitem.level1');
-				var $page = $('#id_' + $menuitemlevel2.attr('id').substring($menuitemlevel2.attr('id').indexOf('_') + 1, $menuitemlevel2.attr('id').length) + '_');
 				
-				$menuitemlevel2.addClass('active');
-				$submenu.show();
-				$menuitemlevel1.addClass('active');
+				//click on menuitem level2
+				if($(actor).parent().hasClass('level2') && !$(actor).parent().hasClass('tabs')){
+					var $submenu = $(actor).parent().parent();
+					var $menuitemlevel2 = $(actor).parent();
+					var $menuitemlevel1 = $(actor).parent().parent().parent().children('.menuitem.level1');
+					var $page = $('#id_' + $menuitemlevel2.attr('id').substring($menuitemlevel2.attr('id').indexOf('_') + 1, $menuitemlevel2.attr('id').length) + '_');
+					
+					$menuitemlevel2.addClass('active');
+					$submenu.show();
+					$menuitemlevel1.addClass('active');
+					
+					templateEngine.scrollToPage($page.attr('id'));
+				}
 				
-				templateEngine.scrollToPage($page.attr('id'));
-			}
-			
-			//click on menuitem tabs
-			if($(actor).parent().hasClass('tabs')){
-				var $submenu = $(actor).parent().parent();
-				var $menuitemlevel2 = $(actor).parent();
-				var $menuitemlevel1 = $(actor).parent().parent().parent().children('.menuitem.level1');
-				var $page = $('#id_' + $menuitemlevel2.attr('id').substring($menuitemlevel2.attr('id').indexOf('_') + 1, $menuitemlevel2.attr('id').length) + '_');
-				var $page_tabs = $('#id_' + $menuitemlevel2.attr('id').substring($menuitemlevel2.attr('id').indexOf('_') + 1, $menuitemlevel2.attr('id').length) + '_1_');
-				
-				$menuitemlevel2.addClass('active');
-				$submenu.show();
-				$menuitemlevel1.addClass('active');
-				
-				templateEngine.scrollToPage($page_tabs.attr('id'));
+				//click on menuitem tabs
+				if($(actor).parent().hasClass('tabs')){
+					var $submenu = $(actor).parent().parent();
+					var $menuitemlevel2 = $(actor).parent();
+					var $menuitemlevel1 = $(actor).parent().parent().parent().children('.menuitem.level1');
+					var $page = $('#id_' + $menuitemlevel2.attr('id').substring($menuitemlevel2.attr('id').indexOf('_') + 1, $menuitemlevel2.attr('id').length) + '_');
+					var $page_tabs = $('#id_' + $menuitemlevel2.attr('id').substring($menuitemlevel2.attr('id').indexOf('_') + 1, $menuitemlevel2.attr('id').length) + '_1_');
+					
+					$menuitemlevel2.addClass('active');
+					$submenu.show();
+					$menuitemlevel1.addClass('active');
+					
+					templateEngine.scrollToPage($page_tabs.attr('id'));
+				}
 			}
 		}
   });

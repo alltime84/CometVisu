@@ -44,11 +44,15 @@ body
 	margin-left: 0px;
 }
 
+#menu {
+
+}
+
 #menu .menu {
 	-webkit-box-shadow: 0px 0px 8px gray;
   -moz-box-shadow: 0px 0px 8px gray;
   box-shadow: 0px 0px 8px gray;
-	min-height: 500px;
+	
 }
 
 /* #navbarLeft,
@@ -69,11 +73,6 @@ body
 
 #navbarLeft .navbar {
 	width: 250px !important;
-	position: relative !important;
-	top: 0px !important;
-	left: 0px !important;
-	z-index: 0 !important;
-	height: 100% !important;
 	background-color: rgba(255,255,255,1);
 } 
 
