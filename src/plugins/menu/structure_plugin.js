@@ -47,7 +47,7 @@ define( ['structure_custom', 'css!plugins/menu/menu' ], function( VisuDesign_Cus
 				//buildMenu( page, path );
 				
 				//for mobile devices hide navbarLeft on scrolltopage
-				if (window.innerWidth <= 1000){
+				if (window.innerWidth <= templateEngine.maxMobileScreenWidth){
 					$('#navbarLeft').hide();
 				}
 			});	
@@ -72,7 +72,7 @@ define( ['structure_custom', 'css!plugins/menu/menu' ], function( VisuDesign_Cus
 			
 			//click on menubutton
 			if($(actor).parent().hasClass('logo')){
-				if (window.innerWidth <= 1000){
+				if (window.innerWidth <= templateEngine.maxMobileScreenWidth){
 					$('#navbarLeft').hide();
 				}
 			}
@@ -147,7 +147,7 @@ define( ['structure_custom', 'css!plugins/menu/menu' ], function( VisuDesign_Cus
 				
 				if ($('#id_' + i + '_ h1').text().indexOf('[Settings]') == -1) {
 					
-					if (window.innerWidth <= 1000) {
+					if (window.innerWidth <= templateEngine.maxMobileScreenWidth) {
 						if ($('#id_' + i + '_ h1').text().indexOf('[MobileTabs') >= 0){
 							nav += '<div class="menucontainer" id="menucontainerid_'+ i + '">';
 							nav += '<div class="menuitem level1 tabs" id="menuitemid_'+ i + '">';
@@ -178,7 +178,7 @@ define( ['structure_custom', 'css!plugins/menu/menu' ], function( VisuDesign_Cus
 					
 					for ( var j = 0; j < 20; j++) {
 						if ($('#id_' + i + '_' + j + '_').hasClass('page')) {
-							if (window.innerWidth <= 1000){
+							if (window.innerWidth <= templateEngine.maxMobileScreenWidth){
 								if ($('#id_' + i + '_' + j + '_ h1').text().indexOf('[MobileHeader]') >= 0) {
 									name = $('#id_' + i + '_' + j + '_ h1').text();
 									name = name.substring(name.lastIndexOf(']') + 1, name.length);
@@ -216,7 +216,7 @@ define( ['structure_custom', 'css!plugins/menu/menu' ], function( VisuDesign_Cus
 					
 					nav += '</div>';
 					
-					if (window.innerWidth <= 1000) {
+					if (window.innerWidth <= templateEngine.maxMobileScreenWidth) {
 						if ($('#id_' + i + '_ h1').text().indexOf('[MobileTabs') >= 0){
 							nav += '</div>';
 						} else if ($('#id_' + i + '_ h1').text().indexOf('[Menu') >= 0){

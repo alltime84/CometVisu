@@ -94,7 +94,7 @@ define( ['structure_custom', 'css!plugins/header/header' ], function( VisuDesign
 		
 		//link = '<a href="javascript:templateEngine.scrollToPage(\'id_2_\')"><img src=\'icon/ic_menu_white_24dp_1x.png\'/></a>';
 		//for mobile devices hide navbarLeft on scrolltopage
-		if (window.innerWidth <= 1000){
+		if (window.innerWidth <= templateEngine.maxMobileScreenWidth){
 			link += '<div class="actor switchUnpressed">';
 			link += '<div class="value"><img src=\'icon/ic_menu_white_24dp_1x.png\'/></div>';
 			link += '</div>';
