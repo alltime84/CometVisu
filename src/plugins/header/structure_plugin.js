@@ -37,6 +37,18 @@ define( ['structure_custom', 'css!plugins/header/header' ], function( VisuDesign
 					refreshHeader( page, path );
 			});
 			
+			// var resizeTimer;
+			
+			// $(window).bind('resize', function( page, path ){
+				// clearTimeout(resizeTimer);
+				// resizeTimer = setTimeout(function() {
+
+					// refreshHeader( page, path );
+									
+				// }, 250);
+				
+			// });
+			
 			$(window).bind('scrolltopage', function( page, path ){
 				refreshHeader( page, path );
 			});
@@ -45,7 +57,7 @@ define( ['structure_custom', 'css!plugins/header/header' ], function( VisuDesign
     },
 		
 		action: function( path, actor, isCanceled ) {
-			$('#navbarLeft').show(400);
+			$('#navbarLeft').show("slide", { direction: "left" }, 200);
 		}
 
   });
@@ -64,7 +76,7 @@ define( ['structure_custom', 'css!plugins/header/header' ], function( VisuDesign
 				if ($('#' + id + ' h1').text().indexOf('[Menu]') > -1){
 					link_id = id;
 				}
-				if ($('#' + id + ' h1').text().indexOf('[Header]') > -1 || $('#' + id + ' h1').text().indexOf('[Tabs]') > -1){
+				if ($('#' + id + ' h1').text().indexOf('Header]') > -1 || $('#' + id + ' h1').text().indexOf('Tabs]') > -1){
 					active_page = $('#' + id + ' h1').text();
 				} else if ($('#' + id + ' h1').text().indexOf('[Menu]') > -1){
 					active_page = $('#' + id + ' h1').text();
@@ -74,7 +86,7 @@ define( ['structure_custom', 'css!plugins/header/header' ], function( VisuDesign
 
 		if (active_page.indexOf('[Menu]') > -1){
 			active_page = active_page.substring(active_page.lastIndexOf(']') + 1, active_page.length);
-		} else if (active_page.indexOf('[Header]') > -1 || active_page.indexOf('[Tabs]') > -1){
+		} else if (active_page.indexOf('Header]') > -1 || active_page.indexOf('Tabs]') > -1){
 			active_page = active_page.substring(active_page.lastIndexOf(']') + 1, active_page.length);
 		} else {
 			active_page = 'CometVisu';
@@ -82,7 +94,7 @@ define( ['structure_custom', 'css!plugins/header/header' ], function( VisuDesign
 		
 		//link = '<a href="javascript:templateEngine.scrollToPage(\'id_2_\')"><img src=\'icon/ic_menu_white_24dp_1x.png\'/></a>';
 		//for mobile devices hide navbarLeft on scrolltopage
-		if (window.innerHeight < 600 || window.innerWidth < 600){
+		if (window.innerWidth <= 1000){
 			link += '<div class="actor switchUnpressed">';
 			link += '<div class="value"><img src=\'icon/ic_menu_white_24dp_1x.png\'/></div>';
 			link += '</div>';

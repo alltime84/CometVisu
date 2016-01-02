@@ -29,7 +29,13 @@ define( ['structure_custom', 'css!plugins/menu/menu' ], function( VisuDesign_Cus
         classes += ' custom_'+$p.attr('class');
       }
       //classes += templateEngine.design.setWidgetLayout( $p, path );
+			
       var ret_val = '<div id="menu">';
+			ret_val += '<div class="logo">';
+			ret_val += '<div class="actor switchUnpressed">';
+			ret_val += '<div class="value" align="center"><img src=\'icon/ic_menu_black_24dp.png\' width="24px" height="24px"/></div>';
+			ret_val += '</div>';
+			ret_val += 'CometVisu</div>';
 			ret_val += '<div class="'+ classes + '"></div>';
 			ret_val += '</div>'
 			
@@ -41,7 +47,7 @@ define( ['structure_custom', 'css!plugins/menu/menu' ], function( VisuDesign_Cus
 				//buildMenu( page, path );
 				
 				//for mobile devices hide navbarLeft on scrolltopage
-				if (window.innerHeight < 600 || window.innerWidth < 600){
+				if (window.innerWidth <= 1000){
 					$('#navbarLeft').hide();
 				}
 			});	
@@ -59,15 +65,17 @@ define( ['structure_custom', 'css!plugins/menu/menu' ], function( VisuDesign_Cus
 				$menuheader.removeClass('active');
 			});
 			
-			$('.submenu').each( function(){
-				var $submenu = $(this);
-				$submenu.hide();
-			});
-			
 			$('.menuitem').each( function(){
 				var $menuitem = $(this);
 				$menuitem.removeClass('active');
 			});
+			
+			//click on menubutton
+			if($(actor).parent().hasClass('logo')){
+				if (window.innerWidth <= 1000){
+					$('#navbarLeft').hide();
+				}
+			}
 
 			//click on menuitem level1
 			if($(actor).parent().hasClass('level1')){
@@ -83,7 +91,15 @@ define( ['structure_custom', 'css!plugins/menu/menu' ], function( VisuDesign_Cus
 						templateEngine.scrollToPage('id_' + $menuitemlevel1.attr('id').substring($menuitemlevel1.attr('id').indexOf('_') + 1, $menuitemlevel1.attr('id').length) + '_');
 					}
 				} else {
-					$submenu.show(400);
+					if($submenu.is(":visible")){
+						$submenu.hide("slide", { direction: "up" }, 200);
+					} else {
+						$('.submenu').each( function(){
+							var $currentsubmenu = $(this);
+							$currentsubmenu.hide();
+						});
+						$submenu.show("slide", { direction: "up" }, 200);
+					}
 				}
 			}
 			
@@ -130,50 +146,87 @@ define( ['structure_custom', 'css!plugins/menu/menu' ], function( VisuDesign_Cus
 				name = name.substring(name.lastIndexOf(']') + 1, name.length);
 				
 				if ($('#id_' + i + '_ h1').text().indexOf('[Settings]') == -1) {
-				
-					nav += '<div class="menucontainer" id="menucontainerid_'+ i + '">';
 					
-					if ($('#id_' + i + '_ h1').text().indexOf('Tabs') > 0) {
-						nav += '<div class="menuitem level1 tabs" id="menuitemid_'+ i + '">';
+					if (window.innerWidth <= 1000) {
+						if ($('#id_' + i + '_ h1').text().indexOf('[MobileTabs') >= 0){
+							nav += '<div class="menucontainer" id="menucontainerid_'+ i + '">';
+							nav += '<div class="menuitem level1 tabs" id="menuitemid_'+ i + '">';
+							nav += '<div class="actor switchUnpressed">';
+							nav += '<div class="value">' + name + '</div>';
+							nav += '</div>';
+							nav += '</div>';
+						} else if ($('#id_' + i + '_ h1').text().indexOf('[Menu') >= 0){
+							nav += '<div class="menucontainer" id="menucontainerid_'+ i + '">';
+							nav += '<div class="menuitem level1" id="menuitemid_'+ i + '">';
+							nav += '<div class="actor switchUnpressed">';
+							nav += '<div class="value">' + name + '</div>';
+							nav += '</div>';
+							nav += '</div>';
+						}
 					} else {
-						nav += '<div class="menuitem level1" id="menuitemid_'+ i + '">';
+						if ($('#id_' + i + '_ h1').text().indexOf('[Menu') >= 0 || $('#id_' + i + '_ h1').text().indexOf('[DesktopHeader') >= 0){
+							nav += '<div class="menucontainer" id="menucontainerid_'+ i + '">';
+							nav += '<div class="menuitem level1" id="menuitemid_'+ i + '">';
+							nav += '<div class="actor switchUnpressed">';
+							nav += '<div class="value">' + name + '</div>';
+							nav += '</div>';
+							nav += '</div>';
+						}
 					}
-					
-					nav += '<div class="actor switchUnpressed">';
-					nav += '<div class="value">' + name + '</div>';
-					nav += '</div>';
-					
-					nav += '</div>';
 					
 					nav += '<div class="submenu" id="submenuid_'+ i + '" style="display:none">';
 					
-					for ( var j = 0; j < 10; j++) {
+					for ( var j = 0; j < 20; j++) {
 						if ($('#id_' + i + '_' + j + '_').hasClass('page')) {
-							if ($('#id_' + i + '_' + j + '_ h1').text().indexOf('Header') > 0) {
-								name = $('#id_' + i + '_' + j + '_ h1').text();
-								name = name.substring(name.lastIndexOf(']') + 1, name.length);
-								nav += '<div class="menuitem level2" id="menuitemid_' + i + '_' + j + '">';
-								nav += '<div class="actor switchUnpressed">';
-								nav += '<div class="value">' + name + '</div>';
-								nav += '</div>';
-								nav += '</div>';
-							}
-							
-							if ($('#id_' + i + '_' + j + '_ h1').text().indexOf('Tabs') > 0) {
-								name = $('#id_' + i + '_' + j + '_ h1').text();
-								name = name.substring(name.lastIndexOf(']') + 1, name.length);
-								nav += '<div class="menuitem level2 tabs" id="menuitemid_' + i + '_' + j + '">';
-								nav += '<div class="actor switchUnpressed">';
-								nav += '<div class="value">' + name + '</div>';
-								nav += '</div>';
-								nav += '</div>';
+							if (window.innerWidth <= 1000){
+								if ($('#id_' + i + '_' + j + '_ h1').text().indexOf('[MobileHeader]') >= 0) {
+									name = $('#id_' + i + '_' + j + '_ h1').text();
+									name = name.substring(name.lastIndexOf(']') + 1, name.length);
+									nav += '<div class="menuitem level2" id="menuitemid_' + i + '_' + j + '">';
+									nav += '<div class="actor switchUnpressed">';
+									nav += '<div class="value">' + name + '</div>';
+									nav += '</div>';
+									nav += '</div>';
+								}
+								
+								if ($('#id_' + i + '_' + j + '_ h1').text().indexOf('[MobileTabs]') >= 0) {
+									name = $('#id_' + i + '_' + j + '_ h1').text();
+									name = name.substring(name.lastIndexOf(']') + 1, name.length);
+									nav += '<div class="menuitem level2 tabs" id="menuitemid_' + i + '_' + j + '">';
+									nav += '<div class="actor switchUnpressed">';
+									nav += '<div class="value">' + name + '</div>';
+									nav += '</div>';
+									nav += '</div>';
+								}
+							} else {
+								if ($('#id_' + i + '_' + j + '_ h1').text().indexOf('[DesktopHeader]') >= 0) {
+									name = $('#id_' + i + '_' + j + '_ h1').text();
+									name = name.substring(name.lastIndexOf(']') + 1, name.length);
+									nav += '<div class="menuitem level2" id="menuitemid_' + i + '_' + j + '">';
+									nav += '<div class="actor switchUnpressed">';
+									nav += '<div class="value">' + name + '</div>';
+									nav += '</div>';
+									nav += '</div>';
+								}
+								
+								
 							}
 						}
 					}
 					
 					nav += '</div>';
-					nav += '</div>';
-				
+					
+					if (window.innerWidth <= 1000) {
+						if ($('#id_' + i + '_ h1').text().indexOf('[MobileTabs') >= 0){
+							nav += '</div>';
+						} else if ($('#id_' + i + '_ h1').text().indexOf('[Menu') >= 0){
+							nav += '</div>';
+						}
+					} else {
+						if ($('#id_' + i + '_ h1').text().indexOf('[Menu') >= 0 || $('#id_' + i + '_ h1').text().indexOf('[DesktopHeader') >= 0){
+							nav += '</div>';
+						}
+					}
 				}
 			}
 		}

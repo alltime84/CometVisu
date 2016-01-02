@@ -63,7 +63,8 @@ img {
 
 .page
 {
-
+	padding: 0px;
+	margin: 0px;
 }
 
 .page h1
@@ -174,9 +175,9 @@ div#loading
 #navbarTop {
 	border-bottom: none;
 	
-	-webkit-box-shadow: 0px 0px 8px gray;
-  -moz-box-shadow: 0px 0px 8px gray;
-  box-shadow: 0px 0px 8px gray;
+	-webkit-box-shadow: 0px 0px 12px gray;
+  -moz-box-shadow: 0px 0px 12px gray;
+  box-shadow: 0px 0px 12px gray;
 	
 	position: relative;
 	z-index: 9;
@@ -191,20 +192,16 @@ div#loading
 /************************************************************/
 
 #header {
-	background-color: transparent;
 	margin: 0px 0px 0px 0px;
 	padding: 0px 0px 0px 0px;
-	color: #FFFFFF;
 	height: 48px;
 	font-size: 22px;
 	white-space: nowrap;
 }
 
 #header .header {
-	background-color: transparent;
 	margin: 0px 0px 0px 0px;
 	padding: 0px 0px 0px 0px;
-	color: #FFFFFF;
 	height: 48px;
 	line-height: 48px;
 	font-size: 22px;
@@ -235,6 +232,21 @@ div#loading
 	background-color: rgba(0,0,0,0.3);
 	float: left;
 	height: 100%;
+}
+
+#menu .logo {
+	height: 48px;
+	line-height: 48px;
+	font-size: 18px;
+	background-color: rgba(255,255,255,1);
+	border-bottom: 1px solid #EBEBEB;
+	z-index: 100;
+}
+
+#menu .logo .actor{
+	float: left;
+	width: 78px !important;
+	height: 48px !important;
 }
 
 #menu .menu {
@@ -282,33 +294,36 @@ div#loading
 	margin: 0px 0px 0px 20px;
 	height: 48px;
 	font-size: 14px;
+	font-weight: bold;
 	line-height: 48px;
 }
 
 #menu .submenu {
-	margin: 0px 0px 0px 60px;
+	margin: 0px 0px 0px 0px;
 }
 
 #menu .submenu .menuitem {
-	height: 32px;
-	line-height: 32px;
+	height: 40px;
+	line-height: 40px;
 	width: auto;
 }
 
 #menu .submenu .menuitem.active {
 	color: green;
+	font-weight: bold;
 }
 
 #menu .submenu .menuitem .actor {
-	height: 32px;
+	height: 40px;
 	white-space: nowrap;
 	width: auto !important;
 	min-width: 88px;
 }
 
 #menu .submenu .menuitem .actor .value{
-	line-height: 32px;
-	font-size: 12px;
+	margin: 0px 0px 0px 60px;
+	line-height: 40px;
+	font-size: 14px;
 }
 
 /************************************************************/
@@ -717,14 +732,7 @@ div#loading
 /************************************************************/
 
 #bottom  {
-	height: 20px;
-	padding: 0px;
-	margin: 0px;
-	font-size: 10px;
-	position: relative;
-	top: 0px;
-	z-index: 10;
-	width: 100%;
+	display: none !important;
 }
 
 #bottom  hr {
@@ -799,6 +807,15 @@ div#loading
 	margin: 0px;
 }
 
+/* headline */
+.widget.text.flavour_test {
+	margin-left: 10px;
+	margin-top: 10px;
+	background-color: transparent !important;
+	line-height: 25px;
+	height: 25px;
+}
+
 .widget .text > div {
 	height: 59px;
 }
@@ -822,13 +839,14 @@ div#loading
 /* widgets in group */
 
 .group .widget_container .widget:not(.trigger):not(.pagejump):not(.web) {
-	margin: 0px 20px -1px 20px;
+	margin: -1px 20px -1px 20px;
 	padding: 0px;
 	border-top-width: 1px;
 	border-top-style: solid;
 	border-left: none;
-	border-bottom-width: 1px;
-	border-bottom-style: solid;
+	border-bottom: none;
+	/* border-bottom-width: 1px; */
+	/* border-bottom-style: solid; */
 	border-right: none;
 	float: none;
 	height: 59px;
@@ -839,13 +857,14 @@ div#loading
 }
 
 .group .widget_container .group:not(.widget):not(.trigger){
-	margin: 0px 20px -1px 20px;
+	margin: -1px 20px -1px 20px;
 	padding: 0px;
 	border-top-width: 1px;
 	border-top-style: solid;
 	border-left: none;
-	border-bottom-width: 1px;
-	border-bottom-style: solid;
+	border-bottom: none;
+	/* border-bottom-width: 1px; */
+	/* border-bottom-style: solid; */
 	border-right: none;
 	float: none;
 	min-height: 59px;
@@ -858,7 +877,8 @@ div#loading
 /* slide or switch in group - no border! */
 .group:not(.widget) .widget_container .widget.slide,
 .group:not(.widget) .widget_container .widget.switch,
-.group:not(.widget) .widget_container .widget.text {
+.group:not(.widget) .widget_container .widget.text,
+.group:not(.widget) .widget_container .widget.info {
 	margin: 0px !important;
 	padding: 0px !important;
 	border: none !important;
@@ -995,10 +1015,11 @@ div#loading
 
 }
 
-.switchPressed .value,
-.switchUnpressed .value
+.switch .switchPressed .value,
+.switch .switchUnpressed .value
 {
 	height: 36px;
+	text-align: right;
 }
 
 .switchUnpressed div,
@@ -1116,7 +1137,7 @@ div#loading
 	padding: 0px 10px 0px 10px;
 	text-align: center;
 	margin: 0px;
-	line-height: 40px;
+	line-height: 30px;
 	text-transform: uppercase;
 }
 
@@ -1126,10 +1147,11 @@ div#loading
 	box-shadow: 0px 2px 6px gray;
 }
 
-.trigger .actor .switchPressed,
-.trigger .actor .switchUnpressed
+.trigger .actor.switchPressed,
+.trigger .actor.switchUnpressed
 {
-	
+	margin: 0px;
+	padding: 0px;
 }
 
 /* .trigger .switchPressed .value,
@@ -1174,6 +1196,7 @@ div#loading
 {
 	line-height: 60px;
 	font-size: 16px;
+	text-align: right;
 }
 
 /************************************************************/
@@ -1311,25 +1334,27 @@ div#loading
 .multitrigger {
 	margin: 0px;
 	padding: 0px;
+	height: 118px !important;
 }
 
 .multitrigger .label{
 	margin: 0px;
 	padding: 0px;
-	height: 60px;
+	line-height: 60px;
 }
 
 
 .multitrigger .actor_container {
-	padding: 0px 0px 0px 0px;
-	margin: 0px;
+	padding: 0px;
+	margin: 20px 0px 0px 0px;
 	-webkit-box-shadow: 0px 1px 4px gray;
 	-moz-box-shadow: 0px 1px 4px gray;
 	box-shadow: 0px 1px 4px gray;
 	-moz-border-radius: 2px;
 	-webkit-border-radius: 2px;
 	border-radius: 2px;
-	white-space: nowrap;
+	text-align: right;
+	width: 50%;
 }
 
 .multitrigger .actor {
@@ -1406,7 +1431,7 @@ div#loading
 
 .widget .ui-slider
 {
-  width: 46%;
+  width: 50%;
   float: left;
 	margin: 0 auto;
 
@@ -1443,7 +1468,7 @@ div#loading
 }
 
 #pages .page .widget .ui-slider-horizontal:first-child  {
-  width: 87%;
+  width: 100%;
 	margin: 0px auto !important;
 }
 

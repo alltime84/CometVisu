@@ -216,7 +216,8 @@ function TemplateEngine( undefined ) {
   this.bindClickToWidget = false;
     
   // threshold where the mobile.css is loaded
-  this.maxMobileScreenWidth = 480;
+	// this.maxMobileScreenWidth = 480; // modified for Menu Plugin!
+  this.maxMobileScreenWidth = 1000;
   // use to recognize if the screen width has crossed the maxMobileScreenWidth
   var lastBodyWidth=0;
 

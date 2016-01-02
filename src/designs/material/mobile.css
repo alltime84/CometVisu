@@ -78,7 +78,7 @@ body
 } 
 
 #bottom {
-    /* display: none !important; */
+    display: none !important;
 }
 
 .widget .ui-slider
