@@ -628,7 +628,7 @@
       <group>
         <layout colspan="12"/>
         <group nowidget="true">
-          <layout colspan="6"/>
+          <layout colspan="12"/>
           <text>
             <layout colspan="3"/>
             <label>Licht schalten</label>
@@ -642,7 +642,6 @@
             <address transform="DPT:1.008" mode="write">0/0/0</address>
           </trigger>
         </group>
-        <break/>
       </group>
       <text flavour="test">
         <label>Fenster</label>
@@ -762,7 +761,7 @@
       </page>
       <page name="[Heizung][0.0.3]Zentral">
         <group>
-          <layout colspan="6"/>
+          <layout colspan="3"/>
         </group>
       </page>
       <page name="[Sicherheit][0.0.4]Zentral">
@@ -788,7 +787,7 @@
         <group>
           <layout colspan="12"/>
           <group nowidget="true">
-            <layout colspan="6"/>
+            <layout colspan="12"/>
             <text>
               <layout colspan="3"/>
               <label>Licht</label>
@@ -802,7 +801,6 @@
               <address transform="DPT:1.008" mode="write">0/0/0</address>
             </trigger>
           </group>
-          <break/>
         </group>
         <text flavour="test">
           <label>Fenster</label>
@@ -812,22 +810,14 @@
           <group nowidget="true" >
             <layout colspan="6"/>
             <switch mapping="DoorOpenClose" styling="OpenClose" bind_click_to_widget="false">
-              <layout colspan="3"/>
+              <layout colspan="2.5"/>
               <label>Sonnenschutz</label>
               <address transform="DPT:1.019" mode="read">0/3/20</address>
             </switch>
-            <trigger value="0" mapping="AufAbSymbol" align="right">
-              <layout colspan="1"/>
-              <address transform="DPT:1.008" mode="write">0/0/0</address>
-            </trigger>
-            <trigger value="0" mapping="Stop" align="right">
-              <layout colspan="1"/>
-              <address transform="DPT:1.009" mode="write">0/0/0</address>
-            </trigger>
-            <trigger value="1" mapping="AufAbSymbol" align="right">
-              <layout colspan="1"/>
-              <address transform="DPT:1.008" mode="write">0/0/0</address>
-            </trigger>
+            <text>
+              <layout colspan="0.5"/>
+              <label></label>
+            </text>
             <break/>
           </group>
         </group>
@@ -885,7 +875,7 @@
         <group>
           <layout colspan="12"/>
           <group nowidget="true">
-            <layout colspan="6"/>
+            <layout colspan="12"/>
             <text>
               <layout colspan="3"/>
               <label>Licht</label>
@@ -899,7 +889,6 @@
               <address transform="DPT:1.008" mode="write">0/0/0</address>
             </trigger>
           </group>
-          <break/>
           <switch mapping="OnOff" bind_click_to_widget="false">
             <layout colspan="6"/>
             <label>Deckenlicht</label>
@@ -970,6 +959,10 @@
         </text>
         <group>
           <layout colspan="12"/>
+          <multitrigger mapping="KonnexHVACSymbol" button1label="Auto" button1value="auto" button2label="Komfort" button2value="comfort" button3label="Standy By" button3value="standby" button4label="Economy" button4value="economy" showstatus="true">
+            <label>Betriebsart</label>
+            <address transform="DPT:20.102" mode="readwrite">31/1/24</address>
+          </multitrigger>
           <info format="%.1f °C">
             <label>Ist</label>
             <address transform="DPT:9.001" mode="read">31/1/20</address>
@@ -979,10 +972,6 @@
             <label>Soll</label>
             <address transform="DPT:9.001" mode="readwrite">31/1/22</address>
           </slide>
-          <multitrigger mapping="KonnexHVACSymbol" button1label="Auto" button1value="auto" button2label="Komfort" button2value="comfort" button3label="Standy By" button3value="standby" button4label="Economy" button4value="economy" showstatus="true">
-            <label>Betriebsart</label>
-            <address transform="DPT:20.102" mode="readwrite">31/1/24</address>
-          </multitrigger>
         </group>
       </page>
       <page name="[MobileTabs][1.2.0]Party WC" visible="false">
@@ -1009,7 +998,11 @@
         </page>
         <page name="[Heizung][1.2.3]Party WC">
           <group>
-            <layout colspan="6"/>
+            <layout colspan="3"/>
+            <multitrigger mapping="KonnexHVACSymbol" button1label="Auto" button1value="auto" button2label="Komfort" button2value="comfort" button3label="Standy By" button3value="standby" button4label="Economy" button4value="economy" showstatus="true">
+              <label>Betriebsart</label>
+              <address transform="DPT:20.102" mode="readwrite">31/1/24</address>
+            </multitrigger>
             <info format="%.1f °C">
               <label>Ist</label>
               <address transform="DPT:9.001" mode="read">31/1/20</address>
@@ -1019,10 +1012,6 @@
               <label>Soll</label>
               <address transform="DPT:9.001" mode="readwrite">31/1/22</address>
             </slide>
-            <multitrigger mapping="KonnexHVACSymbol" button1label="Auto" button1value="auto" button2label="Komfort" button2value="comfort" button3label="Standy By" button3value="standby" button4label="Economy" button4value="economy" showstatus="true">
-              <label>Betriebsart</label>
-              <address transform="DPT:20.102" mode="readwrite">31/1/24</address>
-            </multitrigger>
           </group>
         </page>
       </page>
@@ -1033,7 +1022,7 @@
         <group>
           <layout colspan="12"/>
           <group nowidget="true">
-            <layout colspan="6"/>
+            <layout colspan="12"/>
             <text>
               <layout colspan="3"/>
               <label>Licht</label>
@@ -1047,7 +1036,6 @@
               <address transform="DPT:1.008" mode="write">0/0/0</address>
             </trigger>
           </group>
-          <break/>
           <switch mapping="OnOff" bind_click_to_widget="false">
             <layout colspan="6"/>
             <label>Deckenlicht</label>
@@ -1069,22 +1057,14 @@
           <group nowidget="true" >
             <layout colspan="6"/>
             <switch mapping="DoorOpenClose" styling="OpenClose" bind_click_to_widget="false">
-              <layout colspan="3"/>
+              <layout colspan="2.5"/>
               <label>Fenster</label>
               <address transform="DPT:1.019" mode="read">0/3/21</address>
             </switch>
-            <trigger value="0" mapping="AufAbSymbol" align="right">
-              <layout colspan="1"/>
-              <address transform="DPT:1.008" mode="write">0/0/0</address>
-            </trigger>
-            <trigger value="0" mapping="Stop" align="right">
-              <layout colspan="1"/>
-              <address transform="DPT:1.009" mode="write">0/0/0</address>
-            </trigger>
-            <trigger value="1" mapping="AufAbSymbol" align="right">
-              <layout colspan="1"/>
-              <address transform="DPT:1.008" mode="write">0/0/0</address>
-            </trigger>
+            <text>
+              <layout colspan="0.5"/>
+              <label></label>
+            </text>
             <break/>
           </group>
         </group>
@@ -1093,6 +1073,10 @@
         </text>
         <group>
           <layout colspan="12"/>
+          <multitrigger mapping="KonnexHVACSymbol" button1label="Auto" button1value="auto" button2label="Komfort" button2value="comfort" button3label="Standy By" button3value="standby" button4label="Economy" button4value="economy" showstatus="true">
+            <label>Betriebsart</label>
+            <address transform="DPT:20.102" mode="readwrite">31/1/44</address>
+          </multitrigger>
           <info format="%.1f °C">
             <label>Ist</label>
             <address transform="DPT:9.001" mode="read">31/1/40</address>
@@ -1102,10 +1086,6 @@
             <label>Soll</label>
             <address transform="DPT:9.001" mode="readwrite">31/1/42</address>
           </slide>
-          <multitrigger mapping="KonnexHVACSymbol" button1label="Auto" button1value="auto" button2label="Komfort" button2value="comfort" button3label="Standy By" button3value="standby" button4label="Economy" button4value="economy" showstatus="true">
-            <label>Betriebsart</label>
-            <address transform="DPT:20.102" mode="readwrite">31/1/44</address>
-          </multitrigger>
         </group>
       </page>
       <page name="[MobileTabs][1.3.0]Hobby" visible="false">
@@ -1177,7 +1157,11 @@
         </page>
         <page name="[Heizung][1.3.3]Hobby">
           <group>
-            <layout colspan="6"/>
+            <layout colspan="3"/>
+            <multitrigger mapping="KonnexHVACSymbol" button1label="Auto" button1value="auto" button2label="Komfort" button2value="comfort" button3label="Standy By" button3value="standby" button4label="Economy" button4value="economy" showstatus="true">
+              <label>Betriebsart</label>
+              <address transform="DPT:20.102" mode="readwrite">31/1/44</address>
+            </multitrigger>
             <info format="%.1f °C">
               <label>Ist</label>
               <address transform="DPT:9.001" mode="read">31/1/40</address>
@@ -1187,10 +1171,6 @@
               <label>Soll</label>
               <address transform="DPT:9.001" mode="readwrite">31/1/42</address>
             </slide>
-            <multitrigger mapping="KonnexHVACSymbol" button1label="Auto" button1value="auto" button2label="Komfort" button2value="comfort" button3label="Standy By" button3value="standby" button4label="Economy" button4value="economy" showstatus="true">
-              <label>Betriebsart</label>
-              <address transform="DPT:20.102" mode="readwrite">31/1/44</address>
-            </multitrigger>
           </group>
         </page>
       </page>
@@ -1212,6 +1192,10 @@
         </text>
         <group>
           <layout colspan="12"/>
+          <info format="%.1f °C">
+            <label>Ist</label>
+            <address transform="DPT:9.001" mode="read">31/1/50</address>
+          </info>
         </group>
       </page>
       <page name="[MobileTabs][1.4.0]Keller" visible="false">
@@ -1238,7 +1222,11 @@
         </page>
         <page name="[Heizung][1.4.3]Keller">
           <group>
-            <layout colspan="6"/>
+            <layout colspan="3"/>
+            <info format="%.1f °C">
+              <label>Ist</label>
+              <address transform="DPT:9.001" mode="read">31/1/50</address>
+            </info>
           </group>
         </page>
       </page>
@@ -1249,7 +1237,7 @@
         <group>
           <layout colspan="12"/>
           <group nowidget="true">
-            <layout colspan="6"/>
+            <layout colspan="12"/>
             <text>
               <layout colspan="3"/>
               <label>Licht</label>
@@ -1263,7 +1251,6 @@
               <address transform="DPT:1.008" mode="write">0/0/0</address>
             </trigger>
           </group>
-          <break/>
           <switch mapping="OnOff" bind_click_to_widget="false">
             <layout colspan="6"/>
             <label>Deckenlicht</label>
@@ -1276,45 +1263,94 @@
             <address transform="DPT:1.001" mode="write">11/1/130</address>
             <address transform="DPT:1.011" mode="read">11/1/131</address>
           </switch>
+        </group>
+        <text flavour="test">
+          <label>Heizung</label>
+        </text>
+        <group>
+          <layout colspan="12"/>
+          <multitrigger mapping="KonnexHVACSymbol" button1label="Auto" button1value="auto" button2label="Komfort" button2value="comfort" button3label="Standy By" button3value="standby" button4label="Economy" button4value="economy" showstatus="true">
+            <label>Betriebsart</label>
+            <address transform="DPT:20.102" mode="readwrite">31/1/64</address>
+          </multitrigger>
+          <info format="%.1f °C">
+            <label>Ist</label>
+            <address transform="DPT:9.001" mode="read">31/1/60</address>
+          </info>
+          <slide min="17" max="23" step="0.5" format="%.1f °C">
+            <layout colspan="6"/>
+            <label>Soll</label>
+            <address transform="DPT:9.001" mode="readwrite">31/1/62</address>
+          </slide>
         </group>
       </page>
-      <page name="[MobileHeader][1.5.1]Sauna">
-        <group>
-          <layout colspan="3"/>
-          <group nowidget="true">
+      <page name="[MobileTabs][1.5.0]Sauna" visible="false">
+        <navbar position="top">
+          <pagejump target="[Licht][1.5.1]Sauna">
+            <layout colspan="0"/>
+            <label>Licht</label>
+          </pagejump>
+          <pagejump target="[Heizung][1.5.3]Sauna">
+            <layout colspan="0"/>
+            <label>Heizung</label>
+          </pagejump>
+        </navbar>
+        <page name="[Licht][1.5.1]Sauna">
+          <group>
             <layout colspan="3"/>
-            <text>
-              <layout colspan="1.5"/>
-              <label>Licht</label>
-            </text>
-            <trigger value="1" mapping="OnOffStatus" align="right">
-              <layout colspan="0.75"/>
-              <address transform="DPT:1.008" mode="write">0/0/0</address>
-            </trigger>
-            <trigger value="0" mapping="OnOffStatus" align="right">
-              <layout colspan="0.75"/>
-              <address transform="DPT:1.008" mode="write">0/0/0</address>
-            </trigger>
+            <group nowidget="true">
+              <layout colspan="3"/>
+              <text>
+                <layout colspan="1.5"/>
+                <label>Licht</label>
+              </text>
+              <trigger value="1" mapping="OnOffStatus" align="right">
+                <layout colspan="0.75"/>
+                <address transform="DPT:1.008" mode="write">0/0/0</address>
+              </trigger>
+              <trigger value="0" mapping="OnOffStatus" align="right">
+                <layout colspan="0.75"/>
+                <address transform="DPT:1.008" mode="write">0/0/0</address>
+              </trigger>
+            </group>
           </group>
-        </group>
-        <group>
-          <layout colspan="3"/>
-          <switch mapping="OnOff" bind_click_to_widget="false">
+          <group>
             <layout colspan="3"/>
-            <label>Deckenlicht</label>
-            <address transform="DPT:1.001" mode="write">11/1/120</address>
-            <address transform="DPT:1.011" mode="read">11/1/121</address>
-          </switch>
-        </group>
-        <group>
-          <layout colspan="3"/>
-          <switch mapping="OnOff" bind_click_to_widget="false">
+            <switch mapping="OnOff" bind_click_to_widget="false">
+              <layout colspan="3"/>
+              <label>Deckenlicht</label>
+              <address transform="DPT:1.001" mode="write">11/1/120</address>
+              <address transform="DPT:1.011" mode="read">11/1/121</address>
+            </switch>
+          </group>
+          <group>
             <layout colspan="3"/>
-            <label>Duschlicht</label>
-            <address transform="DPT:1.001" mode="write">11/1/130</address>
-            <address transform="DPT:1.011" mode="read">11/1/131</address>
-          </switch>
-        </group>
+            <switch mapping="OnOff" bind_click_to_widget="false">
+              <layout colspan="3"/>
+              <label>Duschlicht</label>
+              <address transform="DPT:1.001" mode="write">11/1/130</address>
+              <address transform="DPT:1.011" mode="read">11/1/131</address>
+            </switch>
+          </group>
+        </page>
+        <page name="[Heizung][1.5.3]Sauna">
+          <group>
+            <layout colspan="3"/>
+            <multitrigger mapping="KonnexHVACSymbol" button1label="Auto" button1value="auto" button2label="Komfort" button2value="comfort" button3label="Standy By" button3value="standby" button4label="Economy" button4value="economy" showstatus="true">
+              <label>Betriebsart</label>
+              <address transform="DPT:20.102" mode="readwrite">31/1/64</address>
+            </multitrigger>
+            <info format="%.1f °C">
+              <label>Ist</label>
+              <address transform="DPT:9.001" mode="read">31/1/60</address>
+            </info>
+            <slide min="17" max="23" step="0.5" format="%.1f °C">
+              <layout colspan="6"/>
+              <label>Soll</label>
+              <address transform="DPT:9.001" mode="readwrite">31/1/62</address>
+            </slide>
+          </group>
+        </page>
       </page>
       <page name="[DesktopHeader][1.6]Waschraum" visible="false">
         <text flavour="test">
@@ -1375,7 +1411,7 @@
         <group>
           <layout colspan="12"/>
           <group nowidget="true">
-            <layout colspan="6"/>
+            <layout colspan="12"/>
             <text>
               <layout colspan="3"/>
               <label>Licht</label>
@@ -1389,7 +1425,6 @@
               <address transform="DPT:1.008" mode="write">0/0/0</address>
             </trigger>
           </group>
-          <break/>
         </group>
         <text flavour="test">
           <label>Fenster</label>
@@ -1517,7 +1552,7 @@
         <group>
           <layout colspan="12"/>
           <group nowidget="true">
-            <layout colspan="6"/>
+            <layout colspan="12"/>
             <text>
               <layout colspan="3"/>
               <label>Licht</label>
@@ -1531,7 +1566,6 @@
               <address transform="DPT:1.008" mode="write">0/0/0</address>
             </trigger>
           </group>
-          <break/>
           <switch mapping="OnOff" bind_click_to_widget="false">
             <layout colspan="6"/>
             <label>Deckenspots</label>
@@ -1607,7 +1641,7 @@
         </page>
         <page name="[Heizung][2.1.3]Flur">
           <group>
-            <layout colspan="6"/>
+            <layout colspan="3"/>
             <info format="%.1f °C">
               <label>Ist</label>
               <address transform="DPT:9.001" mode="read">31/2/10</address>
@@ -1622,7 +1656,7 @@
         <group>
           <layout colspan="12"/>
           <group nowidget="true">
-            <layout colspan="6"/>
+            <layout colspan="12"/>
             <text>
               <layout colspan="3"/>
               <label>Licht</label>
@@ -1636,7 +1670,6 @@
               <address transform="DPT:1.008" mode="write">0/0/0</address>
             </trigger>
           </group>
-          <break/>
           <group nowidget="true">
             <layout colspan="6"/>
             <switch mapping="OnOff" bind_click_to_widget="false">
@@ -1674,11 +1707,10 @@
           <layout colspan="12"/>
           <group nowidget="true" >
             <layout colspan="6"/>
-            <switch mapping="DoorOpenClose" styling="OpenClose" bind_click_to_widget="false">
+            <text>
               <layout colspan="3"/>
               <label>Sonnenschutz</label>
-              <address transform="DPT:1.019" mode="read">0/3/41</address>
-            </switch>
+            </text>
             <trigger value="0" mapping="AufAbSymbol" align="right">
               <layout colspan="1"/>
               <address transform="DPT:1.008" mode="write">20/2/10</address>
@@ -1714,10 +1746,14 @@
           <group nowidget="true" >
             <layout colspan="6"/>
             <switch mapping="DoorOpenClose" styling="OpenClose" bind_click_to_widget="false">
-              <layout colspan="3"/>
+              <layout colspan="2.5"/>
               <label>Fenster</label>
               <address transform="DPT:1.019" mode="read">0/3/42</address>
             </switch>
+            <text>
+              <layout colspan="0.5"/>
+              <label></label>
+            </text>
             <trigger value="0" mapping="AufAbSymbol" align="right">
               <layout colspan="1"/>
               <address transform="DPT:1.008" mode="write">21/2/20</address>
@@ -1753,10 +1789,14 @@
           <group nowidget="true" >
             <layout colspan="6"/>
             <switch mapping="DoorOpenClose" styling="OpenClose" bind_click_to_widget="false">
-              <layout colspan="3"/>
+              <layout colspan="2.5"/>
               <label>Terassentür</label>
               <address transform="DPT:1.019" mode="read">0/3/43</address>
             </switch>
+            <text>
+              <layout colspan="0.5"/>
+              <label></label>
+            </text>
             <trigger value="0" mapping="AufAbSymbol" align="right">
               <layout colspan="1"/>
               <address transform="DPT:1.008" mode="write">21/2/30</address>
@@ -1795,6 +1835,10 @@
         </text>
         <group>
           <layout colspan="12"/>
+          <multitrigger mapping="KonnexHVACSymbol" button1label="Auto" button1value="auto" button2label="Komfort" button2value="comfort" button3label="Standy By" button3value="standby" button4label="Economy" button4value="economy" showstatus="true">
+            <label>Betriebsart</label>
+            <address transform="DPT:20.102" mode="readwrite">31/2/24</address>
+          </multitrigger>
           <info format="%.1f °C">
             <label>Ist</label>
             <address transform="DPT:9.001" mode="read">31/2/20</address>
@@ -1804,10 +1848,6 @@
             <label>Soll</label>
             <address transform="DPT:9.001" mode="readwrite">31/2/22</address>
           </slide>
-          <multitrigger mapping="KonnexHVACSymbol" button1label="Auto" button1value="auto" button2label="Komfort" button2value="comfort" button3label="Standy By" button3value="standby" button4label="Economy" button4value="economy" showstatus="true">
-            <label>Betriebsart</label>
-            <address transform="DPT:20.102" mode="readwrite">31/2/24</address>
-          </multitrigger>
         </group>
       </page>
       <page name="[MobileTabs][2.2.0]Küche" visible="false">
@@ -1885,11 +1925,10 @@
             <layout colspan="3"/>
             <group nowidget="true" >
               <layout colspan="3"/>
-              <switch mapping="DoorOpenClose" styling="OpenClose" bind_click_to_widget="false">
+              <text>
                 <layout colspan="3"/>
                 <label>Sonnenschutz</label>
-                <address transform="DPT:1.019" mode="read">0/3/41</address>
-              </switch>
+              </text>
               <break/>
               <trigger value="0" mapping="AufAbSymbol" align="right">
                 <layout colspan="1"/>
@@ -2013,7 +2052,11 @@
         </page>
         <page name="[Heizung][2.2.3]Küche">
           <group>
-            <layout colspan="6"/>
+            <layout colspan="3"/>
+            <multitrigger mapping="KonnexHVACSymbol" button1label="Auto" button1value="auto" button2label="Komfort" button2value="comfort" button3label="Standy By" button3value="standby" button4label="Economy" button4value="economy" showstatus="true">
+              <label>Betriebsart</label>
+              <address transform="DPT:20.102" mode="readwrite">31/2/24</address>
+            </multitrigger>
             <info format="%.1f °C">
               <label>Ist</label>
               <address transform="DPT:9.001" mode="read">31/2/20</address>
@@ -2023,10 +2066,6 @@
               <label>Soll</label>
               <address transform="DPT:9.001" mode="readwrite">31/2/22</address>
             </slide>
-            <multitrigger mapping="KonnexHVACSymbol" button1label="Auto" button1value="auto" button2label="Komfort" button2value="comfort" button3label="Standy By" button3value="standby" button4label="Economy" button4value="economy" showstatus="true">
-              <label>Betriebsart</label>
-              <address transform="DPT:20.102" mode="readwrite">31/2/24</address>
-            </multitrigger>
           </group>
         </page>
       </page>
@@ -2037,7 +2076,7 @@
         <group>
           <layout colspan="12"/>
           <group nowidget="true">
-            <layout colspan="6"/>
+            <layout colspan="12"/>
             <text>
               <layout colspan="3"/>
               <label>Licht</label>
@@ -2051,7 +2090,6 @@
               <address transform="DPT:1.008" mode="write">0/0/0</address>
             </trigger>
           </group>
-          <break/>
           <group nowidget="true">
             <layout colspan="6"/>
             <switch mapping="OnOff" bind_click_to_widget="false">
@@ -2081,6 +2119,12 @@
             <address transform="DPT:1.001" mode="write">11/2/90</address>
             <address transform="DPT:1.011" mode="read">11/2/91</address>
           </switch>
+          <switch mapping="OnOff" bind_click_to_widget="false">
+            <layout colspan="6"/>
+            <label>RF Steckdose</label>
+            <address transform="DPT:1.001" mode="write">11/2/120</address>
+            <address transform="DPT:1.011" mode="read">11/2/121</address>
+          </switch>
           <group nowidget="true">
             <layout colspan="6"/>
             <switch mapping="OnOff" bind_click_to_widget="false">
@@ -2109,12 +2153,6 @@
             <label>Couchtisch</label>
             <address transform="DPT:1.001" mode="write">11/2/110</address>
             <address transform="DPT:1.011" mode="read">11/2/111</address>
-          </switch>
-          <switch mapping="OnOff" bind_click_to_widget="false">
-            <layout colspan="6"/>
-            <label>RF Steckdose</label>
-            <address transform="DPT:1.001" mode="write">11/2/120</address>
-            <address transform="DPT:1.011" mode="read">11/2/121</address>
           </switch>
         </group>
         <text flavour="test">
@@ -2180,9 +2218,14 @@
           </group>
           <group nowidget="true" >
             <layout colspan="6"/>
-            <text>
-              <layout colspan="3"/>
+            <switch mapping="DoorOpenClose" styling="OpenClose" bind_click_to_widget="false">
+              <layout colspan="2.5"/>
               <label>Erker</label>
+              <address transform="DPT:1.019" mode="read">0/3/45</address>
+            </switch>
+            <text>
+              <layout colspan="0.5"/>
+              <label></label>
             </text>
             <trigger value="0" mapping="AufAbSymbol" align="right">
               <layout colspan="1"/>
@@ -2237,10 +2280,14 @@
           <group nowidget="true" >
             <layout colspan="6"/>
             <switch mapping="DoorOpenClose" styling="OpenClose" bind_click_to_widget="false">
-              <layout colspan="3"/>
+              <layout colspan="2.5"/>
               <label>Wohnen Fenster</label>
               <address transform="DPT:1.019" mode="read">0/3/46</address>
             </switch>
+            <text>
+              <layout colspan="0.5"/>
+              <label></label>
+            </text>
             <trigger value="0" mapping="AufAbSymbol" align="right">
               <layout colspan="1"/>
               <address transform="DPT:1.008" mode="write">21/2/100</address>
@@ -2276,10 +2323,14 @@
           <group nowidget="true" >
             <layout colspan="6"/>
             <switch mapping="DoorOpenClose" styling="OpenClose" bind_click_to_widget="false">
-              <layout colspan="3"/>
+              <layout colspan="2.5"/>
               <label>Wohnen Schiebetür</label>
               <address transform="DPT:1.019" mode="read">0/3/47</address>
             </switch>
+            <text>
+              <layout colspan="0.5"/>
+              <label></label>
+            </text>
             <trigger value="0" mapping="AufAbSymbol" align="right">
               <layout colspan="1"/>
               <address transform="DPT:1.008" mode="write">21/2/110</address>
@@ -2318,6 +2369,10 @@
         </text>
         <group>
           <layout colspan="12"/>
+          <multitrigger mapping="KonnexHVACSymbol" button1label="Auto" button1value="auto" button2label="Komfort" button2value="comfort" button3label="Standy By" button3value="standby" button4label="Economy" button4value="economy" showstatus="true">
+            <label>Betriebsart</label>
+            <address transform="DPT:20.102" mode="readwrite">31/2/44</address>
+          </multitrigger>
           <info format="%.1f °C">
             <label>Ist</label>
             <address transform="DPT:9.001" mode="read">31/2/40</address>
@@ -2327,10 +2382,6 @@
             <label>Soll</label>
             <address transform="DPT:9.001" mode="readwrite">31/2/42</address>
           </slide>
-          <multitrigger mapping="KonnexHVACSymbol" button1label="Auto" button1value="auto" button2label="Komfort" button2value="comfort" button3label="Standy By" button3value="standby" button4label="Economy" button4value="economy" showstatus="true">
-            <label>Betriebsart</label>
-            <address transform="DPT:20.102" mode="readwrite">31/2/44</address>
-          </multitrigger>
         </group>
       </page>
       <page name="[MobileTabs][2.3.0]Wohnen" visible="false">
@@ -2404,6 +2455,15 @@
           </group>
           <group>
             <layout colspan="3"/>
+            <switch mapping="OnOff" bind_click_to_widget="false">
+              <layout colspan="3"/>
+              <label>RF Steckdose</label>
+              <address transform="DPT:1.001" mode="write">11/2/120</address>
+              <address transform="DPT:1.011" mode="read">11/2/121</address>
+            </switch>
+          </group>
+          <group>
+            <layout colspan="3"/>
             <group nowidget="true">
               <layout colspan="3"/>
               <switch mapping="OnOff" bind_click_to_widget="false">
@@ -2435,15 +2495,6 @@
               <label>Couchtisch</label>
               <address transform="DPT:1.001" mode="write">11/2/110</address>
               <address transform="DPT:1.011" mode="read">11/2/111</address>
-            </switch>
-          </group>
-          <group>
-            <layout colspan="3"/>
-            <switch mapping="OnOff" bind_click_to_widget="false">
-              <layout colspan="3"/>
-              <label>RF Steckdose</label>
-              <address transform="DPT:1.001" mode="write">11/2/120</address>
-              <address transform="DPT:1.011" mode="read">11/2/121</address>
             </switch>
           </group>
         </page>
@@ -2512,10 +2563,11 @@
             <layout colspan="3"/>
             <group nowidget="true" >
               <layout colspan="3"/>
-              <text>
+              <switch mapping="DoorOpenClose" styling="OpenClose" bind_click_to_widget="false">
                 <layout colspan="3"/>
                 <label>Erker</label>
-              </text>
+                <address transform="DPT:1.019" mode="read">0/3/45</address>
+              </switch>
               <break/>
               <trigger value="0" mapping="AufAbSymbol" align="right">
                 <layout colspan="1"/>
@@ -2657,7 +2709,11 @@
         </page>
         <page name="[Heizung][2.3.3]Wohnen">
           <group>
-            <layout colspan="6"/>
+            <layout colspan="3"/>
+            <multitrigger mapping="KonnexHVACSymbol" button1label="Auto" button1value="auto" button2label="Komfort" button2value="comfort" button3label="Standy By" button3value="standby" button4label="Economy" button4value="economy" showstatus="true">
+              <label>Betriebsart</label>
+              <address transform="DPT:20.102" mode="readwrite">31/2/44</address>
+            </multitrigger>
             <info format="%.1f °C">
               <label>Ist</label>
               <address transform="DPT:9.001" mode="read">31/2/40</address>
@@ -2667,10 +2723,6 @@
               <label>Soll</label>
               <address transform="DPT:9.001" mode="readwrite">31/2/42</address>
             </slide>
-            <multitrigger mapping="KonnexHVACSymbol" button1label="Auto" button1value="auto" button2label="Komfort" button2value="comfort" button3label="Standy By" button3value="standby" button4label="Economy" button4value="economy" showstatus="true">
-              <label>Betriebsart</label>
-              <address transform="DPT:20.102" mode="readwrite">31/2/44</address>
-            </multitrigger>
           </group>
         </page>
       </page>
@@ -2768,10 +2820,14 @@
           <group nowidget="true" >
             <layout colspan="6"/>
             <switch mapping="DoorOpenClose" styling="OpenClose" bind_click_to_widget="false">
-              <layout colspan="3"/>
+              <layout colspan="2.5"/>
               <label>Terrassentür</label>
               <address transform="DPT:1.019" mode="read">0/3/48</address>
             </switch>
+            <text>
+              <layout colspan="0.5"/>
+              <label></label>
+            </text>
             <trigger value="0" mapping="AufAbSymbol" align="right">
               <layout colspan="1"/>
               <address transform="DPT:1.008" mode="write">21/2/130</address>
@@ -2884,6 +2940,10 @@
         </text>
         <group>
           <layout colspan="12"/>
+          <multitrigger mapping="KonnexHVACSymbol" button1label="Auto" button1value="auto" button2label="Komfort" button2value="comfort" button3label="Standy By" button3value="standby" button4label="Economy" button4value="economy" showstatus="true">
+            <label>Betriebsart</label>
+            <address transform="DPT:20.102" mode="readwrite">31/2/64</address>
+          </multitrigger>
           <info format="%.1f °C">
             <label>Ist</label>
             <address transform="DPT:9.001" mode="read">31/2/60</address>
@@ -2893,10 +2953,6 @@
             <label>Soll</label>
             <address transform="DPT:9.001" mode="readwrite">31/2/62</address>
           </slide>
-          <multitrigger mapping="KonnexHVACSymbol" button1label="Auto" button1value="auto" button2label="Komfort" button2value="comfort" button3label="Standy By" button3value="standby" button4label="Economy" button4value="economy" showstatus="true">
-            <label>Betriebsart</label>
-            <address transform="DPT:20.102" mode="readwrite">31/2/64</address>
-          </multitrigger>
         </group>
       </page>
       <page name="[MobileTabs][2.4.0]Wintergarten" visible="false">
@@ -3127,7 +3183,11 @@
         </page>
         <page name="[Heizung][2.4.3]Wintergarten">
           <group>
-            <layout colspan="6"/>
+            <layout colspan="3"/>
+            <multitrigger mapping="KonnexHVACSymbol" button1label="Auto" button1value="auto" button2label="Komfort" button2value="comfort" button3label="Standy By" button3value="standby" button4label="Economy" button4value="economy" showstatus="true">
+              <label>Betriebsart</label>
+              <address transform="DPT:20.102" mode="readwrite">31/2/64</address>
+            </multitrigger>
             <info format="%.1f °C">
               <label>Ist</label>
               <address transform="DPT:9.001" mode="read">31/2/60</address>
@@ -3137,10 +3197,6 @@
               <label>Soll</label>
               <address transform="DPT:9.001" mode="readwrite">31/2/62</address>
             </slide>
-            <multitrigger mapping="KonnexHVACSymbol" button1label="Auto" button1value="auto" button2label="Komfort" button2value="comfort" button3label="Standy By" button3value="standby" button4label="Economy" button4value="economy" showstatus="true">
-              <label>Betriebsart</label>
-              <address transform="DPT:20.102" mode="readwrite">31/2/64</address>
-            </multitrigger>
           </group>
         </page>
       </page>
@@ -3165,10 +3221,14 @@
           <group nowidget="true" >
             <layout colspan="6"/>
             <switch mapping="DoorOpenClose" styling="OpenClose" bind_click_to_widget="false">
-              <layout colspan="3"/>
+              <layout colspan="2.5"/>
               <label>Sonnenschutz</label>
               <address transform="DPT:1.019" mode="read">0/3/49</address>
             </switch>
+            <text>
+              <layout colspan="0.5"/>
+              <label></label>
+            </text>
             <trigger value="0" mapping="AufAbSymbol" align="right">
               <layout colspan="1"/>
               <address transform="DPT:1.008" mode="write">20/2/160</address>
@@ -3283,6 +3343,10 @@
         </text>
         <group>
           <layout colspan="12"/>
+          <multitrigger mapping="KonnexHVACSymbol" button1label="Auto" button1value="auto" button2label="Komfort" button2value="comfort" button3label="Standy By" button3value="standby" button4label="Economy" button4value="economy" showstatus="true">
+            <label>Betriebsart</label>
+            <address transform="DPT:20.102" mode="readwrite">31/2/84</address>
+          </multitrigger>
           <info format="%.1f °C">
             <label>Ist</label>
             <address transform="DPT:9.001" mode="read">31/2/80</address>
@@ -3292,10 +3356,6 @@
             <label>Soll</label>
             <address transform="DPT:9.001" mode="readwrite">31/2/82</address>
           </slide>
-          <multitrigger mapping="KonnexHVACSymbol" button1label="Auto" button1value="auto" button2label="Komfort" button2value="comfort" button3label="Standy By" button3value="standby" button4label="Economy" button4value="economy" showstatus="true">
-            <label>Betriebsart</label>
-            <address transform="DPT:20.102" mode="readwrite">31/2/84</address>
-          </multitrigger>
         </group>
       </page>
       <page name="[MobileTabs][2.5.0]Büro" visible="false">
@@ -3455,7 +3515,11 @@
         </page>
         <page name="[Heizung][2.5.3]Büro">
           <group>
-            <layout colspan="6"/>
+            <layout colspan="3"/>
+            <multitrigger mapping="KonnexHVACSymbol" button1label="Auto" button1value="auto" button2label="Komfort" button2value="comfort" button3label="Standy By" button3value="standby" button4label="Economy" button4value="economy" showstatus="true">
+              <label>Betriebsart</label>
+              <address transform="DPT:20.102" mode="readwrite">31/2/84</address>
+            </multitrigger>
             <info format="%.1f °C">
               <label>Ist</label>
               <address transform="DPT:9.001" mode="read">31/2/80</address>
@@ -3465,10 +3529,6 @@
               <label>Soll</label>
               <address transform="DPT:9.001" mode="readwrite">31/2/82</address>
             </slide>
-            <multitrigger mapping="KonnexHVACSymbol" button1label="Auto" button1value="auto" button2label="Komfort" button2value="comfort" button3label="Standy By" button3value="standby" button4label="Economy" button4value="economy" showstatus="true">
-              <label>Betriebsart</label>
-              <address transform="DPT:20.102" mode="readwrite">31/2/84</address>
-            </multitrigger>
           </group>
         </page>
       </page>
@@ -3479,7 +3539,7 @@
         <group>
           <layout colspan="12"/>
           <group nowidget="true">
-            <layout colspan="6"/>
+            <layout colspan="12"/>
             <text>
               <layout colspan="3"/>
               <label>Licht</label>
@@ -3493,7 +3553,6 @@
               <address transform="DPT:1.008" mode="write">0/0/0</address>
             </trigger>
           </group>
-          <break/>
           <switch mapping="OnOff" bind_click_to_widget="false">
             <layout colspan="6"/>
             <label>Deckenlicht</label>
@@ -3515,10 +3574,14 @@
           <group nowidget="true" >
             <layout colspan="6"/>
             <switch mapping="DoorOpenClose" styling="OpenClose" bind_click_to_widget="false">
-              <layout colspan="3"/>
+              <layout colspan="2.5"/>
               <label>Fenster</label>
               <address transform="DPT:1.019" mode="read">0/3/50</address>
             </switch>
+            <text>
+              <layout colspan="0.5"/>
+              <label></label>
+            </text>
             <trigger value="0" mapping="AufAbSymbol" align="right">
               <layout colspan="1"/>
               <address transform="DPT:1.008" mode="write">21/2/210</address>
@@ -3557,6 +3620,10 @@
         </text>
         <group>
           <layout colspan="12"/>
+          <multitrigger mapping="KonnexHVACSymbol" button1label="Auto" button1value="auto" button2label="Komfort" button2value="comfort" button3label="Standy By" button3value="standby" button4label="Economy" button4value="economy" showstatus="true">
+            <label>Betriebsart</label>
+            <address transform="DPT:20.102" mode="readwrite">31/2/104</address>
+          </multitrigger>
           <info format="%.1f °C">
             <label>Ist</label>
             <address transform="DPT:9.001" mode="read">31/2/100</address>
@@ -3566,10 +3633,6 @@
             <label>Soll</label>
             <address transform="DPT:9.001" mode="readwrite">31/2/102</address>
           </slide>
-          <multitrigger mapping="KonnexHVACSymbol" button1label="Auto" button1value="auto" button2label="Komfort" button2value="comfort" button3label="Standy By" button3value="standby" button4label="Economy" button4value="economy" showstatus="true">
-            <label>Betriebsart</label>
-            <address transform="DPT:20.102" mode="readwrite">31/2/104</address>
-          </multitrigger>
         </group>
       </page>
       <page name="[MobileTabs][2.6.0]Gäste WC" visible="false">
@@ -3672,7 +3735,11 @@
         </page>
         <page name="[Heizung][2.6.3]Gäste WC">
           <group>
-            <layout colspan="6"/>
+            <layout colspan="3"/>
+            <multitrigger mapping="KonnexHVACSymbol" button1label="Auto" button1value="auto" button2label="Komfort" button2value="comfort" button3label="Standy By" button3value="standby" button4label="Economy" button4value="economy" showstatus="true">
+              <label>Betriebsart</label>
+              <address transform="DPT:20.102" mode="readwrite">31/2/104</address>
+            </multitrigger>
             <info format="%.1f °C">
               <label>Ist</label>
               <address transform="DPT:9.001" mode="read">31/2/100</address>
@@ -3682,10 +3749,6 @@
               <label>Soll</label>
               <address transform="DPT:9.001" mode="readwrite">31/2/102</address>
             </slide>
-            <multitrigger mapping="KonnexHVACSymbol" button1label="Auto" button1value="auto" button2label="Komfort" button2value="comfort" button3label="Standy By" button3value="standby" button4label="Economy" button4value="economy" showstatus="true">
-              <label>Betriebsart</label>
-              <address transform="DPT:20.102" mode="readwrite">31/2/104</address>
-            </multitrigger>
           </group>
         </page>
       </page>
@@ -3735,10 +3798,14 @@
           <group nowidget="true" >
             <layout colspan="6"/>
             <switch mapping="DoorOpenClose" styling="OpenClose" bind_click_to_widget="false">
-              <layout colspan="3"/>
+              <layout colspan="2.5"/>
               <label>Fenster</label>
               <address transform="DPT:1.019" mode="read">0/3/52</address>
             </switch>
+            <text>
+              <layout colspan="0.5"/>
+              <label></label>
+            </text>
             <trigger value="0" mapping="AufAbSymbol" align="right">
               <layout colspan="1"/>
               <address transform="DPT:1.008" mode="write">21/2/230</address>
@@ -3777,6 +3844,10 @@
         </text>
         <group>
           <layout colspan="12"/>
+          <multitrigger mapping="KonnexHVACSymbol" button1label="Auto" button1value="auto" button2label="Komfort" button2value="comfort" button3label="Standy By" button3value="standby" button4label="Economy" button4value="economy" showstatus="true">
+            <label>Betriebsart</label>
+            <address transform="DPT:20.102" mode="readwrite">31/2/154</address>
+          </multitrigger>
           <info format="%.1f °C">
             <label>Ist</label>
             <address transform="DPT:9.001" mode="read">31/2/150</address>
@@ -3786,10 +3857,6 @@
             <label>Soll</label>
             <address transform="DPT:9.001" mode="readwrite">31/2/152</address>
           </slide>
-          <multitrigger mapping="KonnexHVACSymbol" button1label="Auto" button1value="auto" button2label="Komfort" button2value="comfort" button3label="Standy By" button3value="standby" button4label="Economy" button4value="economy" showstatus="true">
-            <label>Betriebsart</label>
-            <address transform="DPT:20.102" mode="readwrite">31/2/154</address>
-          </multitrigger>
         </group>
       </page>
       <page name="[MobileTabs][2.8.0]Garderobe" visible="false">
@@ -3865,7 +3932,11 @@
         </page>
         <page name="[Heizung][2.8.3]Garderobe">
           <group>
-            <layout colspan="6"/>
+            <layout colspan="3"/>
+            <multitrigger mapping="KonnexHVACSymbol" button1label="Auto" button1value="auto" button2label="Komfort" button2value="comfort" button3label="Standy By" button3value="standby" button4label="Economy" button4value="economy" showstatus="true">
+              <label>Betriebsart</label>
+              <address transform="DPT:20.102" mode="readwrite">31/2/154</address>
+            </multitrigger>
             <info format="%.1f °C">
               <label>Ist</label>
               <address transform="DPT:9.001" mode="read">31/2/150</address>
@@ -3875,10 +3946,6 @@
               <label>Soll</label>
               <address transform="DPT:9.001" mode="readwrite">31/2/152</address>
             </slide>
-            <multitrigger mapping="KonnexHVACSymbol" button1label="Auto" button1value="auto" button2label="Komfort" button2value="comfort" button3label="Standy By" button3value="standby" button4label="Economy" button4value="economy" showstatus="true">
-              <label>Betriebsart</label>
-              <address transform="DPT:20.102" mode="readwrite">31/2/154</address>
-            </multitrigger>
           </group>
         </page>
       </page>
@@ -3891,7 +3958,7 @@
         <group>
           <layout colspan="12"/>
           <group nowidget="true">
-            <layout colspan="6"/>
+            <layout colspan="12"/>
             <text>
               <layout colspan="3"/>
               <label>Licht</label>
@@ -3905,7 +3972,6 @@
               <address transform="DPT:1.008" mode="write">0/0/0</address>
             </trigger>
           </group>
-          <break/>
         </group>
         <text flavour="test">
           <label>Fenster</label>
@@ -3999,7 +4065,7 @@
         <group>
           <layout colspan="12"/>
           <group nowidget="true">
-            <layout colspan="6"/>
+            <layout colspan="12"/>
             <text>
               <layout colspan="3"/>
               <label>Licht</label>
@@ -4013,7 +4079,6 @@
               <address transform="DPT:1.008" mode="write">0/0/0</address>
             </trigger>
           </group>
-          <break/>
           <switch mapping="OnOff" bind_click_to_widget="false">
             <layout colspan="6"/>
             <label>Deckenspots</label>
@@ -4087,22 +4152,14 @@
           <group nowidget="true" >
             <layout colspan="6"/>
             <switch mapping="DoorOpenClose" styling="OpenClose" bind_click_to_widget="false">
-              <layout colspan="3"/>
+              <layout colspan="2.5"/>
               <label>Fenster</label>
               <address transform="DPT:1.019" mode="read">0/3/61</address>
             </switch>
-            <trigger value="0" mapping="AufAbSymbol" align="right">
-              <layout colspan="1"/>
-              <address transform="DPT:1.008" mode="write">0/0/0</address>
-            </trigger>
-            <trigger value="0" mapping="Stop" align="right">
-              <layout colspan="1"/>
-              <address transform="DPT:1.009" mode="write">0/0/0</address>
-            </trigger>
-            <trigger value="1" mapping="AufAbSymbol" align="right">
-              <layout colspan="1"/>
-              <address transform="DPT:1.008" mode="write">0/0/0</address>
-            </trigger>
+            <text>
+              <layout colspan="0.5"/>
+              <label></label>
+            </text>
             <break/>
           </group>
         </group>
@@ -4111,6 +4168,10 @@
         </text>
         <group>
           <layout colspan="12"/>
+          <multitrigger mapping="KonnexHVACSymbol" button1label="Auto" button1value="auto" button2label="Komfort" button2value="comfort" button3label="Standy By" button3value="standby" button4label="Economy" button4value="economy" showstatus="true">
+            <label>Betriebsart</label>
+            <address transform="DPT:20.102" mode="readwrite">31/3/24</address>
+          </multitrigger>
           <info format="%.1f °C">
             <label>Ist</label>
             <address transform="DPT:9.001" mode="read">31/3/20</address>
@@ -4120,10 +4181,6 @@
             <label>Soll</label>
             <address transform="DPT:9.001" mode="readwrite">31/3/22</address>
           </slide>
-          <multitrigger mapping="KonnexHVACSymbol" button1label="Auto" button1value="auto" button2label="Komfort" button2value="comfort" button3label="Standy By" button3value="standby" button4label="Economy" button4value="economy" showstatus="true">
-            <label>Betriebsart</label>
-            <address transform="DPT:20.102" mode="readwrite">31/3/24</address>
-          </multitrigger>
         </group>
       </page>
       <page name="[MobileTabs][3.2.0]WC" visible="false">
@@ -4168,7 +4225,11 @@
         </page>
         <page name="[Heizung][3.2.3]WC">
           <group>
-            <layout colspan="6"/>
+            <layout colspan="3"/>
+            <multitrigger mapping="KonnexHVACSymbol" button1label="Auto" button1value="auto" button2label="Komfort" button2value="comfort" button3label="Standy By" button3value="standby" button4label="Economy" button4value="economy" showstatus="true">
+              <label>Betriebsart</label>
+              <address transform="DPT:20.102" mode="readwrite">31/3/24</address>
+            </multitrigger>
             <info format="%.1f °C">
               <label>Ist</label>
               <address transform="DPT:9.001" mode="read">31/3/20</address>
@@ -4178,10 +4239,6 @@
               <label>Soll</label>
               <address transform="DPT:9.001" mode="readwrite">31/3/22</address>
             </slide>
-            <multitrigger mapping="KonnexHVACSymbol" button1label="Auto" button1value="auto" button2label="Komfort" button2value="comfort" button3label="Standy By" button3value="standby" button4label="Economy" button4value="economy" showstatus="true">
-              <label>Betriebsart</label>
-              <address transform="DPT:20.102" mode="readwrite">31/3/24</address>
-            </multitrigger>
           </group>
         </page>
       </page>
@@ -4223,10 +4280,14 @@
           <group nowidget="true" >
             <layout colspan="6"/>
             <switch mapping="DoorOpenClose" styling="OpenClose" bind_click_to_widget="false">
-              <layout colspan="3"/>
+              <layout colspan="2.5"/>
               <label>Sonnenschutz</label>
               <address transform="DPT:1.019" mode="read">0/3/62</address>
             </switch>
+            <text>
+              <layout colspan="0.5"/>
+              <label></label>
+            </text>
             <trigger value="0" mapping="AufAbSymbol" align="right">
               <layout colspan="1"/>
               <address transform="DPT:1.008" mode="write">20/3/10</address>
@@ -4262,10 +4323,14 @@
           <group nowidget="true" >
             <layout colspan="6"/>
             <switch mapping="DoorOpenClose" styling="OpenClose" bind_click_to_widget="false">
-              <layout colspan="3"/>
+              <layout colspan="2.5"/>
               <label>Fenster</label>
               <address transform="DPT:1.019" mode="read">0/3/62</address>
             </switch>
+            <text>
+              <layout colspan="0.5"/>
+              <label></label>
+            </text>
             <trigger value="0" mapping="AufAbSymbol" align="right">
               <layout colspan="1"/>
               <address transform="DPT:1.008" mode="write">21/3/20</address>
@@ -4301,10 +4366,14 @@
           <group nowidget="true" >
             <layout colspan="6"/>
             <switch mapping="DoorOpenClose" styling="OpenClose" bind_click_to_widget="false">
-              <layout colspan="3"/>
+              <layout colspan="2.5"/>
               <label>Balkontür</label>
               <address transform="DPT:1.019" mode="read">0/3/62</address>
             </switch>
+            <text>
+              <layout colspan="0.5"/>
+              <label></label>
+            </text>
             <trigger value="0" mapping="AufAbSymbol" align="right">
               <layout colspan="1"/>
               <address transform="DPT:1.008" mode="write">21/3/30</address>
@@ -4343,6 +4412,10 @@
         </text>
         <group>
           <layout colspan="12"/>
+          <multitrigger mapping="KonnexHVACSymbol" button1label="Auto" button1value="auto" button2label="Komfort" button2value="comfort" button3label="Standy By" button3value="standby" button4label="Economy" button4value="economy" showstatus="true">
+            <label>Betriebsart</label>
+            <address transform="DPT:20.102" mode="readwrite">31/3/54</address>
+          </multitrigger>
           <info format="%.1f °C">
             <label>Ist</label>
             <address transform="DPT:9.001" mode="read">31/3/50</address>
@@ -4352,10 +4425,6 @@
             <label>Soll</label>
             <address transform="DPT:9.001" mode="readwrite">31/3/52</address>
           </slide>
-          <multitrigger mapping="KonnexHVACSymbol" button1label="Auto" button1value="auto" button2label="Komfort" button2value="comfort" button3label="Standy By" button3value="standby" button4label="Economy" button4value="economy" showstatus="true">
-            <label>Betriebsart</label>
-            <address transform="DPT:20.102" mode="readwrite">31/3/54</address>
-          </multitrigger>
         </group>
       </page>
       <page name="[MobileTabs][3.3.0]Kinderzimmer 1" visible="false">
@@ -4534,7 +4603,11 @@
         </page>
         <page name="[Heizung][3.3.3]Kinderzimmer 1">
           <group>
-            <layout colspan="6"/>
+            <layout colspan="3"/>
+            <multitrigger mapping="KonnexHVACSymbol" button1label="Auto" button1value="auto" button2label="Komfort" button2value="comfort" button3label="Standy By" button3value="standby" button4label="Economy" button4value="economy" showstatus="true">
+              <label>Betriebsart</label>
+              <address transform="DPT:20.102" mode="readwrite">31/3/54</address>
+            </multitrigger>
             <info format="%.1f °C">
               <label>Ist</label>
               <address transform="DPT:9.001" mode="read">31/3/50</address>
@@ -4544,10 +4617,6 @@
               <label>Soll</label>
               <address transform="DPT:9.001" mode="readwrite">31/3/52</address>
             </slide>
-            <multitrigger mapping="KonnexHVACSymbol" button1label="Auto" button1value="auto" button2label="Komfort" button2value="comfort" button3label="Standy By" button3value="standby" button4label="Economy" button4value="economy" showstatus="true">
-              <label>Betriebsart</label>
-              <address transform="DPT:20.102" mode="readwrite">31/3/54</address>
-            </multitrigger>
           </group>
         </page>
       </page>
@@ -4572,10 +4641,14 @@
           <group nowidget="true" >
             <layout colspan="6"/>
             <switch mapping="DoorOpenClose" styling="OpenClose" bind_click_to_widget="false">
-              <layout colspan="3"/>
+              <layout colspan="2.5"/>
               <label>Balkontür</label>
               <address transform="DPT:1.019" mode="read">0/3/63</address>
             </switch>
+            <text>
+              <layout colspan="0.5"/>
+              <label></label>
+            </text>
             <trigger value="0" mapping="AufAbSymbol" align="right">
               <layout colspan="1"/>
               <address transform="DPT:1.008" mode="write">21/3/50</address>
@@ -4614,6 +4687,10 @@
         </text>
         <group>
           <layout colspan="12"/>
+          <multitrigger mapping="KonnexHVACSymbol" button1label="Auto" button1value="auto" button2label="Komfort" button2value="comfort" button3label="Standy By" button3value="standby" button4label="Economy" button4value="economy" showstatus="true">
+            <label>Betriebsart</label>
+            <address transform="DPT:20.102" mode="readwrite">31/3/74</address>
+          </multitrigger>
           <info format="%.1f °C">
             <label>Ist</label>
             <address transform="DPT:9.001" mode="read">31/3/70</address>
@@ -4623,10 +4700,6 @@
             <label>Soll</label>
             <address transform="DPT:9.001" mode="readwrite">31/3/72</address>
           </slide>
-          <multitrigger mapping="KonnexHVACSymbol" button1label="Auto" button1value="auto" button2label="Komfort" button2value="comfort" button3label="Standy By" button3value="standby" button4label="Economy" button4value="economy" showstatus="true">
-            <label>Betriebsart</label>
-            <address transform="DPT:20.102" mode="readwrite">31/3/74</address>
-          </multitrigger>
         </group>
       </page>
       <page name="[MobileTabs][3.4.0]Gästezimmer" visible="false">
@@ -4702,7 +4775,11 @@
         </page>
         <page name="[Heizung][3.4.3]Gästezimmer">
           <group>
-            <layout colspan="6"/>
+            <layout colspan="3"/>
+            <multitrigger mapping="KonnexHVACSymbol" button1label="Auto" button1value="auto" button2label="Komfort" button2value="comfort" button3label="Standy By" button3value="standby" button4label="Economy" button4value="economy" showstatus="true">
+              <label>Betriebsart</label>
+              <address transform="DPT:20.102" mode="readwrite">31/3/74</address>
+            </multitrigger>
             <info format="%.1f °C">
               <label>Ist</label>
               <address transform="DPT:9.001" mode="read">31/3/70</address>
@@ -4712,10 +4789,6 @@
               <label>Soll</label>
               <address transform="DPT:9.001" mode="readwrite">31/3/72</address>
             </slide>
-            <multitrigger mapping="KonnexHVACSymbol" button1label="Auto" button1value="auto" button2label="Komfort" button2value="comfort" button3label="Standy By" button3value="standby" button4label="Economy" button4value="economy" showstatus="true">
-              <label>Betriebsart</label>
-              <address transform="DPT:20.102" mode="readwrite">31/3/74</address>
-            </multitrigger>
           </group>
         </page>
       </page>
@@ -4757,10 +4830,14 @@
           <group nowidget="true" >
             <layout colspan="6"/>
             <switch mapping="DoorOpenClose" styling="OpenClose" bind_click_to_widget="false">
-              <layout colspan="3"/>
+              <layout colspan="2.5"/>
               <label>Sonnenschutz</label>
               <address transform="DPT:1.019" mode="read">0/3/64</address>
             </switch>
+            <text>
+              <layout colspan="0.5"/>
+              <label></label>
+            </text>
             <trigger value="0" mapping="AufAbSymbol" align="right">
               <layout colspan="1"/>
               <address transform="DPT:1.008" mode="write">20/3/60</address>
@@ -4796,10 +4873,14 @@
           <group nowidget="true" >
             <layout colspan="6"/>
             <switch mapping="DoorOpenClose" styling="OpenClose" bind_click_to_widget="false">
-              <layout colspan="3"/>
+              <layout colspan="2.5"/>
               <label>Fenster Süd</label>
               <address transform="DPT:1.019" mode="read">0/3/64</address>
             </switch>
+            <text>
+              <layout colspan="0.5"/>
+              <label></label>
+            </text>
             <trigger value="0" mapping="AufAbSymbol" align="right">
               <layout colspan="1"/>
               <address transform="DPT:1.008" mode="write">21/3/70</address>
@@ -4835,10 +4916,14 @@
           <group nowidget="true" >
             <layout colspan="6"/>
             <switch mapping="DoorOpenClose" styling="OpenClose" bind_click_to_widget="false">
-              <layout colspan="3"/>
+              <layout colspan="2.5"/>
               <label>Fenster West</label>
               <address transform="DPT:1.019" mode="read">0/3/64</address>
             </switch>
+            <text>
+              <layout colspan="0.5"/>
+              <label></label>
+            </text>
             <trigger value="0" mapping="AufAbSymbol" align="right">
               <layout colspan="1"/>
               <address transform="DPT:1.008" mode="write">21/3/80</address>
@@ -4877,6 +4962,10 @@
         </text>
         <group>
           <layout colspan="12"/>
+          <multitrigger mapping="KonnexHVACSymbol" button1label="Auto" button1value="auto" button2label="Komfort" button2value="comfort" button3label="Standy By" button3value="standby" button4label="Economy" button4value="economy" showstatus="true">
+            <label>Betriebsart</label>
+            <address transform="DPT:20.102" mode="readwrite">31/3/94</address>
+          </multitrigger>
           <info format="%.1f °C">
             <label>Ist</label>
             <address transform="DPT:9.001" mode="read">31/3/90</address>
@@ -4886,10 +4975,6 @@
             <label>Soll</label>
             <address transform="DPT:9.001" mode="readwrite">31/3/92</address>
           </slide>
-          <multitrigger mapping="KonnexHVACSymbol" button1label="Auto" button1value="auto" button2label="Komfort" button2value="comfort" button3label="Standy By" button3value="standby" button4label="Economy" button4value="economy" showstatus="true">
-            <label>Betriebsart</label>
-            <address transform="DPT:20.102" mode="readwrite">31/3/94</address>
-          </multitrigger>
         </group>
       </page>
       <page name="[MobileTabs][3.5.0]Kinderzimmer 2" visible="false">
@@ -5068,7 +5153,11 @@
         </page>
         <page name="[Heizung][3.5.3]Kinderzimmer 2">
           <group>
-            <layout colspan="6"/>
+            <layout colspan="3"/>
+            <multitrigger mapping="KonnexHVACSymbol" button1label="Auto" button1value="auto" button2label="Komfort" button2value="comfort" button3label="Standy By" button3value="standby" button4label="Economy" button4value="economy" showstatus="true">
+              <label>Betriebsart</label>
+              <address transform="DPT:20.102" mode="readwrite">31/3/94</address>
+            </multitrigger>
             <info format="%.1f °C">
               <label>Ist</label>
               <address transform="DPT:9.001" mode="read">31/3/90</address>
@@ -5078,10 +5167,6 @@
               <label>Soll</label>
               <address transform="DPT:9.001" mode="readwrite">31/3/92</address>
             </slide>
-            <multitrigger mapping="KonnexHVACSymbol" button1label="Auto" button1value="auto" button2label="Komfort" button2value="comfort" button3label="Standy By" button3value="standby" button4label="Economy" button4value="economy" showstatus="true">
-              <label>Betriebsart</label>
-              <address transform="DPT:20.102" mode="readwrite">31/3/94</address>
-            </multitrigger>
           </group>
         </page>
       </page>
@@ -5123,10 +5208,14 @@
           <group nowidget="true" >
             <layout colspan="6"/>
             <switch mapping="DoorOpenClose" styling="OpenClose" bind_click_to_widget="false">
-              <layout colspan="3"/>
+              <layout colspan="2.5"/>
               <label>Sonnenschutz</label>
               <address transform="DPT:1.019" mode="read">0/3/65</address>
             </switch>
+            <text>
+              <layout colspan="0.5"/>
+              <label></label>
+            </text>
             <trigger value="0" mapping="AufAbSymbol" align="right">
               <layout colspan="1"/>
               <address transform="DPT:1.008" mode="write">20/3/90</address>
@@ -5162,10 +5251,14 @@
           <group nowidget="true" >
             <layout colspan="6"/>
             <switch mapping="DoorOpenClose" styling="OpenClose" bind_click_to_widget="false">
-              <layout colspan="3"/>
+              <layout colspan="2.5"/>
               <label>Fenster West</label>
               <address transform="DPT:1.019" mode="read">0/3/65</address>
             </switch>
+            <text>
+              <layout colspan="0.5"/>
+              <label></label>
+            </text>
             <trigger value="0" mapping="AufAbSymbol" align="right">
               <layout colspan="1"/>
               <address transform="DPT:1.008" mode="write">21/3/100</address>
@@ -5201,10 +5294,14 @@
           <group nowidget="true" >
             <layout colspan="6"/>
             <switch mapping="DoorOpenClose" styling="OpenClose" bind_click_to_widget="false">
-              <layout colspan="3"/>
+              <layout colspan="2.5"/>
               <label>Fenster Nord</label>
               <address transform="DPT:1.019" mode="read">0/3/65</address>
             </switch>
+            <text>
+              <layout colspan="0.5"/>
+              <label></label>
+            </text>
             <trigger value="0" mapping="AufAbSymbol" align="right">
               <layout colspan="1"/>
               <address transform="DPT:1.008" mode="write">21/3/120</address>
@@ -5243,6 +5340,10 @@
         </text>
         <group>
           <layout colspan="12"/>
+          <multitrigger mapping="KonnexHVACSymbol" button1label="Auto" button1value="auto" button2label="Komfort" button2value="comfort" button3label="Standy By" button3value="standby" button4label="Economy" button4value="economy" showstatus="true">
+            <label>Betriebsart</label>
+            <address transform="DPT:20.102" mode="readwrite">31/3/114</address>
+          </multitrigger>
           <info format="%.1f °C">
             <label>Ist</label>
             <address transform="DPT:9.001" mode="read">31/3/110</address>
@@ -5252,10 +5353,6 @@
             <label>Soll</label>
             <address transform="DPT:9.001" mode="readwrite">31/3/112</address>
           </slide>
-          <multitrigger mapping="KonnexHVACSymbol" button1label="Auto" button1value="auto" button2label="Komfort" button2value="comfort" button3label="Standy By" button3value="standby" button4label="Economy" button4value="economy" showstatus="true">
-            <label>Betriebsart</label>
-            <address transform="DPT:20.102" mode="readwrite">31/3/114</address>
-          </multitrigger>
         </group>
       </page>
       <page name="[MobileTabs][3.6.0]Schlafzimmer" visible="false">
@@ -5434,7 +5531,11 @@
         </page>
         <page name="[Heizung][3.6.3]Schlafzimmer">
           <group>
-            <layout colspan="6"/>
+            <layout colspan="3"/>
+            <multitrigger mapping="KonnexHVACSymbol" button1label="Auto" button1value="auto" button2label="Komfort" button2value="comfort" button3label="Standy By" button3value="standby" button4label="Economy" button4value="economy" showstatus="true">
+              <label>Betriebsart</label>
+              <address transform="DPT:20.102" mode="readwrite">31/3/114</address>
+            </multitrigger>
             <info format="%.1f °C">
               <label>Ist</label>
               <address transform="DPT:9.001" mode="read">31/3/110</address>
@@ -5444,10 +5545,6 @@
               <label>Soll</label>
               <address transform="DPT:9.001" mode="readwrite">31/3/112</address>
             </slide>
-            <multitrigger mapping="KonnexHVACSymbol" button1label="Auto" button1value="auto" button2label="Komfort" button2value="comfort" button3label="Standy By" button3value="standby" button4label="Economy" button4value="economy" showstatus="true">
-              <label>Betriebsart</label>
-              <address transform="DPT:20.102" mode="readwrite">31/3/114</address>
-            </multitrigger>
           </group>
         </page>
       </page>
@@ -5472,22 +5569,14 @@
           <group nowidget="true" >
             <layout colspan="6"/>
             <switch mapping="DoorOpenClose" styling="OpenClose" bind_click_to_widget="false">
-              <layout colspan="3"/>
+              <layout colspan="2.5"/>
               <label>Fenster</label>
               <address transform="DPT:1.019" mode="read">0/3/66</address>
             </switch>
-            <trigger value="0" mapping="AufAbSymbol" align="right">
-              <layout colspan="1"/>
-              <address transform="DPT:1.008" mode="write">0/0/0</address>
-            </trigger>
-            <trigger value="0" mapping="Stop" align="right">
-              <layout colspan="1"/>
-              <address transform="DPT:1.009" mode="write">0/0/0</address>
-            </trigger>
-            <trigger value="1" mapping="AufAbSymbol" align="right">
-              <layout colspan="1"/>
-              <address transform="DPT:1.008" mode="write">0/0/0</address>
-            </trigger>
+            <text>
+              <layout colspan="0.5"/>
+              <label></label>
+            </text>
             <break/>
           </group>
         </group>
@@ -5496,6 +5585,10 @@
         </text>
         <group>
           <layout colspan="12"/>
+          <multitrigger mapping="KonnexHVACSymbol" button1label="Auto" button1value="auto" button2label="Komfort" button2value="comfort" button3label="Standy By" button3value="standby" button4label="Economy" button4value="economy" showstatus="true">
+            <label>Betriebsart</label>
+            <address transform="DPT:20.102" mode="readwrite">31/3/134</address>
+          </multitrigger>
           <info format="%.1f °C">
             <label>Ist</label>
             <address transform="DPT:9.001" mode="read">31/3/130</address>
@@ -5505,10 +5598,6 @@
             <label>Soll</label>
             <address transform="DPT:9.001" mode="readwrite">31/3/132</address>
           </slide>
-          <multitrigger mapping="KonnexHVACSymbol" button1label="Auto" button1value="auto" button2label="Komfort" button2value="comfort" button3label="Standy By" button3value="standby" button4label="Economy" button4value="economy" showstatus="true">
-            <label>Betriebsart</label>
-            <address transform="DPT:20.102" mode="readwrite">31/3/134</address>
-          </multitrigger>
         </group>
       </page>
       <page name="[MobileTabs][3.7.0]Ankleide" visible="false">
@@ -5553,7 +5642,11 @@
         </page>
         <page name="[Heizung][3.7.3]Ankleide">
           <group>
-            <layout colspan="6"/>
+            <layout colspan="3"/>
+            <multitrigger mapping="KonnexHVACSymbol" button1label="Auto" button1value="auto" button2label="Komfort" button2value="comfort" button3label="Standy By" button3value="standby" button4label="Economy" button4value="economy" showstatus="true">
+              <label>Betriebsart</label>
+              <address transform="DPT:20.102" mode="readwrite">31/3/134</address>
+            </multitrigger>
             <info format="%.1f °C">
               <label>Ist</label>
               <address transform="DPT:9.001" mode="read">31/3/130</address>
@@ -5563,10 +5656,6 @@
               <label>Soll</label>
               <address transform="DPT:9.001" mode="readwrite">31/3/132</address>
             </slide>
-            <multitrigger mapping="KonnexHVACSymbol" button1label="Auto" button1value="auto" button2label="Komfort" button2value="comfort" button3label="Standy By" button3value="standby" button4label="Economy" button4value="economy" showstatus="true">
-              <label>Betriebsart</label>
-              <address transform="DPT:20.102" mode="readwrite">31/3/134</address>
-            </multitrigger>
           </group>
         </page>
       </page>
@@ -5577,7 +5666,7 @@
         <group>
           <layout colspan="12"/>
           <group nowidget="true">
-            <layout colspan="6"/>
+            <layout colspan="12"/>
             <text>
               <layout colspan="3"/>
               <label>Licht</label>
@@ -5591,7 +5680,6 @@
               <address transform="DPT:1.008" mode="write">0/0/0</address>
             </trigger>
           </group>
-          <break/>
           <switch mapping="OnOff" bind_click_to_widget="false">
             <layout colspan="6"/>
             <label>Deckenspots</label>
@@ -5619,22 +5707,14 @@
           <group nowidget="true" >
             <layout colspan="6"/>
             <switch mapping="DoorOpenClose" styling="OpenClose" bind_click_to_widget="false">
-              <layout colspan="3"/>
+              <layout colspan="2.5"/>
               <label>Fenster</label>
               <address transform="DPT:1.019" mode="read">0/3/67</address>
             </switch>
-            <trigger value="0" mapping="AufAbSymbol" align="right">
-              <layout colspan="1"/>
-              <address transform="DPT:1.008" mode="write">0/0/0</address>
-            </trigger>
-            <trigger value="0" mapping="Stop" align="right">
-              <layout colspan="1"/>
-              <address transform="DPT:1.009" mode="write">0/0/0</address>
-            </trigger>
-            <trigger value="1" mapping="AufAbSymbol" align="right">
-              <layout colspan="1"/>
-              <address transform="DPT:1.008" mode="write">0/0/0</address>
-            </trigger>
+            <text>
+              <layout colspan="0.5"/>
+              <label></label>
+            </text>
             <break/>
           </group>
         </group>
@@ -5643,6 +5723,10 @@
         </text>
         <group>
           <layout colspan="12"/>
+          <multitrigger mapping="KonnexHVACSymbol" button1label="Auto" button1value="auto" button2label="Komfort" button2value="comfort" button3label="Standy By" button3value="standby" button4label="Economy" button4value="economy" showstatus="true">
+            <label>Betriebsart</label>
+            <address transform="DPT:20.102" mode="readwrite">31/3/154</address>
+          </multitrigger>
           <info format="%.1f °C">
             <label>Ist</label>
             <address transform="DPT:9.001" mode="read">31/3/150</address>
@@ -5652,10 +5736,6 @@
             <label>Soll</label>
             <address transform="DPT:9.001" mode="readwrite">31/3/152</address>
           </slide>
-          <multitrigger mapping="KonnexHVACSymbol" button1label="Auto" button1value="auto" button2label="Komfort" button2value="comfort" button3label="Standy By" button3value="standby" button4label="Economy" button4value="economy" showstatus="true">
-            <label>Betriebsart</label>
-            <address transform="DPT:20.102" mode="readwrite">31/3/154</address>
-          </multitrigger>
         </group>
       </page>
       <page name="[MobileTabs][3.8.0]Masterbad" visible="false">
@@ -5736,7 +5816,11 @@
         </page>
         <page name="[Heizung][3.8.3]Masterbad">
           <group>
-            <layout colspan="6"/>
+            <layout colspan="3"/>
+            <multitrigger mapping="KonnexHVACSymbol" button1label="Auto" button1value="auto" button2label="Komfort" button2value="comfort" button3label="Standy By" button3value="standby" button4label="Economy" button4value="economy" showstatus="true">
+              <label>Betriebsart</label>
+              <address transform="DPT:20.102" mode="readwrite">31/3/154</address>
+            </multitrigger>
             <info format="%.1f °C">
               <label>Ist</label>
               <address transform="DPT:9.001" mode="read">31/3/150</address>
@@ -5746,10 +5830,6 @@
               <label>Soll</label>
               <address transform="DPT:9.001" mode="readwrite">31/3/152</address>
             </slide>
-            <multitrigger mapping="KonnexHVACSymbol" button1label="Auto" button1value="auto" button2label="Komfort" button2value="comfort" button3label="Standy By" button3value="standby" button4label="Economy" button4value="economy" showstatus="true">
-              <label>Betriebsart</label>
-              <address transform="DPT:20.102" mode="readwrite">31/3/154</address>
-            </multitrigger>
           </group>
         </page>
       </page>
@@ -5760,7 +5840,7 @@
         <group>
           <layout colspan="12"/>
           <group nowidget="true">
-            <layout colspan="6"/>
+            <layout colspan="12"/>
             <text>
               <layout colspan="3"/>
               <label>Licht</label>
@@ -5774,7 +5854,6 @@
               <address transform="DPT:1.008" mode="write">0/0/0</address>
             </trigger>
           </group>
-          <break/>
           <group nowidget="true">
             <layout colspan="6"/>
             <switch mapping="OnOff" bind_click_to_widget="false">
@@ -5813,10 +5892,14 @@
           <group nowidget="true" >
             <layout colspan="6"/>
             <switch mapping="DoorOpenClose" styling="OpenClose" bind_click_to_widget="false">
-              <layout colspan="3"/>
+              <layout colspan="2.5"/>
               <label>Fenster</label>
               <address transform="DPT:1.019" mode="read">0/3/68</address>
             </switch>
+            <text>
+              <layout colspan="0.5"/>
+              <label></label>
+            </text>
             <trigger value="0" mapping="AufAbSymbol" align="right">
               <layout colspan="1"/>
               <address transform="DPT:1.008" mode="write">21/3/140</address>
@@ -5855,6 +5938,10 @@
         </text>
         <group>
           <layout colspan="12"/>
+          <multitrigger mapping="KonnexHVACSymbol" button1label="Auto" button1value="auto" button2label="Komfort" button2value="comfort" button3label="Standy By" button3value="standby" button4label="Economy" button4value="economy" showstatus="true">
+            <label>Betriebsart</label>
+            <address transform="DPT:20.102" mode="readwrite">31/3/184</address>
+          </multitrigger>
           <info format="%.1f °C">
             <label>Ist</label>
             <address transform="DPT:9.001" mode="read">31/3/180</address>
@@ -5864,10 +5951,6 @@
             <label>Soll</label>
             <address transform="DPT:9.001" mode="readwrite">31/3/182</address>
           </slide>
-          <multitrigger mapping="KonnexHVACSymbol" button1label="Auto" button1value="auto" button2label="Komfort" button2value="comfort" button3label="Standy By" button3value="standby" button4label="Economy" button4value="economy" showstatus="true">
-            <label>Betriebsart</label>
-            <address transform="DPT:20.102" mode="readwrite">31/3/184</address>
-          </multitrigger>
         </group>
       </page>
       <page name="[MobileTabs][3.9.0]Kinderbad" visible="false">
@@ -5987,7 +6070,11 @@
         </page>
         <page name="[Heizung][3.9.3]Kinderbad">
           <group>
-            <layout colspan="6"/>
+            <layout colspan="3"/>
+            <multitrigger mapping="KonnexHVACSymbol" button1label="Auto" button1value="auto" button2label="Komfort" button2value="comfort" button3label="Standy By" button3value="standby" button4label="Economy" button4value="economy" showstatus="true">
+              <label>Betriebsart</label>
+              <address transform="DPT:20.102" mode="readwrite">31/3/184</address>
+            </multitrigger>
             <info format="%.1f °C">
               <label>Ist</label>
               <address transform="DPT:9.001" mode="read">31/3/180</address>
@@ -5997,10 +6084,6 @@
               <label>Soll</label>
               <address transform="DPT:9.001" mode="readwrite">31/3/182</address>
             </slide>
-            <multitrigger mapping="KonnexHVACSymbol" button1label="Auto" button1value="auto" button2label="Komfort" button2value="comfort" button3label="Standy By" button3value="standby" button4label="Economy" button4value="economy" showstatus="true">
-              <label>Betriebsart</label>
-              <address transform="DPT:20.102" mode="readwrite">31/3/184</address>
-            </multitrigger>
           </group>
         </page>
       </page>
@@ -6013,7 +6096,7 @@
         <group>
           <layout colspan="12"/>
           <group nowidget="true">
-            <layout colspan="6"/>
+            <layout colspan="12"/>
             <text>
               <layout colspan="3"/>
               <label>Licht</label>
@@ -6027,7 +6110,6 @@
               <address transform="DPT:1.008" mode="write">0/0/0</address>
             </trigger>
           </group>
-          <break/>
         </group>
       </page>
       <page name="[MobileHeader][4.0.1]Zentral">
@@ -6098,7 +6180,7 @@
         </page>
         <page name="[Heizung][4.1.3]Flur">
           <group>
-            <layout colspan="6"/>
+            <layout colspan="3"/>
             <info format="%.1f °C">
               <label>Ist</label>
               <address transform="DPT:9.001" mode="read">31/4/10</address>
@@ -6154,7 +6236,7 @@
         </page>
         <page name="[Heizung][4.2.3]Dachboden">
           <group>
-            <layout colspan="6"/>
+            <layout colspan="3"/>
             <info format="%.1f °C">
               <label>Ist</label>
               <address transform="DPT:9.001" mode="read">31/4/20</address>
@@ -6171,7 +6253,7 @@
         <group>
           <layout colspan="12"/>
           <group nowidget="true">
-            <layout colspan="6"/>
+            <layout colspan="12"/>
             <text>
               <layout colspan="3"/>
               <label>Licht</label>
@@ -6185,7 +6267,6 @@
               <address transform="DPT:1.008" mode="write">0/0/0</address>
             </trigger>
           </group>
-          <break/>
         </group>
         <text flavour="test">
           <label>Fenster</label>
@@ -6376,7 +6457,7 @@
         </page>
         <page name="[Heizung][5.1.3]Garage">
           <group>
-            <layout colspan="6"/>
+            <layout colspan="3"/>
             <info format="%.1f °C">
               <label>Ist</label>
               <address transform="DPT:9.001" mode="read">31/5/10</address>

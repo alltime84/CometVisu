@@ -1123,7 +1123,7 @@ div#loading
 }
 
 .trigger .actor{
-	width: 100%;;
+	width: 100%;
 }
 
 .trigger .actor .value{
@@ -1134,10 +1134,11 @@ div#loading
 	-khtml-border-radius: 2px;
 	-moz-border-radius: 2px;
 	border-radius: 2px;
-	padding: 0px 10px 0px 10px;
+	padding: 0px 0px 0px 0px;
 	text-align: center;
 	margin: 0px;
-	line-height: 30px;
+	height: 36px;
+	line-height: 36px;
 	text-transform: uppercase;
 }
 

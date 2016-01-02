@@ -229,7 +229,7 @@ function printFunctionTypes($xmlDoc, $tab, $functionType, $mobile){
 							if ($mobile){
 								echo printTab($tab)."&lt;layout colspan=\"3\"/&gt;<br/>";
 							} else {
-								echo printTab($tab)."&lt;layout colspan=\"6\"/&gt;<br/>";
+								echo printTab($tab)."&lt;layout colspan=\"12\"/&gt;<br/>";
 							}
 							
 							echo printTab($tab)."&lt;text&gt;<br/>";
@@ -268,9 +268,6 @@ function printFunctionTypes($xmlDoc, $tab, $functionType, $mobile){
 							
 							$tab--;
 							echo printTab($tab)."&lt;/group&gt;<br/>";
-							if (!$mobile){
-								echo printTab($tab)."&lt;break/&gt;<br/>";
-							}
 						} else {
 							echo printTab($tab)."&lt;switch mapping=\"OnOff\" bind_click_to_widget=\"false\"&gt;<br/>";
 							$tab++;
@@ -525,27 +522,28 @@ function printFunctionTypes($xmlDoc, $tab, $functionType, $mobile){
 								echo printTab($tab)."&lt;/text&gt;<br/>";
 							}
 							
-							echo printTab($tab)."&lt;trigger value=\"0\" mapping=\"AufAbSymbol\" align=\"right\"&gt;<br/>";
-							$tab++;
-							echo printTab($tab)."&lt;layout colspan=\"1\"/&gt;<br/>";
-							echo printTab($tab)."&lt;address transform=\"DPT:1.008\" mode=\"write\"&gt;".translateAddress($GAUpDown['Address'])."&lt;/address&gt;<br/>";
-							$tab--;
-							echo printTab($tab)."&lt;/trigger&gt;<br/>";
-							
-							echo printTab($tab)."&lt;trigger value=\"0\" mapping=\"Stop\" align=\"right\"&gt;<br/>";
-							$tab++;
-							echo printTab($tab)."&lt;layout colspan=\"1\"/&gt;<br/>";
-							echo printTab($tab)."&lt;address transform=\"DPT:1.009\" mode=\"write\"&gt;".translateAddress($GAStep['Address'])."&lt;/address&gt;<br/>";
-							$tab--;
-							echo printTab($tab)."&lt;/trigger&gt;<br/>";
-							
-							echo printTab($tab)."&lt;trigger value=\"1\" mapping=\"AufAbSymbol\" align=\"right\"&gt;<br/>";
-							$tab++;
-							echo printTab($tab)."&lt;layout colspan=\"1\"/&gt;<br/>";
-							echo printTab($tab)."&lt;address transform=\"DPT:1.008\" mode=\"write\"&gt;".translateAddress($GAUpDown['Address'])."&lt;/address&gt;<br/>";
-							$tab--;
-							echo printTab($tab)."&lt;/trigger&gt;<br/>";
-							
+							if($GAUpDown != null){
+								echo printTab($tab)."&lt;trigger value=\"0\" mapping=\"AufAbSymbol\" align=\"right\"&gt;<br/>";
+								$tab++;
+								echo printTab($tab)."&lt;layout colspan=\"1\"/&gt;<br/>";
+								echo printTab($tab)."&lt;address transform=\"DPT:1.008\" mode=\"write\"&gt;".translateAddress($GAUpDown['Address'])."&lt;/address&gt;<br/>";
+								$tab--;
+								echo printTab($tab)."&lt;/trigger&gt;<br/>";
+								
+								echo printTab($tab)."&lt;trigger value=\"0\" mapping=\"Stop\" align=\"right\"&gt;<br/>";
+								$tab++;
+								echo printTab($tab)."&lt;layout colspan=\"1\"/&gt;<br/>";
+								echo printTab($tab)."&lt;address transform=\"DPT:1.009\" mode=\"write\"&gt;".translateAddress($GAStep['Address'])."&lt;/address&gt;<br/>";
+								$tab--;
+								echo printTab($tab)."&lt;/trigger&gt;<br/>";
+								
+								echo printTab($tab)."&lt;trigger value=\"1\" mapping=\"AufAbSymbol\" align=\"right\"&gt;<br/>";
+								$tab++;
+								echo printTab($tab)."&lt;layout colspan=\"1\"/&gt;<br/>";
+								echo printTab($tab)."&lt;address transform=\"DPT:1.008\" mode=\"write\"&gt;".translateAddress($GAUpDown['Address'])."&lt;/address&gt;<br/>";
+								$tab--;
+								echo printTab($tab)."&lt;/trigger&gt;<br/>";
+							}
 							echo printTab($tab)."&lt;break/&gt;<br/>";
 						}
 						
@@ -670,11 +668,16 @@ function printFunctionTypes($xmlDoc, $tab, $functionType, $mobile){
 						if ($mobile){
 							echo printTab($tab)."&lt;group&gt;<br/>";
 							$tab++;
-							if(strpos($function['Description'], "[CV;colspan") !== false){
-								echo printTab($tab)."&lt;layout colspan=\"12\"/&gt;<br/>";
-							} else {
-								echo printTab($tab)."&lt;layout colspan=\"6\"/&gt;<br/>";
-							}
+							echo printTab($tab)."&lt;layout colspan=\"3\"/&gt;<br/>";
+						}
+						
+						if($GAMode != null){
+							echo printTab($tab)."&lt;multitrigger mapping=\"KonnexHVACSymbol\" button1label=\"Auto\" button1value=\"auto\" button2label=\"Komfort\" button2value=\"comfort\" button3label=\"Standy By\" button3value=\"standby\" button4label=\"Economy\" button4value=\"economy\" showstatus=\"true\"&gt;<br/>";
+							$tab++;
+							echo printTab($tab)."&lt;label&gt;Betriebsart&lt;/label&gt;<br/>";
+							echo printTab($tab)."&lt;address transform=\"DPT:20.102\" mode=\"readwrite\"&gt;".translateAddress($GAMode['Address'])."&lt;/address&gt;<br/>";
+							$tab--;
+							echo printTab($tab)."&lt;/multitrigger&gt;<br/>";
 						}
 						
 						if($GATemperatureRead != null){
@@ -694,15 +697,6 @@ function printFunctionTypes($xmlDoc, $tab, $functionType, $mobile){
 							echo printTab($tab)."&lt;address transform=\"DPT:9.001\" mode=\"readwrite\"&gt;".translateAddress($GATemperatureWrite['Address'])."&lt;/address&gt;<br/>";
 							$tab--;
 							echo printTab($tab)."&lt;/slide&gt;<br/>";
-						}
-						
-						if($GAMode != null){
-							echo printTab($tab)."&lt;multitrigger mapping=\"KonnexHVACSymbol\" button1label=\"Auto\" button1value=\"auto\" button2label=\"Komfort\" button2value=\"comfort\" button3label=\"Standy By\" button3value=\"standby\" button4label=\"Economy\" button4value=\"economy\" showstatus=\"true\"&gt;<br/>";
-							$tab++;
-							echo printTab($tab)."&lt;label&gt;Betriebsart&lt;/label&gt;<br/>";
-							echo printTab($tab)."&lt;address transform=\"DPT:20.102\" mode=\"readwrite\"&gt;".translateAddress($GAMode['Address'])."&lt;/address&gt;<br/>";
-							$tab--;
-							echo printTab($tab)."&lt;/multitrigger&gt;<br/>";
 						}
 						
 						if ($mobile){
