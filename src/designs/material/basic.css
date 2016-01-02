@@ -548,7 +548,7 @@ div#loading
 
 #navbarLeft {
 	position:absolute !important;
-	margin-top: 20px;
+	height: 100%;
 	top:0;
 	right:0;
 	bottom:0;

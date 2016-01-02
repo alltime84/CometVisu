@@ -31,11 +31,6 @@ define( ['structure_custom', 'css!plugins/menu/menu' ], function( VisuDesign_Cus
       //classes += templateEngine.design.setWidgetLayout( $p, path );
 			
       var ret_val = '<div id="menu">';
-			ret_val += '<div class="logo">';
-			ret_val += '<div class="actor switchUnpressed">';
-			ret_val += '<div class="value" align="center"><img src=\'icon/ic_menu_black_24dp.png\' width="24px" height="24px"/></div>';
-			ret_val += '</div>';
-			ret_val += 'CometVisu</div>';
 			ret_val += '<div class="'+ classes + '"></div>';
 			ret_val += '</div>'
 			
@@ -139,6 +134,12 @@ define( ['structure_custom', 'css!plugins/menu/menu' ], function( VisuDesign_Cus
 		var id = 'id_'; // path[0];
 		var nav = '';
 		var name = '';
+		
+		nav = '<div class="logo">';
+		nav += '<div class="actor switchUnpressed">';
+		nav += '<div class="value" align="center"><img src=\'icon/ic_menu_black_24dp.png\' width="24px" height="24px"/></div>';
+		nav += '</div>';
+		nav += 'CometVisu</div>';
 
 		for ( var i = 0; i < 10; i++) {
 			if ($('#id_' + i + '_').hasClass("page")) {

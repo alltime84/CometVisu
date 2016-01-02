@@ -609,7 +609,7 @@
     </statusbar>
   </meta>
 
-  <page name="Start" showtopnavigation="true" showfooter="false" shownavbar-left="true">
+  <page name="Start" showtopnavigation="false" showfooter="false" shownavbar-left="true">
     <navbar position="top">
       <header/>
     </navbar>
