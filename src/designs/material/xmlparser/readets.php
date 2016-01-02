@@ -164,7 +164,7 @@ function printFunctionsDesktop($xmlDoc, $tab, $floor, $room, $name, $functions){
 	
 	foreach ($functions as $key => $functionType){
 		if($functionType[0]->GroupAddressRef["Id"] != null || $functionType->GroupAddressRef["Id"] != null){
-			echo printTab($tab)."&lt;text flavour=\"test\"&gt;<br/>";
+			echo printTab($tab)."&lt;text flavour=\"headline\"&gt;<br/>";
 			$tab++;
 			//echo printTab($tab)."&lt;layout colspan=\"6\"/&gt;<br/>";
 			echo printTab($tab)."&lt;label&gt;".$key."&lt;/label&gt;<br/>";
@@ -672,7 +672,7 @@ function printFunctionTypes($xmlDoc, $tab, $functionType, $mobile){
 						}
 						
 						if($GAMode != null){
-							echo printTab($tab)."&lt;multitrigger mapping=\"KonnexHVACSymbol\" button1label=\"Auto\" button1value=\"auto\" button2label=\"Komfort\" button2value=\"comfort\" button3label=\"Standy By\" button3value=\"standby\" button4label=\"Economy\" button4value=\"economy\" showstatus=\"true\"&gt;<br/>";
+							echo printTab($tab)."&lt;multitrigger button1label=\"Auto\" button1value=\"auto\" button2label=\"Komfort\" button2value=\"comfort\" button3label=\"Standy By\" button3value=\"standby\" button4label=\"Economy\" button4value=\"economy\" showstatus=\"true\"&gt;<br/>";
 							$tab++;
 							echo printTab($tab)."&lt;label&gt;Betriebsart&lt;/label&gt;<br/>";
 							echo printTab($tab)."&lt;address transform=\"DPT:20.102\" mode=\"readwrite\"&gt;".translateAddress($GAMode['Address'])."&lt;/address&gt;<br/>";
