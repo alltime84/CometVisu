@@ -7,7 +7,7 @@
 
 body{
 	color: #333333;
-	background:	#F2F2F2;
+	background:	#FAFAFA;
 }
 
 #top {
@@ -25,7 +25,7 @@ body{
 
 .link a
 {
-	color: #3F51B5;
+	color: #4CAF50;
 }
 
 
@@ -34,7 +34,7 @@ body{
 /************************************************************/
 
 .group > div > h2 {
-	color: #3F51B5;
+	color: #4CAF50;
 }
 
 .widget
@@ -52,38 +52,38 @@ body{
 }
 
 .trigger .actor .value{
-	color: #3F51B5;
+	color: #4CAF50;
 }
 
 .infotrigger .switchUnpressed .label,
 .infotrigger .switchPressed .label {
-	color: #3F51B5;
+	color: #4CAF50;
 	background-color: #FAFAFA;
 }
 
 .multitrigger .switchUnpressed  .value,
 .multitrigger .switchPressed  .value {
-	color: #3F51B5;
+	color: #4CAF50;
 	background-color: #FAFAFA;
 }
 
 .ui-widget-content {
-	background-color: #3F51B5;
+	background-color: #4CAF50;
 }
 
 .ui-slider .ui-slider-range {
-	background-color: #9FA8DA !important;
+	background-color: #A5D6A7 !important;
 }
 
 .ui-state-default,
 .ui-widget-content .ui-state-default,
 .ui-widget-header .ui-state-default {
-	background: #3F51B5;
+	background: #4CAF50;
 }
 
 .widget .ui-slider-handle {
 	color: #FFFFFF;
-	background-color: #3F51B5;
+	background-color: #4CAF50;
 }
 
 .widget .ui-slider
@@ -163,12 +163,12 @@ body{
 /************************************************************/
 
 #header {
-	background-color: transparent;
+	background-color: #4CAF50;
 	color: #FFFFFF;
 }
 
 #header .header {
-	background-color: transparent;
+	background-color: #4CAF50;
 	color: #FFFFFF;
 }
 
@@ -177,11 +177,11 @@ body{
 /************************************************************/
 
 #menu .logo {
-	color: #3F51B5;
+	color: #4CAF50;
 }
 
 #menu .submenu .menuitem.active {
-	color: #3F51B5;
+	color: #4CAF50;
 }
 
 /************************************************************/
@@ -189,11 +189,11 @@ body{
 /************************************************************/
 
 #navbarTop .navbar  {
-	background-color: #3F51B5;
+	background-color: #4CAF50;
 }
 
 #navbarTop .navbar .switch  {
-	background-color: transparent;
+	background-color: #4CAF50;
 }
 
 #navbarTop .text  {
@@ -202,20 +202,20 @@ body{
 
 #navbarTop .navbar .pagejump {
 	color: #f1f1f1;
-	background-color: transparent;
+	background-color: #4CAF50;
 }
 
 #navbarTop .navbar .pagejump:hover {
 	color: #FFFFFF;
 	background-color: transparent;
-	border-bottom-color: #FFC400;
+	border-bottom-color: #f1f1f1;
 }
 
 #navbarTop .navbar .pagejump.active,
 #navbarTop .navbar .pagejump.active_ancestor  {
 	color: #FFFFFF;
 	background-color: transparent;
-	border-bottom-color: #FF8000;
+	border-bottom-color: #f1f1f1;
 }
 
 /************************************************************/
@@ -233,14 +233,14 @@ body{
 #navbarTop .navbar .pagejump:hover {
 	color: #737373;
 	background-color: #E0E0E0;
-	border-bottom-color: #3F51B5; 
+	border-bottom-color: #4CAF50; 
 }
 
 #navbarTop .navbar .pagejump.active,
 #navbarTop .navbar .pagejump.active_ancestor {
-	color: #3F51B5;
+	color: #4CAF50;
 	background-color: #F5F5F5;
-	border-bottom-color: #3F51B5;
+	border-bottom-color: #4CAF50;
 }
  */
 /************************************************************/
@@ -252,7 +252,7 @@ body{
 }
 
 #navbarLeft .navbar .text  {
-	color: #3F51B5;
+	color: #4CAF50;
 }
 
 #navbarLeft .navbar .pagejump:hover {
@@ -261,7 +261,7 @@ body{
 
 #navbarLeft .navbar .pagejump.active,
 #navbarLeft .navbar .pagejump.active_ancestor  {
-	color: #3F51B5;
+	color: #4CAF50;
 	background-color: #f1f1f1;
 }
 

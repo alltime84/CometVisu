@@ -55,6 +55,23 @@ body
 	
 }
 
+#menu .logo {
+	height:96px;
+	line-height: 96px;
+	background-color: #3F51B5 !important;
+	color: #FFFFFF !important;
+}
+
+#menu .logo .actor .value{
+	height: 96px !important;
+	line-height: 96px !important;
+}
+
+#menu .logo img{
+/* 	height: 72px !important;
+	width: 72px !important; */
+}
+
 /* #navbarLeft,
 #navbarLeft > .navbar, */
 #navbarRight,

@@ -175,9 +175,9 @@ div#loading
 #navbarTop {
 	border-bottom: none;
 	
-	-webkit-box-shadow: 0px 0px 12px gray;
-  -moz-box-shadow: 0px 0px 12px gray;
-  box-shadow: 0px 0px 12px gray;
+	-webkit-box-shadow: 0px 1px 16px gray;
+  -moz-box-shadow: 0px 1px 16px gray;
+  box-shadow: 0px 1px 16px gray;
 	
 	position: relative;
 	z-index: 9;
@@ -245,8 +245,19 @@ div#loading
 
 #menu .logo .actor{
 	float: left;
-	width: 78px !important;
 	height: 48px !important;
+}
+
+#menu .logo .actor .value{
+	height: 48px !important;
+	line-height: 48px;
+	padding-left: 6px;
+	margin: 0px;
+}
+
+#menu .logo img{
+
+	vertical-align: middle;
 }
 
 #menu .menu {
@@ -280,14 +291,17 @@ div#loading
 	background-color: #EBEBEB;
 }
 
+#menu .menuitem.level1:hover,
+#menu .menuitem.level1:focus {
+	background-color: #EBEBEB;
+}
+
 #menu .menuitem.level1 .actor {
 	padding: 0px;
 	margin: 0px;
 	display: block;
 	height: 48px;
 	line-height: 48px;
-	width: auto !important;
-	min-width: 88px;
 }
 
 #menu .menuitem.level1 .actor .value{
@@ -309,15 +323,18 @@ div#loading
 }
 
 #menu .submenu .menuitem.active {
-	color: green;
 	font-weight: bold;
+	background-color: #EBEBEB;
+}
+
+#menu .submenu .menuitem:hover,
+#menu .submenu .menuitem:focus {
+	background-color: #EBEBEB;
 }
 
 #menu .submenu .menuitem .actor {
 	height: 40px;
 	white-space: nowrap;
-	width: auto !important;
-	min-width: 88px;
 }
 
 #menu .submenu .menuitem .actor .value{
@@ -674,6 +691,42 @@ div#loading
 }
 
 /************************************************************/
+/* 												navbarright												*/
+/************************************************************/
+
+/* #navbarRight
+{
+	background-color: transparent !important;
+	position: absolute !important;
+	top: 0px !important;
+	right: 0px !important;
+	z-index: 100 !important;
+	width: 100px !important;
+	height: 48px !important;
+	margin: 0 !important;
+}
+
+#navbarRight .navbar
+{
+	background-color: transparent !important;
+}
+
+#navbarRight .widget_container
+{
+	background-color: transparent !important;
+}
+
+#navbarRight .widget
+{
+	background-color: transparent !important;
+}
+
+#navbarRight .actor
+{
+	background-color: transparent !important;
+} */
+
+/************************************************************/
 /* 												navbarbottom 											*/
 /************************************************************/
 
@@ -755,6 +808,24 @@ div#loading
   text-align: right;
 	padding-right: 10px;
 	z-index: 11;
+}
+
+/************************************************************/
+/* 												flavours													*/
+/************************************************************/
+
+.flavour_description {
+	color: #888888;
+	font-size: 14px !important;
+	font-weight: normal !important;
+	line-height: 14px !important;
+}
+
+.flavour_description .actor .value {
+	color: #888888;
+	font-size: 14px !important;
+	font-weight: normal !important;
+	line-height: 14px !important;
 }
 
 /************************************************************/
@@ -878,7 +949,8 @@ div#loading
 .group:not(.widget) .widget_container .widget.slide,
 .group:not(.widget) .widget_container .widget.switch,
 .group:not(.widget) .widget_container .widget.text,
-.group:not(.widget) .widget_container .widget.info {
+.group:not(.widget) .widget_container .widget.info,
+.group:not(.widget) .widget_container .widget.multitrigger {
 	margin: 0px !important;
 	padding: 0px !important;
 	border: none !important;
@@ -1032,12 +1104,13 @@ div#loading
 /* 										actor position												*/
 /************************************************************/
 
-.widget.left.toggle .actor .value,
-.widget.left.switch .actor .value,
-.widget.left.trigger .actor .value,
-.widget.left.diagram_info .actor .value{
+.widget.toggle.left .actor .value,
+.widget.switch.left .actor .value,
+.widget.trigger.left .actor .value,
+.widget.diagram_info.left .actor .value{
   margin-right: auto !important;
 	margin-left: 0 !important;
+	text-align: left;
 }
 
 .widget.center.toggle,
@@ -1046,6 +1119,7 @@ div#loading
 .widget.center.diagram_info{
   margin-right: auto !important;
 	margin-left: auto !important;
+	text-align: center;
 }
 
 .widget.right.toggle,
@@ -1054,6 +1128,13 @@ div#loading
 .widget.right.diagram_info {
   margin-right: 0 !important;
 	margin-left: auto !important;
+	text-align: right;
+}
+
+.widget.trigger.right .actor{
+	float: right !important;
+	padding-right: 2px !important;
+	text-align: right;
 }
 
 /************************************************************/
@@ -1123,29 +1204,32 @@ div#loading
 }
 
 .trigger .actor{
-	width: 100%;
+	/***********************************************************************************************************************************************/
+	/*hier*/
+	width: 36px;
+	/*width: 100%;*/
 }
 
 .trigger .actor .value{
-	-webkit-box-shadow: 0px 1px 4px gray;
-	-moz-box-shadow: 0px 1px 4px gray;
-	box-shadow: 0px 1px 4px gray;
+	-webkit-box-shadow: 0px 1px 2px gray;
+	-moz-box-shadow: 0px 1px 2px gray;
+	box-shadow: 0px 1px 2px gray;
 	-webkit-border-radius: 2px;
 	-khtml-border-radius: 2px;
 	-moz-border-radius: 2px;
 	border-radius: 2px;
 	padding: 0px 0px 0px 0px;
 	text-align: center;
-	margin: 0px;
+	margin: 0px 0px 0px 0px;
 	height: 36px;
 	line-height: 36px;
 	text-transform: uppercase;
 }
 
 .trigger .actor .value:hover{
-	-webkit-box-shadow: 0px 2px 6px gray;
-	-moz-box-shadow: 0px 2px 6px gray;
-	box-shadow: 0px 2px 6px gray;
+	-webkit-box-shadow: 0px 1px 6px gray;
+	-moz-box-shadow: 0px 1px 6px gray;
+	box-shadow: 0px 1px 6px gray;
 }
 
 .trigger .actor.switchPressed,
@@ -1217,6 +1301,10 @@ div#loading
 	width: 50%;
 }
 
+.infotrigger > div:not(.label){
+	
+}
+
 /* actor symbole */
 .widget.infotrigger .actor
 {
@@ -1226,31 +1314,38 @@ div#loading
 
 .widget.infotrigger .actor.downlabel
 {
-	width: 70%;
-	margin-left: auto;
-	margin-right: 0px;
+	width: 30%;
 }
 
 .widget.infotrigger .actor.downlabel .label
 {
+	text-align: center;
 	margin-left: auto;
 	margin-right: 0px;
 }
 
 .widget.infotrigger .actor.switchInvisible
 {
-	width: 50px;
-	float: left;
-	text-align: center;
+	width: 40%;
+}
+
+.widget.infotrigger .actor.switchInvisible .value
+{
+	margin-left: auto;
+	margin-right: 0px;
+	text-align: right;
 }
 
 .widget.infotrigger .actor.uplabel
 {
-	width: 40px;
-	margin-left: 15px;
-	float: left;
+	width: 30%;
+}
+
+.widget.infotrigger .actor.uplabel .label
+{
+	text-align: center;
 	margin-left: auto;
-	margin-right: 0;
+	margin-right: 0px;
 }
 
 
@@ -1336,6 +1431,7 @@ div#loading
 	margin: 0px;
 	padding: 0px;
 	height: 118px !important;
+	float: left;
 }
 
 .multitrigger .label{
@@ -1354,47 +1450,40 @@ div#loading
 	-moz-border-radius: 2px;
 	-webkit-border-radius: 2px;
 	border-radius: 2px;
-	text-align: right;
-	width: 50%;
+	float: left;
+
 }
 
 .multitrigger .actor {
 	min-width: 60px;
 	height: 36px;
+	float: left;
 }
 
 .multitrigger .switchUnpressed {
-	padding: 0px;
-	margin: 0px;
+	float: left;
 }
 
 .multitrigger .switchUnpressed .value{
 	text-transform: uppercase;
 	line-height: 36px;
 	font-size: 12px;
-	padding: 0px;
-	width: auto;
 	text-align: center;
 }
 
 .multitrigger .switchUnpressed .value:hover{
-
+	
 }
 
 .multitrigger .switchPressed {
-	padding: 0px;
-	margin: 0px;
-
+	float: left;
 }
 
 .multitrigger .switchPressed .value{
 	text-transform: uppercase;
 	line-height: 36px;
 	font-size: 12px;
-	padding: 0px;
-	width: auto;
 	text-align: center;
-
 }
 
 /************************************************************/
@@ -1404,6 +1493,35 @@ div#loading
  .ui-slider .ui-slider-range {
 	
 }
+
+/*************************************/
+
+.flavour_disabled .ui-widget-content {
+	background-color: #aeaeae;
+}
+
+.flavour_disabled .ui-slider .ui-slider-range {
+	background-color: #aeaeae !important;
+}
+
+.flavour_disabled .ui-state-default,
+.flavour_disabled .ui-widget-content .ui-state-default,
+.flavour_disabled .ui-widget-header .ui-state-default {
+	background: #aeaeae;
+}
+
+.flavour_disabled .ui-slider-handle {
+	color: #aeaeae;
+	background-color: #aeaeae;
+	cursor: default;
+}
+
+.flavour_disabled .widget .ui-slider
+{
+  background-color: #aeaeae;
+}
+
+/*************************************/
 
 .widget .slide {
 	height: 60px;
@@ -1469,7 +1587,7 @@ div#loading
 }
 
 #pages .page .widget .ui-slider-horizontal:first-child  {
-  width: 100%;
+  width: 95%;
 	margin: 0px auto !important;
 }
 

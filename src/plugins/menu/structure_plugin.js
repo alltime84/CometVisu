@@ -55,8 +55,10 @@ define( ['structure_custom', 'css!plugins/menu/menu' ], function( VisuDesign_Cus
 			}
 		},
 		action: function( path, actor, isCanceled ) {
+			if( isCanceled ) return;
+			
 			//click on menubutton
-			if($(actor).parent().hasClass('logo')){
+			if($(actor).hasClass('logo')){
 				if (window.innerWidth <= templateEngine.maxMobileScreenWidth){
 					$('#navbarLeft').hide();
 				}
@@ -135,11 +137,26 @@ define( ['structure_custom', 'css!plugins/menu/menu' ], function( VisuDesign_Cus
 		var nav = '';
 		var name = '';
 		
+		if (window.innerWidth <= templateEngine.maxMobileScreenWidth) {
 		nav = '<div class="logo">';
-		nav += '<div class="actor switchUnpressed">';
-		nav += '<div class="value" align="center"><img src=\'icon/ic_menu_black_24dp.png\' width="24px" height="24px"/></div>';
+		nav += '<div class="actor switchUnpressed logo">';
+		nav += '<div class="value" align="Left">';
+		nav += '<img src=\'icon/CometVisu-Icon_v4_white.png\' width=\'72px\' height=\'72px\'/>';
+		nav += '&nbsp; CometVisu &nbsp; ';
+		nav += '<img src=\'config/media/material/ic_arrow_back_white_24dp_2x.png\' width=\'24px\' height=\'24px\'/>';
 		nav += '</div>';
-		nav += 'CometVisu</div>';
+		nav += '</div>';
+		nav += '</div>';
+		}	else{
+			nav = '<div class="logo">';
+			nav += '<div class="actor switchUnpressed logo">';
+			nav += '<div class="value" align="Left">';
+			nav += '<img src=\'icon/CometVisu-Icon_v4_white.png\' width=\'36px\' height=\'36px\'/>';
+			nav += '&nbsp; CometVisu &nbsp; ';
+			nav += '</div>';
+			nav += '</div>';
+			nav += '</div>';
+		}
 
 		for ( var i = 0; i < 10; i++) {
 			if ($('#id_' + i + '_').hasClass("page")) {
@@ -157,6 +174,13 @@ define( ['structure_custom', 'css!plugins/menu/menu' ], function( VisuDesign_Cus
 							nav += '</div>';
 							nav += '</div>';
 						} else if ($('#id_' + i + '_ h1').text().indexOf('[Menu') >= 0){
+							nav += '<div class="menucontainer" id="menucontainerid_'+ i + '">';
+							nav += '<div class="menuitem level1" id="menuitemid_'+ i + '">';
+							nav += '<div class="actor switchUnpressed">';
+							nav += '<div class="value">' + name + '</div>';
+							nav += '</div>';
+							nav += '</div>';
+						} else if ($('#id_' + i + '_ h1').text().indexOf('[MobileHeader') >= 0){
 							nav += '<div class="menucontainer" id="menucontainerid_'+ i + '">';
 							nav += '<div class="menuitem level1" id="menuitemid_'+ i + '">';
 							nav += '<div class="actor switchUnpressed">';

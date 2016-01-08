@@ -37,8 +37,7 @@ function printTab($level){
 
 function printFunctions($xmlDoc, $node, $tab, $floor, $room, $name){
 	if($node->Function != null){
-		$functioncount = 0;
-		$functionDivCount = 0;
+		$functionnr = 1;
 		
 		$functions = array();
 		$functions["Licht"] = array();
@@ -48,43 +47,34 @@ function printFunctions($xmlDoc, $node, $tab, $floor, $room, $name){
 		$functions["Wetter"] = array();
 		
 		foreach($node->Function as $function){
-			if(strpos($function['Description'], "[CV:hidden]") === false){
-				switch ($function["Type"]){
-					case "SwitchableLight":
-						$functions["Licht"][] = $function;
-						$functioncount++;
-						break;
-					case "DimmableLight":
-						$functions["Licht"][] = $function;
-						$functioncount++;
-						break;
-					case "SunProtection":
-						$functions["Fenster"][] = $function;
-						$functioncount++;
-						break;
-					case "HeatingFloor":
-						$functions["Heizung"][] = $function;
-						$functioncount++;
-						break;
-					case "HeatingRadiator":
-						$functions["Heizung"][] = $function;
-						//$functioncount++;
-						break;
-					default:
-						switch ($function["Name"]){
-							case "Wetter":
-								$functions["Wetter"][] = $function;
-								$functioncount += 3;
-								break;
-							case "Sicherheit":
-								$functions["Sicherheit"][] = $function;
-								$functioncount += 2;
-								break;
-							default:
-								break;
-						}
-						break;
-				}
+			switch ($function["Type"]){
+				case "SwitchableLight":
+					$functions["Licht"][] = $function;
+					break;
+				case "DimmableLight":
+					$functions["Licht"][] = $function;
+					break;
+				case "SunProtection":
+					$functions["Fenster"][] = $function;
+					break;
+				case "HeatingFloor":
+					$functions["Heizung"][] = $function;
+					break;
+				case "HeatingRadiator":
+					$functions["Heizung"][] = $function;
+					break;
+				default:
+					switch ($function["Name"]){
+						case "Wetter":
+							$functions["Wetter"][] = $function;
+							break;
+						case "Sicherheit":
+							$functions["Sicherheit"][] = $function;
+							break;
+						default:
+							break;
+					}
+					break;
 			}
 		}
 		
@@ -95,22 +85,18 @@ function printFunctions($xmlDoc, $node, $tab, $floor, $room, $name){
 		usort($functions["Wetter"], "sortByNumber");
 		usort($functions["Sicherheit"], "sortByNumber");
 		
-		foreach ($functions as $key => $functionType){
-			if (sizeof($functionType) > 0){
-				$functionDivCount++;
-			}
-		}
-		
 		printFunctionsDesktop($xmlDoc, $tab, $floor, $room, $name, $functions);
-		printFunctionsMobile($xmlDoc, $tab, $floor, $room, $name, $functions, $functioncount, $functionDivCount);
+		printFunctionsMobile($xmlDoc, $tab, $floor, $room, $name, $functions);
 	}
 }
 
-function printFunctionsMobile($xmlDoc, $tab, $floor, $room, $name, $functions, $functioncount, $functionDivCount){
-	if ($functioncount > 5 && $functionDivCount > 1){
+function printFunctionsMobile($xmlDoc, $tab, $floor, $room, $name, $functions){
+	if ($functions["Fenster"][0]->GroupAddressRef["Id"] != null || $functions["Heizung"][0]->GroupAddressRef["Id"] != null){
 		echo printTab($tab)."&lt;page name=\"[MobileTabs][".$floor.".".$room.".0]".$name."\" visible=\"false\"&gt;"."<br/>";
 		$tab++;
+	}
 
+	if ($functions["Fenster"][0]->GroupAddressRef["Id"] != null || $functions["Heizung"][0]->GroupAddressRef["Id"] != null){
 		echo printTab($tab)."&lt;navbar position=\"top\"&gt;"."<br/>";
 		$tab++;
 		
@@ -140,82 +126,36 @@ function printFunctionsMobile($xmlDoc, $tab, $floor, $room, $name, $functions, $
 			$tab--;
 			echo printTab($tab)."&lt;/pagejump&gt;<br/>";
 		}	
-		
-		if($functions["Sicherheit"][0]->GroupAddressRef["Id"] != null){
-			echo printTab($tab)."&lt;pagejump target=\"[Sicherheit][".$floor.".".$room.".4]".$name."\"&gt;"."<br/>";
-			$tab++;
-			echo printTab($tab)."&lt;layout colspan=\"0\"/&gt;<br/>";
-			echo printTab($tab)."&lt;label&gt;"."Sicherheit"."&lt;/label&gt;<br/>";
-			$tab--;
-			echo printTab($tab)."&lt;/pagejump&gt;<br/>";
-		}	
-		
-		if($functions["Wetter"][0]->GroupAddressRef["Id"] != null){
-			echo printTab($tab)."&lt;pagejump target=\"[Wetter][".$floor.".".$room.".5]".$name."\"&gt;"."<br/>";
-			$tab++;
-			echo printTab($tab)."&lt;layout colspan=\"0\"/&gt;<br/>";
-			echo printTab($tab)."&lt;label&gt;"."Wetter"."&lt;/label&gt;<br/>";
-			$tab--;
-			echo printTab($tab)."&lt;/pagejump&gt;<br/>";
-		}	
 			
 		$tab--;
 		echo printTab($tab)."&lt;/navbar&gt;"."<br/>";
-	} else {
-		echo printTab($tab)."&lt;page name=\"[MobileHeader][".$floor.".".$room."]".$name."\" visible=\"false\"&gt;"."<br/>";
-		$tab++;
 	}
 	
 	$functionnr = 1;
 	foreach ($functions as $key => $functionType){
 		if($functionType[0]->GroupAddressRef["Id"] != null || $functionType->GroupAddressRef["Id"] != null){
-			if ($functioncount > 5 && ($functions["Fenster"][0]->GroupAddressRef["Id"] != null || $functions["Heizung"][0]->GroupAddressRef["Id"] != null)){
+			if ($functions["Fenster"][0]->GroupAddressRef["Id"] != null || $functions["Heizung"][0]->GroupAddressRef["Id"] != null){
 				echo printTab($tab)."&lt;page name=\"[".$key."][".$floor.".".$room.".".$functionnr."]".$name."\" visible=\"false\"&gt;"."<br/>";
-				$tab++;
 			} else {
-				echo printTab($tab)."&lt;text flavour=\"headline\"&gt;<br/>";
-				$tab++;
-				echo printTab($tab)."&lt;layout colspan=\"3\"/&gt;<br/>";
-				echo printTab($tab)."&lt;label&gt;";
-				// switch ($key){
-					// case "Licht":
-						// echo "&lt;icon name=\"lightbulb_on\" color=\"#888888\"/&gt;"; 
-						// break;
-					// case "Fenster":
-						// echo "&lt;icon name=\"shutter\" color=\"#888888\"/&gt;"; 
-						// break;
-					// case "Heizung":
-						// echo "&lt;icon name=\"temperature\" color=\"#888888\"/&gt;"; 
-						// break;
-					// default:
-						// break;
-				// }
-				echo $key."&lt;/label&gt;<br/>";
-				$tab--;
-				echo printTab($tab)."&lt;/text&gt;<br/>";
-				
-				echo printTab($tab)."&lt;break/&gt;<br/>";
+				echo printTab($tab)."&lt;page name=\"[MobileHeader][".$floor.".".$room.".".$functionnr."]".$name."\" visible=\"false\"&gt;"."<br/>";
 			}
+			$tab++;
 			
 			$mobile = true;
 			
 			printFunctionTypes($xmlDoc, $tab, $functionType, $mobile);
 			
-			echo printTab($tab)."&lt;break/&gt;<br/>";
-			
-			if ($functioncount > 5 && $functionDivCount > 1){
-				$tab--;
-				echo printTab($tab)."&lt;/page&gt;"."<br/>";
-			}
+			$tab--;
+			echo printTab($tab)."&lt;/page&gt;"."<br/>";
 		}
 		
 		$functionnr++;
 	}
 	//---------------------------------------
-	//if ($functions["Fenster"][0]->GroupAddressRef["Id"] != null || $functions["Heizung"][0]->GroupAddressRef["Id"] != null){
+	if ($functions["Fenster"][0]->GroupAddressRef["Id"] != null || $functions["Heizung"][0]->GroupAddressRef["Id"] != null){
 		$tab--;
 		echo printTab($tab)."&lt;/page&gt;"."<br/>";
-	//}
+	}
 }
 
 function printFunctionsDesktop($xmlDoc, $tab, $floor, $room, $name, $functions){
@@ -226,37 +166,34 @@ function printFunctionsDesktop($xmlDoc, $tab, $floor, $room, $name, $functions){
 		if($functionType[0]->GroupAddressRef["Id"] != null || $functionType->GroupAddressRef["Id"] != null){
 			echo printTab($tab)."&lt;text flavour=\"headline\"&gt;<br/>";
 			$tab++;
-			echo printTab($tab)."&lt;layout colspan=\"12\"/&gt;<br/>";
+			//echo printTab($tab)."&lt;layout colspan=\"6\"/&gt;<br/>";
 			echo printTab($tab)."&lt;label&gt;";
-			// switch ($key){
-				// case "Licht":
-					// echo "&lt;icon name=\"lightbulb_on\" color=\"#888888\"/&gt;"; 
-					// break;
-				// case "Fenster":
-					// echo "&lt;icon name=\"shutter\" color=\"#888888\"/&gt;"; 
-					// break;
-				// case "Heizung":
-					// echo "&lt;icon name=\"temperature\" color=\"#888888\"/&gt;"; 
-					// break;
-				// default:
-					// break;
-			// }
+			switch ($key){
+				case "Licht":
+					echo "&lt;icon name=\"lightbulb_on\" color=\"#888888\"/&gt;"; 
+					break;
+				case "Fenster":
+					echo "&lt;icon name=\"shutter\" color=\"#888888\"/&gt;"; 
+					break;
+				case "Heizung":
+					echo "&lt;icon name=\"thermometer\" color=\"#888888\"/&gt;"; 
+					break;
+				default:
+					break;
+			}
 			echo $key."&lt;/label&gt;<br/>";
 			$tab--;
 			echo printTab($tab)."&lt;/text&gt;<br/>";
 			
-			echo printTab($tab)."&lt;break/&gt;<br/>";
-			
-			// echo printTab($tab)."&lt;group&gt;<br/>";
-			// $tab++;
-			// echo printTab($tab)."&lt;layout colspan=\"12\"/&gt;<br/>";
+			echo printTab($tab)."&lt;group&gt;<br/>";
+			$tab++;
+			echo printTab($tab)."&lt;layout colspan=\"12\"/&gt;<br/>";
 			
 			$mobile = false;
 			printFunctionTypes($xmlDoc, $tab, $functionType, $mobile);
 			
-			// $tab--;
-			// echo printTab($tab)."&lt;/group&gt;<br/>";
-
+			$tab--;
+			echo printTab($tab)."&lt;/group&gt;<br/>";
 		}
 	}
 	$tab--;
@@ -294,82 +231,87 @@ function printFunctionTypes($xmlDoc, $tab, $functionType, $mobile){
 							}
 						}
 						
-						
-						echo printTab($tab)."&lt;group&gt;<br/>";
-						$tab++;
 						if ($mobile){
+							echo printTab($tab)."&lt;group&gt;<br/>";
+							$tab++;
 							echo printTab($tab)."&lt;layout colspan=\"3\"/&gt;<br/>";
-						} else {
-							echo printTab($tab)."&lt;layout colspan=\"4\"/&gt;<br/>";
 						}
 						
 						if ($GASwitchWrite['Central'] == "true"){
 							echo printTab($tab)."&lt;group nowidget=\"true\"&gt;<br/>";
 							$tab++;
 							if ($mobile){
-								echo printTab($tab)."&lt;layout colspan=\"3\" rowspan=\"13\"/&gt;<br/>";
+								echo printTab($tab)."&lt;layout colspan=\"3\"/&gt;<br/>";
 							} else {
-								echo printTab($tab)."&lt;layout colspan=\"4\" rowspan=\"13\"/&gt;<br/>";
+								echo printTab($tab)."&lt;layout colspan=\"12\"/&gt;<br/>";
 							}
 							
 							echo printTab($tab)."&lt;text&gt;<br/>";
 							$tab++;
 							if ($mobile){
-								echo printTab($tab)."&lt;layout colspan=\"2\"/&gt;<br/>";
+								echo printTab($tab)."&lt;layout colspan=\"1.5\"/&gt;<br/>";
 							} else {
-								echo printTab($tab)."&lt;layout colspan=\"2\"/&gt;<br/>";
+								echo printTab($tab)."&lt;layout colspan=\"3\"/&gt;<br/>";
 							}
 							//echo printTab($tab)."&lt;label&gt;&lt;icon name=\"light_light\" color=\"#888888\"/&gt;".$functionName."&lt;/label&gt;<br/>";
 							echo printTab($tab)."&lt;label&gt;".$functionName."&lt;/label&gt;<br/>";
 							$tab--;
 							echo printTab($tab)."&lt;/text&gt;<br/>";
 							
-							echo printTab($tab)."&lt;trigger value=\"0\" mapping=\"Licht\" align=\"right\"&gt;<br/>";
+							echo printTab($tab)."&lt;trigger value=\"1\" mapping=\"OnOffStatus\" align=\"right\"&gt;<br/>";
 							$tab++;
 							if ($mobile){
-								echo printTab($tab)."&lt;layout colspan=\"0.5\"/&gt;<br/>";
+								echo printTab($tab)."&lt;layout colspan=\"0.75\"/&gt;<br/>";
 							} else {
-								echo printTab($tab)."&lt;layout colspan=\"1\"/&gt;<br/>";
+								echo printTab($tab)."&lt;layout colspan=\"1.5\"/&gt;<br/>";
 							}
-							echo printTab($tab)."&lt;address transform=\"".translateDatapointType($GASwitchWrite['DatapointType'])."\" variant=\"button\" mode=\"write\"&gt;".translateAddress($GASwitchWrite['Address'])."&lt;/address&gt;<br/>";
+							echo printTab($tab)."&lt;address transform=\"DPT:1.008\" mode=\"write\"&gt;".translateAddress($GAUpDown['Address'])."&lt;/address&gt;<br/>";
 							$tab--;
 							echo printTab($tab)."&lt;/trigger&gt;<br/>";
 							
-							echo printTab($tab)."&lt;trigger value=\"1\" mapping=\"Licht\" align=\"right\"&gt;<br/>";
+							echo printTab($tab)."&lt;trigger value=\"0\" mapping=\"OnOffStatus\" align=\"right\"&gt;<br/>";
 							$tab++;
 							if ($mobile){
-								echo printTab($tab)."&lt;layout colspan=\"0.5\"/&gt;<br/>";
+								echo printTab($tab)."&lt;layout colspan=\"0.75\"/&gt;<br/>";
 							} else {
-								echo printTab($tab)."&lt;layout colspan=\"1\"/&gt;<br/>";
+								echo printTab($tab)."&lt;layout colspan=\"1.5\"/&gt;<br/>";
 							}
-							echo printTab($tab)."&lt;address transform=\"".translateDatapointType($GASwitchWrite['DatapointType'])."\" mode=\"write\"&gt;".translateAddress($GASwitchWrite['Address'])."&lt;/address&gt;<br/>";
+							echo printTab($tab)."&lt;address transform=\"DPT:1.008\" mode=\"write\"&gt;".translateAddress($GAUpDown['Address'])."&lt;/address&gt;<br/>";
 							$tab--;
 							echo printTab($tab)."&lt;/trigger&gt;<br/>";
-							
-							echo printTab($tab)."&lt;text flavour=\"description\"&gt;<br/>";
-							$tab++;
-							if ($mobile){
-								echo printTab($tab)."&lt;layout colspan=\"3\"/&gt;<br/>";
-							} else {
-								echo printTab($tab)."&lt;layout colspan=\"4\"/&gt;<br/>";
-							}
-							echo printTab($tab)."&lt;label&gt;zentral schalten&lt;/label&gt;<br/>";
-							$tab--;
-							echo printTab($tab)."&lt;/text&gt;<br/>";
 							
 							$tab--;
 							echo printTab($tab)."&lt;/group&gt;<br/>";
 						} else {
-							echo printTab($tab)."&lt;group nowidget=\"true\"&gt;<br/>";
+							echo printTab($tab)."&lt;text&gt;<br/>";
 							$tab++;
 							if ($mobile){
-								echo printTab($tab)."&lt;layout colspan=\"3\" rowspan=\"13\"/&gt;<br/>";
+								echo printTab($tab)."&lt;layout colspan=\"1.5\"/&gt;<br/>";
 							} else {
-								echo printTab($tab)."&lt;layout colspan=\"4\" rowspan=\"13\"/&gt;<br/>";
+								echo printTab($tab)."&lt;layout colspan=\"3\"/&gt;<br/>";
 							}
+							//echo printTab($tab)."&lt;label&gt;&lt;icon name=\"light_light\" color=\"#888888\"/&gt;".$functionName."&lt;/label&gt;<br/>";
+							echo printTab($tab)."&lt;label&gt;".$functionName."&lt;/label&gt;<br/>";
+							$tab--;
+							echo printTab($tab)."&lt;/text&gt;<br/>";
+							echo printTab($tab)."&lt;break/&gt;<br/>";
+							echo printTab($tab)."&lt;switch mapping=\"OnOffStatus\" bind_click_to_widget=\"false\"&gt;<br/>";
+							$tab++;
+							if ($mobile){
+								echo printTab($tab)."&lt;layout colspan=\"1.5\"/&gt;<br/>";
+							} else {
+								echo printTab($tab)."&lt;layout colspan=\"3\"/&gt;<br/>";
+							}
+							echo printTab($tab)."&lt;address transform=\"".translateDatapointType($GASwitchRead['DatapointType'])."\" mode=\"read\"&gt;".translateAddress($GASwitchRead['Address'])."&lt;/address&gt;<br/>";
+							$tab--;
+							echo printTab($tab)."&lt;/switch&gt;<br/>";
 							echo printTab($tab)."&lt;switch mapping=\"OnOff\" bind_click_to_widget=\"false\"&gt;<br/>";
 							$tab++;
-							echo printTab($tab)."&lt;label&gt;".$functionName."&lt;/label&gt;<br/>";
+							if ($mobile){
+								echo printTab($tab)."&lt;layout colspan=\"1.5\"/&gt;<br/>";
+							} else {
+								echo printTab($tab)."&lt;layout colspan=\"3\"/&gt;<br/>";
+							}
 							//echo printTab($tab)."&lt;label&gt;&lt;icon name=\"light_light\" color=\"#888888\"/&gt;".$functionName."&lt;/label&gt;<br/>";
 							//echo printTab($tab)."&lt;label&gt;".$functionName."&lt;/label&gt;<br/>";
 							if ($GASwitchRead != null){
@@ -380,24 +322,12 @@ function printFunctionTypes($xmlDoc, $tab, $functionType, $mobile){
 							}
 							$tab--;
 							echo printTab($tab)."&lt;/switch&gt;<br/>";
-							
-							echo printTab($tab)."&lt;switch mapping=\"OnOffStatus\" flavour=\"description\" align=\"left\" bind_click_to_widget=\"false\"&gt;<br/>";
-							$tab++;
-							if ($mobile){
-								echo printTab($tab)."&lt;layout colspan=\"3\"/&gt;<br/>";
-							} else {
-								echo printTab($tab)."&lt;layout colspan=\"4\"/&gt;<br/>";
-							}
-							echo printTab($tab)."&lt;address transform=\"".translateDatapointType($GASwitchRead['DatapointType'])."\" mode=\"read\"&gt;".translateAddress($GASwitchRead['Address'])."&lt;/address&gt;<br/>";
-							$tab--;
-							echo printTab($tab)."&lt;/switch&gt;<br/>";
-							
+						}
+						
+						if ($mobile){
 							$tab--;
 							echo printTab($tab)."&lt;/group&gt;<br/>";
 						}
-						
-						$tab--;
-						echo printTab($tab)."&lt;/group&gt;<br/>";
 
 						break;
 					case "DimmableLight":
@@ -405,7 +335,6 @@ function printFunctionTypes($xmlDoc, $tab, $functionType, $mobile){
 						$GASwitchWrite = null;
 						$GADimRead = null;
 						$GADimWrite = null;
-						$GADimStep = null;
 						
 						foreach($function->GroupAddressRef as $GroupAddressRef){
 							$GroupAddress = $xmlDoc->xpath('//knx:GroupAddress[@Id="'.$GroupAddressRef["RefId"].'"]');
@@ -416,9 +345,6 @@ function printFunctionTypes($xmlDoc, $tab, $functionType, $mobile){
 									break;
 								case "DPST-1-11":
 									$GASwitchRead = $GroupAddressAttributes;
-									break;
-								case "DPST-3-7":
-									$GADimStep = $GroupAddressAttributes;
 									break;
 								case "DPST-5-1":
 									if(strpos($GroupAddressAttributes['Description'], "read") > 0){
@@ -434,27 +360,25 @@ function printFunctionTypes($xmlDoc, $tab, $functionType, $mobile){
 							}
 						}
 						
-						echo printTab($tab)."&lt;group&gt;<br/>";
-						$tab++;
 						if ($mobile){
+							echo printTab($tab)."&lt;group&gt;<br/>";
+							$tab++;
 							echo printTab($tab)."&lt;layout colspan=\"3\"/&gt;<br/>";
-						} else {
-							echo printTab($tab)."&lt;layout colspan=\"4\"/&gt;<br/>";
 						}
 						
 						echo printTab($tab)."&lt;group nowidget=\"true\"&gt;<br/>";
 						$tab++;
 						if ($mobile){
-							echo printTab($tab)."&lt;layout colspan=\"3\" rowspan=\"13\"/&gt;<br/>";
+							echo printTab($tab)."&lt;layout colspan=\"3\"/&gt;<br/>";
 						} else {
-							echo printTab($tab)."&lt;layout colspan=\"4\" rowspan=\"13\"/&gt;<br/>";
+							echo printTab($tab)."&lt;layout colspan=\"6\"/&gt;<br/>";
 						}
 						echo printTab($tab)."&lt;switch mapping=\"OnOff\" bind_click_to_widget=\"false\"&gt;<br/>";
 						$tab++;
 						if ($mobile){
 							echo printTab($tab)."&lt;layout colspan=\"3\"/&gt;<br/>";
 						} else {
-							echo printTab($tab)."&lt;layout colspan=\"4\"/&gt;<br/>";
+							echo printTab($tab)."&lt;layout colspan=\"6\"/&gt;<br/>";
 						}
 						//echo printTab($tab)."&lt;label&gt;&lt;icon name=\"light_control\" color=\"#888888\"/&gt;".$functionName."&lt;/label&gt;<br/>";
 						echo printTab($tab)."&lt;label&gt;".$functionName."&lt;/label&gt;<br/>";
@@ -467,21 +391,18 @@ function printFunctionTypes($xmlDoc, $tab, $functionType, $mobile){
 						$tab--;
 						echo printTab($tab)."&lt;/switch&gt;<br/>";
 						echo printTab($tab)."&lt;break/&gt;<br/>";
-						
-						echo printTab($tab)."&lt;trigger value=\"0\" shorttime=\"300\" shortvalue=\"6\" mapping=\"Licht\" align=\"left\"&gt;<br/>";
+						echo printTab($tab)."&lt;text align=\"left\"&gt;<br/>";
 						$tab++;
 						echo printTab($tab)."&lt;layout colspan=\"0.5\"/&gt;<br/>";
-						echo printTab($tab)."&lt;address transform=\"".translateDatapointType($GASwitchWrite['DatapointType'])."\" variant=\"button\" mode=\"write\"&gt;".translateAddress($GASwitchWrite['Address'])."&lt;/address&gt;<br/>";
-						echo printTab($tab)."&lt;address transform=\"".translateDatapointType($GADimStep['DatapointType'])."\" variant=\"short\" mode=\"write\"&gt;".translateAddress($GADimStep['Address'])."&lt;/address&gt;<br/>";
+						echo printTab($tab)."&lt;label&gt;&lt;icon name=\"light_light_dim_00\" color=\"#888888\"/&gt;&lt;/label&gt;<br/>";
 						$tab--;
-						echo printTab($tab)."&lt;/trigger&gt;<br/>";
-
+						echo printTab($tab)."&lt;/text&gt;<br/>";
 						echo printTab($tab)."&lt;slide min=\"0\" max=\"100\" step=\"5\" format=\"%d%%\" &gt;<br/>";
 						$tab++;
 						if ($mobile){
 							echo printTab($tab)."&lt;layout colspan=\"2\"/&gt;<br/>";
 						} else {
-							echo printTab($tab)."&lt;layout colspan=\"3\"/&gt;<br/>";
+							echo printTab($tab)."&lt;layout colspan=\"5\"/&gt;<br/>";
 						}
 						if ($GADimRead != null){
 							echo printTab($tab)."&lt;address transform=\"".translateDatapointType($GADimRead['DatapointType'])."\" mode=\"read\"&gt;".translateAddress($GADimRead['Address'])."&lt;/address&gt;<br/>";
@@ -491,19 +412,19 @@ function printFunctionTypes($xmlDoc, $tab, $functionType, $mobile){
 						}
 						$tab--;
 						echo printTab($tab)."&lt;/slide&gt;<br/>";
-						echo printTab($tab)."&lt;trigger value=\"1\" shorttime=\"300\" shortvalue=\"14\" mapping=\"Licht\" align=\"right\"&gt;<br/>";
+						echo printTab($tab)."&lt;text align=\"right\"&gt;<br/>";
 						$tab++;
 						echo printTab($tab)."&lt;layout colspan=\"0.5\"/&gt;<br/>";
-						echo printTab($tab)."&lt;address transform=\"".translateDatapointType($GASwitchWrite['DatapointType'])."\" variant=\"button\" mode=\"write\"&gt;".translateAddress($GASwitchWrite['Address'])."&lt;/address&gt;<br/>";
-						echo printTab($tab)."&lt;address transform=\"".translateDatapointType($GADimStep['DatapointType'])."\" variant=\"short\" mode=\"write\"&gt;".translateAddress($GADimStep['Address'])."&lt;/address&gt;<br/>";
+						echo printTab($tab)."&lt;label&gt;&lt;icon name=\"light_light_dim_100\" color=\"#888888\"/&gt;&lt;/label&gt;<br/>";
 						$tab--;
-						echo printTab($tab)."&lt;/trigger&gt;<br/>";
+						echo printTab($tab)."&lt;/text&gt;<br/>";
 						$tab--;
 						echo printTab($tab)."&lt;/group&gt;<br/>";
 						
-						
-						$tab--;
-						echo printTab($tab)."&lt;/group&gt;<br/>";
+						if ($mobile){
+							$tab--;
+							echo printTab($tab)."&lt;/group&gt;<br/>";
+						}
 						
 						break;
 					case "SunProtection":
@@ -553,22 +474,19 @@ function printFunctionTypes($xmlDoc, $tab, $functionType, $mobile){
 							}
 						}
 						
-						
-						echo printTab($tab)."&lt;group&gt;<br/>";
-						$tab++;
 						if ($mobile){
+							echo printTab($tab)."&lt;group&gt;<br/>";
+							$tab++;
 							echo printTab($tab)."&lt;layout colspan=\"3\"/&gt;<br/>";
-						} else {
-							echo printTab($tab)."&lt;layout colspan=\"4\"/&gt;<br/>";
 						}
 
 						//echo printTab($tab)."&lt;layout colspan=\"3\" /&gt;<br/>";
 						echo printTab($tab)."&lt;group nowidget=\"true\" &gt;<br/>";
 						$tab++;
 						if ($mobile){
-							echo printTab($tab)."&lt;layout colspan=\"3\" rowspan=\"20\"/&gt;<br/>";
+							echo printTab($tab)."&lt;layout colspan=\"3\"/&gt;<br/>";
 						} else {
-							echo printTab($tab)."&lt;layout colspan=\"4\" rowspan=\"20\"/&gt;<br/>";
+							echo printTab($tab)."&lt;layout colspan=\"6\"/&gt;<br/>";
 						}
 						
 						if ($mobile){
@@ -591,43 +509,98 @@ function printFunctionTypes($xmlDoc, $tab, $functionType, $mobile){
 								echo printTab($tab)."&lt;/text&gt;<br/>";
 								echo printTab($tab)."&lt;break/&gt;<br/>";
 							}
+							if($GAUpDown != null && $GAStep != null){
+								echo printTab($tab)."&lt;trigger value=\"0\" mapping=\"AufAbSymbol\" align=\"right\"&gt;<br/>";
+								$tab++;
+								echo printTab($tab)."&lt;layout colspan=\"1\"/&gt;<br/>";
+								echo printTab($tab)."&lt;address transform=\"DPT:1.008\" mode=\"write\"&gt;".translateAddress($GAUpDown['Address'])."&lt;/address&gt;<br/>";
+								$tab--;
+								echo printTab($tab)."&lt;/trigger&gt;<br/>";
+								
+								echo printTab($tab)."&lt;trigger value=\"0\" mapping=\"Stop\" align=\"right\"&gt;<br/>";
+								$tab++;
+								echo printTab($tab)."&lt;layout colspan=\"1\"/&gt;<br/>";
+								echo printTab($tab)."&lt;address transform=\"DPT:1.009\" mode=\"write\"&gt;".translateAddress($GAStep['Address'])."&lt;/address&gt;<br/>";
+								$tab--;
+								echo printTab($tab)."&lt;/trigger&gt;<br/>";
+								
+								echo printTab($tab)."&lt;trigger value=\"1\" mapping=\"AufAbSymbol\" align=\"right\"&gt;<br/>";
+								$tab++;
+								echo printTab($tab)."&lt;layout colspan=\"1\"/&gt;<br/>";
+								echo printTab($tab)."&lt;address transform=\"DPT:1.008\" mode=\"write\"&gt;".translateAddress($GAUpDown['Address'])."&lt;/address&gt;<br/>";
+								$tab--;
+								echo printTab($tab)."&lt;/trigger&gt;<br/>";
+								
+								echo printTab($tab)."&lt;break/&gt;<br/>";
+							}
 						} else {
 							if($GADoorStatus != null){
 								echo printTab($tab)."&lt;switch mapping=\"DoorOpenClose\" styling=\"OpenClose\" bind_click_to_widget=\"false\"&gt;<br/>";
 								$tab++;
-								echo printTab($tab)."&lt;layout colspan=\"4\"/&gt;<br/>";
+								echo printTab($tab)."&lt;layout colspan=\"2.5\"/&gt;<br/>";
 								//echo printTab($tab)."&lt;label&gt;&lt;icon name=\"fts_shutter\" color=\"#888888\"/&gt;".$functionName."&lt;/label&gt;<br/>";
 								echo printTab($tab)."&lt;label&gt;".$functionName."&lt;/label&gt;<br/>";
 								echo printTab($tab)."&lt;address transform=\"DPT:1.019\" mode=\"read\"&gt;".translateAddress($GADoorStatus['Address'])."&lt;/address&gt;<br/>";
 								$tab--;
 								echo printTab($tab)."&lt;/switch&gt;<br/>";
+								echo printTab($tab)."&lt;text&gt;<br/>";
+								$tab++;
+								echo printTab($tab)."&lt;layout colspan=\"0.5\"/&gt;<br/>";
+								echo printTab($tab)."&lt;label&gt;&lt;/label&gt;<br/>";
+								$tab--;
+								echo printTab($tab)."&lt;/text&gt;<br/>";
 							} else {
 								echo printTab($tab)."&lt;text&gt;<br/>";
 								$tab++;
-								echo printTab($tab)."&lt;layout colspan=\"4\"/&gt;<br/>";
+								echo printTab($tab)."&lt;layout colspan=\"3\"/&gt;<br/>";
 								echo printTab($tab)."&lt;label&gt;".$functionName."&lt;/label&gt;<br/>";
 								$tab--;
 								echo printTab($tab)."&lt;/text&gt;<br/>";
 							}
-
+							
+							if($GAUpDown != null){
+								echo printTab($tab)."&lt;trigger value=\"0\" mapping=\"AufAbSymbol\" align=\"right\"&gt;<br/>";
+								$tab++;
+								echo printTab($tab)."&lt;layout colspan=\"1\"/&gt;<br/>";
+								echo printTab($tab)."&lt;address transform=\"DPT:1.008\" mode=\"write\"&gt;".translateAddress($GAUpDown['Address'])."&lt;/address&gt;<br/>";
+								$tab--;
+								echo printTab($tab)."&lt;/trigger&gt;<br/>";
+								
+								echo printTab($tab)."&lt;trigger value=\"0\" mapping=\"Stop\" align=\"right\"&gt;<br/>";
+								$tab++;
+								echo printTab($tab)."&lt;layout colspan=\"1\"/&gt;<br/>";
+								echo printTab($tab)."&lt;address transform=\"DPT:1.009\" mode=\"write\"&gt;".translateAddress($GAStep['Address'])."&lt;/address&gt;<br/>";
+								$tab--;
+								echo printTab($tab)."&lt;/trigger&gt;<br/>";
+								
+								echo printTab($tab)."&lt;trigger value=\"1\" mapping=\"AufAbSymbol\" align=\"right\"&gt;<br/>";
+								$tab++;
+								echo printTab($tab)."&lt;layout colspan=\"1\"/&gt;<br/>";
+								echo printTab($tab)."&lt;address transform=\"DPT:1.008\" mode=\"write\"&gt;".translateAddress($GAUpDown['Address'])."&lt;/address&gt;<br/>";
+								$tab--;
+								echo printTab($tab)."&lt;/trigger&gt;<br/>";
+							}
 							echo printTab($tab)."&lt;break/&gt;<br/>";
 						}
 						
 						if($GAPositionWrite != null){
-							echo printTab($tab)."&lt;trigger value=\"0\" shorttime=\"300\" shortvalue=\"0\" mapping=\"Jalousien\" align=\"left\"&gt;<br/>";
+							echo printTab($tab)."&lt;text align=\"left\"&gt;<br/>";
 							$tab++;
 							echo printTab($tab)."&lt;layout colspan=\"0.5\"/&gt;<br/>";
-							echo printTab($tab)."&lt;address transform=\"".translateDatapointType($GAUpDown['DatapointType'])."\" variant=\"button\" mode=\"write\"&gt;".translateAddress($GAUpDown['Address'])."&lt;/address&gt;<br/>";
-							echo printTab($tab)."&lt;address transform=\"".translateDatapointType($GAStep['DatapointType'])."\" variant=\"short\" mode=\"write\"&gt;".translateAddress($GAStep['Address'])."&lt;/address&gt;<br/>";
+							echo printTab($tab)."&lt;label&gt;<br/>";
+							$tab++;
+							echo printTab($tab)."&lt;icon name=\"fts_shutter_10\" color=\"#888888\"/&gt;<br/>";
 							$tab--;
-							echo printTab($tab)."&lt;/trigger&gt;<br/>";
+							echo printTab($tab)."&lt;/label&gt;<br/>";
+							$tab--;
+							echo printTab($tab)."&lt;/text&gt;<br/>";
 							
 							echo printTab($tab)."&lt;slide min=\"0\" max=\"100\" step=\"10\" format=\"%d%%\"&gt;<br/>";
 							$tab++;
 							if ($mobile){
 								echo printTab($tab)."&lt;layout colspan=\"2\"/&gt;<br/>";
 							} else {
-								echo printTab($tab)."&lt;layout colspan=\"3\"/&gt;<br/>";
+								echo printTab($tab)."&lt;layout colspan=\"5\"/&gt;<br/>";
 							}
 							if($GAPositionRead != null){
 								echo printTab($tab)."&lt;address transform=\"DPT:5.001\" mode=\"read\"&gt;".translateAddress($GAPositionRead['Address'])."&lt;/address&gt;<br/>";
@@ -638,31 +611,38 @@ function printFunctionTypes($xmlDoc, $tab, $functionType, $mobile){
 							$tab--;
 							echo printTab($tab)."&lt;/slide&gt;<br/>";
 							
-							echo printTab($tab)."&lt;trigger value=\"1\" shorttime=\"300\" shortvalue=\"1\" mapping=\"Jalousien\" align=\"right\"&gt;<br/>";
+							echo printTab($tab)."&lt;text align=\"right\"&gt;<br/>";
 							$tab++;
 							echo printTab($tab)."&lt;layout colspan=\"0.5\"/&gt;<br/>";
-							echo printTab($tab)."&lt;address transform=\"".translateDatapointType($GAUpDown['DatapointType'])."\" variant=\"button\" mode=\"write\"&gt;".translateAddress($GAUpDown['Address'])."&lt;/address&gt;<br/>";
-							echo printTab($tab)."&lt;address transform=\"".translateDatapointType($GAStep['DatapointType'])."\" variant=\"short\" mode=\"write\"&gt;".translateAddress($GAStep['Address'])."&lt;/address&gt;<br/>";
+							echo printTab($tab)."&lt;label&gt;<br/>";
+							$tab++;
+							echo printTab($tab)."&lt;icon name=\"fts_shutter_100\" color=\"#888888\"/&gt;<br/>";
 							$tab--;
-							echo printTab($tab)."&lt;/trigger&gt;<br/>";
+							echo printTab($tab)."&lt;/label&gt;<br/>";
+							$tab--;
+							echo printTab($tab)."&lt;/text&gt;<br/>";
 							
 							echo printTab($tab)."&lt;break/&gt;<br/>";
 						}
 						
 						if($GABladeWrite != null){
-							echo printTab($tab)."&lt;trigger value=\"0\" mapping=\"Lamellen\" align=\"left\"&gt;<br/>";
+							echo printTab($tab)."&lt;text align=\"left\"&gt;<br/>";
 							$tab++;
 							echo printTab($tab)."&lt;layout colspan=\"0.5\"/&gt;<br/>";
-							echo printTab($tab)."&lt;address transform=\"".translateDatapointType($GAStep['DatapointType'])."\" variant=\"button\" mode=\"write\"&gt;".translateAddress($GAStep['Address'])."&lt;/address&gt;<br/>";
+							echo printTab($tab)."&lt;label&gt;<br/>";
+							$tab++;
+							echo printTab($tab)."&lt;icon name=\"fts_blade_s_00\" color=\"#888888\"/&gt;<br/>";
 							$tab--;
-							echo printTab($tab)."&lt;/trigger&gt;<br/>";
+							echo printTab($tab)."&lt;/label&gt;<br/>";
+							$tab--;
+							echo printTab($tab)."&lt;/text&gt;<br/>";
 							
 							echo printTab($tab)."&lt;slide min=\"0\" max=\"100\" step=\"10\" format=\"%d%%\"&gt;<br/>";
 							$tab++;
 							if ($mobile){
 								echo printTab($tab)."&lt;layout colspan=\"2\"/&gt;<br/>";
 							} else {
-								echo printTab($tab)."&lt;layout colspan=\"3\"/&gt;<br/>";
+								echo printTab($tab)."&lt;layout colspan=\"5\"/&gt;<br/>";
 							}
 							if($GABladeRead != null){
 								echo printTab($tab)."&lt;address transform=\"DPT:5.001\" mode=\"read\"&gt;".translateAddress($GABladeRead['Address'])."&lt;/address&gt;<br/>";
@@ -673,12 +653,16 @@ function printFunctionTypes($xmlDoc, $tab, $functionType, $mobile){
 							$tab--;
 							echo printTab($tab)."&lt;/slide&gt;<br/>";
 							
-							echo printTab($tab)."&lt;trigger value=\"1\" mapping=\"Lamellen\" align=\"right\"&gt;<br/>";
+							echo printTab($tab)."&lt;text align=\"right\"&gt;<br/>";
 							$tab++;
 							echo printTab($tab)."&lt;layout colspan=\"0.5\"/&gt;<br/>";
-							echo printTab($tab)."&lt;address transform=\"".translateDatapointType($GAStep['DatapointType'])."\" variant=\"button\" mode=\"write\"&gt;".translateAddress($GAStep['Address'])."&lt;/address&gt;<br/>";
+							echo printTab($tab)."&lt;label&gt;<br/>";
+							$tab++;
+							echo printTab($tab)."&lt;icon name=\"fts_blade_s_100\" color=\"#888888\"/&gt;<br/>";
 							$tab--;
-							echo printTab($tab)."&lt;/trigger&gt;<br/>";
+							echo printTab($tab)."&lt;/label&gt;<br/>";
+							$tab--;
+							echo printTab($tab)."&lt;/text&gt;<br/>";
 							
 							echo printTab($tab)."&lt;break/&gt;<br/>";
 						}
@@ -687,9 +671,10 @@ function printFunctionTypes($xmlDoc, $tab, $functionType, $mobile){
 						$tab--;
 						echo printTab($tab)."&lt;/group&gt;<br/>";
 						
-						
-						$tab--;
-						echo printTab($tab)."&lt;/group&gt;<br/>";
+						if ($mobile){
+							$tab--;
+							echo printTab($tab)."&lt;/group&gt;<br/>";
+						}
 						
 						break;
 					case "HeatingFloor":
@@ -704,32 +689,36 @@ function printFunctionTypes($xmlDoc, $tab, $functionType, $mobile){
 							switch($GroupAddressAttributes['DatapointType']){
 								case "DPST-9-1":
 									if(strpos($GroupAddressAttributes['Description'], "read") > 0){
-										$GATemperatureRead = $GroupAddressAttributes;
-									}
-									if(strpos($GroupAddressAttributes['Description'], "write") > 0){
-										$GATemperatureWrite = $GroupAddressAttributes;
-									}
+											$GATemperatureRead = $GroupAddressAttributes;
+										}
+										if(strpos($GroupAddressAttributes['Description'], "write") > 0){
+											$GATemperatureWrite = $GroupAddressAttributes;
+										}
 									break;
 								case "DPST-20-102":
 									$GAMode = $GroupAddressAttributes;
 									break;
 							}
 						}
-												
-						echo printTab($tab)."&lt;group&gt;<br/>";
-						$tab++;
+						
 						if ($mobile){
-							echo printTab($tab)."&lt;layout colspan=\"3\"/&gt;<br/>";
-						} else {
-							echo printTab($tab)."&lt;layout colspan=\"4\"/&gt;<br/>";
+							echo printTab($tab)."&lt;group&gt;<br/>";
+							$tab++;
+							echo printTab($tab)."&lt;layout colspan=\"6\"/&gt;<br/>";
 						}
 						
-						echo printTab($tab)."&lt;group nowidget=\"true\" &gt;<br/>";
-						$tab++;
-						if ($mobile){
-							echo printTab($tab)."&lt;layout colspan=\"3\"/&gt;<br/>";
-						} else {
-							echo printTab($tab)."&lt;layout colspan=\"4\"/&gt;<br/>";
+						if($GAMode != null){
+							echo printTab($tab)."&lt;multitrigger button1label=\"Auto\" button1value=\"auto\" button2label=\"Komfort\" button2value=\"comfort\" button3label=\"Standy By\" button3value=\"standby\" button4label=\"Economy\" button4value=\"economy\" showstatus=\"true\"&gt;<br/>";
+							$tab++;
+							if ($mobile){
+								echo printTab($tab)."&lt;layout colspan=\"3\"/&gt;<br/>";
+							} else {
+								echo printTab($tab)."&lt;layout colspan=\"6\"/&gt;<br/>";
+							}
+							echo printTab($tab)."&lt;label&gt;Betriebsart&lt;/label&gt;<br/>";
+							echo printTab($tab)."&lt;address transform=\"DPT:20.102\" mode=\"readwrite\"&gt;".translateAddress($GAMode['Address'])."&lt;/address&gt;<br/>";
+							$tab--;
+							echo printTab($tab)."&lt;/multitrigger&gt;<br/>";
 						}
 						
 						if($GATemperatureRead != null){
@@ -738,73 +727,32 @@ function printFunctionTypes($xmlDoc, $tab, $functionType, $mobile){
 							if ($mobile){
 								echo printTab($tab)."&lt;layout colspan=\"3\"/&gt;<br/>";
 							} else {
-								echo printTab($tab)."&lt;layout colspan=\"4\"/&gt;<br/>";
+								echo printTab($tab)."&lt;layout colspan=\"6\"/&gt;<br/>";
 							}
-							echo printTab($tab)."&lt;label&gt;Temperatur&lt;/label&gt;<br/>";
+							echo printTab($tab)."&lt;label&gt;Ist&lt;/label&gt;<br/>";
 							echo printTab($tab)."&lt;address transform=\"DPT:9.001\" mode=\"read\"&gt;".translateAddress($GATemperatureRead['Address'])."&lt;/address&gt;<br/>";
 							$tab--;
 							echo printTab($tab)."&lt;/info&gt;<br/>";
 						}
 						
 						if($GATemperatureWrite != null){
-							// echo printTab($tab)."&lt;infotrigger uplabel=\"+\" upvalue=\"0.5\" downlabel=\"-\" downvalue=\"-0.5\" styling=\"BluePurpleRedTemp\" infoposition=\"middle\" format=\"%.1f ".utf8_decode(°)."C\" change=\"absolute\" min=\"15\" max=\"25\"&gt;<br/>";
-							// $tab++;
-							// if ($mobile){
-								// echo printTab($tab)."&lt;layout colspan=\"3\"/&gt;<br/>";
-							// } else {
-								// echo printTab($tab)."&lt;layout colspan=\"4\"/&gt;<br/>";
-							// }
-							// echo printTab($tab)."&lt;label&gt;&lt;icon name=\"temperature\"/&gt;Soll&lt;/label&gt;<br/>";
-							// echo printTab($tab)."&lt;address transform=\"DPT:9.001\" mode=\"readwrite\"&gt;".translateAddress($GATemperatureWrite['Address'])."&lt;/address&gt;<br/>";
-							// $tab--;
-							// echo printTab($tab)."&lt;/infotrigger&gt;<br/>";
-							
-							echo printTab($tab)."&lt;text align=\"left\"&gt;<br/>";
-							$tab++;
-							echo printTab($tab)."&lt;layout colspan=\"0.5\"/&gt;<br/>";
-							echo printTab($tab)."&lt;label&gt;&lt;icon name=\"temperature\"/&gt;&lt;/label&gt;<br/>";
-							$tab--;
-							echo printTab($tab)."&lt;/text&gt;<br/>";
-							
-							echo printTab($tab)."&lt;slide min=\"15\" max=\"25\" step=\"0.5\" format=\"%.1f ".utf8_decode(°)."C\"&gt;<br/>";
+							echo printTab($tab)."&lt;slide min=\"17\" max=\"23\" step=\"0.5\" format=\"%.1f ".utf8_decode(°)."C\"&gt;<br/>";
 							$tab++;
 							if ($mobile){
-								echo printTab($tab)."&lt;layout colspan=\"2\"/&gt;<br/>";
-							} else {
 								echo printTab($tab)."&lt;layout colspan=\"3\"/&gt;<br/>";
+							} else {
+								echo printTab($tab)."&lt;layout colspan=\"6\"/&gt;<br/>";
 							}
+							echo printTab($tab)."&lt;label&gt;Soll&lt;/label&gt;<br/>";
 							echo printTab($tab)."&lt;address transform=\"DPT:9.001\" mode=\"readwrite\"&gt;".translateAddress($GATemperatureWrite['Address'])."&lt;/address&gt;<br/>";
 							$tab--;
 							echo printTab($tab)."&lt;/slide&gt;<br/>";
-							echo printTab($tab)."&lt;text align=\"right\"&gt;<br/>";
-							$tab++;
-							echo printTab($tab)."&lt;layout colspan=\"0.5\"/&gt;<br/>";
-							echo printTab($tab)."&lt;label&gt;&lt;icon name=\"temperature\"/&gt;&lt;/label&gt;<br/>";
-							$tab--;
-							echo printTab($tab)."&lt;/text&gt;<br/>";
 						}
 						
-						if($GAMode != null){
-							echo printTab($tab)."&lt;break/&gt;<br/>";
-							echo printTab($tab)."&lt;multitrigger button1label=\"Auto\" button1value=\"auto\" button2label=\"Komfort\" button2value=\"comfort\" button3label=\"Standy By\" button3value=\"standby\" button4label=\"Economy\" button4value=\"economy\" showstatus=\"true\"&gt;<br/>";
-							$tab++;
-							if ($mobile){
-								echo printTab($tab)."&lt;layout colspan=\"3\"/&gt;<br/>";
-							} else {
-								echo printTab($tab)."&lt;layout colspan=\"4\"/&gt;<br/>";
-							}
-							//echo printTab($tab)."&lt;label&gt;Betriebsart&lt;/label&gt;<br/>";
-							echo printTab($tab)."&lt;address transform=\"DPT:20.102\" mode=\"readwrite\"&gt;".translateAddress($GAMode['Address'])."&lt;/address&gt;<br/>";
+						if ($mobile){
 							$tab--;
-							echo printTab($tab)."&lt;/multitrigger&gt;<br/>";
-							echo printTab($tab)."&lt;break/&gt;<br/>";
+							echo printTab($tab)."&lt;/group&gt;<br/>";
 						}
-						
-						$tab--;
-						echo printTab($tab)."&lt;/group&gt;<br/>";
-						
-						$tab--;
-						echo printTab($tab)."&lt;/group&gt;<br/>";
 
 						break;
 					case "HeatingRadiator":
@@ -828,55 +776,39 @@ function printFunctionTypes($xmlDoc, $tab, $functionType, $mobile){
 									$GroupAddressAttributes = $GroupAddress[0]->attributes();
 									
 									switch(true){
-										case strstr($GroupAddressAttributes['Description'], "[CV:weather;windalarm]"):
+										case strpos($GroupAddressAttributes['Description'], "[CV:weather;windalarm]") >= 0:
 											$GAWindalarm = $GroupAddressAttributes;
 											break;
-										case strstr($GroupAddressAttributes['Description'], "[CV:weather;windspeed]"):
+										case strpos($GroupAddressAttributes['Description'], "[CV:weather;windspeed]") >= 0:
 											$GAWindspeed = $GroupAddressAttributes;
 											break;
-										case strstr($GroupAddressAttributes['Description'], "[CV:weather;brightness-east]"):
+										case strpos($GroupAddressAttributes['Description'], "[CV:weather;brightness-east]") >= 0:
 											$GABrightnessEast = $GroupAddressAttributes;
 											break;
-										case strstr($GroupAddressAttributes['Description'], "[CV:weather;brightness-south]"):
+										case strpos($GroupAddressAttributes['Description'], "[CV:weather;brightness-south]") >= 0:
 											$GABrightnessSouth = $GroupAddressAttributes;
 											break;
-										case strstr($GroupAddressAttributes['Description'], "[CV:weather;brightness-west]"):
+										case strpos($GroupAddressAttributes['Description'], "[CV:weather;brightness-west]") >= 0:
 											$GABrightnessWest = $GroupAddressAttributes;
 											break;
-										case strstr($GroupAddressAttributes['Description'], "[CV:weather;dawn]"):
+										case strpos($GroupAddressAttributes['Description'], "[CV:weather;dawn]") >= 0:
 											$GADawn = $GroupAddressAttributes;
 											break;
-										case strstr($GroupAddressAttributes['Description'], "[CV:weather;night]"):
+										case strpos($GroupAddressAttributes['Description'], "[CV:weather;night]") >= 0:
 											$GANight = $GroupAddressAttributes;
 											break;
-										case strstr($GroupAddressAttributes['Description'], "[CV:weather;temperature]"):
+										case strpos($GroupAddressAttributes['Description'], "[CV:weather;temperature]") >= 0:
 											$GATemperature = $GroupAddressAttributes;
 											break;
-										case strstr($GroupAddressAttributes['Description'], "[CV:weather;frostalarm]"):
+										case strpos($GroupAddressAttributes['Description'], "[CV:weather;frostalarm]") >= 0:
 											$GAFrostalarm = $GroupAddressAttributes;
-											break;
-										default:
 											break;
 									}
 								}
 								
 								if ($GAWindalarm != null || $GAWindspeed != null){
-									echo printTab($tab)."&lt;group&gt;<br/>";
+									echo printTab($tab)."&lt;group name=\"Wind\"&gt;<br/>";
 									$tab++;
-									
-									if ($mobile){
-										echo printTab($tab)."&lt;layout colspan=\"3\"/&gt;<br/>";
-									} else {
-										echo printTab($tab)."&lt;layout colspan=\"4\"/&gt;<br/>";
-									}
-									
-									echo printTab($tab)."&lt;text align=\"left\"&gt;<br/>";
-									$tab++;
-									echo printTab($tab)."&lt;label&gt;Wind&lt;/label&gt;<br/>";
-									$tab--;
-									echo printTab($tab)."&lt;/text&gt;<br/>";
-									
-									echo printTab($tab)."&lt;break/&gt;<br/>";
 
 									if ($GAWindalarm != null){
 										echo printTab($tab)."&lt;info mapping=\"AchtungSymbol\"&gt;<br/>";
@@ -900,32 +832,12 @@ function printFunctionTypes($xmlDoc, $tab, $functionType, $mobile){
 									echo printTab($tab)."&lt;/group&gt;<br/>";
 								}
 								
-								echo printTab($tab)."&lt;group&gt;<br/>";
+								echo printTab($tab)."&lt;group name=\"Helligkeit\"&gt;<br/>";
 								$tab++;
-
-								if ($mobile){
-									echo printTab($tab)."&lt;layout colspan=\"3\"/&gt;<br/>";
-								} else {
-									echo printTab($tab)."&lt;layout colspan=\"8\"/&gt;<br/>";
-								}
-								
-								echo printTab($tab)."&lt;text align=\"left\"&gt;<br/>";
-								$tab++;
-								if (!$mobile){
-									echo printTab($tab)."&lt;layout colspan=\"8\"/&gt;<br/>";
-								}
-								echo printTab($tab)."&lt;label&gt;Helligkeit&lt;/label&gt;<br/>";
-								$tab--;
-								echo printTab($tab)."&lt;/text&gt;<br/>";
-								
-								echo printTab($tab)."&lt;break/&gt;<br/>";
 
 								if ($GABrightnessEast != null){
 									echo printTab($tab)."&lt;info &gt;<br/>";
 									$tab++;
-									if (!$mobile){
-										echo printTab($tab)."&lt;layout colspan=\"4\"/&gt;<br/>";
-									}
 									echo printTab($tab)."&lt;label&gt;Ost&lt;/label&gt;<br/>";
 									echo printTab($tab)."&lt;address transform=\"".translateDatapointType($GABrightnessEast['DatapointType'])."\" mode=\"read\"&gt;".translateAddress($GABrightnessEast['Address'])."&lt;/address&gt;<br/>";
 									$tab--;
@@ -935,10 +847,7 @@ function printFunctionTypes($xmlDoc, $tab, $functionType, $mobile){
 								if ($GABrightnessSouth != null){
 									echo printTab($tab)."&lt;info &gt;<br/>";
 									$tab++;
-									if (!$mobile){
-										echo printTab($tab)."&lt;layout colspan=\"4\"/&gt;<br/>";
-									}
-									echo printTab($tab)."&lt;label&gt;".utf8_decode("Süd")."&lt;/label&gt;<br/>";
+									echo printTab($tab)."&lt;label&gt;Süd&lt;/label&gt;<br/>";
 									echo printTab($tab)."&lt;address transform=\"".translateDatapointType($GABrightnessSouth['DatapointType'])."\" mode=\"read\"&gt;".translateAddress($GABrightnessSouth['Address'])."&lt;/address&gt;<br/>";
 									$tab--;
 									echo printTab($tab)."&lt;/info&gt;<br/>";
@@ -947,9 +856,6 @@ function printFunctionTypes($xmlDoc, $tab, $functionType, $mobile){
 								if ($GABrightnessWest != null){
 									echo printTab($tab)."&lt;info &gt;<br/>";
 									$tab++;
-									if (!$mobile){
-										echo printTab($tab)."&lt;layout colspan=\"4\"/&gt;<br/>";
-									}
 									echo printTab($tab)."&lt;label&gt;West&lt;/label&gt;<br/>";
 									echo printTab($tab)."&lt;address transform=\"".translateDatapointType($GABrightnessWest['DatapointType'])."\" mode=\"read\"&gt;".translateAddress($GABrightnessWest['Address'])."&lt;/address&gt;<br/>";
 									$tab--;
@@ -959,10 +865,7 @@ function printFunctionTypes($xmlDoc, $tab, $functionType, $mobile){
 								if ($GADawn != null){
 									echo printTab($tab)."&lt;info &gt;<br/>";
 									$tab++;
-									if (!$mobile){
-										echo printTab($tab)."&lt;layout colspan=\"4\"/&gt;<br/>";
-									}
-									echo printTab($tab)."&lt;label&gt;".utf8_decode("Dämmerungswert")."&lt;/label&gt;<br/>";
+									echo printTab($tab)."&lt;label&gt;Dämmerungswert&lt;/label&gt;<br/>";
 									echo printTab($tab)."&lt;address transform=\"".translateDatapointType($GADawn['DatapointType'])."\" mode=\"read\"&gt;".translateAddress($GADawn['Address'])."&lt;/address&gt;<br/>";
 									$tab--;
 									echo printTab($tab)."&lt;/info&gt;<br/>";
@@ -971,9 +874,6 @@ function printFunctionTypes($xmlDoc, $tab, $functionType, $mobile){
 								if ($GANight != null){
 									echo printTab($tab)."&lt;info &gt;<br/>";
 									$tab++;
-									if (!$mobile){
-										echo printTab($tab)."&lt;layout colspan=\"4\"/&gt;<br/>";
-									}
 									echo printTab($tab)."&lt;label&gt;Nacht&lt;/label&gt;<br/>";
 									echo printTab($tab)."&lt;address transform=\"".translateDatapointType($GANight['DatapointType'])."\" mode=\"read\"&gt;".translateAddress($GANight['Address'])."&lt;/address&gt;<br/>";
 									$tab--;
@@ -983,27 +883,13 @@ function printFunctionTypes($xmlDoc, $tab, $functionType, $mobile){
 								$tab--;
 								echo printTab($tab)."&lt;/group&gt;<br/>";
 								
-								echo printTab($tab)."&lt;group&gt;<br/>";
+								echo printTab($tab)."&lt;group name=\"Temperatur\"&gt;<br/>";
 								$tab++;
-								
-								if ($mobile){
-									echo printTab($tab)."&lt;layout colspan=\"3\"/&gt;<br/>";
-								} else {
-									echo printTab($tab)."&lt;layout colspan=\"4\"/&gt;<br/>";
-								}
-								
-								echo printTab($tab)."&lt;text align=\"left\"&gt;<br/>";
-								$tab++;
-								echo printTab($tab)."&lt;label&gt;Temperatur&lt;/label&gt;<br/>";
-								$tab--;
-								echo printTab($tab)."&lt;/text&gt;<br/>";
-								
-								echo printTab($tab)."&lt;break/&gt;<br/>";
 
 								if ($GATemperature != null){
 									echo printTab($tab)."&lt;info format=\"%.1f ".utf8_decode(°)."C\" &gt;<br/>";
 									$tab++;
-									echo printTab($tab)."&lt;label&gt;".utf8_decode("Außentemperatur")."&lt;/label&gt;<br/>";
+									echo printTab($tab)."&lt;label&gt;Temperature&lt;/label&gt;<br/>";
 									echo printTab($tab)."&lt;address transform=\"".translateDatapointType($GATemperature['DatapointType'])."\" mode=\"read\"&gt;".translateAddress($GATemperature['Address'])."&lt;/address&gt;<br/>";
 									$tab--;
 									echo printTab($tab)."&lt;/info&gt;<br/>";
@@ -1023,105 +909,6 @@ function printFunctionTypes($xmlDoc, $tab, $functionType, $mobile){
 								
 								break;
 							case "Sicherheit":
-								$GAAlarmWrite = null;
-								$GAAlarm = null;
-								$GAWindows = null;
-							
-								foreach($function->GroupAddressRef as $GroupAddressRef){
-									$GroupAddress = $xmlDoc->xpath('//knx:GroupAddress[@Id="'.$GroupAddressRef["RefId"].'"]');
-									$GroupAddressAttributes = $GroupAddress[0]->attributes();
-									
-									switch($GroupAddressAttributes['DatapointType']){
-										case "DPST-1-1":
-											$GAAlarmWrite = $GroupAddressAttributes;
-											break;
-										case "DPST-1-5":
-											$GAAlarm = $GroupAddressAttributes;
-											break;
-										case "DPST-1-19":
-											$windowParams = explode(";", substr($GroupAddressAttributes['Description'], strpos($GroupAddressAttributes['Description'], "[CV:") + 4,  strpos($GroupAddressAttributes['Description'], "]") - strpos($GroupAddressAttributes['Description'], "[CV:") - 4));
-											$WindowStatus = null;
-											
-											$WindowStatus["Name"] = substr($windowParams[1], strpos($windowParams[1], "=") + 1);
-											$WindowStatus["Number"] = substr($windowParams[2], strpos($windowParams[2], "=") + 1);
-											$WindowStatus["Attributes"] = $GroupAddressAttributes;
-											$GAWindows[] = $WindowStatus;
-											break;
-									}
-								}
-								
-								usort($GAWindows, "sortByNumber");
-								
-								if ($GAAlarmWrite != null){
-									echo printTab($tab)."&lt;group&gt;<br/>";
-									$tab++;
-									
-									if ($mobile){
-										echo printTab($tab)."&lt;layout colspan=\"3\"/&gt;<br/>";
-									} else {
-										echo printTab($tab)."&lt;layout colspan=\"4\"/&gt;<br/>";
-									}
-									
-									echo printTab($tab)."&lt;text align=\"left\"&gt;<br/>";
-									$tab++;
-									echo printTab($tab)."&lt;label&gt;Alarm&lt;/label&gt;<br/>";
-									$tab--;
-									echo printTab($tab)."&lt;/text&gt;<br/>";
-									
-									echo printTab($tab)."&lt;break/&gt;<br/>";
-									
-									echo printTab($tab)."&lt;switch mapping=\"OnOff\" bind_click_to_widget=\"false\"&gt;<br/>";
-									$tab++;
-									echo printTab($tab)."&lt;label&gt;Alarm schalten&lt;/label&gt;<br/>";
-									echo printTab($tab)."&lt;address transform=\"".translateDatapointType($GAAlarmWrite['DatapointType'])."\" mode=\"readwrite\"&gt;".translateAddress($GAAlarmWrite['Address'])."&lt;/address&gt;<br/>";
-									$tab--;
-									echo printTab($tab)."&lt;/switch&gt;<br/>";
-									
-									echo printTab($tab)."&lt;switch mapping=\"OnOff\" bind_click_to_widget=\"false\"&gt;<br/>";
-									$tab++;
-									echo printTab($tab)."&lt;label&gt;Alarm aktiv&lt;/label&gt;<br/>";
-									echo printTab($tab)."&lt;address transform=\"".translateDatapointType($GAAlarm['DatapointType'])."\" mode=\"readwrite\"&gt;".translateAddress($GAAlarm['Address'])."&lt;/address&gt;<br/>";
-									$tab--;
-									echo printTab($tab)."&lt;/switch&gt;<br/>";
-									
-									$tab--;
-									echo printTab($tab)."&lt;/group&gt;<br/>";
-								}
-								
-								if (sizeof($GAWindows) > 0){
-									echo printTab($tab)."&lt;group&gt;<br/>";
-									$tab++;
-									
-									if ($mobile){
-										echo printTab($tab)."&lt;layout colspan=\"3\"/&gt;<br/>";
-									} else {
-										echo printTab($tab)."&lt;layout colspan=\"8\"/&gt;<br/>";
-									}
-									
-									echo printTab($tab)."&lt;text align=\"left\"&gt;<br/>";
-									$tab++;
-									if (!$mobile){
-										echo printTab($tab)."&lt;layout colspan=\"8\"/&gt;<br/>";
-									}
-									echo printTab($tab)."&lt;label&gt;Fensterstatus&lt;/label&gt;<br/>";
-									$tab--;
-									echo printTab($tab)."&lt;/text&gt;<br/>";
-									
-									foreach($GAWindows as $GAWindow){
-										echo printTab($tab)."&lt;switch mapping=\"DoorOpenClose\" styling=\"OpenClose\" bind_click_to_widget=\"false\"&gt;<br/>";
-										$tab++;
-										if (!$mobile){
-											echo printTab($tab)."&lt;layout colspan=\"4\"/&gt;<br/>";
-										}
-										echo printTab($tab)."&lt;label&gt;".$GAWindow["Name"]."&lt;/label&gt;<br/>";
-										echo printTab($tab)."&lt;address transform=\"".translateDatapointType($GAWindow["Attributes"]['DatapointType'])."\" mode=\"read\"&gt;".translateAddress($GAWindow["Attributes"]['Address'])."&lt;/address&gt;<br/>";
-										$tab--;
-										echo printTab($tab)."&lt;/switch&gt;<br/>";
-									}
-									
-									$tab--;
-									echo printTab($tab)."&lt;/group&gt;<br/>";
-								}
 								break;
 							default:
 								break;
