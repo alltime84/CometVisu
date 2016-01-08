@@ -21,16 +21,16 @@
     </icons>
     <mappings>
 			<mapping name="Jalousien">
-        <entry value="1"><icon name="shutter_down" color="#3F51B5"/></entry>
-        <entry value="0"><icon name="shutter_up" color="#3F51B5"/></entry>
+        <entry value="1"><icon name="fts_shutter_100" color="#3F51B5"/></entry>
+        <entry value="0"><icon name="fts_shutter_10" color="#3F51B5"/></entry>
       </mapping>
 			<mapping name="Lamellen">
-        <entry value="1"><icon name="blades100" color="#3F51B5"/></entry>
-        <entry value="0"><icon name="blades0" color="#3F51B5"/></entry>
+        <entry value="1"><icon name="fts_blade_s_100" color="#3F51B5"/></entry>
+        <entry value="0"><icon name="fts_blade_s_00" color="#3F51B5"/></entry>
       </mapping>
 			<mapping name="Licht">
-        <entry value="1"><icon name="lightbulb_on" color="#3F51B5"/></entry>
-        <entry value="0"><icon name="lightbulb_off" color="#3F51B5"/></entry>
+        <entry value="1"><icon name="light_light_dim_100" color="#3F51B5"/></entry>
+        <entry value="0"><icon name="light_light_dim_00" color="#3F51B5"/></entry>
       </mapping>
       <mapping name="OpenClose">
         <entry value="1">Offen</entry>
@@ -42,10 +42,10 @@
       </mapping>
       <mapping name="DoorOpenClose">
         <entry value="1">
-          <icon name="window_unlocked" color="orange"/>
+          <icon name="fts_door_open" color="#FF8000"/>
         </entry>
         <entry value="0">
-          <icon name="window_locked" color="#3F51B5"/>
+          <icon name="fts_door_locked" color="#555555"/>
         </entry>
       </mapping>
 			<mapping name="DoorOpen">
@@ -652,11 +652,11 @@
             <layout colspan="2"/>
             <label>Licht schalten</label>
           </text>
-          <trigger value="0" mapping="Licht" align="right">
+          <trigger value="0" mapping="OnOffStatus" align="right">
             <layout colspan="1"/>
             <address transform="DPT:1.001" variant="button" mode="write">10/0/0</address>
           </trigger>
-          <trigger value="1" mapping="Licht" align="right">
+          <trigger value="1" mapping="OnOffStatus" align="right">
             <layout colspan="1"/>
             <address transform="DPT:1.001" mode="write">10/0/0</address>
           </trigger>
@@ -849,11 +849,11 @@
               <layout colspan="2"/>
               <label>Licht schalten</label>
             </text>
-            <trigger value="0" mapping="Licht" align="right">
+            <trigger value="0" mapping="OnOffStatus" align="right">
               <layout colspan="0.5"/>
               <address transform="DPT:1.001" variant="button" mode="write">10/0/0</address>
             </trigger>
-            <trigger value="1" mapping="Licht" align="right">
+            <trigger value="1" mapping="OnOffStatus" align="right">
               <layout colspan="0.5"/>
               <address transform="DPT:1.001" mode="write">10/0/0</address>
             </trigger>
@@ -1019,11 +1019,11 @@
               <layout colspan="2"/>
               <label>Licht</label>
             </text>
-            <trigger value="0" mapping="Licht" align="right">
+            <trigger value="0" mapping="OnOffStatus" align="right">
               <layout colspan="1"/>
               <address transform="DPT:1.001" variant="button" mode="write">10/1/0</address>
             </trigger>
-            <trigger value="1" mapping="Licht" align="right">
+            <trigger value="1" mapping="OnOffStatus" align="right">
               <layout colspan="1"/>
               <address transform="DPT:1.001" mode="write">10/1/0</address>
             </trigger>
@@ -1065,11 +1065,11 @@
               <layout colspan="2"/>
               <label>Licht</label>
             </text>
-            <trigger value="0" mapping="Licht" align="right">
+            <trigger value="0" mapping="OnOffStatus" align="right">
               <layout colspan="0.5"/>
               <address transform="DPT:1.001" variant="button" mode="write">10/1/0</address>
             </trigger>
-            <trigger value="1" mapping="Licht" align="right">
+            <trigger value="1" mapping="OnOffStatus" align="right">
               <layout colspan="0.5"/>
               <address transform="DPT:1.001" mode="write">10/1/0</address>
             </trigger>
@@ -1113,11 +1113,11 @@
               <layout colspan="2"/>
               <label>Licht</label>
             </text>
-            <trigger value="0" mapping="Licht" align="right">
+            <trigger value="0" mapping="OnOffStatus" align="right">
               <layout colspan="1"/>
               <address transform="DPT:1.001" variant="button" mode="write">10/1/10</address>
             </trigger>
-            <trigger value="1" mapping="Licht" align="right">
+            <trigger value="1" mapping="OnOffStatus" align="right">
               <layout colspan="1"/>
               <address transform="DPT:1.001" mode="write">10/1/10</address>
             </trigger>
@@ -1172,11 +1172,11 @@
               <layout colspan="2"/>
               <label>Licht</label>
             </text>
-            <trigger value="0" mapping="Licht" align="right">
+            <trigger value="0" mapping="OnOffStatus" align="right">
               <layout colspan="0.5"/>
               <address transform="DPT:1.001" variant="button" mode="write">10/1/10</address>
             </trigger>
-            <trigger value="1" mapping="Licht" align="right">
+            <trigger value="1" mapping="OnOffStatus" align="right">
               <layout colspan="0.5"/>
               <address transform="DPT:1.001" mode="write">10/1/10</address>
             </trigger>
@@ -1346,11 +1346,11 @@
               <layout colspan="2"/>
               <label>Licht</label>
             </text>
-            <trigger value="0" mapping="Licht" align="right">
+            <trigger value="0" mapping="OnOffStatus" align="right">
               <layout colspan="1"/>
               <address transform="DPT:1.001" variant="button" mode="write">10/1/30</address>
             </trigger>
-            <trigger value="1" mapping="Licht" align="right">
+            <trigger value="1" mapping="OnOffStatus" align="right">
               <layout colspan="1"/>
               <address transform="DPT:1.001" mode="write">10/1/30</address>
             </trigger>
@@ -1456,11 +1456,11 @@
               <layout colspan="2"/>
               <label>Licht</label>
             </text>
-            <trigger value="0" mapping="Licht" align="right">
+            <trigger value="0" mapping="OnOffStatus" align="right">
               <layout colspan="0.5"/>
               <address transform="DPT:1.001" variant="button" mode="write">10/1/30</address>
             </trigger>
-            <trigger value="1" mapping="Licht" align="right">
+            <trigger value="1" mapping="OnOffStatus" align="right">
               <layout colspan="0.5"/>
               <address transform="DPT:1.001" mode="write">10/1/30</address>
             </trigger>
@@ -1647,11 +1647,11 @@
               <layout colspan="2"/>
               <label>Licht</label>
             </text>
-            <trigger value="0" mapping="Licht" align="right">
+            <trigger value="0" mapping="OnOffStatus" align="right">
               <layout colspan="1"/>
               <address transform="DPT:1.001" variant="button" mode="write">10/1/50</address>
             </trigger>
-            <trigger value="1" mapping="Licht" align="right">
+            <trigger value="1" mapping="OnOffStatus" align="right">
               <layout colspan="1"/>
               <address transform="DPT:1.001" mode="write">10/1/50</address>
             </trigger>
@@ -1740,11 +1740,11 @@
               <layout colspan="2"/>
               <label>Licht</label>
             </text>
-            <trigger value="0" mapping="Licht" align="right">
+            <trigger value="0" mapping="OnOffStatus" align="right">
               <layout colspan="0.5"/>
               <address transform="DPT:1.001" variant="button" mode="write">10/1/50</address>
             </trigger>
-            <trigger value="1" mapping="Licht" align="right">
+            <trigger value="1" mapping="OnOffStatus" align="right">
               <layout colspan="0.5"/>
               <address transform="DPT:1.001" mode="write">10/1/50</address>
             </trigger>
@@ -1927,11 +1927,11 @@
               <layout colspan="2"/>
               <label>Licht</label>
             </text>
-            <trigger value="0" mapping="Licht" align="right">
+            <trigger value="0" mapping="OnOffStatus" align="right">
               <layout colspan="1"/>
               <address transform="DPT:1.001" variant="button" mode="write">10/2/0</address>
             </trigger>
-            <trigger value="1" mapping="Licht" align="right">
+            <trigger value="1" mapping="OnOffStatus" align="right">
               <layout colspan="1"/>
               <address transform="DPT:1.001" mode="write">10/2/0</address>
             </trigger>
@@ -1987,11 +1987,11 @@
               <layout colspan="2"/>
               <label>Licht</label>
             </text>
-            <trigger value="0" mapping="Licht" align="right">
+            <trigger value="0" mapping="OnOffStatus" align="right">
               <layout colspan="0.5"/>
               <address transform="DPT:1.001" variant="button" mode="write">10/2/0</address>
             </trigger>
-            <trigger value="1" mapping="Licht" align="right">
+            <trigger value="1" mapping="OnOffStatus" align="right">
               <layout colspan="0.5"/>
               <address transform="DPT:1.001" mode="write">10/2/0</address>
             </trigger>
@@ -2049,11 +2049,11 @@
               <layout colspan="2"/>
               <label>Licht</label>
             </text>
-            <trigger value="0" mapping="Licht" align="right">
+            <trigger value="0" mapping="OnOffStatus" align="right">
               <layout colspan="1"/>
               <address transform="DPT:1.001" variant="button" mode="write">10/2/10</address>
             </trigger>
-            <trigger value="1" mapping="Licht" align="right">
+            <trigger value="1" mapping="OnOffStatus" align="right">
               <layout colspan="1"/>
               <address transform="DPT:1.001" mode="write">10/2/10</address>
             </trigger>
@@ -2124,11 +2124,11 @@
               <layout colspan="2"/>
               <label>Licht</label>
             </text>
-            <trigger value="0" mapping="Licht" align="right">
+            <trigger value="0" mapping="OnOffStatus" align="right">
               <layout colspan="0.5"/>
               <address transform="DPT:1.001" variant="button" mode="write">10/2/10</address>
             </trigger>
-            <trigger value="1" mapping="Licht" align="right">
+            <trigger value="1" mapping="OnOffStatus" align="right">
               <layout colspan="0.5"/>
               <address transform="DPT:1.001" mode="write">10/2/10</address>
             </trigger>
@@ -2201,11 +2201,11 @@
               <layout colspan="2"/>
               <label>Licht</label>
             </text>
-            <trigger value="0" mapping="Licht" align="right">
+            <trigger value="0" mapping="OnOffStatus" align="right">
               <layout colspan="1"/>
               <address transform="DPT:1.001" variant="button" mode="write">10/2/20</address>
             </trigger>
-            <trigger value="1" mapping="Licht" align="right">
+            <trigger value="1" mapping="OnOffStatus" align="right">
               <layout colspan="1"/>
               <address transform="DPT:1.001" mode="write">10/2/20</address>
             </trigger>
@@ -2405,11 +2405,11 @@
                 <layout colspan="2"/>
                 <label>Licht</label>
               </text>
-              <trigger value="0" mapping="Licht" align="right">
+              <trigger value="0" mapping="OnOffStatus" align="right">
                 <layout colspan="0.5"/>
                 <address transform="DPT:1.001" variant="button" mode="write">10/2/20</address>
               </trigger>
-              <trigger value="1" mapping="Licht" align="right">
+              <trigger value="1" mapping="OnOffStatus" align="right">
                 <layout colspan="0.5"/>
                 <address transform="DPT:1.001" mode="write">10/2/20</address>
               </trigger>
@@ -2597,11 +2597,11 @@
               <layout colspan="2"/>
               <label>Licht</label>
             </text>
-            <trigger value="0" mapping="Licht" align="right">
+            <trigger value="0" mapping="OnOffStatus" align="right">
               <layout colspan="1"/>
               <address transform="DPT:1.001" variant="button" mode="write">10/2/30</address>
             </trigger>
-            <trigger value="1" mapping="Licht" align="right">
+            <trigger value="1" mapping="OnOffStatus" align="right">
               <layout colspan="1"/>
               <address transform="DPT:1.001" mode="write">10/2/30</address>
             </trigger>
@@ -2915,11 +2915,11 @@
                 <layout colspan="2"/>
                 <label>Licht</label>
               </text>
-              <trigger value="0" mapping="Licht" align="right">
+              <trigger value="0" mapping="OnOffStatus" align="right">
                 <layout colspan="0.5"/>
                 <address transform="DPT:1.001" variant="button" mode="write">10/2/30</address>
               </trigger>
-              <trigger value="1" mapping="Licht" align="right">
+              <trigger value="1" mapping="OnOffStatus" align="right">
                 <layout colspan="0.5"/>
                 <address transform="DPT:1.001" mode="write">10/2/30</address>
               </trigger>
@@ -3909,11 +3909,11 @@
               <layout colspan="2"/>
               <label>Licht</label>
             </text>
-            <trigger value="0" mapping="Licht" align="right">
+            <trigger value="0" mapping="OnOffStatus" align="right">
               <layout colspan="1"/>
               <address transform="DPT:1.001" variant="button" mode="write">10/2/60</address>
             </trigger>
-            <trigger value="1" mapping="Licht" align="right">
+            <trigger value="1" mapping="OnOffStatus" align="right">
               <layout colspan="1"/>
               <address transform="DPT:1.001" mode="write">10/2/60</address>
             </trigger>
@@ -4035,11 +4035,11 @@
               <layout colspan="2"/>
               <label>Licht</label>
             </text>
-            <trigger value="0" mapping="Licht" align="right">
+            <trigger value="0" mapping="OnOffStatus" align="right">
               <layout colspan="0.5"/>
               <address transform="DPT:1.001" variant="button" mode="write">10/2/60</address>
             </trigger>
-            <trigger value="1" mapping="Licht" align="right">
+            <trigger value="1" mapping="OnOffStatus" align="right">
               <layout colspan="0.5"/>
               <address transform="DPT:1.001" mode="write">10/2/60</address>
             </trigger>
@@ -4392,11 +4392,11 @@
               <layout colspan="2"/>
               <label>Licht</label>
             </text>
-            <trigger value="0" mapping="Licht" align="right">
+            <trigger value="0" mapping="OnOffStatus" align="right">
               <layout colspan="1"/>
               <address transform="DPT:1.001" variant="button" mode="write">10/3/0</address>
             </trigger>
-            <trigger value="1" mapping="Licht" align="right">
+            <trigger value="1" mapping="OnOffStatus" align="right">
               <layout colspan="1"/>
               <address transform="DPT:1.001" mode="write">10/3/0</address>
             </trigger>
@@ -4437,11 +4437,11 @@
               <layout colspan="2"/>
               <label>Licht</label>
             </text>
-            <trigger value="0" mapping="Licht" align="right">
+            <trigger value="0" mapping="OnOffStatus" align="right">
               <layout colspan="0.5"/>
               <address transform="DPT:1.001" variant="button" mode="write">10/3/0</address>
             </trigger>
-            <trigger value="1" mapping="Licht" align="right">
+            <trigger value="1" mapping="OnOffStatus" align="right">
               <layout colspan="0.5"/>
               <address transform="DPT:1.001" mode="write">10/3/0</address>
             </trigger>
@@ -4484,11 +4484,11 @@
               <layout colspan="2"/>
               <label>Licht</label>
             </text>
-            <trigger value="0" mapping="Licht" align="right">
+            <trigger value="0" mapping="OnOffStatus" align="right">
               <layout colspan="1"/>
               <address transform="DPT:1.001" variant="button" mode="write">10/3/10</address>
             </trigger>
-            <trigger value="1" mapping="Licht" align="right">
+            <trigger value="1" mapping="OnOffStatus" align="right">
               <layout colspan="1"/>
               <address transform="DPT:1.001" mode="write">10/3/10</address>
             </trigger>
@@ -4543,11 +4543,11 @@
               <layout colspan="2"/>
               <label>Licht</label>
             </text>
-            <trigger value="0" mapping="Licht" align="right">
+            <trigger value="0" mapping="OnOffStatus" align="right">
               <layout colspan="0.5"/>
               <address transform="DPT:1.001" variant="button" mode="write">10/3/10</address>
             </trigger>
-            <trigger value="1" mapping="Licht" align="right">
+            <trigger value="1" mapping="OnOffStatus" align="right">
               <layout colspan="0.5"/>
               <address transform="DPT:1.001" mode="write">10/3/10</address>
             </trigger>
@@ -6039,11 +6039,11 @@
               <layout colspan="2"/>
               <label>Licht</label>
             </text>
-            <trigger value="0" mapping="Licht" align="right">
+            <trigger value="0" mapping="OnOffStatus" align="right">
               <layout colspan="1"/>
               <address transform="DPT:1.001" variant="button" mode="write">10/3/80</address>
             </trigger>
-            <trigger value="1" mapping="Licht" align="right">
+            <trigger value="1" mapping="OnOffStatus" align="right">
               <layout colspan="1"/>
               <address transform="DPT:1.001" mode="write">10/3/80</address>
             </trigger>
@@ -6174,11 +6174,11 @@
                 <layout colspan="2"/>
                 <label>Licht</label>
               </text>
-              <trigger value="0" mapping="Licht" align="right">
+              <trigger value="0" mapping="OnOffStatus" align="right">
                 <layout colspan="0.5"/>
                 <address transform="DPT:1.001" variant="button" mode="write">10/3/80</address>
               </trigger>
-              <trigger value="1" mapping="Licht" align="right">
+              <trigger value="1" mapping="OnOffStatus" align="right">
                 <layout colspan="0.5"/>
                 <address transform="DPT:1.001" mode="write">10/3/80</address>
               </trigger>
@@ -6297,11 +6297,11 @@
               <layout colspan="2"/>
               <label>Licht</label>
             </text>
-            <trigger value="0" mapping="Licht" align="right">
+            <trigger value="0" mapping="OnOffStatus" align="right">
               <layout colspan="1"/>
               <address transform="DPT:1.001" variant="button" mode="write">10/3/90</address>
             </trigger>
-            <trigger value="1" mapping="Licht" align="right">
+            <trigger value="1" mapping="OnOffStatus" align="right">
               <layout colspan="1"/>
               <address transform="DPT:1.001" mode="write">10/3/90</address>
             </trigger>
@@ -6436,11 +6436,11 @@
               <layout colspan="2"/>
               <label>Licht</label>
             </text>
-            <trigger value="0" mapping="Licht" align="right">
+            <trigger value="0" mapping="OnOffStatus" align="right">
               <layout colspan="0.5"/>
               <address transform="DPT:1.001" variant="button" mode="write">10/3/90</address>
             </trigger>
-            <trigger value="1" mapping="Licht" align="right">
+            <trigger value="1" mapping="OnOffStatus" align="right">
               <layout colspan="0.5"/>
               <address transform="DPT:1.001" mode="write">10/3/90</address>
             </trigger>
@@ -6580,11 +6580,11 @@
               <layout colspan="2"/>
               <label>Licht</label>
             </text>
-            <trigger value="0" mapping="Licht" align="right">
+            <trigger value="0" mapping="OnOffStatus" align="right">
               <layout colspan="1"/>
               <address transform="DPT:1.001" variant="button" mode="write">10/4/0</address>
             </trigger>
-            <trigger value="1" mapping="Licht" align="right">
+            <trigger value="1" mapping="OnOffStatus" align="right">
               <layout colspan="1"/>
               <address transform="DPT:1.001" mode="write">10/4/0</address>
             </trigger>
@@ -6609,11 +6609,11 @@
               <layout colspan="2"/>
               <label>Licht</label>
             </text>
-            <trigger value="0" mapping="Licht" align="right">
+            <trigger value="0" mapping="OnOffStatus" align="right">
               <layout colspan="0.5"/>
               <address transform="DPT:1.001" variant="button" mode="write">10/4/0</address>
             </trigger>
-            <trigger value="1" mapping="Licht" align="right">
+            <trigger value="1" mapping="OnOffStatus" align="right">
               <layout colspan="0.5"/>
               <address transform="DPT:1.001" mode="write">10/4/0</address>
             </trigger>
@@ -6797,11 +6797,11 @@
               <layout colspan="2"/>
               <label>Licht</label>
             </text>
-            <trigger value="0" mapping="Licht" align="right">
+            <trigger value="0" mapping="OnOffStatus" align="right">
               <layout colspan="1"/>
               <address transform="DPT:1.001" variant="button" mode="write">10/5/0</address>
             </trigger>
-            <trigger value="1" mapping="Licht" align="right">
+            <trigger value="1" mapping="OnOffStatus" align="right">
               <layout colspan="1"/>
               <address transform="DPT:1.001" mode="write">10/5/0</address>
             </trigger>
@@ -6842,11 +6842,11 @@
               <layout colspan="2"/>
               <label>Licht</label>
             </text>
-            <trigger value="0" mapping="Licht" align="right">
+            <trigger value="0" mapping="OnOffStatus" align="right">
               <layout colspan="0.5"/>
               <address transform="DPT:1.001" variant="button" mode="write">10/5/0</address>
             </trigger>
-            <trigger value="1" mapping="Licht" align="right">
+            <trigger value="1" mapping="OnOffStatus" align="right">
               <layout colspan="0.5"/>
               <address transform="DPT:1.001" mode="write">10/5/0</address>
             </trigger>

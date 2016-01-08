@@ -324,7 +324,7 @@ function printFunctionTypes($xmlDoc, $tab, $functionType, $mobile){
 							$tab--;
 							echo printTab($tab)."&lt;/text&gt;<br/>";
 							
-							echo printTab($tab)."&lt;trigger value=\"0\" mapping=\"Licht\" align=\"right\"&gt;<br/>";
+							echo printTab($tab)."&lt;trigger value=\"0\" mapping=\"OnOffStatus\" align=\"right\"&gt;<br/>";
 							$tab++;
 							if ($mobile){
 								echo printTab($tab)."&lt;layout colspan=\"0.5\"/&gt;<br/>";
@@ -335,7 +335,7 @@ function printFunctionTypes($xmlDoc, $tab, $functionType, $mobile){
 							$tab--;
 							echo printTab($tab)."&lt;/trigger&gt;<br/>";
 							
-							echo printTab($tab)."&lt;trigger value=\"1\" mapping=\"Licht\" align=\"right\"&gt;<br/>";
+							echo printTab($tab)."&lt;trigger value=\"1\" mapping=\"OnOffStatus\" align=\"right\"&gt;<br/>";
 							$tab++;
 							if ($mobile){
 								echo printTab($tab)."&lt;layout colspan=\"0.5\"/&gt;<br/>";
