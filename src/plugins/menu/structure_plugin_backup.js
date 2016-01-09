@@ -55,9 +55,9 @@ define( ['structure_custom', 'css!plugins/menu/menu' ], function( VisuDesign_Cus
 			}
 		},
 		action: function( path, actor, isCanceled ) {
-			if (!$(actor).parent().hasClass("info")) {
-				//templateEngine.design.basicdesign.defaultButtonUpAnimationInheritAction( path, actor );
-			}
+			// if (!$(actor).parent().hasClass("info")) {
+				// templateEngine.design.basicdesign.defaultButtonUpAnimationInheritAction( path, actor );
+			// }
 			if( isCanceled ) return;
 			
 			//click on menubutton
@@ -178,16 +178,25 @@ define( ['structure_custom', 'css!plugins/menu/menu' ], function( VisuDesign_Cus
 							nav += '<div class="value">' + name + '</div>';
 							nav += '</div>';
 							nav += '</div>';
-						} else if ($('#id_' + i + '_ h1').text().indexOf('[Desktop') == -1){
+						} else if ($('#id_' + i + '_ h1').text().indexOf('[Menu') >= 0){
 							nav += '<div class="menucontainer" id="menucontainerid_'+ i + '">';
 							nav += '<div class="menuitem level1" id="menuitemid_'+ i + '">';
 							nav += '<div class="actor switchUnpressed">';
 							nav += '<div class="value">' + name + '</div>';
 							nav += '</div>';
 							nav += '</div>';
+						} else if ($('#id_' + i + '_ h1').text().indexOf('[MobileHeader') >= 0){
+							nav += '<div class="menucontainer" id="menucontainerid_'+ i + '">';
+							nav += '<div class="menuitem level1" id="menuitemid_'+ i + '">';
+							nav += '<div class="actor switchUnpressed">';
+							nav += '<div class="value">' + name + '</div>';
+							nav += '</div>';
+							nav += '</div>';
+						} else {
+							
 						}
 					} else {
-						if ($('#id_' + i + '_ h1').text().indexOf('[Mobile') == -1){
+						if ($('#id_' + i + '_ h1').text().indexOf('[Menu') >= 0 || $('#id_' + i + '_ h1').text().indexOf('[DesktopHeader') >= 0){
 							nav += '<div class="menucontainer" id="menucontainerid_'+ i + '">';
 							nav += '<div class="menuitem level1" id="menuitemid_'+ i + '">';
 							nav += '<div class="actor switchUnpressed">';
@@ -201,32 +210,44 @@ define( ['structure_custom', 'css!plugins/menu/menu' ], function( VisuDesign_Cus
 					
 					for ( var j = 0; j < 20; j++) {
 						if ($('#id_' + i + '_' + j + '_').hasClass('page')) {
-							name = $('#id_' + i + '_' + j + '_ h1').text();
-							if (name.indexOf(']') > 0){
-								name = name.substring(name.lastIndexOf(']') + 1, name.length);
-							}
 							if (window.innerWidth <= templateEngine.maxMobileScreenWidth){
-								if ($('#id_' + i + '_' + j + '_1_').hasClass('page')) {
-									nav += '<div class="menuitem level2 tabs" id="menuitemid_' + i + '_' + j + '">';
+								if ($('#id_' + i + '_' + j + '_ h1').text().indexOf('[MobileHeader]') >= 0) {
+									name = $('#id_' + i + '_' + j + '_ h1').text();
+									if (name.indexOf(']') > 0){
+										name = name.substring(name.lastIndexOf(']') + 1, name.length);
+									}
+									nav += '<div class="menuitem level2" id="menuitemid_' + i + '_' + j + '">';
 									nav += '<div class="actor switchUnpressed">';
 									nav += '<div class="value">' + name + '</div>';
 									nav += '</div>';
 									nav += '</div>';
-								} else if ($('#id_' + i + '_' + j + '_ h1').text().indexOf('[Desktop') == -1){
-									nav += '<div class="menuitem level2" id="menuitemid_' + i + '_' + j + '">';
+								}
+								
+								if ($('#id_' + i + '_' + j + '_ h1').text().indexOf('[MobileTabs]') >= 0) {
+									name = $('#id_' + i + '_' + j + '_ h1').text();
+									if (name.indexOf(']') > 0){
+										name = name.substring(name.lastIndexOf(']') + 1, name.length);
+									}
+									nav += '<div class="menuitem level2 tabs" id="menuitemid_' + i + '_' + j + '">';
 									nav += '<div class="actor switchUnpressed">';
 									nav += '<div class="value">' + name + '</div>';
 									nav += '</div>';
 									nav += '</div>';
 								}
 							} else {
-								if ($('#id_' + i + '_' + j + '_ h1').text().indexOf('[Mobile') == -1){
+								if ($('#id_' + i + '_' + j + '_ h1').text().indexOf('[DesktopHeader]') >= 0) {
+									name = $('#id_' + i + '_' + j + '_ h1').text();
+									if (name.indexOf(']') > 0){
+										name = name.substring(name.lastIndexOf(']') + 1, name.length);
+									}
 									nav += '<div class="menuitem level2" id="menuitemid_' + i + '_' + j + '">';
 									nav += '<div class="actor switchUnpressed">';
 									nav += '<div class="value">' + name + '</div>';
 									nav += '</div>';
 									nav += '</div>';
 								}
+								
+								
 							}
 						}
 					}
@@ -234,11 +255,13 @@ define( ['structure_custom', 'css!plugins/menu/menu' ], function( VisuDesign_Cus
 					nav += '</div>';
 					
 					if (window.innerWidth <= templateEngine.maxMobileScreenWidth) {
-						if ($('#id_' + i + '_ h1').text().indexOf('[Desktop') == -1){
+						if ($('#id_' + i + '_ h1').text().indexOf('[MobileTabs') >= 0){
+							nav += '</div>';
+						} else if ($('#id_' + i + '_ h1').text().indexOf('[Menu') >= 0){
 							nav += '</div>';
 						}
 					} else {
-						if ($('#id_' + i + '_ h1').text().indexOf('[Mobile') == -1){
+						if ($('#id_' + i + '_ h1').text().indexOf('[Menu') >= 0 || $('#id_' + i + '_ h1').text().indexOf('[DesktopHeader') >= 0){
 							nav += '</div>';
 						}
 					}

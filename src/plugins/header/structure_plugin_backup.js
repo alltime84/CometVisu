@@ -20,30 +20,37 @@ define( ['structure_custom', 'css!plugins/header/header' ], function( VisuDesign
 
 (function() {
   VisuDesign_Custom.prototype.addCreator("header", {
-    create : function(element, path, flavour, type) {
-      var $e = $(element);
-			var $showtitle = true;
-			
+    create : function(page, path) {
+      var $p = $(page);
       var header_id = "header" + uniqid();
 
       var classes = 'header';
-      if ($e.attr('class')) {
-        classes += ' custom_'+$e.attr('class');
+      if ($p.attr('class')) {
+        classes += ' custom_'+$p.attr('class');
       }
-			
-			if ($e.attr('showtitle') == 'false'){
-				$showtitle = false;
-			}
-			
       //classes += templateEngine.design.setWidgetLayout( $p, path );
       var ret_val = '<div id="header">';
 			ret_val += '<div class="'+ classes + '"></div>';
 			ret_val += '</div>'
 			
-			createHeader( $e, path, $showtitle );
+			templateEngine.bindActionForLoadingFinished(function () {
+					refreshHeader( page, path );
+			});
 			
-			$(window).bind('scrolltopage', function( $e, path, $showtitle ){
-				createHeader( $e, path, $showtitle );
+			// var resizeTimer;
+			
+			// $(window).bind('resize', function( page, path ){
+				// clearTimeout(resizeTimer);
+				// resizeTimer = setTimeout(function() {
+
+					// refreshHeader( page, path );
+									
+				// }, 250);
+				
+			// });
+			
+			$(window).bind('scrolltopage', function( page, path ){
+				refreshHeader( page, path );
 			});
 
       return ret_val;
@@ -56,41 +63,49 @@ define( ['structure_custom', 'css!plugins/header/header' ], function( VisuDesign
 
   });
 	
-	function createHeader( element, path, showtitle ) {
-		var $e = $(element);
+	function refreshHeader( page, path ) {
 		var path_array = path.split('_');
 		var id = 'id_'; // path_array[0];
 								
 		var active_page = '';
-		var header = '';
+		var link = '';
+		var link_id = '';
 		
 		for ( var i = 1; i < path_array.length; i++) { // element 0 is id_ (JNK)
 			id += path_array[i] + '_';
 			if ($('#' + id ).hasClass("page")) { // FIXME is this still needed?!?
+				if ($('#' + id + ' h1').text().indexOf('[Menu]') > -1){
+					link_id = id;
+				}
 				if ($('#' + id + ' h1').text().indexOf('Header]') > -1 || $('#' + id + ' h1').text().indexOf('Tabs]') > -1){
+					active_page = $('#' + id + ' h1').text();
+				} else if ($('#' + id + ' h1').text().indexOf('[Menu]') > -1){
 					active_page = $('#' + id + ' h1').text();
 				}
 			}
 		}
 
-		if (active_page.indexOf(']') > -1){
+		if (active_page.indexOf('[Menu]') > -1){
 			active_page = active_page.substring(active_page.lastIndexOf(']') + 1, active_page.length);
+		} else if (active_page.indexOf('Header]') > -1 || active_page.indexOf('Tabs]') > -1){
+			active_page = active_page.substring(active_page.lastIndexOf(']') + 1, active_page.length);
+		} else {
+			active_page = 'CometVisu';
 		}
 		
 		//link = '<a href="javascript:templateEngine.scrollToPage(\'id_2_\')"><img src=\'icon/ic_menu_white_24dp_1x.png\'/></a>';
 		//for mobile devices hide navbarLeft on scrolltopage
 		if (window.innerWidth <= templateEngine.maxMobileScreenWidth){
-			header += '<div class="actor switchUnpressed">';
-			header += '<div class="value"><img src=\'icon/ic_menu_white_24dp_1x.png\'/></div>';
-			header += '</div>';
+			link += '<div class="actor switchUnpressed">';
+			link += '<div class="value"><img src=\'icon/ic_menu_white_24dp_1x.png\'/></div>';
+			link += '</div>';
 		}
 		
-		//todo: hide if showheader=false
-		header += '<div class="header title">';
-		header += active_page;
-		header += '</div>';
+		link += '<div class="header title">';
+		link += active_page;
+		link += '</div>';
 		
-		$('#header .header').html(header);
+		$('#header .header').html(link);
 		return false;
 	};
 

@@ -63,8 +63,8 @@ img {
 
 .page
 {
-	padding: 0px;
-	margin: 0px;
+	padding: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
 }
 
 .page h1
@@ -880,7 +880,7 @@ div#loading
 
 /* headline */
 .widget.text.flavour_headline {
-	margin-left: 10px;
+	margin-left: 20px;
 	margin-top: 10px;
 	background-color: transparent !important;
 	line-height: 25px;
@@ -1204,10 +1204,7 @@ div#loading
 }
 
 .trigger .actor{
-	/***********************************************************************************************************************************************/
-	/*hier*/
-	width: 36px;
-	/*width: 100%;*/
+	min-width: 36px;
 }
 
 .trigger .actor .value{
