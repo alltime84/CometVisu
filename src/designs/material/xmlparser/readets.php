@@ -115,7 +115,7 @@ function printFunctionsMobile($xmlDoc, $tab, $floor, $room, $name, $functions, $
 		$tab++;
 		
 		if($functions["Licht"][0]->GroupAddressRef["Id"] != null){
-			echo printTab($tab)."&lt;pagejump target=\"[Licht][".$floor.".".$room.".1]".$name."\"&gt;"."<br/>";
+			echo printTab($tab)."&lt;pagejump target=\"[MobileLicht][".$floor.".".$room.".1]".$name."\"&gt;"."<br/>";
 			$tab++;
 			echo printTab($tab)."&lt;layout colspan=\"0\"/&gt;<br/>";
 			echo printTab($tab)."&lt;label&gt;"."Licht"."&lt;/label&gt;<br/>";
@@ -124,7 +124,7 @@ function printFunctionsMobile($xmlDoc, $tab, $floor, $room, $name, $functions, $
 		}
 		
 		if($functions["Fenster"][0]->GroupAddressRef["Id"] != null){
-			echo printTab($tab)."&lt;pagejump target=\"[Fenster][".$floor.".".$room.".2]".$name."\"&gt;"."<br/>";
+			echo printTab($tab)."&lt;pagejump target=\"[MobileFenster][".$floor.".".$room.".2]".$name."\"&gt;"."<br/>";
 			$tab++;
 			echo printTab($tab)."&lt;layout colspan=\"0\"/&gt;<br/>";
 			echo printTab($tab)."&lt;label&gt;"."Fenster"."&lt;/label&gt;<br/>";
@@ -133,7 +133,7 @@ function printFunctionsMobile($xmlDoc, $tab, $floor, $room, $name, $functions, $
 		}
 		
 		if($functions["Heizung"][0]->GroupAddressRef["Id"] != null){
-			echo printTab($tab)."&lt;pagejump target=\"[Heizung][".$floor.".".$room.".3]".$name."\"&gt;"."<br/>";
+			echo printTab($tab)."&lt;pagejump target=\"[MobileHeizung][".$floor.".".$room.".3]".$name."\"&gt;"."<br/>";
 			$tab++;
 			echo printTab($tab)."&lt;layout colspan=\"0\"/&gt;<br/>";
 			echo printTab($tab)."&lt;label&gt;"."Heizung"."&lt;/label&gt;<br/>";
@@ -142,7 +142,7 @@ function printFunctionsMobile($xmlDoc, $tab, $floor, $room, $name, $functions, $
 		}	
 		
 		if($functions["Sicherheit"][0]->GroupAddressRef["Id"] != null){
-			echo printTab($tab)."&lt;pagejump target=\"[Sicherheit][".$floor.".".$room.".4]".$name."\"&gt;"."<br/>";
+			echo printTab($tab)."&lt;pagejump target=\"[MobileSicherheit][".$floor.".".$room.".4]".$name."\"&gt;"."<br/>";
 			$tab++;
 			echo printTab($tab)."&lt;layout colspan=\"0\"/&gt;<br/>";
 			echo printTab($tab)."&lt;label&gt;"."Sicherheit"."&lt;/label&gt;<br/>";
@@ -151,7 +151,7 @@ function printFunctionsMobile($xmlDoc, $tab, $floor, $room, $name, $functions, $
 		}	
 		
 		if($functions["Wetter"][0]->GroupAddressRef["Id"] != null){
-			echo printTab($tab)."&lt;pagejump target=\"[Wetter][".$floor.".".$room.".5]".$name."\"&gt;"."<br/>";
+			echo printTab($tab)."&lt;pagejump target=\"[MobileWetter][".$floor.".".$room.".5]".$name."\"&gt;"."<br/>";
 			$tab++;
 			echo printTab($tab)."&lt;layout colspan=\"0\"/&gt;<br/>";
 			echo printTab($tab)."&lt;label&gt;"."Wetter"."&lt;/label&gt;<br/>";
@@ -170,7 +170,7 @@ function printFunctionsMobile($xmlDoc, $tab, $floor, $room, $name, $functions, $
 	foreach ($functions as $key => $functionType){
 		if($functionType[0]->GroupAddressRef["Id"] != null || $functionType->GroupAddressRef["Id"] != null){
 			if ($functioncount > 5 && ($functions["Fenster"][0]->GroupAddressRef["Id"] != null || $functions["Heizung"][0]->GroupAddressRef["Id"] != null)){
-				echo printTab($tab)."&lt;page name=\"[".$key."][".$floor.".".$room.".".$functionnr."]".$name."\" visible=\"false\"&gt;"."<br/>";
+				echo printTab($tab)."&lt;page name=\"[Mobile".$key."][".$floor.".".$room.".".$functionnr."]".$name."\" visible=\"false\"&gt;"."<br/>";
 				$tab++;
 			} else {
 				echo printTab($tab)."&lt;text flavour=\"headline\"&gt;<br/>";

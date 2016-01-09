@@ -178,7 +178,7 @@ define( ['structure_custom', 'css!plugins/menu/menu' ], function( VisuDesign_Cus
 							nav += '<div class="value">' + name + '</div>';
 							nav += '</div>';
 							nav += '</div>';
-						} else if ($('#id_' + i + '_ h1').text().indexOf('[Desktop') == -1){
+						} else if ($('#id_' + i + '_ h1').text().indexOf('[Desktop') == -1 && $('#id_' + i + '_ h1').text().indexOf('[Mobile') == -1){
 							nav += '<div class="menucontainer" id="menucontainerid_'+ i + '">';
 							nav += '<div class="menuitem level1" id="menuitemid_'+ i + '">';
 							nav += '<div class="actor switchUnpressed">';
@@ -213,6 +213,7 @@ define( ['structure_custom', 'css!plugins/menu/menu' ], function( VisuDesign_Cus
 									nav += '</div>';
 									nav += '</div>';
 								} else if ($('#id_' + i + '_' + j + '_ h1').text().indexOf('[Desktop') == -1){
+									//funktioniert nicht für Zentral!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 									nav += '<div class="menuitem level2" id="menuitemid_' + i + '_' + j + '">';
 									nav += '<div class="actor switchUnpressed">';
 									nav += '<div class="value">' + name + '</div>';

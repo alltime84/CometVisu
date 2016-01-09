@@ -823,24 +823,24 @@
     </page>
     <page name="[MobileTabs][0.0.0]Zentral" visible="false">
       <navbar position="top">
-        <pagejump target="[Licht][0.0.1]Zentral">
+        <pagejump target="[MobileLicht][0.0.1]Zentral">
           <layout colspan="0"/>
           <label>Licht</label>
         </pagejump>
-        <pagejump target="[Fenster][0.0.2]Zentral">
+        <pagejump target="[MobileFenster][0.0.2]Zentral">
           <layout colspan="0"/>
           <label>Fenster</label>
         </pagejump>
-        <pagejump target="[Sicherheit][0.0.4]Zentral">
+        <pagejump target="[MobileSicherheit][0.0.4]Zentral">
           <layout colspan="0"/>
           <label>Sicherheit</label>
         </pagejump>
-        <pagejump target="[Wetter][0.0.5]Zentral">
+        <pagejump target="[MobileWetter][0.0.5]Zentral">
           <layout colspan="0"/>
           <label>Wetter</label>
         </pagejump>
       </navbar>
-      <page name="[Licht][0.0.1]Zentral" visible="false">
+      <page name="[MobileLicht][0.0.1]Zentral" visible="false">
         <group>
           <layout colspan="3"/>
           <group nowidget="true">
@@ -865,7 +865,7 @@
         </group>
         <break/>
       </page>
-      <page name="[Fenster][0.0.2]Zentral" visible="false">
+      <page name="[MobileFenster][0.0.2]Zentral" visible="false">
         <group>
           <layout colspan="3"/>
           <group nowidget="true" >
@@ -907,7 +907,7 @@
         </group>
         <break/>
       </page>
-      <page name="[Sicherheit][0.0.4]Zentral" visible="false">
+      <page name="[MobileSicherheit][0.0.4]Zentral" visible="false">
         <group>
           <layout colspan="3"/>
           <text align="left">
@@ -947,7 +947,7 @@
         </group>
         <break/>
       </page>
-      <page name="[Wetter][0.0.5]Zentral" visible="false">
+      <page name="[MobileWetter][0.0.5]Zentral" visible="false">
         <group>
           <layout colspan="3"/>
           <text align="left">
@@ -2383,20 +2383,20 @@
       </page>
       <page name="[MobileTabs][2.2.0]Küche" visible="false">
         <navbar position="top">
-          <pagejump target="[Licht][2.2.1]Küche">
+          <pagejump target="[MobileLicht][2.2.1]Küche">
             <layout colspan="0"/>
             <label>Licht</label>
           </pagejump>
-          <pagejump target="[Fenster][2.2.2]Küche">
+          <pagejump target="[MobileFenster][2.2.2]Küche">
             <layout colspan="0"/>
             <label>Fenster</label>
           </pagejump>
-          <pagejump target="[Heizung][2.2.3]Küche">
+          <pagejump target="[MobileHeizung][2.2.3]Küche">
             <layout colspan="0"/>
             <label>Heizung</label>
           </pagejump>
         </navbar>
-        <page name="[Licht][2.2.1]Küche" visible="false">
+        <page name="[MobileLicht][2.2.1]Küche" visible="false">
           <group>
             <layout colspan="3"/>
             <group nowidget="true">
@@ -2464,7 +2464,7 @@
           </group>
           <break/>
         </page>
-        <page name="[Fenster][2.2.2]Küche" visible="false">
+        <page name="[MobileFenster][2.2.2]Küche" visible="false">
           <group>
             <layout colspan="3"/>
             <group nowidget="true" >
@@ -2550,7 +2550,7 @@
               </group>
           <break/>
         </page>
-        <page name="[Heizung][2.2.3]Küche" visible="false">
+        <page name="[MobileHeizung][2.2.3]Küche" visible="false">
           <group>
             <layout colspan="3"/>
             <group nowidget="true" >
@@ -2893,20 +2893,20 @@
       </page>
       <page name="[MobileTabs][2.3.0]Wohnen" visible="false">
         <navbar position="top">
-          <pagejump target="[Licht][2.3.1]Wohnen">
+          <pagejump target="[MobileLicht][2.3.1]Wohnen">
             <layout colspan="0"/>
             <label>Licht</label>
           </pagejump>
-          <pagejump target="[Fenster][2.3.2]Wohnen">
+          <pagejump target="[MobileFenster][2.3.2]Wohnen">
             <layout colspan="0"/>
             <label>Fenster</label>
           </pagejump>
-          <pagejump target="[Heizung][2.3.3]Wohnen">
+          <pagejump target="[MobileHeizung][2.3.3]Wohnen">
             <layout colspan="0"/>
             <label>Heizung</label>
           </pagejump>
         </navbar>
-        <page name="[Licht][2.3.1]Wohnen" visible="false">
+        <page name="[MobileLicht][2.3.1]Wohnen" visible="false">
           <group>
             <layout colspan="3"/>
             <group nowidget="true">
@@ -3032,7 +3032,7 @@
           </group>
           <break/>
         </page>
-        <page name="[Fenster][2.3.2]Wohnen" visible="false">
+        <page name="[MobileFenster][2.3.2]Wohnen" visible="false">
           <group>
             <layout colspan="3"/>
             <group nowidget="true" >
@@ -3174,7 +3174,7 @@
                 </group>
           <break/>
         </page>
-        <page name="[Heizung][2.3.3]Wohnen" visible="false">
+        <page name="[MobileHeizung][2.3.3]Wohnen" visible="false">
           <group>
             <layout colspan="3"/>
             <group nowidget="true" >
@@ -6152,20 +6152,20 @@
       </page>
       <page name="[MobileTabs][3.8.0]Masterbad" visible="false">
         <navbar position="top">
-          <pagejump target="[Licht][3.8.1]Masterbad">
+          <pagejump target="[MobileLicht][3.8.1]Masterbad">
             <layout colspan="0"/>
             <label>Licht</label>
           </pagejump>
-          <pagejump target="[Fenster][3.8.2]Masterbad">
+          <pagejump target="[MobileFenster][3.8.2]Masterbad">
             <layout colspan="0"/>
             <label>Fenster</label>
           </pagejump>
-          <pagejump target="[Heizung][3.8.3]Masterbad">
+          <pagejump target="[MobileHeizung][3.8.3]Masterbad">
             <layout colspan="0"/>
             <label>Heizung</label>
           </pagejump>
         </navbar>
-        <page name="[Licht][3.8.1]Masterbad" visible="false">
+        <page name="[MobileLicht][3.8.1]Masterbad" visible="false">
           <group>
             <layout colspan="3"/>
             <group nowidget="true">
@@ -6235,7 +6235,7 @@
           </group>
           <break/>
         </page>
-        <page name="[Fenster][3.8.2]Masterbad" visible="false">
+        <page name="[MobileFenster][3.8.2]Masterbad" visible="false">
           <group>
             <layout colspan="3"/>
             <group nowidget="true" >
@@ -6250,7 +6250,7 @@
             </group>
           <break/>
         </page>
-        <page name="[Heizung][3.8.3]Masterbad" visible="false">
+        <page name="[MobileHeizung][3.8.3]Masterbad" visible="false">
           <group>
             <layout colspan="3"/>
             <group nowidget="true" >
