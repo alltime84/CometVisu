@@ -50,14 +50,14 @@ define( ['structure_custom', 'css!plugins/menu/menu' ], function( VisuDesign_Cus
 			return ret_val;
     },
 		downaction: function( path, actor, isCanceled ) {
-			if (!$(actor).parent().hasClass("info")) {
-				templateEngine.design.basicdesign.defaultButtonDownAnimationInheritAction( path, actor );
-			}
+			// if (!$(actor).parent().hasClass("info")) {
+				// templateEngine.design.basicdesign.defaultButtonDownAnimationInheritAction( path, actor );
+			// }
 		},
 		action: function( path, actor, isCanceled ) {
-			if (!$(actor).parent().hasClass("info")) {
-				//templateEngine.design.basicdesign.defaultButtonUpAnimationInheritAction( path, actor );
-			}
+			// if (!$(actor).parent().hasClass("info")) {
+				// templateEngine.design.basicdesign.defaultButtonUpAnimationInheritAction( path, actor );
+			// }
 			if( isCanceled ) return;
 			
 			//click on menubutton
