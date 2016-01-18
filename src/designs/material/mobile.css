@@ -49,22 +49,18 @@ body
 }
 
 #menu .menu {
-	-webkit-box-shadow: 0px 0px 8px gray;
-  -moz-box-shadow: 0px 0px 8px gray;
-  box-shadow: 0px 0px 8px gray;
 	
 }
 
 #menu .logo {
-	height:96px;
-	line-height: 96px;
-	background-color: #3F51B5 !important;
-	color: #FFFFFF !important;
+	height:36px;
+	line-height: 36px;
+	background-color: #FFFFFF !important;
 }
 
 #menu .logo .actor .value{
-	height: 96px !important;
-	line-height: 96px !important;
+	height: 48px !important;
+	line-height: 48px !important;
 }
 
 #menu .logo img{
@@ -91,6 +87,13 @@ body
 #navbarLeft .navbar {
 	width: 250px !important;
 	background-color: rgba(255,255,255,1);
+	min-height: 100%; /* Mindesthöhe auf 100 % (bei modernen Browsern) */
+  height: auto !important; /* important Behel (bei modernen Browsern */
+  height: 100%; /* IE soll wie gewünscht interpretieren */
+	overflow: hidden !important; /* Firefox Scrollleiste */
+	-webkit-box-shadow: 1px 0px 16px gray;
+  -moz-box-shadow: 1px 0px 16px gray;
+  box-shadow: 1px 0px 16px gray;
 } 
 
 #bottom {

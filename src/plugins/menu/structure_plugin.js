@@ -35,14 +35,14 @@ define( ['structure_custom', 'css!plugins/menu/menu' ], function( VisuDesign_Cus
 			ret_val += '</div>'
 			
 			templateEngine.bindActionForLoadingFinished(function () {
-				buildMenu( page, path );
+				buildMenu( $p, path );
 			});
 			
-			$(window).bind('scrolltopage', function( page, path ){
-				//buildMenu( page, path );
+			$(window).bind('scrolltopage', function( $p, path ){
 				
 				//for mobile devices hide navbarLeft on scrolltopage
 				if (window.innerWidth <= templateEngine.maxMobileScreenWidth){
+					$('#id_left_navbar').hide();
 					$('#navbarLeft').hide();
 				}
 			});	
@@ -50,38 +50,40 @@ define( ['structure_custom', 'css!plugins/menu/menu' ], function( VisuDesign_Cus
 			return ret_val;
     },
 		downaction: function( path, actor, isCanceled ) {
-			// if (!$(actor).parent().hasClass("info")) {
-				// templateEngine.design.basicdesign.defaultButtonDownAnimationInheritAction( path, actor );
-			// }
+			if (!$(actor).parent().hasClass("info")) {
+				actor.classList.remove('switchUnpressed');
+				actor.classList.add('switchPressed');
+				//design.basicdesign.defaultButtonDownAnimationInheritAction( path, actor );
+			}
 		},
 		action: function( path, actor, isCanceled ) {
-			// if (!$(actor).parent().hasClass("info")) {
-				// templateEngine.design.basicdesign.defaultButtonUpAnimationInheritAction( path, actor );
-			// }
+			if (!$(actor).parent().hasClass("info")) {
+				actor.classList.remove('switchPressed');
+				actor.classList.add('switchUnpressed');
+				//templateEngine.design.basicdesign.defaultButtonUpAnimationInheritAction( path, actor );
+			}
 			if( isCanceled ) return;
 			
 			//click on menubutton
 			if($(actor).hasClass('logo')){
 				if (window.innerWidth <= templateEngine.maxMobileScreenWidth){
-					$('#navbarLeft').hide();
+					$('#id_left_navbar').hide("slide", { direction: "left" }, 200);
+					$('#navbarLeft').fadeOut(200);
 				}
 			} else {
-				$('.menuheader').each( function(){
-					var $menuheader = $(this);
-					$menuheader.removeClass('active');
-				});
+				// $('.menuheader').each( function(){
+					// var $menuheader = $(this);
+					// $menuheader.removeClass('selected');
+				// });
 				
-				$('.menuitem').each( function(){
-					var $menuitem = $(this);
-					$menuitem.removeClass('active');
-				});
+				$('.menuitem.selected').removeClass('selected');
 				
 				//click on menuitem level1
 				if($(actor).parent().hasClass('level1')){
 					var $menuitemlevel1 = $(actor).parent();
 					var $submenu = $(actor).parent().parent().children('.submenu');
 
-					$menuitemlevel1.addClass('active');
+					$menuitemlevel1.addClass('selected');
 					
 					if (!$submenu.children().length > 0) {
 						if($(actor).parent().hasClass('tabs')){
@@ -109,9 +111,8 @@ define( ['structure_custom', 'css!plugins/menu/menu' ], function( VisuDesign_Cus
 					var $menuitemlevel1 = $(actor).parent().parent().parent().children('.menuitem.level1');
 					var $page = $('#id_' + $menuitemlevel2.attr('id').substring($menuitemlevel2.attr('id').indexOf('_') + 1, $menuitemlevel2.attr('id').length) + '_');
 					
-					$menuitemlevel2.addClass('active');
+					$menuitemlevel2.addClass('selected');
 					$submenu.show();
-					//$menuitemlevel1.addClass('active');
 					
 					templateEngine.scrollToPage($page.attr('id'));
 				}
@@ -124,9 +125,8 @@ define( ['structure_custom', 'css!plugins/menu/menu' ], function( VisuDesign_Cus
 					var $page = $('#id_' + $menuitemlevel2.attr('id').substring($menuitemlevel2.attr('id').indexOf('_') + 1, $menuitemlevel2.attr('id').length) + '_');
 					var $page_tabs = $('#id_' + $menuitemlevel2.attr('id').substring($menuitemlevel2.attr('id').indexOf('_') + 1, $menuitemlevel2.attr('id').length) + '_1_');
 					
-					$menuitemlevel2.addClass('active');
+					$menuitemlevel2.addClass('selected');
 					$submenu.show();
-					//$menuitemlevel1.addClass('active');
 					
 					templateEngine.scrollToPage($page_tabs.attr('id'));
 				}
@@ -141,15 +141,16 @@ define( ['structure_custom', 'css!plugins/menu/menu' ], function( VisuDesign_Cus
 		var name = '';
 		
 		if (window.innerWidth <= templateEngine.maxMobileScreenWidth) {
-		nav = '<div class="logo">';
-		nav += '<div class="actor switchUnpressed logo">';
-		nav += '<div class="value" align="Left">';
-		nav += '<img src=\'icon/CometVisu-Icon_v4_white.png\' width=\'72px\' height=\'72px\'/>';
-		nav += '&nbsp; CometVisu &nbsp; ';
-		nav += '<img src=\'config/media/material/ic_arrow_back_white_24dp_2x.png\' width=\'24px\' height=\'24px\'/>';
-		nav += '</div>';
-		nav += '</div>';
-		nav += '</div>';
+			nav = '<div class="logo">';
+			nav += '<div class="actor switchUnpressed logo">';
+			nav += '<div class="value" align="Left">';
+			nav += '<img src=\'icon/CometVisu-Icon_v4_white.png\' width=\'36px\' height=\'36px\'/>';
+			nav += '&nbsp; CometVisu &nbsp; ';
+			nav += '<img src=\'config/media/material/ic_chevron_left_black_24dp_2x.png\' width=\'24px\' height=\'24px\' style=\'float:right; margin-top:12px\'/>';
+			nav += '</div>';
+			nav += '</div>';
+			nav += '</div>';
+			nav += '<hr/>';
 		}	else{
 			nav = '<div class="logo">';
 			nav += '<div class="actor switchUnpressed logo">';
@@ -173,14 +174,34 @@ define( ['structure_custom', 'css!plugins/menu/menu' ], function( VisuDesign_Cus
 					if (window.innerWidth <= templateEngine.maxMobileScreenWidth) {
 						if ($('#id_' + i + '_ h1').text().indexOf('[MobileTabs') >= 0){
 							nav += '<div class="menucontainer" id="menucontainerid_'+ i + '">';
-							nav += '<div class="menuitem level1 tabs" id="menuitemid_'+ i + '">';
+							
+							var parentPage = templateEngine.getParentPage($('.page.activePage'));
+							var parentId = null;
+							
+							if (parentPage != null){
+								parentId = parentPage.attr('id');
+							}
+							
+							if (parentId == 'id_' + i + '_'){
+								nav += '<div class="menuitem level1 tabs active" id="menuitemid_'+ i + '">';
+							} else {
+								nav += '<div class="menuitem level1 tabs" id="menuitemid_'+ i + '">';
+							}
 							nav += '<div class="actor switchUnpressed">';
 							nav += '<div class="value">' + name + '</div>';
 							nav += '</div>';
 							nav += '</div>';
+							
 						} else if ($('#id_' + i + '_ h1').text().indexOf('[Desktop') == -1 && $('#id_' + i + '_ h1').text().indexOf('[Mobile') == -1){
 							nav += '<div class="menucontainer" id="menucontainerid_'+ i + '">';
-							nav += '<div class="menuitem level1" id="menuitemid_'+ i + '">';
+							
+							var pageId = $('.page.activePage').attr('id');
+							
+							if (pageId == 'id_' + i + '_'){
+								nav += '<div class="menuitem level1 active" id="menuitemid_'+ i + '">';
+							} else {
+								nav += '<div class="menuitem level1" id="menuitemid_'+ i + '">';
+							}
 							nav += '<div class="actor switchUnpressed">';
 							nav += '<div class="value">' + name + '</div>';
 							nav += '</div>';
@@ -189,7 +210,15 @@ define( ['structure_custom', 'css!plugins/menu/menu' ], function( VisuDesign_Cus
 					} else {
 						if ($('#id_' + i + '_ h1').text().indexOf('[Mobile') == -1){
 							nav += '<div class="menucontainer" id="menucontainerid_'+ i + '">';
-							nav += '<div class="menuitem level1" id="menuitemid_'+ i + '">';
+							
+							var pageId = $('.page.activePage').attr('id');
+							
+							if (pageId == 'id_' + i + '_'){
+								nav += '<div class="menuitem level1 active" id="menuitemid_'+ i + '">';
+							} else {
+								nav += '<div class="menuitem level1" id="menuitemid_'+ i + '">';
+							}
+							
 							nav += '<div class="actor switchUnpressed">';
 							nav += '<div class="value">' + name + '</div>';
 							nav += '</div>';
@@ -197,8 +226,27 @@ define( ['structure_custom', 'css!plugins/menu/menu' ], function( VisuDesign_Cus
 						}
 					}
 					
-					nav += '<div class="submenu" id="submenuid_'+ i + '" style="display:none">';
+					var parentPage = templateEngine.getParentPage($('.page.activePage'));
+					var parentId = null;
+							
+					if (parentPage != null){
+						parentId = parentPage.attr('id');
+					}
+			
+					if ($('#' + parentId + ' h1').text().indexOf('[MobileTabs') > -1){
+						parentPage = templateEngine.getParentPage(parentPage);
+					}
 					
+					if (parentPage != null){
+						parentId = parentPage.attr('id');
+					}
+			
+					if (parentId == 'id_' + i + '_'){
+						nav += '<div class="submenu" id="submenuid_'+ i + '">';
+					} else {
+						nav += '<div class="submenu" id="submenuid_'+ i + '" style="display:none">';
+					}
+
 					for ( var j = 0; j < 20; j++) {
 						if ($('#id_' + i + '_' + j + '_').hasClass('page')) {
 							name = $('#id_' + i + '_' + j + '_ h1').text();
@@ -207,14 +255,31 @@ define( ['structure_custom', 'css!plugins/menu/menu' ], function( VisuDesign_Cus
 							}
 							if (window.innerWidth <= templateEngine.maxMobileScreenWidth){
 								if ($('#id_' + i + '_' + j + '_1_').hasClass('page')) {
-									nav += '<div class="menuitem level2 tabs" id="menuitemid_' + i + '_' + j + '">';
+									var parentPage = templateEngine.getParentPage($('.page.activePage'));
+									var parentId = null;
+							
+									if (parentPage != null){
+										parentId = parentPage.attr('id');
+									}
+							
+									if (parentId == 'id_' + i + '_' + j + '_'){
+										nav += '<div class="menuitem level2 tabs active" id="menuitemid_' + i + '_' + j + '">';
+									} else {
+										nav += '<div class="menuitem level2 tabs" id="menuitemid_' + i + '_' + j + '">';
+									}
+									
 									nav += '<div class="actor switchUnpressed">';
 									nav += '<div class="value">' + name + '</div>';
 									nav += '</div>';
 									nav += '</div>';
-								} else if ($('#id_' + i + '_' + j + '_ h1').text().indexOf('[Desktop') == -1){
-									//funktioniert nicht für Zentral!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-									nav += '<div class="menuitem level2" id="menuitemid_' + i + '_' + j + '">';
+								} else if ($('#id_' + i + '_' + j + '_ h1').text().indexOf('[Desktop') == -1 && $('#id_' + i + '_ h1').text().indexOf('[MobileTabs') == -1){
+									var pageId = $('.page.activePage').attr('id');
+							
+									if (pageId == 'id_' + i + '_' + j + '_'){
+										nav += '<div class="menuitem level2 active" id="menuitemid_' + i + '_' + j + '">';
+									} else {
+										nav += '<div class="menuitem level2" id="menuitemid_' + i + '_' + j + '">';
+									}
 									nav += '<div class="actor switchUnpressed">';
 									nav += '<div class="value">' + name + '</div>';
 									nav += '</div>';
@@ -222,7 +287,13 @@ define( ['structure_custom', 'css!plugins/menu/menu' ], function( VisuDesign_Cus
 								}
 							} else {
 								if ($('#id_' + i + '_' + j + '_ h1').text().indexOf('[Mobile') == -1){
-									nav += '<div class="menuitem level2" id="menuitemid_' + i + '_' + j + '">';
+									var pageId = $('.page.activePage').attr('id');
+							
+									if (pageId == 'id_' + i + '_' + j + '_'){
+										nav += '<div class="menuitem level2 active" id="menuitemid_' + i + '_' + j + '">';
+									} else {
+										nav += '<div class="menuitem level2" id="menuitemid_' + i + '_' + j + '">';
+									}
 									nav += '<div class="actor switchUnpressed">';
 									nav += '<div class="value">' + name + '</div>';
 									nav += '</div>';
@@ -258,5 +329,24 @@ define( ['structure_custom', 'css!plugins/menu/menu' ], function( VisuDesign_Cus
   }
 	
 })();
+
+$(window).bind('scrolltopage', function( event, page_id ){
+	var page = $('#' + page_id);
+	
+	$('.menuitem.active').removeClass('active');
+	
+	// and set the new active ones
+	$('.menuitem').each( function(){
+		var $menuitem = $(this);
+		var parentPage = templateEngine.getParentPage(page);
+		var parentId = parentPage.attr('id');
+		
+		if ($menuitem.hasClass('tabs') && 'menuitem' + parentId == $menuitem.attr('id') + '_'){
+			$menuitem.addClass('active');
+		} else if( 'menuitem' + page_id == $menuitem.attr('id') + '_' ){
+			$menuitem.addClass('active');
+		}
+	});
+});
 
 });

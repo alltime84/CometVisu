@@ -15,7 +15,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes" /> 
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
 		<meta name="theme-color" content="#3F51B5">
-    <script>
+    <script type="text/javascript">
       // instrumenting for profiling
       if( window && /profile/.test( window.location.href ) )
       {
@@ -69,31 +69,31 @@
           window.location.href.indexOf('forceReload=true') < 0 ? '' : '_=' + (+new Date)
       };
 			
-			function isTouchDevice(){
-				try{
-					document.createEvent("TouchEvent");
-					return true;
-				}catch(e){
-					return false;
-				}
-			}
+			//function isTouchDevice(){
+			//	try{
+			//		document.createEvent("TouchEvent");
+			//		return true;
+			//	}catch(e){
+			//		return false;
+			//	}
+			//}
 			
-			function touchScroll(id){
-				if(isTouchDevice()){ //if touch events exist...
-					var el=document.getElementById(id);
-					var scrollStartPos=0;
+			//function touchScroll(id){
+			//	if(isTouchDevice()){ //if touch events exist...
+			//		var el=document.getElementById(id);
+			//		var scrollStartPos=0;
 
-					document.getElementById(id).addEventListener("touchstart", function(event) {
-						scrollStartPos=this.scrollTop+event.touches[0].pageY;
-						event.preventDefault();
-					},false);
+			//		document.getElementById(id).addEventListener("touchstart", function(event) {
+			//			scrollStartPos=this.scrollTop+event.touches[0].pageY;
+			//			event.preventDefault();
+			//		},false);
 
-					document.getElementById(id).addEventListener("touchmove", function(event) {
-						this.scrollTop=scrollStartPos-event.touches[0].pageY;
-						event.preventDefault();
-					},false);
-				}
-			}
+			//		document.getElementById(id).addEventListener("touchmove", function(event) {
+			//			this.scrollTop=scrollStartPos-event.touches[0].pageY;
+			//			event.preventDefault();
+			//		},false);
+			//	}
+			//}
 
     </script>
     <script data-main="lib/templateengine" src="dependencies/require-2.1.15.min.js" type="text/javascript"></script>
@@ -127,7 +127,7 @@
     </div>
 		
 		<script>	
-			touchScroll("navbarLeft");
+			//touchScroll("navbarLeft");
 		</script>
   </body>
 </html>

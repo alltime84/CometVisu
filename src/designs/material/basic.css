@@ -287,7 +287,7 @@ div#loading
 	height: 48px;
 }
 
-#menu .menuitem.level1.active {
+#menu .menuitem.level1.selected {
 	background-color: #EBEBEB;
 }
 
@@ -304,8 +304,12 @@ div#loading
 	line-height: 48px;
 }
 
+#menu .menuitem.level1 .actor.switchPressed {
+	background-color: #C0C0C0;
+}
+
 #menu .menuitem.level1 .actor .value{
-	margin: 0px 0px 0px 20px;
+	padding: 0px 0px 0px 20px;
 	height: 48px;
 	font-size: 14px;
 	font-weight: bold;
@@ -322,7 +326,7 @@ div#loading
 	width: auto;
 }
 
-#menu .submenu .menuitem.active {
+#menu .submenu .menuitem.selected {
 	font-weight: bold;
 	background-color: #EBEBEB;
 }
@@ -337,8 +341,12 @@ div#loading
 	white-space: nowrap;
 }
 
+#menu .submenu .menuitem .actor.switchPressed {
+	background-color: #C0C0C0;
+}
+
 #menu .submenu .menuitem .actor .value{
-	margin: 0px 0px 0px 60px;
+	padding: 0px 0px 0px 60px;
 	line-height: 40px;
 	font-size: 14px;
 }
@@ -1427,7 +1435,7 @@ div#loading
 .multitrigger {
 	margin: 0px;
 	padding: 0px;
-	height: 118px !important;
+
 	float: left;
 }
 
@@ -1441,17 +1449,18 @@ div#loading
 .multitrigger .actor_container {
 	padding: 0px;
 	margin: 20px 0px 0px 0px;
-	-webkit-box-shadow: 0px 1px 4px gray;
-	-moz-box-shadow: 0px 1px 4px gray;
-	box-shadow: 0px 1px 4px gray;
+	-webkit-box-shadow: 0px 1px 2px gray;
+	-moz-box-shadow: 0px 1px 2px gray;
+	box-shadow: 0px 1px 2px gray;
 	-moz-border-radius: 2px;
 	-webkit-border-radius: 2px;
 	border-radius: 2px;
 	float: left;
-
+	width: 100%;
 }
 
 .multitrigger .actor {
+	width: 25% !important;
 	min-width: 60px;
 	height: 36px;
 	float: left;

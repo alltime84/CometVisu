@@ -51,7 +51,8 @@ define( ['structure_custom', 'css!plugins/header/header' ], function( VisuDesign
 		
 		action: function( path, actor, isCanceled ) {
 			if( isCanceled ) return;
-			$('#navbarLeft').show("slide", { direction: "left" }, 200);
+			$('#navbarLeft').show();
+			$('#id_left_navbar').show("slide", { direction: "left" }, 200);
 		}
 
   });

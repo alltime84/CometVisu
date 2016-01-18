@@ -5,8 +5,8 @@
       <icon-definition name="menu" uri="config/media/material/ic_menu_white_24dp_1x.png"/>
       <icon-definition name="switch_on" uri="config/media/material/switch_on_indigo.png"/>
       <icon-definition name="switch_off" uri="config/media/material/switch_off_2.png"/>
-			<icon-definition name="check_box_outline" uri="config/media/material/ic_check_box_outline_blank_white_24dp_1x.png"/>
-      <icon-definition name="check_box" uri="config/media/material/ic_check_box_white_24dp_1x.png"/>
+			<icon-definition name="check_box_outline" uri="config/media/material/ic_check_box_outline_blank_black_24dp_2x.png"/>
+      <icon-definition name="check_box" uri="config/media/material/ic_check_box_black_24dp_2x.png"/>
 			<icon-definition name="lamp" uri="config/media/material/ic_wb_incandescent_white_24dp_1x.png"/>
 			<icon-definition name="blades0" uri="config/media/material/gray/ic_blades_0_gray_24dp_2x.png"/>
 			<icon-definition name="blades100" uri="config/media/material/gray/ic_blades_100_gray_24dp_2x.png"/>
@@ -26,6 +26,14 @@
         </entry>
         <entry value="1">
           <icon name="switch_on"/>
+        </entry>
+      </mapping>
+			<mapping name="CheckBox">
+        <entry value="0">
+          <icon name="check_box_outline"/>
+        </entry>
+        <entry value="1">
+          <icon name="check_box"/>
         </entry>
       </mapping>
 			<mapping name="Jalousien">
@@ -2073,8 +2081,12 @@
               <address transform="DPT:1.011" mode="read">11/2/21</address>
             </switch>
             <switch mapping="OnOffStatus" flavour="description" align="left" bind_click_to_widget="false">
-              <layout colspan="4"/>
+              <layout colspan="2"/>
               <address transform="DPT:1.011" mode="read">11/2/21</address>
+            </switch>
+						<switch mapping="CheckBox" bind_click_to_widget="false">
+              <layout colspan="2"/>
+              <address transform="DPT:1.003" mode="read">11/2/29</address>
             </switch>
           </group>
         </group>
@@ -2148,8 +2160,12 @@
               <address transform="DPT:1.011" mode="read">11/2/21</address>
             </switch>
             <switch mapping="OnOffStatus" flavour="description" align="left" bind_click_to_widget="false">
-              <layout colspan="3"/>
+              <layout colspan="1"/>
               <address transform="DPT:1.011" mode="read">11/2/21</address>
+            </switch>
+						<switch mapping="CheckBox" bind_click_to_widget="false">
+              <layout colspan="2"/>
+              <address transform="DPT:1.003" mode="read">11/2/29</address>
             </switch>
           </group>
         </group>
@@ -4508,8 +4524,12 @@
               <address transform="DPT:1.011" mode="read">11/3/21</address>
             </switch>
             <switch mapping="OnOffStatus" flavour="description" align="left" bind_click_to_widget="false">
-              <layout colspan="4"/>
+              <layout colspan="2"/>
               <address transform="DPT:1.011" mode="read">11/3/21</address>
+            </switch>
+						<switch mapping="CheckBox" bind_click_to_widget="false">
+              <layout colspan="2"/>
+              <address transform="DPT:1.003" mode="read">11/3/29</address>
             </switch>
           </group>
         </group>
@@ -4567,8 +4587,12 @@
               <address transform="DPT:1.011" mode="read">11/3/21</address>
             </switch>
             <switch mapping="OnOffStatus" flavour="description" align="left" bind_click_to_widget="false">
-              <layout colspan="3"/>
+              <layout colspan="1"/>
               <address transform="DPT:1.011" mode="read">11/3/21</address>
+            </switch>
+						<switch mapping="CheckBox" bind_click_to_widget="false">
+              <layout colspan="2"/>
+              <address transform="DPT:1.003" mode="read">11/3/29</address>
             </switch>
           </group>
         </group>

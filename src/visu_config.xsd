@@ -415,9 +415,11 @@
       <xsd:element name="svg" type="svg" />
       <xsd:element name="upnpcontroller" type="upnpcontroller" />
       <xsd:element name="timeout" type="timeout" />
-	  <xsd:element name="gauge" type="gauge" />
-	  <xsd:element name="calendarlist" type="calendarlist" />
-	  <xsd:element name="infoaction" type="infoaction" />
+	    <xsd:element name="gauge" type="gauge" />
+	    <xsd:element name="calendarlist" type="calendarlist" />
+	    <xsd:element name="infoaction" type="infoaction" />
+			<xsd:element name="menu" type="menu" />
+			<xsd:element name="header" type="header" />
     </xsd:choice>
   </xsd:group>
 
@@ -931,6 +933,7 @@
     <xsd:attribute name="button4label" type="xsd:string" use="optional" />
     <xsd:attribute name="button4value" type="xsd:string" use="optional" />
     <xsd:attribute ref="flavour" use="optional" />
+		<xsd:attribute ref="mapping" use="optional" />
   </xsd:complexType>
 
   <xsd:complexType name="slide">
@@ -1380,4 +1383,11 @@
       <xsd:element name="info" type="info" />
     </xsd:choice>
   </xsd:group>
+	
+	<xsd:complexType name="menu">
+  </xsd:complexType>
+	
+	<xsd:complexType name="header">
+  </xsd:complexType>
+	
 </xsd:schema>
