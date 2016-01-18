@@ -32,20 +32,35 @@ define( ['structure_custom', 'css!plugins/menu/menu' ], function( VisuDesign_Cus
 			
       var ret_val = '<div id="menu">';
 			ret_val += '<div class="'+ classes + '"></div>';
-			ret_val += '</div>'
+			ret_val += '</div>';
 			
 			templateEngine.bindActionForLoadingFinished(function () {
 				buildMenu( $p, path );
 			});
 			
-			$(window).bind('scrolltopage', function( $p, path ){
-				
-				//for mobile devices hide navbarLeft on scrolltopage
-				if (window.innerWidth <= templateEngine.maxMobileScreenWidth){
+			//for mobile devices hide navbarLeft on scrolltopage
+			if (window.innerWidth <= templateEngine.maxMobileScreenWidth){
+				$(window).bind('scrolltopage', function( $p, path ){
 					$('#id_left_navbar').hide();
 					$('#navbarLeft').hide();
-				}
-			});	
+				});
+				
+				var navbarLeft = document.getElementById('navbarLeft')
+				swipedetect(navbarLeft, function(swipedir){
+					if (swipedir =='left'){
+						$('#id_left_navbar').hide("slide", { direction: "left" }, 200);
+						$('#navbarLeft').fadeOut(400);
+					}
+				})
+				
+				// var pages = document.getElementById('pages')
+				// swipedetect(pages, function(swipedir){
+					// if (swipedir =='right'){
+						// $('#navbarLeft').show();
+						// $('#id_left_navbar').show("slide", { direction: "left" }, 200);
+					// }
+				// })
+			}
       
 			return ret_val;
     },
@@ -327,6 +342,54 @@ define( ['structure_custom', 'css!plugins/menu/menu' ], function( VisuDesign_Cus
   function uniqid() {
     return internalCounter++;
   }
+	
+	function swipedetect(el, callback){
+  
+    var touchsurface = el,
+    swipedir,
+    startX,
+    startY,
+    distX,
+    distY,
+    threshold = 150, //required min distance traveled to be considered swipe
+    restraint = 100, // maximum distance allowed at the same time in perpendicular direction
+    allowedTime = 1000, // maximum time allowed to travel that distance
+    elapsedTime,
+    startTime,
+    handleswipe = callback || function(swipedir){}
+  
+    touchsurface.addEventListener('touchstart', function(e){
+        var touchobj = e.changedTouches[0]
+        swipedir = 'none'
+        distX = 0
+				distY = 0
+        startX = touchobj.pageX
+        startY = touchobj.pageY
+        startTime = new Date().getTime() // record time when finger first makes contact with surface
+        e.preventDefault()
+    }, false)
+  
+    touchsurface.addEventListener('touchmove', function(e){
+        e.preventDefault() // prevent scrolling when inside DIV
+    }, false)
+  
+    touchsurface.addEventListener('touchend', function(e){
+        var touchobj = e.changedTouches[0]
+        distX = touchobj.pageX - startX // get horizontal dist traveled by finger while in contact with surface
+        distY = touchobj.pageY - startY // get vertical dist traveled by finger while in contact with surface
+        elapsedTime = new Date().getTime() - startTime // get time elapsed
+        if (elapsedTime <= allowedTime){ // first condition for awipe met
+            if (Math.abs(distX) >= threshold && Math.abs(distY) <= restraint){ // 2nd condition for horizontal swipe met
+                swipedir = (distX < 0)? 'left' : 'right' // if dist traveled is negative, it indicates left swipe
+            }
+            else if (Math.abs(distY) >= threshold && Math.abs(distX) <= restraint){ // 2nd condition for vertical swipe met
+                swipedir = (distY < 0)? 'up' : 'down' // if dist traveled is negative, it indicates up swipe
+            }
+        }
+        handleswipe(swipedir)
+        e.preventDefault()
+    }, false)
+	}
 	
 })();
 
