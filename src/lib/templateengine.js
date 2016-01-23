@@ -508,11 +508,16 @@ function TemplateEngine( undefined ) {
         element = event.target,
         // search if a widget was hit
         widgetActor = getWidgetActor( event.target ),
-        bindWidget  = widgetActor.widget ? thisTemplateEngine.widgetDataGet( widgetActor.widget.id ).bind_click_to_widget : false,
+        bindWidget  = widgetActor.widget ? thisTemplateEngine.widgetDataGet( widgetActor.widget.id ).bind_click_to_widget : false;
+				
+			var touchobj;
+			
+			if (isTouchDevice){
 				touchobj = event.changedTouches[0];
 				
-			touchStartX = parseInt(touchobj.clientX);
-			touchStartY = parseInt(touchobj.clientY);
+				touchStartX = parseInt(touchobj.clientX);
+				touchStartY = parseInt(touchobj.clientY);
+			}
 			
       isWidget = widgetActor.widget !== undefined && (bindWidget || widgetActor.actor !== undefined);
       if( isWidget )
