@@ -4,44 +4,44 @@
 
 .page {
   overflow-y: auto;
-	overflow-x: auto;
+  overflow-x: auto;
 }
 
 body
 {
-	overflow-y: auto;
-	overflow-x: auto;
+  overflow-y: auto;
+  overflow-x: auto;
 }
 
 .group { 
-	margin: 0.2em 0.1em;
+  margin: 0.2em 0.1em;
 }
 
 #header .header .actor.switchUnpressed,
 #header .header .actor.switchPressed {
-	width: 72px !important;
-	float: left;
+  width: 72px !important;
+  float: left;
 }
 
 #header .header .actor .value {
-	width: 72px;
-	float: left;
+  width: 72px;
+  float: left;
 }
 
 #header .header img {
-	padding-left: 24px;
-	padding-right: 24px;
-	vertical-align: abs-middle;
-	display: inline;
-	width: 24px;
+  padding-left: 24px;
+  padding-right: 24px;
+  vertical-align: abs-middle;
+  display: inline;
+  width: 24px;
 }
 
 #main {
-	margin-left: 0px !important;
+  margin-left: 0px !important;
 }
 
 #header .header.title{
-	margin-left: 0px;
+  margin-left: 0px;
 }
 
 #menu {
@@ -49,23 +49,23 @@ body
 }
 
 #menu .menu {
-	
+  
 }
 
 #menu .logo {
-	height:36px;
-	line-height: 36px;
-	background-color: #FFFFFF !important;
+  height:36px;
+  line-height: 36px;
+  background-color: #FFFFFF !important;
 }
 
 #menu .logo .actor .value{
-	height: 48px !important;
-	line-height: 48px !important;
+  height: 48px !important;
+  line-height: 48px !important;
 }
 
 #menu .logo img{
-/* 	height: 72px !important;
-	width: 72px !important; */
+/*   height: 72px !important;
+  width: 72px !important; */
 }
 
 /* #navbarLeft,
@@ -73,25 +73,25 @@ body
 #navbarRight,
 #navbarRight > .navbar
 {
-	display: none !important;
-	width: 0 !important;
+  display: none !important;
+  width: 0 !important;
 }
 
 #navbarLeft
 {
-	width: 100% !important;
-	overflow-y: scroll !important;
-	background-color: rgba(0,0,0,0.3);
+  width: 100% !important;
+  overflow-y: scroll !important;
+  background-color: rgba(0,0,0,0.3);
 }
 
 #navbarLeft .navbar {
-	width: 250px !important;
-	background-color: rgba(255,255,255,1);
-	min-height: 100%; /* Mindesthöhe auf 100 % (bei modernen Browsern) */
+  width: 250px !important;
+  background-color: rgba(255,255,255,1);
+  min-height: 100%; /* Mindesthöhe auf 100 % (bei modernen Browsern) */
   height: auto !important; /* important Behel (bei modernen Browsern */
   height: 100%; /* IE soll wie gewünscht interpretieren */
-	overflow: hidden !important; /* Firefox Scrollleiste */
-	-webkit-box-shadow: 1px 0px 16px gray;
+  overflow: hidden !important; /* Firefox Scrollleiste */
+  -webkit-box-shadow: 1px 0px 16px gray;
   -moz-box-shadow: 1px 0px 16px gray;
   box-shadow: 1px 0px 16px gray;
 } 
@@ -106,40 +106,40 @@ body
 }
 
 /* #navbarLeft {
-	width: 100% !important;
-	position: relative !important;
-	margin-top: -66px !important;
-	left: 0px !important;
-	z-index: 10 !important;
-	height: 100% !important;
-	background-color: rgba(0,0,0,0.3);
-	overflow-y: hidden !important;
+  width: 100% !important;
+  position: relative !important;
+  margin-top: -66px !important;
+  left: 0px !important;
+  z-index: 10 !important;
+  height: 100% !important;
+  background-color: rgba(0,0,0,0.3);
+  overflow-y: hidden !important;
 } */
 
 /* #navbarLeft .navbar {
-	width: 300px !important;
-	position: relative !important;
-	top: 0px !important;
-	left: 0px !important;
-	z-index: 0 !important;
-	height: 100% !important;
-	background-color: rgba(255,255,255,1);
-	overflow-y: hidden !important;
+  width: 300px !important;
+  position: relative !important;
+  top: 0px !important;
+  left: 0px !important;
+  z-index: 0 !important;
+  height: 100% !important;
+  background-color: rgba(255,255,255,1);
+  overflow-y: hidden !important;
 } */
 
 /* #navbarTop > .navbar > div, #navbarTop > .navbar > hr {
- 	display: inline-block;
-	float: none;
+   display: inline-block;
+  float: none;
 }
 
 #navbarTop > .navbar , #navbarBottom > .navbar {
- 	overflow-y: hidden;
-	overflow-x: auto;
-	white-space: nowrap;
+   overflow-y: hidden;
+  overflow-x: auto;
+  white-space: nowrap;
 } */
 
 #navbarTop {
-	margin-left: 0px;
+  margin-left: 0px;
 }
 
 #navbarTop .navbar .pagejump:hover {

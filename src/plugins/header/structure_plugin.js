@@ -22,84 +22,84 @@ define( ['structure_custom', 'css!plugins/header/header' ], function( VisuDesign
   VisuDesign_Custom.prototype.addCreator("header", {
     create : function(element, path, flavour, type) {
       var $e = $(element);
-			var $showtitle = true;
-			
+      var $showtitle = true;
+      
       var header_id = "header" + uniqid();
 
       var classes = 'header';
       if ($e.attr('class')) {
         classes += ' custom_'+$e.attr('class');
       }
-			
-			if ($e.attr('showtitle') == 'false'){
-				$showtitle = false;
-			}
-			
+      
+      if ($e.attr('showtitle') == 'false'){
+        $showtitle = false;
+      }
+      
       //classes += templateEngine.design.setWidgetLayout( $p, path );
       var ret_val = '<div id="header">';
-			ret_val += '<div class="'+ classes + '"></div>';
-			ret_val += '</div>'
-			
-			createHeader( $e, path, $showtitle );
-			
-			$(window).bind('scrolltopage', function( $e, path, $showtitle ){
-				createHeader( $e, path, $showtitle );
-			});
+      ret_val += '<div class="'+ classes + '"></div>';
+      ret_val += '</div>'
+      
+      createHeader( $e, path, $showtitle );
+      
+      $(window).bind('scrolltopage', function( $e, path, $showtitle ){
+        createHeader( $e, path, $showtitle );
+      });
 
       return ret_val;
     },
-		
-		action: function( path, actor, isCanceled ) {
-			if( isCanceled ) return;
-			$('#navbarLeft').show();
-			$('#id_left_navbar').show("slide", { direction: "left" }, 200);
-		}
+    
+    action: function( path, actor, isCanceled ) {
+      if( isCanceled ) return;
+      $('#navbarLeft').show();
+      $('#id_left_navbar').show("slide", { direction: "left" }, 200);
+    }
 
   });
-	
-	function createHeader( element, path, showtitle ) {
-		var $e = $(element);
-		var path_array = path.split('_');
-		var id = 'id_'; // path_array[0];
-								
-		var active_page = '';
-		var header = '';
-		
-		for ( var i = 1; i < path_array.length; i++) { // element 0 is id_ (JNK)
-			id += path_array[i] + '_';
-			if ($('#' + id ).hasClass("page")) { // FIXME is this still needed?!?
-				if ($('#' + id + ' h1').text().indexOf('Header]') > -1 || $('#' + id + ' h1').text().indexOf('Tabs]') > -1){
-					active_page = $('#' + id + ' h1').text();
-				}
-			}
-		}
+  
+  function createHeader( element, path, showtitle ) {
+    var $e = $(element);
+    var path_array = path.split('_');
+    var id = 'id_'; // path_array[0];
+                
+    var active_page = '';
+    var header = '';
+    
+    for ( var i = 1; i < path_array.length; i++) { // element 0 is id_ (JNK)
+      id += path_array[i] + '_';
+      if ($('#' + id ).hasClass("page")) { // FIXME is this still needed?!?
+        if ($('#' + id + ' h1').text().indexOf('Header]') > -1 || $('#' + id + ' h1').text().indexOf('Tabs]') > -1){
+          active_page = $('#' + id + ' h1').text();
+        }
+      }
+    }
 
-		if (active_page.indexOf(']') > -1){
-			active_page = active_page.substring(active_page.lastIndexOf(']') + 1, active_page.length);
-		}
-		
-		//link = '<a href="javascript:templateEngine.scrollToPage(\'id_2_\')"><img src=\'icon/ic_menu_white_24dp_1x.png\'/></a>';
-		//for mobile devices hide navbarLeft on scrolltopage
-		if (window.innerWidth <= templateEngine.maxMobileScreenWidth){
-			header += '<div class="actor switchUnpressed">';
-			header += '<div class="value"><img src=\'icon/ic_menu_white_24dp_1x.png\'/></div>';
-			header += '</div>';
-		}
-		
-		//todo: hide if showheader=false
-		header += '<div class="header title">';
-		header += active_page;
-		header += '</div>';
-		
-		$('#header .header').html(header);
-		return false;
-	};
+    if (active_page.indexOf(']') > -1){
+      active_page = active_page.substring(active_page.lastIndexOf(']') + 1, active_page.length);
+    }
+    
+    //link = '<a href="javascript:templateEngine.scrollToPage(\'id_2_\')"><img src=\'icon/ic_menu_white_24dp_1x.png\'/></a>';
+    //for mobile devices hide navbarLeft on scrolltopage
+    if (window.innerWidth <= templateEngine.maxMobileScreenWidth){
+      header += '<div class="actor switchUnpressed">';
+      header += '<div class="value"><img src=\'designs/material/images/ic_menu_white_24dp_2x.png\'/></div>';
+      header += '</div>';
+    }
+    
+    //todo: hide if showheader=false
+    header += '<div class="header title">';
+    header += active_page;
+    header += '</div>';
+    
+    $('#header .header').html(header);
+    return false;
+  };
 
   var internalCounter = 0;
   function uniqid() {
     return internalCounter++;
   }
-	
+  
 })();
 
 });

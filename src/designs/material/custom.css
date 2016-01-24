@@ -1,13 +1,13 @@
 /************************************************************/
-/* 													general													*/
+/*                           general                          */
 /************************************************************/
-/* 	primary color: 	#33 99 00																*/
-/* 	Accent color:		#c8 e7 ad																*/
+/*   primary color:   #33 99 00                                */
+/*   Accent color:    #c8 e7 ad                                */
 /************************************************************/
 
 body{
-	color: #555555;
-	background:	#F2F2F2;
+  color: #555555;
+  background:  #F2F2F2;
 }
 
 #top {
@@ -20,70 +20,70 @@ body{
 
 /*show navpath?*/
 .nav_path {
-	display: none;
+  display: none;
 }
 
 .link a
 {
-	color: #3F51B5;
+  color: #3F51B5;
 }
 
 
 /************************************************************/
-/* 													widgets													*/
+/*                           widgets                          */
 /************************************************************/
 
 .group > div > h2 {
-	color: #3F51B5;
+  color: #3F51B5;
 }
 
 .widget
 {
-	background-color: #FFFFFF;
-	border-top-color: #e5e5e5;
-	border-bottom-color: #e5e5e5;
+  background-color: #FFFFFF;
+  border-top-color: #e5e5e5;
+  border-bottom-color: #e5e5e5;
 }
 
 .group
 {
-	background-color: #FFFFFF;
-	border-top-color: #e5e5e5;
-	border-bottom-color: #e5e5e5;
+  background-color: #FFFFFF;
+  border-top-color: #e5e5e5;
+  border-bottom-color: #e5e5e5;
 }
 
 .trigger .actor .value{
-	color: #3F51B5;
+  color: #3F51B5;
 }
 
 .infotrigger .switchUnpressed .label,
 .infotrigger .switchPressed .label {
-	color: #3F51B5;
-	background-color: #FAFAFA;
+  color: #3F51B5;
+  background-color: #FAFAFA;
 }
 
 .multitrigger .switchUnpressed  .value,
 .multitrigger .switchPressed  .value {
-	color: #3F51B5;
-	background-color: #FAFAFA;
+  color: #3F51B5;
+  background-color: #FAFAFA;
 }
 
 .ui-widget-content {
-	background-color: #3F51B5;
+  background-color: #3F51B5;
 }
 
 .ui-slider .ui-slider-range {
-	background-color: #9FA8DA !important;
+  background-color: #9FA8DA !important;
 }
 
 .ui-state-default,
 .ui-widget-content .ui-state-default,
 .ui-widget-header .ui-state-default {
-	background: #3F51B5;
+  background: #3F51B5;
 }
 
 .widget .ui-slider-handle {
-	color: #FFFFFF;
-	background-color: #3F51B5;
+  color: #FFFFFF;
+  background-color: #3F51B5;
 }
 
 .widget .ui-slider
@@ -92,162 +92,162 @@ body{
 }
 
 .multitrigger .switchUnpressed {
-	color: #b8b8b8 !important;
-	background-color: #fafafa !important;
+  color: #b8b8b8 !important;
+  background-color: #fafafa !important;
 }
 
 .multitrigger .switchUnpressed .value{
-	color: #b8b8b8 !important;
-	background-color: #fafafa !important;
+  color: #b8b8b8 !important;
+  background-color: #fafafa !important;
 }
 
 .multitrigger .switchUnpressed .value:hover{
-	color: #5b5b5b !important;
-	background-color: #c8c8c8 !important;
+  color: #5b5b5b !important;
+  background-color: #c8c8c8 !important;
 }
 
 .multitrigger .switchPressed {
-	color: #5b5b5b !important;
-	background-color: #c8c8c8 !important;
+  color: #5b5b5b !important;
+  background-color: #c8c8c8 !important;
 }
 
 .multitrigger .switchPressed .value{
-	color: #5b5b5b !important;
-	background-color: #c8c8c8 !important;
+  color: #5b5b5b !important;
+  background-color: #c8c8c8 !important;
 }
 
 /************************************************************/
-/* 												Top bar												*/
+/*                         Top bar                        */
 /************************************************************/
 
 #top  {
-	color: #FFFFFF;
-	background: #388E3C;
+  color: #FFFFFF;
+  background: #388E3C;
 }
 
 #top  .navpath {
-	color: #FFFFFF;
+  color: #FFFFFF;
 }
 
 #top  .navpath a{
-	color: #FFFFFF;
+  color: #FFFFFF;
 }
 
 #top  .navpath div{
-	color: #FFFFFF;
+  color: #FFFFFF;
 }
 
 /************************************************************/
-/* 												status bar												*/
+/*                         status bar                        */
 /************************************************************/
 
 #bottom  {
-	color: #FFFFFF;
-	background: #388E3C;
+  color: #FFFFFF;
+  background: #388E3C;
 }
 
 #bottom  .footer {
-	color: #FFFFFF;
+  color: #FFFFFF;
 }
 
 #bottom  .footer a{
-	color: #FFFFFF;
+  color: #FFFFFF;
 }
 
 #bottom  .footer div{
-	color: #FFFFFF;
+  color: #FFFFFF;
 }
 
 /************************************************************/
-/* 													header													*/
+/*                           header                          */
 /************************************************************/
 
 #header {
-	background-color: transparent;
-	color: #FFFFFF;
+  background-color: transparent;
+  color: #FFFFFF;
 }
 
 #header .header {
-	background-color: transparent;
-	color: #FFFFFF;
+  background-color: transparent;
+  color: #FFFFFF;
 }
 
 /************************************************************/
-/* 													menu														*/
+/*                           menu                            */
 /************************************************************/
 
 #menu .logo {
-	color: #3F51B5;
+  color: #3F51B5;
 }
 
 #menu .menuitem.active {
-	color: #3F51B5;
+  color: #3F51B5;
 }
 
 /************************************************************/
-/* 											navbar top 1												*/
+/*                       navbar top 1                        */
 /************************************************************/
 
 #navbarTop .navbar  {
-	background-color: #3F51B5;
+  background-color: #3F51B5;
 }
 
 #navbarTop .navbar .switch  {
-	background-color: transparent;
+  background-color: transparent;
 }
 
 #navbarTop .text  {
-	color: #FFFFFF;
+  color: #FFFFFF;
 }
 
 #navbarTop .navbar .pagejump {
-	color: #f1f1f1;
-	background-color: transparent;
+  color: #f1f1f1;
+  background-color: transparent;
 }
 
 #navbarTop .navbar .pagejump.active,
 #navbarTop .navbar .pagejump.active_ancestor,
 #navbarTop .navbar .pagejump:hover  {
-	color: #FFFFFF;
-	background-color: transparent;
-	border-bottom-color: #FF8000;
+  color: #FFFFFF;
+  background-color: transparent;
+  border-bottom-color: #FF8000;
 }
 
 /************************************************************/
-/* 											navbar top 2												*/
+/*                       navbar top 2                        */
 /************************************************************/
 /* 
 #navbarTop .navbar {
-	background: #F5F5F5;
+  background: #F5F5F5;
 }
 
 #navbarTop .navbar .pagejump {
-	border-bottom-color: #F5F5F5; 
+  border-bottom-color: #F5F5F5; 
 }
 
 #navbarTop .navbar .pagejump:hover {
-	color: #737373;
-	background-color: #E0E0E0;
-	border-bottom-color: #3F51B5; 
+  color: #737373;
+  background-color: #E0E0E0;
+  border-bottom-color: #3F51B5; 
 }
 
 #navbarTop .navbar .pagejump.active,
 #navbarTop .navbar .pagejump.active_ancestor {
-	color: #3F51B5;
-	background-color: #F5F5F5;
-	border-bottom-color: #3F51B5;
+  color: #3F51B5;
+  background-color: #F5F5F5;
+  border-bottom-color: #3F51B5;
 }
  */
 /************************************************************/
-/* 											navbar left													*/
+/*                       navbar left                          */
 /************************************************************/
 
 #navbarLeft .navbar {
-	background: #FFFFFF;
+  background: #FFFFFF;
 }
 
 #navbarLeft .navbar .text  {
-	color: #3F51B5;
+  color: #3F51B5;
 }
 
 #navbarLeft .navbar .pagejump:hover {
@@ -256,25 +256,25 @@ body{
 
 #navbarLeft .navbar .pagejump.active,
 #navbarLeft .navbar .pagejump.active_ancestor  {
-	color: #3F51B5;
-	background-color: #f1f1f1;
+  color: #3F51B5;
+  background-color: #f1f1f1;
 }
 
 #navbarLeft .group > div > h2 {
-	color: #FFFFFF;
-	background-color: #f1f1f1;
+  color: #FFFFFF;
+  background-color: #f1f1f1;
 }
 
 /************************************************************/
-/* 											navbar bottom 											*/
+/*                       navbar bottom                       */
 /************************************************************/
 
 #navbarBottom  .navbar {
-	background: #FFFFFF;
+  background: #FFFFFF;
 }
 
 #navbarBottom .navbar .pagejump:hover,
 #navbarBottom .navbar .pagejump.active,
 #navbarBottom .navbar .pagejump.active_ancestor {
-	color: #737373;
+  color: #737373;
 }

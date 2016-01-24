@@ -1,36 +1,36 @@
 /************************************************************/
-/* 													general													*/
+/*                           general                        */
 /************************************************************/
 
 @font-face
 {
-	font-family: "Roboto";
-	font-style: normal;
-	font-weight: 400;
-	src: url("fonts/Roboto-Medium.ttf");
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  src: url("fonts/Roboto-Medium.ttf");
 }
 
 body
 {
-	font-family: Roboto, Helvetica, Arial, sans-serif;
-	font-size: 14px;
-	overflow-x: hidden;
-	overflow-y: hidden;
-	margin:0;
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  margin:0;
 }
 
 h1
 {
-	font-size: 18px;
-	padding-left: 15px;
+  font-size: 18px;
+  padding-left: 15px;
 }
 
 h2
 {
-	font-size: 16px;
-	margin-left: 15px;
-	margin-top: 5px;
-	margin-bottom: 5px;
+  font-size: 16px;
+  margin-left: 15px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 body hr
@@ -45,16 +45,16 @@ body hr
 }
 
 #main{
-	margin-left: 250px;
-	padding-top: 0px;
+  margin-left: 250px;
+  padding-top: 0px;
 }
 
 #pages hr
 {
-	border: 2 solid #111111;
-	height: 30px;
-	margin: 0 0.1em;
-	clear: both;
+  border: 2 solid #111111;
+  height: 30px;
+  margin: 0 0.1em;
+  clear: both;
 }
 
 img {
@@ -63,34 +63,34 @@ img {
 
 .page
 {
-	padding: 0px 0px 0px 0px;
-	margin: 0px 0px 0px 0px;
+  padding: 0px 0px 0px 0px;
+  margin: 0px 0px 0px 0px;
 }
 
 .page h1
 {
-	display: none;
-	margin-top: 0;
-	padding-top: 1em;
+  display: none;
+  margin-top: 0;
+  padding-top: 1em;
 }
 
 iframe
 {
-	border: none;
+  border: none;
 }
 
 .link a
 {
-	line-height: 2em;
-	width: 49%;
-	padding-left: 0.2em;
+  line-height: 2em;
+  width: 49%;
+  padding-left: 0.2em;
 }
 
 #pages  > .page
 {
-	float:left;
-	overflow: auto;
-	position: relative;
+  float:left;
+  overflow: auto;
+  position: relative;
 }
 
 .clearfix:after {
@@ -114,11 +114,11 @@ iframe
 }
 
 .pagejump {
-	cursor: pointer;
+  cursor: pointer;
 }
 
 /************************************************************/
-/* 												loading	 													*/
+/*                         loading                             */
 /************************************************************/
 
 .loading {
@@ -131,7 +131,7 @@ div#loading
 }
 
 /************************************************************/
-/* 												navpath	 													*/
+/*                         navpath                             */
 /************************************************************/
 
 .nav_path
@@ -147,40 +147,40 @@ div#loading
 }
 
 /************************************************************/
-/* 											navbar general											*/
+/*                       navbar general                      */
 /************************************************************/
 
 /* navbar button */
 .navbar .pagejump .actor {
-	position: absolute;
-	top:0;
-	left:0;
-	right:0;
-	bottom:0;
-	vertical-align: middle;
+  position: absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  vertical-align: middle;
 }
 
 .navbar .switchPressed,
 .navbar .switchUnpressed
 {
-	width: 100% !important;
+  width: 100% !important;
 }
 
 
 
 /************************************************************/
-/* 											navbar top 													*/
+/*                       navbar top                           */
 /************************************************************/
 
 #navbarTop {
-	border-bottom: none;
-	
-	-webkit-box-shadow: 0px 1px 16px gray;
+  border-bottom: none;
+  
+  -webkit-box-shadow: 0px 1px 16px gray;
   -moz-box-shadow: 0px 1px 16px gray;
   box-shadow: 0px 1px 16px gray;
-	
-	position: relative;
-	z-index: 9;
+  
+  position: relative;
+  z-index: 9;
 }
 
 #navbarTop hr {
@@ -188,558 +188,558 @@ div#loading
 }
 
 /************************************************************/
-/* 													header 													*/
+/*                           header                           */
 /************************************************************/
 
 #header {
-	margin: 0px 0px 0px 0px;
-	padding: 0px 0px 0px 0px;
-	height: 48px;
-	font-size: 22px;
-	white-space: nowrap;
+  margin: 0px 0px 0px 0px;
+  padding: 0px 0px 0px 0px;
+  height: 48px;
+  font-size: 22px;
+  white-space: nowrap;
 }
 
 #header .header {
-	margin: 0px 0px 0px 0px;
-	padding: 0px 0px 0px 0px;
-	height: 48px;
-	line-height: 48px;
-	font-size: 22px;
-	white-space: nowrap;
+  margin: 0px 0px 0px 0px;
+  padding: 0px 0px 0px 0px;
+  height: 48px;
+  line-height: 48px;
+  font-size: 22px;
+  white-space: nowrap;
 }
 
 #header .header .actor .value{
-	float: left;
-	height: 48px;
+  float: left;
+  height: 48px;
 }
 
 #header .header.title{
-	float: left;
-	line-height: 48px;
-	margin-left: 20px;
+  float: left;
+  line-height: 48px;
+  margin-left: 20px;
 }
 
 /************************************************************/
-/* 													menu 													*/
+/*                           menu                           */
 /************************************************************/
 
 #menu {
-	padding: 0px;
-	margin: 0px;
-	top: 0px;
-	left: 0px;
-	bottom: 0px;
-	width: 100%;
-	background-color: rgba(0,0,0,0.3);
-	float: left;
-	height: 100%;
+  padding: 0px;
+  margin: 0px;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  width: 100%;
+  background-color: rgba(0,0,0,0.3);
+  float: left;
+  height: 100%;
 }
 
 #menu .logo {
-	height: 48px;
-	line-height: 48px;
-	font-size: 18px;
-	background-color: rgba(255,255,255,1);
-	border-bottom: 1px solid #EBEBEB;
+  height: 48px;
+  line-height: 48px;
+  font-size: 18px;
+  background-color: rgba(255,255,255,1);
+  border-bottom: 1px solid #EBEBEB;
 }
 
 #menu .logo .actor{
-	float: left;
-	height: 48px !important;
+  float: left;
+  height: 48px !important;
 }
 
 #menu .logo .actor .value{
-	height: 48px !important;
-	line-height: 48px;
-	padding-left: 6px;
-	margin: 0px;
+  height: 48px !important;
+  line-height: 48px;
+  padding-left: 6px;
+  margin: 0px;
 }
 
 #menu .logo img{
 
-	vertical-align: middle;
+  vertical-align: middle;
 }
 
 #menu .menu {
-	padding: 0px;
-	margin: 0px;
-	top: 0px;
-	bottom: 0px;
-	left: 0px;
-	width: 250px;
-	background-color: rgba(255,255,255,1);
+  padding: 0px;
+  margin: 0px;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  width: 250px;
+  background-color: rgba(255,255,255,1);
 }
 
 #menu .menucontainer {
-	padding: 0px;
-	margin: 0px;
-	width: 100%;
-	min-height: 48px;
+  padding: 0px;
+  margin: 0px;
+  width: 100%;
+  min-height: 48px;
 }
 
 #menu .menuitem {
-	padding: 0px;
-	margin: 0px;
-	display: block;
+  padding: 0px;
+  margin: 0px;
+  display: block;
 }
 
 #menu .menuitem.level1 {
-	height: 48px;
+  height: 48px;
 }
 
 #menu .menuitem.level1.selected {
-	background-color: #EBEBEB;
+  background-color: #EBEBEB;
 }
 
 #menu .menuitem.level1:hover,
 #menu .menuitem.level1:focus {
-	background-color: #EBEBEB;
+  background-color: #EBEBEB;
 }
 
 #menu .menuitem.level1 .actor {
-	padding: 0px;
-	margin: 0px;
-	display: block;
-	height: 48px;
-	line-height: 48px;
+  padding: 0px;
+  margin: 0px;
+  display: block;
+  height: 48px;
+  line-height: 48px;
 }
 
 #menu .menuitem.level1 .actor.switchPressed {
-	background-color: #C0C0C0;
+  background-color: #C0C0C0;
 }
 
 #menu .menuitem.level1 .actor .value{
-	padding: 0px 0px 0px 20px;
-	height: 48px;
-	font-size: 14px;
-	font-weight: bold;
-	line-height: 48px;
+  padding: 0px 0px 0px 20px;
+  height: 48px;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 48px;
 }
 
 #menu .submenu {
-	margin: 0px 0px 0px 0px;
+  margin: 0px 0px 0px 0px;
 }
 
 #menu .submenu .menuitem {
-	height: 40px;
-	line-height: 40px;
-	width: auto;
+  height: 40px;
+  line-height: 40px;
+  width: auto;
 }
 
 #menu .submenu .menuitem.selected {
-	font-weight: bold;
-	background-color: #EBEBEB;
+  font-weight: bold;
+  background-color: #EBEBEB;
 }
 
 #menu .submenu .menuitem:hover,
 #menu .submenu .menuitem:focus {
-	background-color: #EBEBEB;
+  background-color: #EBEBEB;
 }
 
 #menu .submenu .menuitem .actor {
-	height: 40px;
-	white-space: nowrap;
+  height: 40px;
+  white-space: nowrap;
 }
 
 #menu .submenu .menuitem .actor.switchPressed {
-	background-color: #C0C0C0;
+  background-color: #C0C0C0;
 }
 
 #menu .submenu .menuitem .actor .value{
-	padding: 0px 0px 0px 60px;
-	line-height: 40px;
-	font-size: 14px;
+  padding: 0px 0px 0px 60px;
+  line-height: 40px;
+  font-size: 14px;
 }
 
 /************************************************************/
-/* 								navbar top first-child 										*/
+/*                 navbar top first-child                     */
 /************************************************************/
 
 #navbarTop {
 
-	margin-left: 250px;
+  margin-left: 250px;
 }
 
 /* nowrap= Breite 2k */
 #navbarTop .navbar  {
-	padding: 0px;
-	margin: 0px;
-	max-height: 48px;
+  padding: 0px;
+  margin: 0px;
+  max-height: 48px;
 }
 
  #navbarTop > .navbar > div, #navbarTop > .navbar > hr {
- 	display: inline-block;
-	float: none;
+   display: inline-block;
+  float: none;
 }
 
 #navbarTop > .navbar  {
- 	overflow-y: hidden;
-	overflow-x: auto;
-	white-space: nowrap;
+   overflow-y: hidden;
+  overflow-x: auto;
+  white-space: nowrap;
 } 
 
 #navbarTop .text  {
-	max-height: 48px;
-	height: 48px;
-	line-height: 48px;
-	font-size: 22px;
-	padding: 0px;
-	margin: 0px;
-	font-size: 20px;
-	background-color: transparent;
+  max-height: 48px;
+  height: 48px;
+  line-height: 48px;
+  font-size: 22px;
+  padding: 0px;
+  margin: 0px;
+  font-size: 20px;
+  background-color: transparent;
 }
 
 #navbarTop .navbar .switchPressed,
 #navbarTop .navbar .switchUnpressed
 {
-	width: 100%;
-	height: 48px;
+  width: 100%;
+  height: 48px;
 }
 
 #navbarTop .navbar .widget_container
 {
-	max-height: 48px;
-	height: 48px;
-	padding: 0px;
-	margin: 0px;
+  max-height: 48px;
+  height: 48px;
+  padding: 0px;
+  margin: 0px;
 }
 
 #navbarTop .navbar .widget {
-	margin: 0px;
-	border: none;
-	position: relative;
-	min-width: 48px;
-	max-height: 48px;
-	height: 48px;
+  margin: 0px;
+  border: none;
+  position: relative;
+  min-width: 48px;
+  max-height: 48px;
+  height: 48px;
 }
 
 #navbarTop .navbar .pagejump:first-child .label > img, #navbarTop .navbar .pagejump:first-child .label > canvas {
-	height: 32px !important;
+  height: 32px !important;
   width: 32px !important;
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-	margin-top: 6px;
-	padding: 0px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 6px;
+  padding: 0px;
 }
 
 #navbarTop .navbar .label
 {
-	font-size: 18px;
-	width: 100%;
-	line-height: 48px;
-	text-transform: uppercase;
+  font-size: 18px;
+  width: 100%;
+  line-height: 48px;
+  text-transform: uppercase;
 }
 
 #navbarTop .navbar .pagejump {
-	font-weight: normal;
-	height: 48px;
-	line-height: 48px;
-	max-height: 48px;
-	border: none;
-	margin: 0px;
-	padding: 0px 20px 0px 20px;
+  font-weight: normal;
+  height: 48px;
+  line-height: 48px;
+  max-height: 48px;
+  border: none;
+  margin: 0px;
+  padding: 0px 20px 0px 20px;
 }
 
 #navbarTop .navbar .pagejump:hover {
-	font-weight: normal;
-	border-bottom-width: 3px;
-	border-bottom-style: solid;
-	height: 46px;
+  font-weight: normal;
+  border-bottom-width: 3px;
+  border-bottom-style: solid;
+  height: 46px;
 }
 
 #navbarTop .navbar .pagejump.active,
 #navbarTop .navbar .pagejump.active_ancestor 
 {
-	font-weight: bold;
-	border-bottom-width: 3px;
-	border-bottom-style: solid;
-	height: 46px;
+  font-weight: bold;
+  border-bottom-width: 3px;
+  border-bottom-style: solid;
+  height: 46px;
 }
 
 #navbarTop .navbar .pagejump .label {
-	font-size: 14px;
-	height: 48px;
-	width: 100%;
-	text-align: center;
+  font-size: 14px;
+  height: 48px;
+  width: 100%;
+  text-align: center;
 }
 
 /************************************************************/
-/* 											navbar top 													*/
+/*                       navbar top                           */
 /************************************************************/
 /* 
 #navbarTop > .navbar > div,
 #navbarTop > .navbar > hr {
-	display: inline-block;
-	float: none;
+  display: inline-block;
+  float: none;
 }
 
 #navbarTop .navbar
 {
-	overflow-y: hidden;
-	overflow-x: auto;
-	white-space: nowrap;
+  overflow-y: hidden;
+  overflow-x: auto;
+  white-space: nowrap;
 
-	margin: 0px;
-	padding: 0px;
-	height: 50px;
-	max-height: 50px;
+  margin: 0px;
+  padding: 0px;
+  height: 50px;
+  max-height: 50px;
 }
 
 #navbarTop .navbar .switchPressed,
 #navbarTop .navbar .switchUnpressed
 {
-	height: 50px;
+  height: 50px;
 }
 
 #navbarTop .navbar .widget_container
 {
-	height: 50px;
-	max-height: 50px;
-	padding: 0px;
+  height: 50px;
+  max-height: 50px;
+  padding: 0px;
 }
 
 #navbarTop .navbar .widget {
-	margin: 0px;
-	padding: 0px;
-	border-width:0;
+  margin: 0px;
+  padding: 0px;
+  border-width:0;
 
-	position: relative;
-	min-width: 50px;
-	min-height: 0px ;
-	background: none;
-	text-align: center;
-	height: 50px;
+  position: relative;
+  min-width: 50px;
+  min-height: 0px ;
+  background: none;
+  text-align: center;
+  height: 50px;
 }
 
  #navbarTop .navbar .text {
-	text-align: center;
-	float: left;
+  text-align: center;
+  float: left;
 }
 
 #navbarTop .navbar .pagejump {
-	border-bottom-width: 5px;
-	border-bottom-style: solid;
-	font-weight: normal;
-	height: 46px;
-	margin: 0px;
-	padding: 0px 10px 0px 10px;
+  border-bottom-width: 5px;
+  border-bottom-style: solid;
+  font-weight: normal;
+  height: 46px;
+  margin: 0px;
+  padding: 0px 10px 0px 10px;
 }
 
 #navbarTop .navbar .pagejump .label{
-	text-align: center;
-	width: 100%;
-	line-height: 50px;
-	font-size: 14px;
-	margin: 0px;
-	padding: 0px;
-	text-transform: uppercase;
+  text-align: center;
+  width: 100%;
+  line-height: 50px;
+  font-size: 14px;
+  margin: 0px;
+  padding: 0px;
+  text-transform: uppercase;
 }
 
 #navbarTop .navbar .pagejump:hover {
   border-bottom-width: 5px;
-	border-bottom-style: solid; 
-	font-weight: normal;
-	height: 46px;
-	margin: 0px;
-	padding: 0px 10px 0px 10px;
+  border-bottom-style: solid; 
+  font-weight: normal;
+  height: 46px;
+  margin: 0px;
+  padding: 0px 10px 0px 10px;
 }
 
 #navbarTop .navbar .pagejump.active,
 #navbarTop .navbar .pagejump.active_ancestor  {
-	font-weight: bold;
-	height: 46px;
-	margin: 0px;
-	padding: 0px 10px 0px 10px;
-	border-bottom-width: 5px;
-	border-bottom-style: solid; 
+  font-weight: bold;
+  height: 46px;
+  margin: 0px;
+  padding: 0px 10px 0px 10px;
+  border-bottom-width: 5px;
+  border-bottom-style: solid; 
 }
 
 #navbarTop .navbar .pagejump .label > img,
 #navbarTop .navbar .pagejump .label > canvas {
-	height: 22px !important;
+  height: 22px !important;
   width: 44px !important;
-	display: block;
+  display: block;
 }
 
 
 #navbarTop .navbar .pagejump .actor {
-	width: 100%;
+  width: 100%;
 } */
 
 /************************************************************/
-/* 												navbar left 											*/
+/*                         navbar left                       */
 /************************************************************/
 
 #navbarLeft {
-	position:absolute !important;
-	height: 100%;
-	top:0;
-	right:0;
-	bottom:0;
-	left:0;
-	overflow-y: visible;
-	overflow-x: hidden;
-	border-right: 1px solid #cccccc;
-	z-index: 30;
+  position:absolute !important;
+  height: 100%;
+  top:0;
+  right:0;
+  bottom:0;
+  left:0;
+  overflow-y: visible;
+  overflow-x: hidden;
+  border-right: 1px solid #cccccc;
+  z-index: 30;
 }
 
 #navbarLeft .navbar {
-	border: none;
-	margin-right: 0px;
-	padding: 0px;
+  border: none;
+  margin-right: 0px;
+  padding: 0px;
 
-	height: 100%;
+  height: 100%;
 }
 
 #navbarLeft .navbar .text  {
-	border: none;
-	height: 95px;
-	line-height: 95px;
-	font-size: 20px;
-	padding: 0px;
-	margin: 0px 0px 0px 40px;
+  border: none;
+  height: 95px;
+  line-height: 95px;
+  font-size: 20px;
+  padding: 0px;
+  margin: 0px 0px 0px 40px;
 }
 
 #navbarLeft .navbar .text  > div{
-	width: auto;
-	margin-left: auto;
-	margin-right: auto;
+  width: auto;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #navbarLeft .navbar hr  {
-	border: 0;
-	height: 0;
-	border-top: 1px solid rgba(0, 0, 0, 0.1);
-	border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  border: 0;
+  height: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 #navbarLeft .navbar .pagejump  {
-	margin: 0px;
-	padding: 0px;
-	height: 100%;
-	border: none;
+  margin: 0px;
+  padding: 0px;
+  height: 100%;
+  border: none;
 }
 
 #navbarLeft .navbar .label  {
-	margin: 0px 0px 0px 24px;
-	padding: 0px;
-	line-height: 50px;
-	width: 100%;
-	font-size: 12px;
-	font-weight: bold;
+  margin: 0px 0px 0px 24px;
+  padding: 0px;
+  line-height: 50px;
+  width: 100%;
+  font-size: 12px;
+  font-weight: bold;
 }
 
 /* sub group */
 #navbarLeft .navbar .group  {
-	margin: 0px;
-	padding: 0px;
-	border: none !important;
-	-webkit-box-shadow: none;
+  margin: 0px;
+  padding: 0px;
+  border: none !important;
+  -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
 }
 
 #navbarLeft .navbar .group .label  {
-	padding: 0px;
-	height: 30px;
-	line-height: 30px;
-	margin: 0px 0px 0px 50px;
-	font-size: 12px;
-	font-weight: normal;
+  padding: 0px;
+  height: 30px;
+  line-height: 30px;
+  margin: 0px 0px 0px 50px;
+  font-size: 12px;
+  font-weight: normal;
 }
 
 /* sub group */
 
 #navbarLeft .navbar .pagejump:hover {
-	font-weight: bold;
+  font-weight: bold;
 }
 
 #navbarLeft .navbar .pagejump.active,
 #navbarLeft .navbar .pagejump.active_ancestor  {
-	font-weight: bold;
+  font-weight: bold;
 }
 
 #navbarLeft .navbar .pagejump.active > .label canvas.icon,
 #navbarLeft .navbar .pagejump.active_ancestor > .label canvas.icon{
-	
+  
 }
 
 #navbarLeft .navbar .label img.icon,
 #navbarLeft .navbar .label canvas.icon {
-	vertical-align: middle;
-	margin-left: 0px;
+  vertical-align: middle;
+  margin-left: 0px;
 }
 
 #navbarLeft .group > div > h2
 {
-	font-size: 14px;
-	padding: 0 5px;
-	margin: 0;
-	border: none;
-	font-weight: bold;
+  font-size: 14px;
+  padding: 0 5px;
+  margin: 0;
+  border: none;
+  font-weight: bold;
 }
 
 
 
 #navbarLeft .navbar .widget_container {
-	border: none;
+  border: none;
 }
 
 #navbarLeft .navbar .widget
 {
-	
+  
 }
 
 #navbarLeft .widget .actor
 {
-	border: none;
-	float: left;
-	height: 50px;
+  border: none;
+  float: left;
+  height: 50px;
 }
 
 /************************************************************/
-/* 												navbarright												*/
+/*                         navbarright                        */
 /************************************************************/
 
 /* #navbarRight
 {
-	background-color: transparent !important;
-	position: absolute !important;
-	top: 0px !important;
-	right: 0px !important;
-	z-index: 100 !important;
-	width: 100px !important;
-	height: 48px !important;
-	margin: 0 !important;
+  background-color: transparent !important;
+  position: absolute !important;
+  top: 0px !important;
+  right: 0px !important;
+  z-index: 100 !important;
+  width: 100px !important;
+  height: 48px !important;
+  margin: 0 !important;
 }
 
 #navbarRight .navbar
 {
-	background-color: transparent !important;
+  background-color: transparent !important;
 }
 
 #navbarRight .widget_container
 {
-	background-color: transparent !important;
+  background-color: transparent !important;
 }
 
 #navbarRight .widget
 {
-	background-color: transparent !important;
+  background-color: transparent !important;
 }
 
 #navbarRight .actor
 {
-	background-color: transparent !important;
+  background-color: transparent !important;
 } */
 
 /************************************************************/
-/* 												navbarbottom 											*/
+/*                         navbarbottom                       */
 /************************************************************/
 
 #navbarBottom  {
-	-webkit-box-shadow: 0px 1px 8px gray;
+  -webkit-box-shadow: 0px 1px 8px gray;
     -moz-box-shadow: 0px 1px 8px gray;
     box-shadow: 0px 1px 8px gray;
 }
@@ -747,210 +747,210 @@ div#loading
 #navbarBottom .navbar .widget { background: none; }
  
 #navbarBottom .navbar .widget_container {
-	float: none;
+  float: none;
 }
 
 #navbarBottom .navbar .widget {
-	margin: 0;
-	border-width:0;
-	padding: 0.3em 0.5em;
-	position: relative;
-	min-width: 2em;
-	min-height: 1em;
+  margin: 0;
+  border-width:0;
+  padding: 0.3em 0.5em;
+  position: relative;
+  min-width: 2em;
+  min-height: 1em;
 }
 
 #navbarBottom .navbar .pagejump:hover,
 #navbarBottom .navbar .pagejump.active,
 #navbarBottom .navbar .pagejump.active_ancestor {
-	font-weight: normal;
+  font-weight: normal;
 }
 #navbarBottom .navbar {
-	padding: 0 auto;
-	width: 100%;
+  padding: 0 auto;
+  width: 100%;
 }
 
 #navbarBottom { border-top: 2px solid #666; }
 
 #navbarBottom.navbar .pagejump .actor {
-	width: 100%;
+  width: 100%;
 }
 
 #navbarBottom hr {
-	clear: none;
-	float: left;
-	width: 1px;
-	height: 3.6em;
-	margin: 0;
-	padding: 0;
-	color: inherit;
+  clear: none;
+  float: left;
+  width: 1px;
+  height: 3.6em;
+  margin: 0;
+  padding: 0;
+  color: inherit;
 }
 
 #navbarBottom .pagejump.center > div { width: 100%; }
 #navbarBottom .pagejump.right .label { text-align: center !important; float: right; }
 
 /************************************************************/
-/* 												Statusbar													*/
+/*                         Statusbar                          */
 /************************************************************/
 
 #bottom  {
-	display: none !important;
+  display: none !important;
 }
 
 #bottom  hr {
-	display: none;
+  display: none;
 }
 
 /************************************************************/
-/* 									Footer/Statusbar	 											*/
+/*                   Footer/Statusbar                         */
 /************************************************************/
 
 #top{
-	z-index: 11;
-	position: relative;
+  z-index: 11;
+  position: relative;
 }
 
 .footer
 {
-	line-height: 20px;
+  line-height: 20px;
   font-size: 12px;
   text-align: right;
-	padding-right: 10px;
-	z-index: 11;
+  padding-right: 10px;
+  z-index: 11;
 }
 
 /************************************************************/
-/* 												flavours													*/
+/*                         flavours                          */
 /************************************************************/
 
 .flavour_description {
-	color: #888888;
-	font-size: 14px !important;
-	font-weight: normal !important;
-	line-height: 14px !important;
+  color: #888888;
+  font-size: 14px !important;
+  font-weight: normal !important;
+  line-height: 14px !important;
 }
 
 .flavour_description .actor .value {
-	color: #888888;
-	font-size: 14px !important;
-	font-weight: normal !important;
-	line-height: 14px !important;
+  color: #888888;
+  font-size: 14px !important;
+  font-weight: normal !important;
+  line-height: 14px !important;
 }
 
 /************************************************************/
-/* 										widget general 												*/
+/*                     widget general                         */
 /************************************************************/
 
 /* Schatten um Group */
 .group.widget {
-	overflow: hidden;
-	margin: 10px 5px 0px 5px;
-	padding: 0px;
-	border-bottom: none;
-	-webkit-border-radius: 2px;
-	-khtml-border-radius: 2px;
-	-moz-border-radius: 2px;
-	border-radius: 2px;
+  overflow: hidden;
+  margin: 10px 5px 0px 5px;
+  padding: 0px;
+  border-bottom: none;
+  -webkit-border-radius: 2px;
+  -khtml-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
 
-	-webkit-box-shadow: 0px 1px 4px gray;
-	-moz-box-shadow: 0px 1px 4px gray;
-	box-shadow: 0px 1px 4px gray;
+  -webkit-box-shadow: 0px 1px 4px gray;
+  -moz-box-shadow: 0px 1px 4px gray;
+  box-shadow: 0px 1px 4px gray;
 
-	z-index:1;
+  z-index:1;
 }
 
 
 /* Group */
 .widget
 {
-	padding: 5px;
-	vertical-align: middle;
-	margin-top: 0px;
-	margin-bottom: -1px;
-	margin-left: 0px;
-	margin-right: 0px;
-	font-size: 18px;
+  padding: 5px;
+  vertical-align: middle;
+  margin-top: 0px;
+  margin-bottom: -1px;
+  margin-left: 0px;
+  margin-right: 0px;
+  font-size: 18px;
 }
 
 /* Group Label */
 .widget .label
 {
-	text-align: middle;
-	line-height: 60px;
-	margin-left: -5px;
+  text-align: middle;
+  line-height: 60px;
+  margin-left: -5px;
 }
 
 .widget .text {
-	height: 60px;
-	line-height: 60px;
-	padding: 0px;
-	margin: 0px;
+  height: 60px;
+  line-height: 60px;
+  padding: 0px;
+  margin: 0px;
 }
 
 /* headline */
 .widget.text.flavour_headline {
-	margin-left: 20px;
-	margin-top: 10px;
-	background-color: transparent !important;
-	line-height: 25px;
-	height: 25px;
+  margin-left: 20px;
+  margin-top: 10px;
+  background-color: transparent !important;
+  line-height: 25px;
+  height: 25px;
 }
 
 .widget .text > div {
-	height: 59px;
+  height: 59px;
 }
 
 /* HTML */
 .widget.web
 {
-	border: none;
-	background-image: none;
+  border: none;
+  background-image: none;
 }
 
 /* Widget headline */
 .group > div > h2
 {
-	padding: 0px 5px 5px 0px;
-	font-weight: bold;
-	margin-left: 20px;
-	margin-right: 20px;
+  padding: 0px 5px 5px 0px;
+  font-weight: bold;
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
 /* widgets in group */
 
 .group .widget_container .widget:not(.trigger):not(.pagejump):not(.web) {
-	margin: -1px 20px -1px 20px;
-	padding: 0px;
-	border-top-width: 1px;
-	border-top-style: solid;
-	border-left: none;
-	border-bottom: none;
-	/* border-bottom-width: 1px; */
-	/* border-bottom-style: solid; */
-	border-right: none;
-	float: none;
-	height: 59px;
-	-webkit-border-radius: 0px !important;
-	-khtml-border-radius: 0px !important;
-	-moz-border-radius: 0px !important;
-	border-radius: 0px !important;
+  margin: -1px 20px -1px 20px;
+  padding: 0px;
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-left: none;
+  border-bottom: none;
+  /* border-bottom-width: 1px; */
+  /* border-bottom-style: solid; */
+  border-right: none;
+  float: none;
+  height: 59px;
+  -webkit-border-radius: 0px !important;
+  -khtml-border-radius: 0px !important;
+  -moz-border-radius: 0px !important;
+  border-radius: 0px !important;
 }
 
 .group .widget_container .group:not(.widget):not(.trigger){
-	margin: -1px 20px -1px 20px;
-	padding: 0px;
-	border-top-width: 1px;
-	border-top-style: solid;
-	border-left: none;
-	border-bottom: none;
-	/* border-bottom-width: 1px; */
-	/* border-bottom-style: solid; */
-	border-right: none;
-	float: none;
-	min-height: 59px;
-	-webkit-border-radius: 0px !important;
-	-khtml-border-radius: 0px !important;
-	-moz-border-radius: 0px !important;
-	border-radius: 0px !important;
+  margin: -1px 20px -1px 20px;
+  padding: 0px;
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-left: none;
+  border-bottom: none;
+  /* border-bottom-width: 1px; */
+  /* border-bottom-style: solid; */
+  border-right: none;
+  float: none;
+  min-height: 59px;
+  -webkit-border-radius: 0px !important;
+  -khtml-border-radius: 0px !important;
+  -moz-border-radius: 0px !important;
+  border-radius: 0px !important;
 }
 
 /* slide or switch in group - no border! */
@@ -959,66 +959,66 @@ div#loading
 .group:not(.widget) .widget_container .widget.text,
 .group:not(.widget) .widget_container .widget.info,
 .group:not(.widget) .widget_container .widget.multitrigger {
-	margin: 0px !important;
-	padding: 0px !important;
-	border: none !important;
-	float: none;
-	height: 58px !important;
+  margin: 0px !important;
+  padding: 0px !important;
+  border: none !important;
+  float: none;
+  height: 58px !important;
 }
 
 .group .widget_container {
-	margin: 0px;
-	padding: 0px;
+  margin: 0px;
+  padding: 0px;
 }
 
 /* Group nowidget=true */
 .group:not(.widget) { 
-	margin: 0px 20px 0px 20px;
-	padding: 0px;
+  margin: 0px 20px 0px 20px;
+  padding: 0px;
 }
 
 /* Group nowidget=true */
 .group:not(.widget) > div > .widget_container > .widget:not(.group) { 
-	margin: 0; 
-	float: none;
-	white-space: nowrap;
+  margin: 0; 
+  float: none;
+  white-space: nowrap;
 }
 
 /* Group nowidget=true headline */
 .group:not(.widget) > div > h2
 {
-	
+  
 }
 
 /* Label in Group */
 .widget > .label
 {
-	float:left;
-	width:50%;
-	text-align:left;
-	padding-left: 0.2em;
-	vertical-align: middle;
+  float:left;
+  width:50%;
+  text-align:left;
+  padding-left: 0.2em;
+  vertical-align: middle;
 }
 
 .widget .actor img.icon,
 .widget .actor canvas.icon 
 {
 
-	width: 24px;
-	height: 24px;
-	padding: 0px;
-	margin: 0px;
+  width: 24px;
+  height: 24px;
+  padding: 0px;
+  margin: 0px;
 }
 
 .widget .label img.icon,
 .widget .label canvas.icon {
-	vertical-align: middle;
+  vertical-align: middle;
 }
 .widget .pagejump img.icon, .widget .pagejump canvas.icon { margin-top: -0; }
 .text img.icon, .text canvas.icon { 
-	vertical-align: middle; 
-	padding: 0px;
-	margin: 0px;
+  vertical-align: middle; 
+  padding: 0px;
+  margin: 0px;
 }
 
 .widget .switchPressed img.icon,
@@ -1026,28 +1026,28 @@ div#loading
 .widget .switchUnpressed img.icon,
 .widget .switchUnpressed canvas.icon
 {
-	width: 36px;
-	height: 36px;
+  width: 36px;
+  height: 36px;
 }
 
 /* actor symbole */
 .widget .actor
 {
-	width: 50%;
-	float: left;
+  width: 50%;
+  float: left;
 }
 
 .widget .actor .value
 {
-/* 	text-align: right;
-	margin-left: auto;
-	margin-right: 0;  */
+/*   text-align: right;
+  margin-left: auto;
+  margin-right: 0;  */
 }
 
 /* div um Actor */
 .widget .actor div
 {
-	
+  
 }
 
 .widget.diagram
@@ -1059,47 +1059,47 @@ div#loading
 .pagejump > .switchUnpressed,
 .pagejump > .switchPressed
 {
-	width: auto;
-	background-color: transparent;
-	border: none;
-	background: none;
-	margin-left:0;
-	margin-right: 0;
-	float: left;
+  width: auto;
+  background-color: transparent;
+  border: none;
+  background: none;
+  margin-left:0;
+  margin-right: 0;
+  float: left;
 }
 
 .group .pagejump  .switchUnpressed div, 
 .group .pagejump  .switchPressed div
 {
-	width: auto;
-	text-align: center;
+  width: auto;
+  text-align: center;
 }
 
 /* switch value */
 .actor .value
 {
-	line-height: 60px;
-	font-size: 18px;
+  line-height: 60px;
+  font-size: 18px;
 }
 
 /************************************************************/
-/* 										switch general												*/
+/*                     switch general                        */
 /************************************************************/
 
 /* switch */
 .switchPressed,
 .switchUnpressed
 {
-	padding: 0px;
-	margin: 0px;
+  padding: 0px;
+  margin: 0px;
 
 }
 
 .switch .switchPressed .value,
 .switch .switchUnpressed .value
 {
-	height: 36px;
-	text-align: right;
+  height: 36px;
+  text-align: right;
 }
 
 .switchUnpressed div,
@@ -1109,7 +1109,7 @@ div#loading
 }
 
 /************************************************************/
-/* 										actor position												*/
+/*                     actor position                        */
 /************************************************************/
 
 .widget.toggle.left .actor .value,
@@ -1117,8 +1117,8 @@ div#loading
 .widget.trigger.left .actor .value,
 .widget.diagram_info.left .actor .value{
   margin-right: auto !important;
-	margin-left: 0 !important;
-	text-align: left;
+  margin-left: 0 !important;
+  text-align: left;
 }
 
 .widget.center.toggle,
@@ -1126,8 +1126,8 @@ div#loading
 .widget.center.trigger,
 .widget.center.diagram_info{
   margin-right: auto !important;
-	margin-left: auto !important;
-	text-align: center;
+  margin-left: auto !important;
+  text-align: center;
 }
 
 .widget.right.toggle,
@@ -1135,391 +1135,391 @@ div#loading
 .widget.right.trigger,
 .widget.right.diagram_info {
   margin-right: 0 !important;
-	margin-left: auto !important;
-	text-align: right;
+  margin-left: auto !important;
+  text-align: right;
 }
 
 .widget.trigger.right .actor{
-	float: right !important;
-	padding-right: 2px !important;
-	text-align: right;
+  float: right !important;
+  padding-right: 2px !important;
+  text-align: right;
 }
 
 /************************************************************/
-/* 													switch													*/
+/*                           switch                          */
 /************************************************************/
 
 .widget:not(.trigger):not(.pagejump):not(.group) {
-/* 	border-top: 1px solid #e5e5e5;
-	border-left: none;
-	border-bottom: 1px solid #e5e5e5;
-	border-right: none;
-	margin: 0px 20px 0px 20px;
-	padding: 0px; */
+/*   border-top: 1px solid #e5e5e5;
+  border-left: none;
+  border-bottom: 1px solid #e5e5e5;
+  border-right: none;
+  margin: 0px 20px 0px 20px;
+  padding: 0px; */
 }
 
 /************************************************************/
-/* 													toggle													*/
+/*                           toggle                          */
 /************************************************************/
 
 /* .toggle {
-	max-height: 60px;
-	padding: 10px 0px 10px 0px;
-	margin: 0px;
-	width: 88px;
+  max-height: 60px;
+  padding: 10px 0px 10px 0px;
+  margin: 0px;
+  width: 88px;
 }
 
 .toggle .actor{
-	min-width: 88px;
+  min-width: 88px;
 }
 
 .toggle .actor .value{
-	-webkit-box-shadow: 0px 1px 4px gray;
-	-moz-box-shadow: 0px 1px 4px gray;
-	box-shadow: 0px 1px 4px gray;
-	-webkit-border-radius: 2px;
-	-khtml-border-radius: 2px;
-	-moz-border-radius: 2px;
-	border-radius: 2px;
-	padding: 0px 10px 0px 10px;
-	text-align: center;
-	margin: 0px;
-	line-height: 40px;
-	text-transform: uppercase;
+  -webkit-box-shadow: 0px 1px 4px gray;
+  -moz-box-shadow: 0px 1px 4px gray;
+  box-shadow: 0px 1px 4px gray;
+  -webkit-border-radius: 2px;
+  -khtml-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  padding: 0px 10px 0px 10px;
+  text-align: center;
+  margin: 0px;
+  line-height: 40px;
+  text-transform: uppercase;
 }
 
 .toggle .actor .value:hover{
-	-webkit-box-shadow: 0px 2px 6px gray;
-	-moz-box-shadow: 0px 2px 6px gray;
-	box-shadow: 0px 2px 6px gray;
+  -webkit-box-shadow: 0px 2px 6px gray;
+  -moz-box-shadow: 0px 2px 6px gray;
+  box-shadow: 0px 2px 6px gray;
 }
 
 .toggle .actor .switchPressed,
 .toggle .actor .switchUnpressed
 {
-	
+  
 } */
 
 /************************************************************/
-/* 													trigger													*/
+/*                           trigger                          */
 /************************************************************/
 
 .trigger {
-	max-height: 60px;
-	padding: 10px 0px 10px 0px;
-	margin: 0px;
-	width: 100%;
+  max-height: 60px;
+  padding: 10px 0px 10px 0px;
+  margin: 0px;
+  width: 100%;
 }
 
 .trigger .actor{
-	min-width: 36px;
+  min-width: 36px;
 }
 
 .trigger .actor .value{
-	-webkit-box-shadow: 0px 1px 2px gray;
-	-moz-box-shadow: 0px 1px 2px gray;
-	box-shadow: 0px 1px 2px gray;
-	-webkit-border-radius: 2px;
-	-khtml-border-radius: 2px;
-	-moz-border-radius: 2px;
-	border-radius: 2px;
-	padding: 0px 0px 0px 0px;
-	text-align: center;
-	margin: 0px 0px 0px 0px;
-	height: 36px;
-	line-height: 36px;
-	text-transform: uppercase;
+  -webkit-box-shadow: 0px 1px 2px gray;
+  -moz-box-shadow: 0px 1px 2px gray;
+  box-shadow: 0px 1px 2px gray;
+  -webkit-border-radius: 2px;
+  -khtml-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  padding: 0px 0px 0px 0px;
+  text-align: center;
+  margin: 0px 0px 0px 0px;
+  height: 36px;
+  line-height: 36px;
+  text-transform: uppercase;
 }
 
 .trigger .actor .value:hover{
-	-webkit-box-shadow: 0px 1px 6px gray;
-	-moz-box-shadow: 0px 1px 6px gray;
-	box-shadow: 0px 1px 6px gray;
+  -webkit-box-shadow: 0px 1px 6px gray;
+  -moz-box-shadow: 0px 1px 6px gray;
+  box-shadow: 0px 1px 6px gray;
 }
 
 .trigger .actor.switchPressed,
 .trigger .actor.switchUnpressed
 {
-	margin: 0px;
-	padding: 0px;
+  margin: 0px;
+  padding: 0px;
 }
 
 /* .trigger .switchPressed .value,
 .trigger .switchUnpressed .value
 {
-	width: 36px;
+  width: 36px;
 } */
 
 /************************************************************/
-/* 													switch													*/
+/*                           switch                          */
 /************************************************************/
 
 .widget .switch .label
 {
-	line-height: 60px;
+  line-height: 60px;
 }
 
 .switch
 {
-	margin: 0px;
-	padding: 0px;
+  margin: 0px;
+  padding: 0px;
 }
 
 .switch .actor .icon
 {
-	vertical-align: middle;
+  vertical-align: middle;
 
 }
 
 /************************************************************/
-/* 													info														*/
+/*                           info                            */
 /************************************************************/
 
 .info
 {
-	margin: 0px;
-	padding: 0px;
+  margin: 0px;
+  padding: 0px;
 }
 
 /* info value */
 .info .value
 {
-	line-height: 60px;
-	font-size: 16px;
-	text-align: right;
+  line-height: 60px;
+  font-size: 16px;
+  text-align: right;
 }
 
 /************************************************************/
-/* 											infotrigger													*/
+/*                       infotrigger                          */
 /************************************************************/
 
 .infotrigger {
-/* 	border-top: 1px solid #e5e5e5;
-	border-left: none;
-	border-bottom: 1px solid #e5e5e5;
-	border-right: none; */
-	margin: 0px 20px 0px 20px;
-	padding: 0px;
-	height: 60px;
+/*   border-top: 1px solid #e5e5e5;
+  border-left: none;
+  border-bottom: 1px solid #e5e5e5;
+  border-right: none; */
+  margin: 0px 20px 0px 20px;
+  padding: 0px;
+  height: 60px;
 }
 .infotrigger > div{
-	width: 50%;
+  width: 50%;
 }
 
 .infotrigger > div:not(.label){
-	
+  
 }
 
 /* actor symbole */
 .widget.infotrigger .actor
 {
-	width: 100%;
-	float: left;
+  width: 100%;
+  float: left;
 }
 
 .widget.infotrigger .actor.downlabel
 {
-	width: 30%;
+  width: 30%;
 }
 
 .widget.infotrigger .actor.downlabel .label
 {
-	text-align: center;
-	margin-left: auto;
-	margin-right: 0px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: 0px;
 }
 
 .widget.infotrigger .actor.switchInvisible
 {
-	width: 40%;
+  width: 40%;
 }
 
 .widget.infotrigger .actor.switchInvisible .value
 {
-	margin-left: auto;
-	margin-right: 0px;
-	text-align: right;
+  margin-left: auto;
+  margin-right: 0px;
+  text-align: right;
 }
 
 .widget.infotrigger .actor.uplabel
 {
-	width: 30%;
+  width: 30%;
 }
 
 .widget.infotrigger .actor.uplabel .label
 {
-	text-align: center;
-	margin-left: auto;
-	margin-right: 0px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: 0px;
 }
 
 
 /* info button */
 .infotrigger .switchUnpressed
 {
-	margin-top: 10px;
+  margin-top: 10px;
 }
 
 /* info button */
 .infotrigger .switchPressed
 {
-	margin-top: 10px;
+  margin-top: 10px;
 }
 
 /* info button label */
 .infotrigger .switchUnpressed .label
 {
-	margin: 0px;
-	text-align: center;
-	line-height: 35px;
-	font-size: 20px;
-	width: 30px;
-	height: 30px;
-	border: none;
-	-webkit-border-radius: 18px;
-	-khtml-border-radius: 18px;
-	-moz-border-radius: 18px;
-	border-radius: 18px;
+  margin: 0px;
+  text-align: center;
+  line-height: 35px;
+  font-size: 20px;
+  width: 30px;
+  height: 30px;
+  border: none;
+  -webkit-border-radius: 18px;
+  -khtml-border-radius: 18px;
+  -moz-border-radius: 18px;
+  border-radius: 18px;
 
-	-webkit-box-shadow: 0px 1px 4px gray;
-	-moz-box-shadow: 0px 1px 4px gray;
-	box-shadow: 0px 1px 4px gray;
+  -webkit-box-shadow: 0px 1px 4px gray;
+  -moz-box-shadow: 0px 1px 4px gray;
+  box-shadow: 0px 1px 4px gray;
 }
 
 .infotrigger .switchUnpressed .label:hover
 {
-	-webkit-box-shadow: 0px 2px 6px gray;
-	-moz-box-shadow: 0px 2px 6px gray;
-	box-shadow: 0px 2px 6px gray;
+  -webkit-box-shadow: 0px 2px 6px gray;
+  -moz-box-shadow: 0px 2px 6px gray;
+  box-shadow: 0px 2px 6px gray;
 }
 
 /* info button label */
 .infotrigger .switchPressed .label
 {
-	margin: 0px;
-	text-align: center;
-	line-height: 35px;
-	font-size: 20px;
-	width: 30px;
-	height: 30px;
-	border: none;
-	-webkit-border-radius: 18px;
-	-khtml-border-radius: 18px;
-	-moz-border-radius: 18px;
-	border-radius: 18px;
+  margin: 0px;
+  text-align: center;
+  line-height: 35px;
+  font-size: 20px;
+  width: 30px;
+  height: 30px;
+  border: none;
+  -webkit-border-radius: 18px;
+  -khtml-border-radius: 18px;
+  -moz-border-radius: 18px;
+  border-radius: 18px;
 
-	-webkit-box-shadow: 0px 1px 4px gray;
-	-moz-box-shadow: 0px 1px 4px gray;
-	box-shadow: 0px 1px 4px gray;
+  -webkit-box-shadow: 0px 1px 4px gray;
+  -moz-box-shadow: 0px 1px 4px gray;
+  box-shadow: 0px 1px 4px gray;
 }
 
 .infotrigger .switchInvisible
 {
-	margin: 0px;
-	padding: 0px;
-	width: 60px;
+  margin: 0px;
+  padding: 0px;
+  width: 60px;
 }
 
 .infotrigger .value
 {
-	line-height: 60px;
-	width: 60px;
-	font-size: 16px;
-	text-align: center;
+  line-height: 60px;
+  width: 60px;
+  font-size: 16px;
+  text-align: center;
 }
 
 /************************************************************/
-/* 											multitrigger												*/
+/*                       multitrigger                        */
 /************************************************************/
 
 .multitrigger {
-	margin: 0px;
-	padding: 0px;
+  margin: 0px;
+  padding: 0px;
 
-	float: left;
+  float: left;
 }
 
 .multitrigger .label{
-	margin: 0px;
-	padding: 0px;
-	line-height: 60px;
+  margin: 0px;
+  padding: 0px;
+  line-height: 60px;
 }
 
 
 .multitrigger .actor_container {
-	padding: 0px;
-	margin: 20px 0px 0px 0px;
-	-webkit-box-shadow: 0px 1px 2px gray;
-	-moz-box-shadow: 0px 1px 2px gray;
-	box-shadow: 0px 1px 2px gray;
-	-moz-border-radius: 2px;
-	-webkit-border-radius: 2px;
-	border-radius: 2px;
-	float: left;
-	width: 100%;
+  padding: 0px;
+  margin: 20px 0px 0px 0px;
+  -webkit-box-shadow: 0px 1px 2px gray;
+  -moz-box-shadow: 0px 1px 2px gray;
+  box-shadow: 0px 1px 2px gray;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  float: left;
+  width: 100%;
 }
 
 .multitrigger .actor {
-	width: 25% !important;
-	min-width: 60px;
-	height: 36px;
-	float: left;
+  width: 25% !important;
+  min-width: 60px;
+  height: 36px;
+  float: left;
 }
 
 .multitrigger .switchUnpressed {
-	float: left;
+  float: left;
 }
 
 .multitrigger .switchUnpressed .value{
-	text-transform: uppercase;
-	line-height: 36px;
-	font-size: 12px;
-	text-align: center;
+  text-transform: uppercase;
+  line-height: 36px;
+  font-size: 12px;
+  text-align: center;
 }
 
 .multitrigger .switchUnpressed .value:hover{
-	
+  
 }
 
 .multitrigger .switchPressed {
-	float: left;
+  float: left;
 }
 
 .multitrigger .switchPressed .value{
-	text-transform: uppercase;
-	line-height: 36px;
-	font-size: 12px;
-	text-align: center;
+  text-transform: uppercase;
+  line-height: 36px;
+  font-size: 12px;
+  text-align: center;
 }
 
 /************************************************************/
-/* 													Slide														*/
+/*                           Slide                            */
 /************************************************************/
 
  .ui-slider .ui-slider-range {
-	
+  
 }
 
 /*************************************/
 
 .flavour_disabled .ui-widget-content {
-	background-color: #aeaeae;
+  background-color: #aeaeae;
 }
 
 .flavour_disabled .ui-slider .ui-slider-range {
-	background-color: #aeaeae !important;
+  background-color: #aeaeae !important;
 }
 
 .flavour_disabled .ui-state-default,
 .flavour_disabled .ui-widget-content .ui-state-default,
 .flavour_disabled .ui-widget-header .ui-state-default {
-	background: #aeaeae;
+  background: #aeaeae;
 }
 
 .flavour_disabled .ui-slider-handle {
-	color: #aeaeae;
-	background-color: #aeaeae;
-	cursor: default;
+  color: #aeaeae;
+  background-color: #aeaeae;
+  cursor: default;
 }
 
 .flavour_disabled .widget .ui-slider
@@ -1530,9 +1530,9 @@ div#loading
 /*************************************/
 
 .widget .slide {
-	height: 60px;
-	padding: 0px 0px 0px 0px;
-	margin: 0 auto;
+  height: 60px;
+  padding: 0px 0px 0px 0px;
+  margin: 0 auto;
 }
 
 .ui-slider { position: relative; top: 30px; text-align: left;}
@@ -1558,55 +1558,55 @@ div#loading
 {
   width: 50%;
   float: left;
-	margin: 0 auto;
+  margin: 0 auto;
 
   border-color:  none;
 }
 
 .widget .ui-slider-handle
 {
-	border-style:  solid;
-	-moz-border-radius: 16px;
-	-webkit-border-radius: 16px;
-	border-radius: 16px;
-	padding: 1px;
-	margin-left: 0px !important;
+  border-style:  solid;
+  -moz-border-radius: 16px;
+  -webkit-border-radius: 16px;
+  border-radius: 16px;
+  padding: 1px;
+  margin-left: 0px !important;
 
-	border: none;
-	text-decoration: none;
-	font-weight: 100;
-	text-align: center;
-	white-space:nowrap;
-	font-size: 10px;
-	padding: 0.4em 0.2em 0;
-	line-height: 20px;
+  border: none;
+  text-decoration: none;
+  font-weight: 100;
+  text-align: center;
+  white-space:nowrap;
+  font-size: 10px;
+  padding: 0.4em 0.2em 0;
+  line-height: 20px;
 
-	-webkit-box-shadow: 0px 1px 4px gray;
-	-moz-box-shadow: 0px 1px 4px gray;
-	box-shadow: 0px 1px 4px gray;
-	cursor: pointer;
+  -webkit-box-shadow: 0px 1px 4px gray;
+  -moz-box-shadow: 0px 1px 4px gray;
+  box-shadow: 0px 1px 4px gray;
+  cursor: pointer;
 }
 
 .widget .ui-slider-handle .value
 {
-	margin-top: -20px;
+  margin-top: -20px;
 }
 
 #pages .page .widget .ui-slider-horizontal:first-child  {
   width: 95%;
-	margin: 0px auto !important;
+  margin: 0px auto !important;
 }
 
 
 /*  .ui-slider .ui-slider-range {
-	
+  
 }
 
 .widget .slide {
-	min-width: 100px;
-	height: 60px;
-	padding: 0px 0px 0px 0px;
-	margin: 0 auto;
+  min-width: 100px;
+  height: 60px;
+  padding: 0px 0px 0px 0px;
+  margin: 0 auto;
 }
 
 .ui-slider { position: relative; top: 22px; text-align: left;}
@@ -1630,14 +1630,14 @@ div#loading
 
 .widget .switch .label
 {
-	line-height: 60px;
+  line-height: 60px;
 }
 
 .widget .ui-slider
 {
   width: 48%;
   float: left;
-	margin: 0 auto;
+  margin: 0 auto;
 
   border-color:  none;
   background-color: #aeaeae;
@@ -1645,42 +1645,42 @@ div#loading
 
 .widget .ui-slider-handle
 {
-	border-style:  solid;
-	-moz-border-radius: 16px;
-	-webkit-border-radius: 16px;
-	border-radius: 16px;
-	padding: 1px;
-	margin-left: -15px !important;
+  border-style:  solid;
+  -moz-border-radius: 16px;
+  -webkit-border-radius: 16px;
+  border-radius: 16px;
+  padding: 1px;
+  margin-left: -15px !important;
 
-	border: none;
-	text-decoration: none;
-	font-weight: 100;
-	text-align: center;
-	white-space:nowrap;
-	font-size: 12px;
-	padding: 0.4em 0.2em 0;
-	line-height: 18px;
+  border: none;
+  text-decoration: none;
+  font-weight: 100;
+  text-align: center;
+  white-space:nowrap;
+  font-size: 12px;
+  padding: 0.4em 0.2em 0;
+  line-height: 18px;
 
-	-webkit-box-shadow: 0px 1px 4px gray;
-	-moz-box-shadow: 0px 1px 4px gray;
-	box-shadow: 0px 1px 4px gray;
+  -webkit-box-shadow: 0px 1px 4px gray;
+  -moz-box-shadow: 0px 1px 4px gray;
+  box-shadow: 0px 1px 4px gray;
 }
 
 #pages .page .widget .ui-slider-horizontal:first-child  {
   width: 95%;
-	margin: 0 auto;
+  margin: 0 auto;
 } */
 
 /************************************************************/
-/* 													misc														*/
+/*                           misc                            */
 /************************************************************/
 
 .rowspan { overflow:none; }
 .strftime { font-family: Helvetica, Arial, sans-serif; font-size: 5mm; }
 .widget.center:not(div):not(.switch):not(.toggle):not(.trigger):not(.diagram_info) > div,
 .widget.right:not(div):not(.switch):not(.toggle):not(.trigger):not(.diagram_info) > div {
-	width: 50%;
-	box-sizing: border-box;
+  width: 50%;
+  box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -ms-box-sizing: border-box;
@@ -1697,19 +1697,19 @@ div#loading
 .widget:not(.switch):not(.toggle):not(.trigger):not(.diagram_info) > .actor canvas.icon { margin-left: 10px; }
 .widget:not(.switch):not(.toggle):not(.trigger):not(.diagram_info) > .actor:first-child,
 .widget:not(.switch):not(.toggle):not(.trigger):not(.diagram_info) > .actor:first-child > div {
-	float: none; width: auto;
+  float: none; width: auto;
 }
 .widget.center.toggle > .actor:first-child,
 .widget.center.switch > .actor:first-child,
 .widget.center.trigger > .actor:first-child,
 .widget.center.diagram_info > .actor:first-child {
-	
+  
 }
 .widget.right.toggle > .actor:first-child,
 .widget.right.switch > .actor:first-child,
 .widget.right.trigger > .actor:first-child,
 .widget.right.diagram_info > .actor:first-child {
-	
+  
 }
 
 .widget.center > .actor > div, .widget.right > .actor > div { }
@@ -1765,11 +1765,11 @@ div#loading
     height: 2em;
 }
 #diagramTooltip, #flotTip {
-	z-index: 1000;
-	color: black;
-	border: 1px solid #fdd;
-	padding: 2px;
-	background-color: #fee;
-	opacity: 0.80;
+  z-index: 1000;
+  color: black;
+  border: 1px solid #fdd;
+  padding: 2px;
+  background-color: #fee;
+  opacity: 0.80;
 }
 

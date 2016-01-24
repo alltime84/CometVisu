@@ -369,6 +369,33 @@ define([ 'jquery' ], function( $ ) {
       }
     });
   };
+  
+  function isTouchDevice(){
+    try{
+      document.createEvent("TouchEvent");
+      return true;
+    }catch(e){
+      return false;
+    }
+  }
+      
+  function touchScroll(id){
+    var scrollStartPos=0;
+
+    document.getElementById(id).addEventListener("touchstart", function(event) {
+      scrollStartPos=this.scrollTop+event.touches[0].pageY;
+      event.preventDefault();
+    },false);
+
+    document.getElementById(id).addEventListener("touchmove", function(event) {
+      this.scrollTop=scrollStartPos-event.touches[0].pageY;
+      event.preventDefault();
+    },false);
+  }
+  
+  if(isTouchDevice()){
+    touchScroll("navbarLeft");
+  }
 }
 
 }); // end define
