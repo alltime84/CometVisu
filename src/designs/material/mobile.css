@@ -17,6 +17,93 @@ body
   margin: 0.2em 0.1em;
 }
 
+/************************************************************/
+/*                       navbar top                           */
+/************************************************************/
+
+#navbarTop .navbar  {
+  max-height: 48px;
+}
+
+#navbarTop .text  {
+  max-height: 48px;
+  height: 48px;
+  line-height: 48px;
+}
+
+#navbarTop .navbar .switchPressed,
+#navbarTop .navbar .switchUnpressed
+{
+  height: 48px;
+}
+
+#navbarTop .navbar .widget_container
+{
+  max-height: 48px;
+  height: 48px;
+}
+
+#navbarTop .navbar .widget {
+  max-height: 48px;
+  height: 48px;
+}
+
+#navbarTop .navbar .group
+{
+  max-height: 48px;
+  height: 48px;
+}
+
+#navbarTop .navbar .widget.flavour_status 
+{
+  max-height: 48px;
+  height: 48px;
+}
+
+#navbarTop .navbar .widget.flavour_status .actor{
+  line-height: 48px;
+  height: 48px;
+}
+
+#navbarTop .navbar .widget.flavour_status .actor .value{
+  line-height: 48px;
+  height: 48px;
+}
+
+#navbarTop .navbar .widget.flavour_status .value canvas.icon{
+  line-height: 48px;
+}
+
+#navbarTop .navbar .pagejump:first-child .label > img, #navbarTop .navbar .pagejump:first-child .label > canvas {
+  margin-top: 6px;
+}
+
+#navbarTop .navbar .label
+{
+  line-height: 48px;
+}
+
+/************************************************************/
+/*                           header                         */
+/************************************************************/
+
+#header {
+  height: 48px;
+}
+
+#header .header {
+  height: 48px;
+  line-height: 48px;
+}
+
+#header .header .actor .value{
+  height: 48px;
+}
+
+#header .header.title{
+  line-height: 48px;
+}
+
 #header .header .actor.switchUnpressed,
 #header .header .actor.switchPressed {
   width: 72px !important;
@@ -58,6 +145,10 @@ body
   background-color: #FFFFFF !important;
 }
 
+#menu .logo .actor{
+  height: 48px !important;
+}
+
 #menu .logo .actor .value{
   height: 48px !important;
   line-height: 48px !important;
@@ -81,7 +172,7 @@ body
 {
   width: 100% !important;
   overflow-y: scroll !important;
-  background-color: rgba(0,0,0,0.3);
+  background-color: rgba(0,0,0,0.3) !important;
 }
 
 #navbarLeft .navbar {

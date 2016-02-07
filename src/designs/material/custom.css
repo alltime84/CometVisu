@@ -44,6 +44,10 @@ body{
   border-bottom-color: #e5e5e5;
 }
 
+.widget.text.flavour_headline {
+  color: #888888;
+}
+
 .group
 {
   background-color: #FFFFFF;
@@ -57,12 +61,6 @@ body{
 
 .infotrigger .switchUnpressed .label,
 .infotrigger .switchPressed .label {
-  color: #3F51B5;
-  background-color: #FAFAFA;
-}
-
-.multitrigger .switchUnpressed  .value,
-.multitrigger .switchPressed  .value {
   color: #3F51B5;
   background-color: #FAFAFA;
 }
@@ -92,29 +90,28 @@ body{
 }
 
 .multitrigger .switchUnpressed {
-  color: #b8b8b8 !important;
-  background-color: #fafafa !important;
+
 }
 
 .multitrigger .switchUnpressed .value{
-  color: #b8b8b8 !important;
-  background-color: #fafafa !important;
-}
-
-.multitrigger .switchUnpressed .value:hover{
-  color: #5b5b5b !important;
-  background-color: #c8c8c8 !important;
+  color: #b8b8b8;
 }
 
 .multitrigger .switchPressed {
-  color: #5b5b5b !important;
-  background-color: #c8c8c8 !important;
+  
 }
 
-.multitrigger .switchPressed .value{
-  color: #5b5b5b !important;
-  background-color: #c8c8c8 !important;
+.multitrigger .switchPressed  .value {
+  color: #5b5b5b;
+  background-color: #c8c8c8;
 }
+
+.multitrigger .switchUnpressed .value:hover{
+  color: #5b5b5b;
+  background-color: #c8c8c8;
+}
+
+
 
 /************************************************************/
 /*                         Top bar                        */
@@ -163,12 +160,10 @@ body{
 /************************************************************/
 
 #header {
-  background-color: transparent;
   color: #FFFFFF;
 }
 
 #header .header {
-  background-color: transparent;
   color: #FFFFFF;
 }
 
@@ -188,8 +183,12 @@ body{
 /*                       navbar top 1                        */
 /************************************************************/
 
-#navbarTop .navbar  {
+#navbarTop {
   background-color: #3F51B5;
+}
+
+#navbarTop .navbar  {
+  
 }
 
 #navbarTop .navbar .switch  {
@@ -201,7 +200,12 @@ body{
 }
 
 #navbarTop .navbar .pagejump {
-  color: #f1f1f1;
+  background-color: transparent;
+}
+
+#navbarTop .navbar .pagejump .label {
+  color: #FFFFFF;
+  opacity: .6;
   background-color: transparent;
 }
 
@@ -211,6 +215,14 @@ body{
   color: #FFFFFF;
   background-color: transparent;
   border-bottom-color: #FF8000;
+}
+
+#navbarTop .navbar .pagejump.active .label,
+#navbarTop .navbar .pagejump.active_ancestor .label,
+#navbarTop .navbar .pagejump:hover .label {
+  color: #FFFFFF;
+  opacity: 1;
+  background-color: transparent;
 }
 
 /************************************************************/
@@ -242,8 +254,12 @@ body{
 /*                       navbar left                          */
 /************************************************************/
 
-#navbarLeft .navbar {
+#navbarLeft {
   background: #FFFFFF;
+}
+
+#navbarLeft .navbar {
+  
 }
 
 #navbarLeft .navbar .text  {

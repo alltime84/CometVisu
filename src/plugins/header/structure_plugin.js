@@ -23,10 +23,10 @@ define( ['structure_custom', 'css!plugins/header/header' ], function( VisuDesign
     create : function(element, path, flavour, type) {
       var $e = $(element);
       var $showtitle = true;
-      
+      var layout = $e.children('layout')[0];
       var header_id = "header" + uniqid();
-
       var classes = 'header';
+
       if ($e.attr('class')) {
         classes += ' custom_'+$e.attr('class');
       }
