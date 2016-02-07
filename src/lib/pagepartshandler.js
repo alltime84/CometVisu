@@ -370,16 +370,16 @@ define([ 'jquery' ], function( $ ) {
     });
   };
   
-  function isTouchDevice(){
+  this.isTouchDevice = function(){
     try{
       document.createEvent("TouchEvent");
       return true;
     }catch(e){
       return false;
     }
-  }
+  };
       
-  function touchScroll(id){
+  this.touchScroll = function(id){
     var scrollStartPos=0;
 
     document.getElementById(id).addEventListener("touchstart", function(event) {
@@ -391,10 +391,11 @@ define([ 'jquery' ], function( $ ) {
       this.scrollTop=scrollStartPos-event.touches[0].pageY;
       event.preventDefault();
     },false);
-  }
+  };
   
-  if(isTouchDevice()){
-    touchScroll("navbarLeft");
+  //Fix to enable scrollable navbarLeft
+  if(this.isTouchDevice()){
+    this.touchScroll("navbarLeft");
   }
 }
 
