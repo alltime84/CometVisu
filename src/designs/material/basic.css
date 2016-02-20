@@ -38,9 +38,9 @@ body hr
 {
   clear:both;
   color: #81664b;
-  background-color: #FFFFFF;
+  background-color: gray;
   height: 1px;
-  border:none;
+  border: none;
   padding:0px;
   margin:0.1em;
 }
@@ -57,10 +57,7 @@ body hr
 
 #pages hr
 {
-  border: 2 solid #111111;
-  height: 30px;
-  margin: 0 0.1em;
-  clear: both;
+
 }
 
 img {
@@ -908,7 +905,7 @@ div#loading
   margin-left: -5px;
 }
 
-.widget .text {
+.widget.text {
   height: 60px;
   line-height: 60px;
   padding: 0px;
@@ -1119,6 +1116,45 @@ div#loading
 {
   line-height: 60px;
   font-size: 14px;
+}
+
+/************************************************************/
+/*                           popup                          */
+/************************************************************/
+
+#popupcontainer
+{
+  -webkit-border-radius: 2px;
+  -khtml-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+}
+
+#popupcontainer .flavour_popuptitle
+{
+  padding: 0px 24px 0px 24px;
+  font-size: 18px;
+  -webkit-border-top-left-radius: 2px;
+  -khtml-border-top-left-radius: 2px;
+  -moz-border-radius-topleft: 2px;
+  border-top-left-radius:2px;
+  -webkit-border-top-right-radius: 2px;
+  -khtml-border-top-right-radius: 2px;
+  -moz-border-radius-topright: 2px;
+  border-top-right-radius:2px;
+  margin-bottom: 1px;
+}
+
+#popupcontainer .popupcontent .widget_container .widget:not(.flavour_popuptitle) {
+  margin: -1px 20px -1px 20px;
+  padding: 0px;
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-left: none;
+  border-bottom: none;
+  border-right: none;
+  float: none;
+  height: 59px;
 }
 
 

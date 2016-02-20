@@ -319,9 +319,9 @@ function printFunctionTypes($xmlDoc, $tab, $functionType, $mobile){
               echo printTab($tab)."&lt;group nowidget=\"true\"&gt;<br/>";
               $tab++;
               if ($mobile){
-                echo printTab($tab)."&lt;layout colspan=\"3\" rowspan=\"13\"/&gt;<br/>";
+                echo printTab($tab)."&lt;layout colspan=\"3\" rowspan=\"2\"/&gt;<br/>";
               } else {
-                echo printTab($tab)."&lt;layout colspan=\"4\" rowspan=\"13\"/&gt;<br/>";
+                echo printTab($tab)."&lt;layout colspan=\"4\" rowspan=\"2\"/&gt;<br/>";
               }
               
               echo printTab($tab)."&lt;text&gt;<br/>";
@@ -375,9 +375,9 @@ function printFunctionTypes($xmlDoc, $tab, $functionType, $mobile){
               echo printTab($tab)."&lt;group nowidget=\"true\"&gt;<br/>";
               $tab++;
               if ($mobile){
-                echo printTab($tab)."&lt;layout colspan=\"3\" rowspan=\"13\"/&gt;<br/>";
+                echo printTab($tab)."&lt;layout colspan=\"3\" rowspan=\"2\"/&gt;<br/>";
               } else {
-                echo printTab($tab)."&lt;layout colspan=\"4\" rowspan=\"13\"/&gt;<br/>";
+                echo printTab($tab)."&lt;layout colspan=\"4\" rowspan=\"2\"/&gt;<br/>";
               }
               echo printTab($tab)."&lt;switch mapping=\"OnOff\" bind_click_to_widget=\"false\"&gt;<br/>";
               $tab++;
@@ -456,9 +456,9 @@ function printFunctionTypes($xmlDoc, $tab, $functionType, $mobile){
             echo printTab($tab)."&lt;group nowidget=\"true\"&gt;<br/>";
             $tab++;
             if ($mobile){
-              echo printTab($tab)."&lt;layout colspan=\"3\" rowspan=\"13\"/&gt;<br/>";
+              echo printTab($tab)."&lt;layout colspan=\"3\" rowspan=\"2\"/&gt;<br/>";
             } else {
-              echo printTab($tab)."&lt;layout colspan=\"4\" rowspan=\"13\"/&gt;<br/>";
+              echo printTab($tab)."&lt;layout colspan=\"4\" rowspan=\"2\"/&gt;<br/>";
             }
             echo printTab($tab)."&lt;switch mapping=\"OnOff\" bind_click_to_widget=\"false\"&gt;<br/>";
             $tab++;
@@ -577,9 +577,9 @@ function printFunctionTypes($xmlDoc, $tab, $functionType, $mobile){
             echo printTab($tab)."&lt;group nowidget=\"true\" &gt;<br/>";
             $tab++;
             if ($mobile){
-              echo printTab($tab)."&lt;layout colspan=\"3\" rowspan=\"20\"/&gt;<br/>";
+              echo printTab($tab)."&lt;layout colspan=\"3\" rowspan=\"3\"/&gt;<br/>";
             } else {
-              echo printTab($tab)."&lt;layout colspan=\"4\" rowspan=\"20\"/&gt;<br/>";
+              echo printTab($tab)."&lt;layout colspan=\"4\" rowspan=\"3\"/&gt;<br/>";
             }
             
             if($GADoorStatus != null){

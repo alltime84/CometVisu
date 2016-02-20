@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pages lib_version="8" design="material" backend="cgi-bin" enable_column_adjustment="true" bind_click_to_widget="false" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../visu_config.xsd">
+<pages lib_version="8" design="material" backend="cgi-bin" max_mobile_screen_width="780" enable_column_adjustment="true" bind_click_to_widget="false" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../visu_config.xsd">
   <meta>
     <icons>
       <icon-definition name="menu" uri="config/media/material/ic_menu_white_24dp_1x.png" dynamic="recolorNonTransparent"/>
@@ -729,22 +729,6 @@
     <navbar position="left" dynamic="true" width="250">
       <menu/>
     </navbar>
-    
-    <!-- <popup>
-      <popuptrigger>
-        <text>
-          <label>trigger</label>
-        </text>
-      </popuptrigger>
-      <popupcontainer>
-        <text>
-          <label>container</label>
-        </text>
-        <text>
-          <label>neu</label>
-        </text>
-      </popupcontainer>
-    </popup> -->
 
     <page name="[DesktopHeader][0.0]Zentral" visible="false">
       <text flavour="headline">
@@ -758,7 +742,7 @@
       <group>
         <layout colspan="6"/>
         <group nowidget="true">
-          <layout colspan="6" rowspan="13"/>
+          <layout colspan="6" rowspan="2"/>
           <text>
             <layout colspan="4"/>
             <label>Licht schalten</label>
@@ -780,7 +764,7 @@
       <group>
         <layout colspan="6"/>
         <group nowidget="true" >
-          <layout colspan="6" rowspan="13"/>
+          <layout colspan="6" rowspan="2"/>
           <trigger value="0" shorttime="300" shortvalue="0" mapping="Jalousien">
             <layout colspan="0.5"/>
             <address transform="DPT:1.008" variant="button" mode="write">20/0/0</address>
@@ -846,11 +830,58 @@
           <label>KG</label>
           <address transform="DPT:1.019" mode="read">0/3/20</address>
         </info>
-        <info mapping="DoorOpenClose" bind_click_to_widget="false">
-          <layout colspan="4"/>
-          <label>EG</label>
-          <address transform="DPT:1.019" mode="read">0/3/40</address>
-        </info>
+        <popup>
+            <layout colspan="4"/>
+            <popuptrigger>
+              <info mapping="DoorOpenClose" bind_click_to_widget="false">
+                <layout colspan="12"/>
+                <label>EG</label>
+                <address transform="DPT:1.019" mode="read">0/3/40</address>
+              </info>
+            </popuptrigger>
+            <popupcontainer>
+              <layout colspan="4"/>
+              <text flavour="popuptitle">
+                <layout colspan="4"/>
+                <label>Fenster EG</label>
+              </text>
+              <info mapping="DoorOpenClose" bind_click_to_widget="false">
+                <layout colspan="4"/>
+                <label>Küche</label>
+                <address transform="DPT:1.019" mode="read">0/3/60</address>
+              </info>
+              <info mapping="DoorOpenClose" bind_click_to_widget="false">
+                <layout colspan="4"/>
+                <label>Wohnen</label>
+                <address transform="DPT:1.019" mode="read">0/3/60</address>
+              </info>
+              <info mapping="DoorOpenClose" bind_click_to_widget="false">
+                <layout colspan="4"/>
+                <label>Wintergarten</label>
+                <address transform="DPT:1.019" mode="read">0/3/60</address>
+              </info>
+              <info mapping="DoorOpenClose" bind_click_to_widget="false">
+                <layout colspan="4"/>
+                <label>Büro</label>
+                <address transform="DPT:1.019" mode="read">0/3/60</address>
+              </info>
+              <info mapping="DoorOpenClose" bind_click_to_widget="false">
+                <layout colspan="4"/>
+                <label>Gäste WC</label>
+                <address transform="DPT:1.019" mode="read">0/3/60</address>
+              </info>
+              <info mapping="DoorOpenClose" bind_click_to_widget="false">
+                <layout colspan="4"/>
+                <label>Speise</label>
+                <address transform="DPT:1.019" mode="read">0/3/60</address>
+              </info>
+              <info mapping="DoorOpenClose" bind_click_to_widget="false">
+                <layout colspan="4"/>
+                <label>Garderobe</label>
+                <address transform="DPT:1.019" mode="read">0/3/60</address>
+              </info>
+            </popupcontainer>
+          </popup>
         <info mapping="DoorOpenClose" bind_click_to_widget="false">
           <layout colspan="4"/>
           <label>OG</label>
@@ -932,7 +963,7 @@
         <group>
           <layout colspan="3"/>
           <group nowidget="true">
-            <layout colspan="3" rowspan="13"/>
+            <layout colspan="3" rowspan="2"/>
             <text>
               <layout colspan="2"/>
               <label>Licht schalten</label>
@@ -957,7 +988,7 @@
         <group>
           <layout colspan="3"/>
           <group nowidget="true" >
-            <layout colspan="3" rowspan="20"/>
+            <layout colspan="3" rowspan="3"/>
             <text>
               <layout colspan="3"/>
               <label>Sonnenschutz</label>
@@ -1027,11 +1058,53 @@
             <label>KG</label>
             <address transform="DPT:1.019" mode="read">0/3/20</address>
           </info>
-          <info mapping="DoorOpenClose" bind_click_to_widget="false">
+          <popup>
             <layout colspan="3"/>
-            <label>EG</label>
-            <address transform="DPT:1.019" mode="read">0/3/40</address>
-          </info>
+            <popuptrigger>
+              <info mapping="DoorOpenClose" bind_click_to_widget="false">
+                <label>EG</label>
+                <address transform="DPT:1.019" mode="read">0/3/40</address>
+              </info>
+            </popuptrigger>
+            <popupcontainer>
+              <layout colspan="3"/>
+              <info mapping="DoorOpenClose" bind_click_to_widget="false">
+                <layout colspan="3"/>
+                <label>Küche</label>
+                <address transform="DPT:1.019" mode="read">0/3/60</address>
+              </info>
+              <info mapping="DoorOpenClose" bind_click_to_widget="false">
+                <layout colspan="3"/>
+                <label>Wohnen</label>
+                <address transform="DPT:1.019" mode="read">0/3/60</address>
+              </info>
+              <info mapping="DoorOpenClose" bind_click_to_widget="false">
+                <layout colspan="3"/>
+                <label>Wintergarten</label>
+                <address transform="DPT:1.019" mode="read">0/3/60</address>
+              </info>
+              <info mapping="DoorOpenClose" bind_click_to_widget="false">
+                <layout colspan="3"/>
+                <label>Büro</label>
+                <address transform="DPT:1.019" mode="read">0/3/60</address>
+              </info>
+              <info mapping="DoorOpenClose" bind_click_to_widget="false">
+                <layout colspan="3"/>
+                <label>Gäste WC</label>
+                <address transform="DPT:1.019" mode="read">0/3/60</address>
+              </info>
+              <info mapping="DoorOpenClose" bind_click_to_widget="false">
+                <layout colspan="3"/>
+                <label>Speise</label>
+                <address transform="DPT:1.019" mode="read">0/3/60</address>
+              </info>
+              <info mapping="DoorOpenClose" bind_click_to_widget="false">
+                <layout colspan="3"/>
+                <label>Garderobe</label>
+                <address transform="DPT:1.019" mode="read">0/3/60</address>
+              </info>
+            </popupcontainer>
+          </popup>
           <info mapping="DoorOpenClose" bind_click_to_widget="false">
             <layout colspan="3"/>
             <label>OG</label>
@@ -1103,7 +1176,7 @@
         <group>
           <layout colspan="4"/>
           <group nowidget="true">
-            <layout colspan="4" rowspan="13"/>
+            <layout colspan="4" rowspan="2"/>
             <text>
               <layout colspan="2"/>
               <label>Licht</label>
@@ -1130,7 +1203,7 @@
         <group>
           <layout colspan="4"/>
           <group nowidget="true" >
-            <layout colspan="4" rowspan="20"/>
+            <layout colspan="4" rowspan="3"/>
             <info mapping="DoorOpenClose">
               <layout colspan="4"/>
               <label>Sonnenschutz</label>
@@ -1149,7 +1222,7 @@
         <group>
           <layout colspan="3"/>
           <group nowidget="true">
-            <layout colspan="3" rowspan="13"/>
+            <layout colspan="3" rowspan="2"/>
             <text>
               <layout colspan="2"/>
               <label>Licht</label>
@@ -1177,7 +1250,7 @@
         <group>
           <layout colspan="3"/>
           <group nowidget="true" >
-            <layout colspan="3" rowspan="20"/>
+            <layout colspan="3" rowspan="3"/>
             <info mapping="DoorOpenClose">
               <layout colspan="3"/>
               <label>Sonnenschutz</label>
@@ -1197,7 +1270,7 @@
         <group>
           <layout colspan="4"/>
           <group nowidget="true">
-            <layout colspan="4" rowspan="13"/>
+            <layout colspan="4" rowspan="2"/>
             <text>
               <layout colspan="2"/>
               <label>Licht</label>
@@ -1219,7 +1292,7 @@
         <group>
           <layout colspan="4"/>
           <group nowidget="true">
-            <layout colspan="4" rowspan="13"/>
+            <layout colspan="4" rowspan="2"/>
             <switch mapping="OnOff" bind_click_to_widget="false">
               <label>Deckenlicht</label>
               <address transform="DPT:1.001" mode="write">11/1/20</address>
@@ -1234,7 +1307,7 @@
         <group>
           <layout colspan="4"/>
           <group nowidget="true">
-            <layout colspan="4" rowspan="13"/>
+            <layout colspan="4" rowspan="2"/>
             <switch mapping="OnOff" bind_click_to_widget="false">
               <label>Treppenspots</label>
               <address transform="DPT:1.001" mode="write">11/1/30</address>
@@ -1256,7 +1329,7 @@
         <group>
           <layout colspan="3"/>
           <group nowidget="true">
-            <layout colspan="3" rowspan="13"/>
+            <layout colspan="3" rowspan="2"/>
             <text>
               <layout colspan="2"/>
               <label>Licht</label>
@@ -1278,7 +1351,7 @@
         <group>
           <layout colspan="3"/>
           <group nowidget="true">
-            <layout colspan="3" rowspan="13"/>
+            <layout colspan="3" rowspan="2"/>
             <switch mapping="OnOff" bind_click_to_widget="false">
               <label>Deckenlicht</label>
               <address transform="DPT:1.001" mode="write">11/1/20</address>
@@ -1293,7 +1366,7 @@
         <group>
           <layout colspan="3"/>
           <group nowidget="true">
-            <layout colspan="3" rowspan="13"/>
+            <layout colspan="3" rowspan="2"/>
             <switch mapping="OnOff" bind_click_to_widget="false">
               <label>Treppenspots</label>
               <address transform="DPT:1.001" mode="write">11/1/30</address>
@@ -1316,7 +1389,7 @@
         <group>
           <layout colspan="4"/>
           <group nowidget="true">
-            <layout colspan="4" rowspan="13"/>
+            <layout colspan="4" rowspan="2"/>
             <switch mapping="OnOff" bind_click_to_widget="false">
               <label>Deckenlicht</label>
               <address transform="DPT:1.001" mode="write">11/1/50</address>
@@ -1371,7 +1444,7 @@
         <group>
           <layout colspan="3"/>
           <group nowidget="true">
-            <layout colspan="3" rowspan="13"/>
+            <layout colspan="3" rowspan="2"/>
             <switch mapping="OnOff" bind_click_to_widget="false">
               <label>Deckenlicht</label>
               <address transform="DPT:1.001" mode="write">11/1/50</address>
@@ -1428,7 +1501,7 @@
         <group>
           <layout colspan="4"/>
           <group nowidget="true">
-            <layout colspan="4" rowspan="13"/>
+            <layout colspan="4" rowspan="2"/>
             <text>
               <layout colspan="2"/>
               <label>Licht</label>
@@ -1450,7 +1523,7 @@
         <group>
           <layout colspan="4"/>
           <group nowidget="true">
-            <layout colspan="4" rowspan="13"/>
+            <layout colspan="4" rowspan="2"/>
             <switch mapping="OnOff" bind_click_to_widget="false">
               <label>Deckenlicht</label>
               <address transform="DPT:1.001" mode="write">11/1/70</address>
@@ -1465,7 +1538,7 @@
         <group>
           <layout colspan="4"/>
           <group nowidget="true">
-            <layout colspan="4" rowspan="13"/>
+            <layout colspan="4" rowspan="2"/>
             <switch mapping="OnOff" bind_click_to_widget="false">
               <label>Barlicht</label>
               <address transform="DPT:1.001" mode="write">11/1/80</address>
@@ -1485,7 +1558,7 @@
         <group>
           <layout colspan="4"/>
           <group nowidget="true" >
-            <layout colspan="4" rowspan="20"/>
+            <layout colspan="4" rowspan="3"/>
             <info mapping="DoorOpenClose">
               <layout colspan="4"/>
               <label>Fenster</label>
@@ -1537,7 +1610,7 @@
         <group>
           <layout colspan="3"/>
           <group nowidget="true">
-            <layout colspan="3" rowspan="13"/>
+            <layout colspan="3" rowspan="2"/>
             <text>
               <layout colspan="2"/>
               <label>Licht</label>
@@ -1559,7 +1632,7 @@
         <group>
           <layout colspan="3"/>
           <group nowidget="true">
-            <layout colspan="3" rowspan="13"/>
+            <layout colspan="3" rowspan="2"/>
             <switch mapping="OnOff" bind_click_to_widget="false">
               <label>Deckenlicht</label>
               <address transform="DPT:1.001" mode="write">11/1/70</address>
@@ -1574,7 +1647,7 @@
         <group>
           <layout colspan="3"/>
           <group nowidget="true">
-            <layout colspan="3" rowspan="13"/>
+            <layout colspan="3" rowspan="2"/>
             <switch mapping="OnOff" bind_click_to_widget="false">
               <label>Barlicht</label>
               <address transform="DPT:1.001" mode="write">11/1/80</address>
@@ -1595,7 +1668,7 @@
         <group>
           <layout colspan="3"/>
           <group nowidget="true" >
-            <layout colspan="3" rowspan="20"/>
+            <layout colspan="3" rowspan="3"/>
             <info mapping="DoorOpenClose">
               <layout colspan="3"/>
               <label>Fenster</label>
@@ -1649,7 +1722,7 @@
         <group>
           <layout colspan="4"/>
           <group nowidget="true">
-            <layout colspan="4" rowspan="13"/>
+            <layout colspan="4" rowspan="2"/>
             <switch mapping="OnOff" bind_click_to_widget="false">
               <label>Deckenlicht</label>
               <address transform="DPT:1.001" mode="write">11/1/100</address>
@@ -1687,7 +1760,7 @@
         <group>
           <layout colspan="3"/>
           <group nowidget="true">
-            <layout colspan="3" rowspan="13"/>
+            <layout colspan="3" rowspan="2"/>
             <switch mapping="OnOff" bind_click_to_widget="false">
               <label>Deckenlicht</label>
               <address transform="DPT:1.001" mode="write">11/1/100</address>
@@ -1727,7 +1800,7 @@
         <group>
           <layout colspan="4"/>
           <group nowidget="true">
-            <layout colspan="4" rowspan="13"/>
+            <layout colspan="4" rowspan="2"/>
             <text>
               <layout colspan="2"/>
               <label>Licht</label>
@@ -1749,7 +1822,7 @@
         <group>
           <layout colspan="4"/>
           <group nowidget="true">
-            <layout colspan="4" rowspan="13"/>
+            <layout colspan="4" rowspan="2"/>
             <switch mapping="OnOff" bind_click_to_widget="false">
               <label>Deckenlicht</label>
               <address transform="DPT:1.001" mode="write">11/1/120</address>
@@ -1764,7 +1837,7 @@
         <group>
           <layout colspan="4"/>
           <group nowidget="true">
-            <layout colspan="4" rowspan="13"/>
+            <layout colspan="4" rowspan="2"/>
             <switch mapping="OnOff" bind_click_to_widget="false">
               <label>Duschlicht</label>
               <address transform="DPT:1.001" mode="write">11/1/130</address>
@@ -1819,7 +1892,7 @@
         <group>
           <layout colspan="3"/>
           <group nowidget="true">
-            <layout colspan="3" rowspan="13"/>
+            <layout colspan="3" rowspan="2"/>
             <text>
               <layout colspan="2"/>
               <label>Licht</label>
@@ -1841,7 +1914,7 @@
         <group>
           <layout colspan="3"/>
           <group nowidget="true">
-            <layout colspan="3" rowspan="13"/>
+            <layout colspan="3" rowspan="2"/>
             <switch mapping="OnOff" bind_click_to_widget="false">
               <label>Deckenlicht</label>
               <address transform="DPT:1.001" mode="write">11/1/120</address>
@@ -1856,7 +1929,7 @@
         <group>
           <layout colspan="3"/>
           <group nowidget="true">
-            <layout colspan="3" rowspan="13"/>
+            <layout colspan="3" rowspan="2"/>
             <switch mapping="OnOff" bind_click_to_widget="false">
               <label>Duschlicht</label>
               <address transform="DPT:1.001" mode="write">11/1/130</address>
@@ -1913,7 +1986,7 @@
         <group>
           <layout colspan="4"/>
           <group nowidget="true">
-            <layout colspan="4" rowspan="13"/>
+            <layout colspan="4" rowspan="2"/>
             <switch mapping="OnOff" bind_click_to_widget="false">
               <label>Deckenlicht</label>
               <address transform="DPT:1.001" mode="write">11/1/150</address>
@@ -1935,7 +2008,7 @@
         <group>
           <layout colspan="3"/>
           <group nowidget="true">
-            <layout colspan="3" rowspan="13"/>
+            <layout colspan="3" rowspan="2"/>
             <switch mapping="OnOff" bind_click_to_widget="false">
               <label>Deckenlicht</label>
               <address transform="DPT:1.001" mode="write">11/1/150</address>
@@ -1958,7 +2031,7 @@
         <group>
           <layout colspan="4"/>
           <group nowidget="true">
-            <layout colspan="4" rowspan="13"/>
+            <layout colspan="4" rowspan="2"/>
             <switch mapping="OnOff" bind_click_to_widget="false">
               <label>Deckenlicht</label>
               <address transform="DPT:1.001" mode="write">11/1/170</address>
@@ -1980,7 +2053,7 @@
         <group>
           <layout colspan="3"/>
           <group nowidget="true">
-            <layout colspan="3" rowspan="13"/>
+            <layout colspan="3" rowspan="2"/>
             <switch mapping="OnOff" bind_click_to_widget="false">
               <label>Deckenlicht</label>
               <address transform="DPT:1.001" mode="write">11/1/170</address>
@@ -2005,7 +2078,7 @@
         <group>
           <layout colspan="4"/>
           <group nowidget="true">
-            <layout colspan="4" rowspan="13"/>
+            <layout colspan="4" rowspan="2"/>
             <text>
               <layout colspan="2"/>
               <label>Licht</label>
@@ -2032,7 +2105,7 @@
         <group>
           <layout colspan="4"/>
           <group nowidget="true" >
-            <layout colspan="4" rowspan="20"/>
+            <layout colspan="4" rowspan="3"/>
             <text>
               <layout colspan="4"/>
               <label>Sonnenschutz</label>
@@ -2065,7 +2138,7 @@
         <group>
           <layout colspan="3"/>
           <group nowidget="true">
-            <layout colspan="3" rowspan="13"/>
+            <layout colspan="3" rowspan="2"/>
             <text>
               <layout colspan="2"/>
               <label>Licht</label>
@@ -2093,7 +2166,7 @@
         <group>
           <layout colspan="3"/>
           <group nowidget="true" >
-            <layout colspan="3" rowspan="20"/>
+            <layout colspan="3" rowspan="3"/>
             <text>
               <layout colspan="3"/>
               <label>Sonnenschutz</label>
@@ -2127,7 +2200,7 @@
         <group>
           <layout colspan="4"/>
           <group nowidget="true">
-            <layout colspan="4" rowspan="13"/>
+            <layout colspan="4" rowspan="2"/>
             <text>
               <layout colspan="2"/>
               <label>Licht</label>
@@ -2149,7 +2222,7 @@
         <group>
           <layout colspan="4"/>
           <group nowidget="true">
-            <layout colspan="4" rowspan="13"/>
+            <layout colspan="4" rowspan="2"/>
             <switch mapping="OnOff" bind_click_to_widget="false">
               <label>Deckenspots</label>
               <address transform="DPT:1.001" mode="write">11/2/20</address>
@@ -2164,7 +2237,7 @@
         <group>
           <layout colspan="4"/>
           <group nowidget="true">
-            <layout colspan="4" rowspan="13"/>
+            <layout colspan="4" rowspan="2"/>
             <switch mapping="OnOff" bind_click_to_widget="false">
               <label>Treppenspots</label>
               <address transform="DPT:1.001" mode="write">11/2/30</address>
@@ -2202,7 +2275,7 @@
         <group>
           <layout colspan="3"/>
           <group nowidget="true">
-            <layout colspan="3" rowspan="13"/>
+            <layout colspan="3" rowspan="2"/>
             <text>
               <layout colspan="2"/>
               <label>Licht</label>
@@ -2224,7 +2297,7 @@
         <group>
           <layout colspan="3"/>
           <group nowidget="true">
-            <layout colspan="3" rowspan="13"/>
+            <layout colspan="3" rowspan="2"/>
             <switch mapping="OnOff" bind_click_to_widget="false">
               <label>Deckenspots</label>
               <address transform="DPT:1.001" mode="write">11/2/20</address>
@@ -2239,7 +2312,7 @@
         <group>
           <layout colspan="3"/>
           <group nowidget="true">
-            <layout colspan="3" rowspan="13"/>
+            <layout colspan="3" rowspan="2"/>
             <switch mapping="OnOff" bind_click_to_widget="false">
               <label>Treppenspots</label>
               <address transform="DPT:1.001" mode="write">11/2/30</address>
@@ -2279,7 +2352,7 @@
         <group>
           <layout colspan="4"/>
           <group nowidget="true">
-            <layout colspan="4" rowspan="13"/>
+            <layout colspan="4" rowspan="2"/>
             <text>
               <layout colspan="2"/>
               <label>Licht</label>
@@ -2301,7 +2374,7 @@
         <group>
           <layout colspan="4"/>
           <group nowidget="true">
-            <layout colspan="4" rowspan="13"/>
+            <layout colspan="4" rowspan="2"/>
             <switch mapping="OnOff" bind_click_to_widget="false">
               <layout colspan="4"/>
               <label>Deckenspots</label>
@@ -2329,7 +2402,7 @@
         <group>
           <layout colspan="4"/>
           <group nowidget="true">
-            <layout colspan="4" rowspan="13"/>
+            <layout colspan="4" rowspan="2"/>
             <switch mapping="OnOff" bind_click_to_widget="false">
               <label>Arbeitslicht</label>
               <address transform="DPT:1.001" mode="write">11/2/60</address>
@@ -2349,7 +2422,7 @@
         <group>
           <layout colspan="4"/>
           <group nowidget="true" >
-            <layout colspan="4" rowspan="20"/>
+            <layout colspan="4" rowspan="3"/>
             <text>
               <layout colspan="4"/>
               <label>Sonnenschutz</label>
@@ -2376,7 +2449,7 @@
         <group>
           <layout colspan="4"/>
           <group nowidget="true" >
-            <layout colspan="4" rowspan="20"/>
+            <layout colspan="4" rowspan="3"/>
             <info mapping="DoorOpenClose">
               <layout colspan="4"/>
               <label>Fenster</label>
@@ -2404,7 +2477,7 @@
         <group>
           <layout colspan="4"/>
           <group nowidget="true" >
-            <layout colspan="4" rowspan="20"/>
+            <layout colspan="4" rowspan="3"/>
             <info mapping="DoorOpenClose">
               <layout colspan="4"/>
               <label>Terassentür</label>
@@ -2482,7 +2555,7 @@
           <group>
             <layout colspan="3"/>
             <group nowidget="true">
-              <layout colspan="3" rowspan="13"/>
+              <layout colspan="3" rowspan="2"/>
               <text>
                 <layout colspan="2"/>
                 <label>Licht</label>
@@ -2504,7 +2577,7 @@
           <group>
             <layout colspan="3"/>
             <group nowidget="true">
-              <layout colspan="3" rowspan="13"/>
+              <layout colspan="3" rowspan="2"/>
               <switch mapping="OnOff" bind_click_to_widget="false">
                 <layout colspan="3"/>
                 <label>Deckenspots</label>
@@ -2532,7 +2605,7 @@
           <group>
             <layout colspan="3"/>
             <group nowidget="true">
-              <layout colspan="3" rowspan="13"/>
+              <layout colspan="3" rowspan="2"/>
               <switch mapping="OnOff" bind_click_to_widget="false">
                 <label>Arbeitslicht</label>
                 <address transform="DPT:1.001" mode="write">11/2/60</address>
@@ -2550,7 +2623,7 @@
           <group>
             <layout colspan="3"/>
             <group nowidget="true" >
-              <layout colspan="3" rowspan="20"/>
+              <layout colspan="3" rowspan="3"/>
               <text>
                 <layout colspan="3"/>
                 <label>Sonnenschutz</label>
@@ -2577,7 +2650,7 @@
           <group>
             <layout colspan="3"/>
             <group nowidget="true" >
-              <layout colspan="3" rowspan="20"/>
+              <layout colspan="3" rowspan="3"/>
               <info mapping="DoorOpenClose">
                 <layout colspan="3"/>
                 <label>Fenster</label>
@@ -2605,7 +2678,7 @@
           <group>
             <layout colspan="3"/>
             <group nowidget="true" >
-              <layout colspan="3" rowspan="20"/>
+              <layout colspan="3" rowspan="3"/>
               <info mapping="DoorOpenClose">
                 <layout colspan="3"/>
                 <label>Terassentür</label>
@@ -2673,7 +2746,7 @@
         <group>
           <layout colspan="4"/>
           <group nowidget="true">
-            <layout colspan="4" rowspan="13"/>
+            <layout colspan="4" rowspan="2"/>
             <text>
               <layout colspan="2"/>
               <label>Licht</label>
@@ -2695,7 +2768,7 @@
         <group>
           <layout colspan="4"/>
           <group nowidget="true">
-            <layout colspan="4" rowspan="13"/>
+            <layout colspan="4" rowspan="2"/>
             <switch mapping="OnOff" bind_click_to_widget="false">
               <layout colspan="4"/>
               <label>Deckenspots Essen</label>
@@ -2723,7 +2796,7 @@
         <group>
           <layout colspan="4"/>
           <group nowidget="true">
-            <layout colspan="4" rowspan="13"/>
+            <layout colspan="4" rowspan="2"/>
             <switch mapping="OnOff" bind_click_to_widget="false">
               <label>Esstisch</label>
               <address transform="DPT:1.001" mode="write">11/2/90</address>
@@ -2738,7 +2811,7 @@
         <group>
           <layout colspan="4"/>
           <group nowidget="true">
-            <layout colspan="4" rowspan="13"/>
+            <layout colspan="4" rowspan="2"/>
             <switch mapping="OnOff" bind_click_to_widget="false">
               <label>RF Steckdose</label>
               <address transform="DPT:1.001" mode="write">11/2/120</address>
@@ -2753,7 +2826,7 @@
         <group>
           <layout colspan="4"/>
           <group nowidget="true">
-            <layout colspan="4" rowspan="13"/>
+            <layout colspan="4" rowspan="2"/>
             <switch mapping="OnOff" bind_click_to_widget="false">
               <layout colspan="4"/>
               <label>Deckenspots Wohnen</label>
@@ -2781,7 +2854,7 @@
         <group>
           <layout colspan="4"/>
           <group nowidget="true">
-            <layout colspan="4" rowspan="13"/>
+            <layout colspan="4" rowspan="2"/>
             <switch mapping="OnOff" bind_click_to_widget="false">
               <label>Couchtisch</label>
               <address transform="DPT:1.001" mode="write">11/2/110</address>
@@ -2801,7 +2874,7 @@
         <group>
           <layout colspan="4"/>
           <group nowidget="true" >
-            <layout colspan="4" rowspan="20"/>
+            <layout colspan="4" rowspan="3"/>
             <text>
               <layout colspan="4"/>
               <label>Sonnenschutz</label>
@@ -2842,7 +2915,7 @@
         <group>
           <layout colspan="4"/>
           <group nowidget="true" >
-            <layout colspan="4" rowspan="20"/>
+            <layout colspan="4" rowspan="3"/>
             <info mapping="DoorOpenClose">
               <layout colspan="4"/>
               <label>Erker</label>
@@ -2884,7 +2957,7 @@
         <group>
           <layout colspan="4"/>
           <group nowidget="true" >
-            <layout colspan="4" rowspan="20"/>
+            <layout colspan="4" rowspan="3"/>
             <info mapping="DoorOpenClose">
               <layout colspan="4"/>
               <label>Wohnen Fenster</label>
@@ -2912,7 +2985,7 @@
         <group>
           <layout colspan="4"/>
           <group nowidget="true" >
-            <layout colspan="4" rowspan="20"/>
+            <layout colspan="4" rowspan="3"/>
             <info mapping="DoorOpenClose">
               <layout colspan="4"/>
               <label>Wohnen Schiebetür</label>
@@ -2990,7 +3063,7 @@
           <group>
             <layout colspan="3"/>
             <group nowidget="true">
-              <layout colspan="3" rowspan="13"/>
+              <layout colspan="3" rowspan="2"/>
               <text>
                 <layout colspan="2"/>
                 <label>Licht</label>
@@ -3012,7 +3085,7 @@
           <group>
             <layout colspan="3"/>
             <group nowidget="true">
-              <layout colspan="3" rowspan="13"/>
+              <layout colspan="3" rowspan="2"/>
               <switch mapping="OnOff" bind_click_to_widget="false">
                 <layout colspan="3"/>
                 <label>Deckenspots Essen</label>
@@ -3040,7 +3113,7 @@
           <group>
             <layout colspan="3"/>
             <group nowidget="true">
-              <layout colspan="3" rowspan="13"/>
+              <layout colspan="3" rowspan="2"/>
               <switch mapping="OnOff" bind_click_to_widget="false">
                 <label>Esstisch</label>
                 <address transform="DPT:1.001" mode="write">11/2/90</address>
@@ -3055,7 +3128,7 @@
           <group>
             <layout colspan="3"/>
             <group nowidget="true">
-              <layout colspan="3" rowspan="13"/>
+              <layout colspan="3" rowspan="2"/>
               <switch mapping="OnOff" bind_click_to_widget="false">
                 <label>RF Steckdose</label>
                 <address transform="DPT:1.001" mode="write">11/2/120</address>
@@ -3070,7 +3143,7 @@
           <group>
             <layout colspan="3"/>
             <group nowidget="true">
-              <layout colspan="3" rowspan="13"/>
+              <layout colspan="3" rowspan="2"/>
               <switch mapping="OnOff" bind_click_to_widget="false">
                 <layout colspan="3"/>
                 <label>Deckenspots Wohnen</label>
@@ -3098,7 +3171,7 @@
           <group>
             <layout colspan="3"/>
             <group nowidget="true">
-              <layout colspan="3" rowspan="13"/>
+              <layout colspan="3" rowspan="2"/>
               <switch mapping="OnOff" bind_click_to_widget="false">
                 <label>Couchtisch</label>
                 <address transform="DPT:1.001" mode="write">11/2/110</address>
@@ -3116,7 +3189,7 @@
           <group>
             <layout colspan="3"/>
             <group nowidget="true" >
-              <layout colspan="3" rowspan="20"/>
+              <layout colspan="3" rowspan="3"/>
               <text>
                 <layout colspan="3"/>
                 <label>Sonnenschutz</label>
@@ -3157,7 +3230,7 @@
           <group>
             <layout colspan="3"/>
             <group nowidget="true" >
-              <layout colspan="3" rowspan="20"/>
+              <layout colspan="3" rowspan="3"/>
               <info mapping="DoorOpenClose">
                 <layout colspan="3"/>
                 <label>Erker</label>
@@ -3199,7 +3272,7 @@
           <group>
             <layout colspan="3"/>
             <group nowidget="true" >
-              <layout colspan="3" rowspan="20"/>
+              <layout colspan="3" rowspan="3"/>
               <info mapping="DoorOpenClose">
                 <layout colspan="3"/>
                 <label>Wohnen Fenster</label>
@@ -3227,7 +3300,7 @@
           <group>
             <layout colspan="3"/>
             <group nowidget="true" >
-              <layout colspan="3" rowspan="20"/>
+              <layout colspan="3" rowspan="3"/>
               <info mapping="DoorOpenClose">
                 <layout colspan="3"/>
                 <label>Wohnen Schiebetür</label>
@@ -3295,7 +3368,7 @@
         <group>
           <layout colspan="4"/>
           <group nowidget="true">
-            <layout colspan="4" rowspan="13"/>
+            <layout colspan="4" rowspan="2"/>
             <switch mapping="OnOff" bind_click_to_widget="false">
               <layout colspan="4"/>
               <label>Deckenspots</label>
@@ -3328,7 +3401,7 @@
         <group>
           <layout colspan="4"/>
           <group nowidget="true" >
-            <layout colspan="4" rowspan="20"/>
+            <layout colspan="4" rowspan="3"/>
             <text>
               <layout colspan="4"/>
               <label>Sonnenschutz</label>
@@ -3369,7 +3442,7 @@
         <group>
           <layout colspan="4"/>
           <group nowidget="true" >
-            <layout colspan="4" rowspan="20"/>
+            <layout colspan="4" rowspan="3"/>
             <info mapping="DoorOpenClose">
               <layout colspan="4"/>
               <label>Terrassentür</label>
@@ -3411,7 +3484,7 @@
         <group>
           <layout colspan="4"/>
           <group nowidget="true" >
-            <layout colspan="4" rowspan="20"/>
+            <layout colspan="4" rowspan="3"/>
             <text>
               <layout colspan="4"/>
               <label>Fenster West</label>
@@ -3492,7 +3565,7 @@
         <group>
           <layout colspan="3"/>
           <group nowidget="true">
-            <layout colspan="3" rowspan="13"/>
+            <layout colspan="3" rowspan="2"/>
             <switch mapping="OnOff" bind_click_to_widget="false">
               <layout colspan="3"/>
               <label>Deckenspots</label>
@@ -3526,7 +3599,7 @@
         <group>
           <layout colspan="3"/>
           <group nowidget="true" >
-            <layout colspan="3" rowspan="20"/>
+            <layout colspan="3" rowspan="3"/>
             <text>
               <layout colspan="3"/>
               <label>Sonnenschutz</label>
@@ -3567,7 +3640,7 @@
         <group>
           <layout colspan="3"/>
           <group nowidget="true" >
-            <layout colspan="3" rowspan="20"/>
+            <layout colspan="3" rowspan="3"/>
             <info mapping="DoorOpenClose">
               <layout colspan="3"/>
               <label>Terrassentür</label>
@@ -3609,7 +3682,7 @@
         <group>
           <layout colspan="3"/>
           <group nowidget="true" >
-            <layout colspan="3" rowspan="20"/>
+            <layout colspan="3" rowspan="3"/>
             <text>
               <layout colspan="3"/>
               <label>Fenster West</label>
@@ -3692,7 +3765,7 @@
         <group>
           <layout colspan="4"/>
           <group nowidget="true">
-            <layout colspan="4" rowspan="13"/>
+            <layout colspan="4" rowspan="2"/>
             <switch mapping="OnOff" bind_click_to_widget="false">
               <label>Deckenlicht</label>
               <address transform="DPT:1.001" mode="write">11/2/150</address>
@@ -3712,7 +3785,7 @@
         <group>
           <layout colspan="4"/>
           <group nowidget="true" >
-            <layout colspan="4" rowspan="20"/>
+            <layout colspan="4" rowspan="3"/>
             <info mapping="DoorOpenClose">
               <layout colspan="4"/>
               <label>Sonnenschutz</label>
@@ -3740,7 +3813,7 @@
         <group>
           <layout colspan="4"/>
           <group nowidget="true" >
-            <layout colspan="4" rowspan="20"/>
+            <layout colspan="4" rowspan="3"/>
             <text>
               <layout colspan="4"/>
               <label>Fenster West</label>
@@ -3767,7 +3840,7 @@
         <group>
           <layout colspan="4"/>
           <group nowidget="true" >
-            <layout colspan="4" rowspan="20"/>
+            <layout colspan="4" rowspan="3"/>
             <text>
               <layout colspan="4"/>
               <label>Fenster Nord</label>
@@ -3834,7 +3907,7 @@
         <group>
           <layout colspan="3"/>
           <group nowidget="true">
-            <layout colspan="3" rowspan="13"/>
+            <layout colspan="3" rowspan="2"/>
             <switch mapping="OnOff" bind_click_to_widget="false">
               <label>Deckenlicht</label>
               <address transform="DPT:1.001" mode="write">11/2/150</address>
@@ -3855,7 +3928,7 @@
         <group>
           <layout colspan="3"/>
           <group nowidget="true" >
-            <layout colspan="3" rowspan="20"/>
+            <layout colspan="3" rowspan="3"/>
             <info mapping="DoorOpenClose">
               <layout colspan="3"/>
               <label>Sonnenschutz</label>
@@ -3883,7 +3956,7 @@
         <group>
           <layout colspan="3"/>
           <group nowidget="true" >
-            <layout colspan="3" rowspan="20"/>
+            <layout colspan="3" rowspan="3"/>
             <text>
               <layout colspan="3"/>
               <label>Fenster West</label>
@@ -3910,7 +3983,7 @@
         <group>
           <layout colspan="3"/>
           <group nowidget="true" >
-            <layout colspan="3" rowspan="20"/>
+            <layout colspan="3" rowspan="3"/>
             <text>
               <layout colspan="3"/>
               <label>Fenster Nord</label>
@@ -3979,7 +4052,7 @@
         <group>
           <layout colspan="4"/>
           <group nowidget="true">
-            <layout colspan="4" rowspan="13"/>
+            <layout colspan="4" rowspan="2"/>
             <text>
               <layout colspan="2"/>
               <label>Licht</label>
@@ -4001,7 +4074,7 @@
         <group>
           <layout colspan="4"/>
           <group nowidget="true">
-            <layout colspan="4" rowspan="13"/>
+            <layout colspan="4" rowspan="2"/>
             <switch mapping="OnOff" bind_click_to_widget="false">
               <label>Deckenlicht</label>
               <address transform="DPT:1.001" mode="write">11/2/170</address>
@@ -4016,7 +4089,7 @@
         <group>
           <layout colspan="4"/>
           <group nowidget="true">
-            <layout colspan="4" rowspan="13"/>
+            <layout colspan="4" rowspan="2"/>
             <switch mapping="OnOff" bind_click_to_widget="false">
               <label>Spiegel</label>
               <address transform="DPT:1.001" mode="write">11/2/180</address>
@@ -4036,7 +4109,7 @@
         <group>
           <layout colspan="4"/>
           <group nowidget="true" >
-            <layout colspan="4" rowspan="20"/>
+            <layout colspan="4" rowspan="3"/>
             <info mapping="DoorOpenClose">
               <layout colspan="4"/>
               <label>Fenster</label>
@@ -4104,7 +4177,7 @@
         <group>
           <layout colspan="3"/>
           <group nowidget="true">
-            <layout colspan="3" rowspan="13"/>
+            <layout colspan="3" rowspan="2"/>
             <text>
               <layout colspan="2"/>
               <label>Licht</label>
@@ -4126,7 +4199,7 @@
         <group>
           <layout colspan="3"/>
           <group nowidget="true">
-            <layout colspan="3" rowspan="13"/>
+            <layout colspan="3" rowspan="2"/>
             <switch mapping="OnOff" bind_click_to_widget="false">
               <label>Deckenlicht</label>
               <address transform="DPT:1.001" mode="write">11/2/170</address>
@@ -4141,7 +4214,7 @@
         <group>
           <layout colspan="3"/>
           <group nowidget="true">
-            <layout colspan="3" rowspan="13"/>
+            <layout colspan="3" rowspan="2"/>
             <switch mapping="OnOff" bind_click_to_widget="false">
               <label>Spiegel</label>
               <address transform="DPT:1.001" mode="write">11/2/180</address>
@@ -4162,7 +4235,7 @@
         <group>
           <layout colspan="3"/>
           <group nowidget="true" >
-            <layout colspan="3" rowspan="20"/>
+            <layout colspan="3" rowspan="3"/>
             <info mapping="DoorOpenClose">
               <layout colspan="3"/>
               <label>Fenster</label>
@@ -4232,7 +4305,7 @@
         <group>
           <layout colspan="4"/>
           <group nowidget="true">
-            <layout colspan="4" rowspan="13"/>
+            <layout colspan="4" rowspan="2"/>
             <switch mapping="OnOff" bind_click_to_widget="false">
               <label>Deckenlicht</label>
               <address transform="DPT:1.001" mode="write">11/2/200</address>
@@ -4254,7 +4327,7 @@
         <group>
           <layout colspan="3"/>
           <group nowidget="true">
-            <layout colspan="3" rowspan="13"/>
+            <layout colspan="3" rowspan="2"/>
             <switch mapping="OnOff" bind_click_to_widget="false">
               <label>Deckenlicht</label>
               <address transform="DPT:1.001" mode="write">11/2/200</address>
@@ -4277,7 +4350,7 @@
         <group>
           <layout colspan="4"/>
           <group nowidget="true">
-            <layout colspan="4" rowspan="13"/>
+            <layout colspan="4" rowspan="2"/>
             <switch mapping="OnOff" bind_click_to_widget="false">
               <label>Deckenlicht</label>
               <address transform="DPT:1.001" mode="write">11/2/220</address>
@@ -4297,7 +4370,7 @@
         <group>
           <layout colspan="4"/>
           <group nowidget="true" >
-            <layout colspan="4" rowspan="20"/>
+            <layout colspan="4" rowspan="3"/>
             <info mapping="DoorOpenClose">
               <layout colspan="4"/>
               <label>Fenster</label>
@@ -4365,7 +4438,7 @@
         <group>
           <layout colspan="3"/>
           <group nowidget="true">
-            <layout colspan="3" rowspan="13"/>
+            <layout colspan="3" rowspan="2"/>
             <switch mapping="OnOff" bind_click_to_widget="false">
               <label>Deckenlicht</label>
               <address transform="DPT:1.001" mode="write">11/2/220</address>
@@ -4386,7 +4459,7 @@
         <group>
           <layout colspan="3"/>
           <group nowidget="true" >
-            <layout colspan="3" rowspan="20"/>
+            <layout colspan="3" rowspan="3"/>
             <info mapping="DoorOpenClose">
               <layout colspan="3"/>
               <label>Fenster</label>
@@ -4458,7 +4531,7 @@
         <group>
           <layout colspan="4"/>
           <group nowidget="true">
-            <layout colspan="4" rowspan="13"/>
+            <layout colspan="4" rowspan="2"/>
             <text>
               <layout colspan="2"/>
               <label>Licht</label>
@@ -4485,7 +4558,7 @@
         <group>
           <layout colspan="4"/>
           <group nowidget="true" >
-            <layout colspan="4" rowspan="20"/>
+            <layout colspan="4" rowspan="3"/>
             <text>
               <layout colspan="4"/>
               <label>Sonnenschutz</label>
@@ -4503,7 +4576,7 @@
         <group>
           <layout colspan="3"/>
           <group nowidget="true">
-            <layout colspan="3" rowspan="13"/>
+            <layout colspan="3" rowspan="2"/>
             <text>
               <layout colspan="2"/>
               <label>Licht</label>
@@ -4531,7 +4604,7 @@
         <group>
           <layout colspan="3"/>
           <group nowidget="true" >
-            <layout colspan="3" rowspan="20"/>
+            <layout colspan="3" rowspan="3"/>
             <text>
               <layout colspan="3"/>
               <label>Sonnenschutz</label>
@@ -4550,7 +4623,7 @@
         <group>
           <layout colspan="4"/>
           <group nowidget="true">
-            <layout colspan="4" rowspan="13"/>
+            <layout colspan="4" rowspan="2"/>
             <text>
               <layout colspan="2"/>
               <label>Licht</label>
@@ -4572,7 +4645,7 @@
         <group>
           <layout colspan="4"/>
           <group nowidget="true">
-            <layout colspan="4" rowspan="13"/>
+            <layout colspan="4" rowspan="2"/>
             <switch mapping="OnOff" bind_click_to_widget="false">
               <label>Deckenspots</label>
               <address transform="DPT:1.001" mode="write">11/3/20</address>
@@ -4587,7 +4660,7 @@
         <group>
           <layout colspan="4"/>
           <group nowidget="true">
-            <layout colspan="4" rowspan="13"/>
+            <layout colspan="4" rowspan="2"/>
             <switch mapping="OnOff" bind_click_to_widget="false">
               <label>Treppenspots</label>
               <address transform="DPT:1.001" mode="write">11/3/30</address>
@@ -4609,7 +4682,7 @@
         <group>
           <layout colspan="3"/>
           <group nowidget="true">
-            <layout colspan="3" rowspan="13"/>
+            <layout colspan="3" rowspan="2"/>
             <text>
               <layout colspan="2"/>
               <label>Licht</label>
@@ -4631,7 +4704,7 @@
         <group>
           <layout colspan="3"/>
           <group nowidget="true">
-            <layout colspan="3" rowspan="13"/>
+            <layout colspan="3" rowspan="2"/>
             <switch mapping="OnOff" bind_click_to_widget="false">
               <label>Deckenspots</label>
               <address transform="DPT:1.001" mode="write">11/3/20</address>
@@ -4646,7 +4719,7 @@
         <group>
           <layout colspan="3"/>
           <group nowidget="true">
-            <layout colspan="3" rowspan="13"/>
+            <layout colspan="3" rowspan="2"/>
             <switch mapping="OnOff" bind_click_to_widget="false">
               <label>Treppenspots</label>
               <address transform="DPT:1.001" mode="write">11/3/30</address>
@@ -4669,7 +4742,7 @@
         <group>
           <layout colspan="4"/>
           <group nowidget="true">
-            <layout colspan="4" rowspan="13"/>
+            <layout colspan="4" rowspan="2"/>
             <switch mapping="OnOff" bind_click_to_widget="false">
               <label>Deckenlicht</label>
               <address transform="DPT:1.001" mode="write">11/3/50</address>
@@ -4689,7 +4762,7 @@
         <group>
           <layout colspan="4"/>
           <group nowidget="true" >
-            <layout colspan="4" rowspan="20"/>
+            <layout colspan="4" rowspan="3"/>
             <info mapping="DoorOpenClose">
               <layout colspan="4"/>
               <label>Fenster</label>
@@ -4741,7 +4814,7 @@
         <group>
           <layout colspan="3"/>
           <group nowidget="true">
-            <layout colspan="3" rowspan="13"/>
+            <layout colspan="3" rowspan="2"/>
             <switch mapping="OnOff" bind_click_to_widget="false">
               <label>Deckenlicht</label>
               <address transform="DPT:1.001" mode="write">11/3/50</address>
@@ -4762,7 +4835,7 @@
         <group>
           <layout colspan="3"/>
           <group nowidget="true" >
-            <layout colspan="3" rowspan="20"/>
+            <layout colspan="3" rowspan="3"/>
             <info mapping="DoorOpenClose">
               <layout colspan="3"/>
               <label>Fenster</label>
@@ -4816,7 +4889,7 @@
         <group>
           <layout colspan="4"/>
           <group nowidget="true">
-            <layout colspan="4" rowspan="13"/>
+            <layout colspan="4" rowspan="2"/>
             <switch mapping="OnOff" bind_click_to_widget="false">
               <layout colspan="4"/>
               <label>Deckenlicht</label>
@@ -4849,7 +4922,7 @@
         <group>
           <layout colspan="4"/>
           <group nowidget="true" >
-            <layout colspan="4" rowspan="20"/>
+            <layout colspan="4" rowspan="3"/>
             <info mapping="DoorOpenClose">
               <layout colspan="4"/>
               <label>Sonnenschutz</label>
@@ -4877,7 +4950,7 @@
         <group>
           <layout colspan="4"/>
           <group nowidget="true" >
-            <layout colspan="4" rowspan="20"/>
+            <layout colspan="4" rowspan="3"/>
             <info mapping="DoorOpenClose">
               <layout colspan="4"/>
               <label>Fenster</label>
@@ -4905,7 +4978,7 @@
         <group>
           <layout colspan="4"/>
           <group nowidget="true" >
-            <layout colspan="4" rowspan="20"/>
+            <layout colspan="4" rowspan="3"/>
             <info mapping="DoorOpenClose">
               <layout colspan="4"/>
               <label>Balkontür</label>
@@ -4973,7 +5046,7 @@
         <group>
           <layout colspan="3"/>
           <group nowidget="true">
-            <layout colspan="3" rowspan="13"/>
+            <layout colspan="3" rowspan="2"/>
             <switch mapping="OnOff" bind_click_to_widget="false">
               <layout colspan="3"/>
               <label>Deckenlicht</label>
@@ -5007,7 +5080,7 @@
         <group>
           <layout colspan="3"/>
           <group nowidget="true" >
-            <layout colspan="3" rowspan="20"/>
+            <layout colspan="3" rowspan="3"/>
             <info mapping="DoorOpenClose">
               <layout colspan="3"/>
               <label>Sonnenschutz</label>
@@ -5035,7 +5108,7 @@
         <group>
           <layout colspan="3"/>
           <group nowidget="true" >
-            <layout colspan="3" rowspan="20"/>
+            <layout colspan="3" rowspan="3"/>
             <info mapping="DoorOpenClose">
               <layout colspan="3"/>
               <label>Fenster</label>
@@ -5063,7 +5136,7 @@
         <group>
           <layout colspan="3"/>
           <group nowidget="true" >
-            <layout colspan="3" rowspan="20"/>
+            <layout colspan="3" rowspan="3"/>
             <info mapping="DoorOpenClose">
               <layout colspan="3"/>
               <label>Balkontür</label>
@@ -5133,7 +5206,7 @@
         <group>
           <layout colspan="4"/>
           <group nowidget="true">
-            <layout colspan="4" rowspan="13"/>
+            <layout colspan="4" rowspan="2"/>
             <switch mapping="OnOff" bind_click_to_widget="false">
               <label>Deckenlicht</label>
               <address transform="DPT:1.001" mode="write">11/3/90</address>
@@ -5153,7 +5226,7 @@
         <group>
           <layout colspan="4"/>
           <group nowidget="true" >
-            <layout colspan="4" rowspan="20"/>
+            <layout colspan="4" rowspan="3"/>
             <info mapping="DoorOpenClose">
               <layout colspan="4"/>
               <label>Balkontür</label>
@@ -5221,7 +5294,7 @@
         <group>
           <layout colspan="3"/>
           <group nowidget="true">
-            <layout colspan="3" rowspan="13"/>
+            <layout colspan="3" rowspan="2"/>
             <switch mapping="OnOff" bind_click_to_widget="false">
               <label>Deckenlicht</label>
               <address transform="DPT:1.001" mode="write">11/3/90</address>
@@ -5242,7 +5315,7 @@
         <group>
           <layout colspan="3"/>
           <group nowidget="true" >
-            <layout colspan="3" rowspan="20"/>
+            <layout colspan="3" rowspan="3"/>
             <info mapping="DoorOpenClose">
               <layout colspan="3"/>
               <label>Balkontür</label>
@@ -5312,7 +5385,7 @@
         <group>
           <layout colspan="4"/>
           <group nowidget="true">
-            <layout colspan="4" rowspan="13"/>
+            <layout colspan="4" rowspan="2"/>
             <switch mapping="OnOff" bind_click_to_widget="false">
               <layout colspan="4"/>
               <label>Deckenlicht</label>
@@ -5345,7 +5418,7 @@
         <group>
           <layout colspan="4"/>
           <group nowidget="true" >
-            <layout colspan="4" rowspan="20"/>
+            <layout colspan="4" rowspan="3"/>
             <info mapping="DoorOpenClose">
               <layout colspan="4"/>
               <label>Sonnenschutz</label>
@@ -5373,7 +5446,7 @@
         <group>
           <layout colspan="4"/>
           <group nowidget="true" >
-            <layout colspan="4" rowspan="20"/>
+            <layout colspan="4" rowspan="3"/>
             <info mapping="DoorOpenClose">
               <layout colspan="4"/>
               <label>Fenster Süd</label>
@@ -5401,7 +5474,7 @@
         <group>
           <layout colspan="4"/>
           <group nowidget="true" >
-            <layout colspan="4" rowspan="20"/>
+            <layout colspan="4" rowspan="3"/>
             <info mapping="DoorOpenClose">
               <layout colspan="4"/>
               <label>Fenster West</label>
@@ -5469,7 +5542,7 @@
         <group>
           <layout colspan="3"/>
           <group nowidget="true">
-            <layout colspan="3" rowspan="13"/>
+            <layout colspan="3" rowspan="2"/>
             <switch mapping="OnOff" bind_click_to_widget="false">
               <layout colspan="3"/>
               <label>Deckenlicht</label>
@@ -5503,7 +5576,7 @@
         <group>
           <layout colspan="3"/>
           <group nowidget="true" >
-            <layout colspan="3" rowspan="20"/>
+            <layout colspan="3" rowspan="3"/>
             <info mapping="DoorOpenClose">
               <layout colspan="3"/>
               <label>Sonnenschutz</label>
@@ -5531,7 +5604,7 @@
         <group>
           <layout colspan="3"/>
           <group nowidget="true" >
-            <layout colspan="3" rowspan="20"/>
+            <layout colspan="3" rowspan="3"/>
             <info mapping="DoorOpenClose">
               <layout colspan="3"/>
               <label>Fenster Süd</label>
@@ -5559,7 +5632,7 @@
         <group>
           <layout colspan="3"/>
           <group nowidget="true" >
-            <layout colspan="3" rowspan="20"/>
+            <layout colspan="3" rowspan="3"/>
             <info mapping="DoorOpenClose">
               <layout colspan="3"/>
               <label>Fenster West</label>
@@ -5629,7 +5702,7 @@
         <group>
           <layout colspan="4"/>
           <group nowidget="true">
-            <layout colspan="4" rowspan="13"/>
+            <layout colspan="4" rowspan="2"/>
             <switch mapping="OnOff" bind_click_to_widget="false">
               <layout colspan="4"/>
               <label>Deckenlicht</label>
@@ -5662,7 +5735,7 @@
         <group>
           <layout colspan="4"/>
           <group nowidget="true" >
-            <layout colspan="4" rowspan="20"/>
+            <layout colspan="4" rowspan="3"/>
             <info mapping="DoorOpenClose">
               <layout colspan="4"/>
               <label>Sonnenschutz</label>
@@ -5690,7 +5763,7 @@
         <group>
           <layout colspan="4"/>
           <group nowidget="true" >
-            <layout colspan="4" rowspan="20"/>
+            <layout colspan="4" rowspan="3"/>
             <info mapping="DoorOpenClose">
               <layout colspan="4"/>
               <label>Fenster West</label>
@@ -5718,7 +5791,7 @@
         <group>
           <layout colspan="4"/>
           <group nowidget="true" >
-            <layout colspan="4" rowspan="20"/>
+            <layout colspan="4" rowspan="3"/>
             <info mapping="DoorOpenClose">
               <layout colspan="4"/>
               <label>Fenster Nord</label>
@@ -5786,7 +5859,7 @@
         <group>
           <layout colspan="3"/>
           <group nowidget="true">
-            <layout colspan="3" rowspan="13"/>
+            <layout colspan="3" rowspan="2"/>
             <switch mapping="OnOff" bind_click_to_widget="false">
               <layout colspan="3"/>
               <label>Deckenlicht</label>
@@ -5820,7 +5893,7 @@
         <group>
           <layout colspan="3"/>
           <group nowidget="true" >
-            <layout colspan="3" rowspan="20"/>
+            <layout colspan="3" rowspan="3"/>
             <info mapping="DoorOpenClose">
               <layout colspan="3"/>
               <label>Sonnenschutz</label>
@@ -5848,7 +5921,7 @@
         <group>
           <layout colspan="3"/>
           <group nowidget="true" >
-            <layout colspan="3" rowspan="20"/>
+            <layout colspan="3" rowspan="3"/>
             <info mapping="DoorOpenClose">
               <layout colspan="3"/>
               <label>Fenster West</label>
@@ -5876,7 +5949,7 @@
         <group>
           <layout colspan="3"/>
           <group nowidget="true" >
-            <layout colspan="3" rowspan="20"/>
+            <layout colspan="3" rowspan="3"/>
             <info mapping="DoorOpenClose">
               <layout colspan="3"/>
               <label>Fenster Nord</label>
@@ -5946,7 +6019,7 @@
         <group>
           <layout colspan="4"/>
           <group nowidget="true">
-            <layout colspan="4" rowspan="13"/>
+            <layout colspan="4" rowspan="2"/>
             <switch mapping="OnOff" bind_click_to_widget="false">
               <label>Deckenlicht</label>
               <address transform="DPT:1.001" mode="write">11/3/150</address>
@@ -5966,7 +6039,7 @@
         <group>
           <layout colspan="4"/>
           <group nowidget="true" >
-            <layout colspan="4" rowspan="20"/>
+            <layout colspan="4" rowspan="3"/>
             <info mapping="DoorOpenClose">
               <layout colspan="4"/>
               <label>Fenster</label>
@@ -6018,7 +6091,7 @@
         <group>
           <layout colspan="3"/>
           <group nowidget="true">
-            <layout colspan="3" rowspan="13"/>
+            <layout colspan="3" rowspan="2"/>
             <switch mapping="OnOff" bind_click_to_widget="false">
               <label>Deckenlicht</label>
               <address transform="DPT:1.001" mode="write">11/3/150</address>
@@ -6039,7 +6112,7 @@
         <group>
           <layout colspan="3"/>
           <group nowidget="true" >
-            <layout colspan="3" rowspan="20"/>
+            <layout colspan="3" rowspan="3"/>
             <info mapping="DoorOpenClose">
               <layout colspan="3"/>
               <label>Fenster</label>
@@ -6093,7 +6166,7 @@
         <group>
           <layout colspan="4"/>
           <group nowidget="true">
-            <layout colspan="4" rowspan="13"/>
+            <layout colspan="4" rowspan="2"/>
             <text>
               <layout colspan="2"/>
               <label>Licht</label>
@@ -6115,7 +6188,7 @@
         <group>
           <layout colspan="4"/>
           <group nowidget="true">
-            <layout colspan="4" rowspan="13"/>
+            <layout colspan="4" rowspan="2"/>
             <switch mapping="OnOff" bind_click_to_widget="false">
               <label>Deckenspots</label>
               <address transform="DPT:1.001" mode="write">11/3/170</address>
@@ -6130,7 +6203,7 @@
         <group>
           <layout colspan="4"/>
           <group nowidget="true">
-            <layout colspan="4" rowspan="13"/>
+            <layout colspan="4" rowspan="2"/>
             <switch mapping="OnOff" bind_click_to_widget="false">
               <label>Spiegel</label>
               <address transform="DPT:1.001" mode="write">11/3/180</address>
@@ -6145,7 +6218,7 @@
         <group>
           <layout colspan="4"/>
           <group nowidget="true">
-            <layout colspan="4" rowspan="13"/>
+            <layout colspan="4" rowspan="2"/>
             <switch mapping="OnOff" bind_click_to_widget="false">
               <label>Dusch LED</label>
               <address transform="DPT:1.001" mode="write">11/3/190</address>
@@ -6165,7 +6238,7 @@
         <group>
           <layout colspan="4"/>
           <group nowidget="true" >
-            <layout colspan="4" rowspan="20"/>
+            <layout colspan="4" rowspan="3"/>
             <info mapping="DoorOpenClose">
               <layout colspan="4"/>
               <label>Fenster</label>
@@ -6227,7 +6300,7 @@
           <group>
             <layout colspan="3"/>
             <group nowidget="true">
-              <layout colspan="3" rowspan="13"/>
+              <layout colspan="3" rowspan="2"/>
               <text>
                 <layout colspan="2"/>
                 <label>Licht</label>
@@ -6249,7 +6322,7 @@
           <group>
             <layout colspan="3"/>
             <group nowidget="true">
-              <layout colspan="3" rowspan="13"/>
+              <layout colspan="3" rowspan="2"/>
               <switch mapping="OnOff" bind_click_to_widget="false">
                 <label>Deckenspots</label>
                 <address transform="DPT:1.001" mode="write">11/3/170</address>
@@ -6264,7 +6337,7 @@
           <group>
             <layout colspan="3"/>
             <group nowidget="true">
-              <layout colspan="3" rowspan="13"/>
+              <layout colspan="3" rowspan="2"/>
               <switch mapping="OnOff" bind_click_to_widget="false">
                 <label>Spiegel</label>
                 <address transform="DPT:1.001" mode="write">11/3/180</address>
@@ -6279,7 +6352,7 @@
           <group>
             <layout colspan="3"/>
             <group nowidget="true">
-              <layout colspan="3" rowspan="13"/>
+              <layout colspan="3" rowspan="2"/>
               <switch mapping="OnOff" bind_click_to_widget="false">
                 <label>Dusch LED</label>
                 <address transform="DPT:1.001" mode="write">11/3/190</address>
@@ -6297,7 +6370,7 @@
           <group>
             <layout colspan="3"/>
             <group nowidget="true" >
-              <layout colspan="3" rowspan="20"/>
+              <layout colspan="3" rowspan="3"/>
               <info mapping="DoorOpenClose">
                 <layout colspan="3"/>
                 <label>Fenster</label>
@@ -6349,7 +6422,7 @@
         <group>
           <layout colspan="4"/>
           <group nowidget="true">
-            <layout colspan="4" rowspan="13"/>
+            <layout colspan="4" rowspan="2"/>
             <text>
               <layout colspan="2"/>
               <label>Licht</label>
@@ -6371,7 +6444,7 @@
         <group>
           <layout colspan="4"/>
           <group nowidget="true">
-            <layout colspan="4" rowspan="13"/>
+            <layout colspan="4" rowspan="2"/>
             <switch mapping="OnOff" bind_click_to_widget="false">
               <layout colspan="4"/>
               <label>Deckenspots</label>
@@ -6399,7 +6472,7 @@
         <group>
           <layout colspan="4"/>
           <group nowidget="true">
-            <layout colspan="4" rowspan="13"/>
+            <layout colspan="4" rowspan="2"/>
             <switch mapping="OnOff" bind_click_to_widget="false">
               <label>Spiegel</label>
               <address transform="DPT:1.001" mode="write">11/3/220</address>
@@ -6419,7 +6492,7 @@
         <group>
           <layout colspan="4"/>
           <group nowidget="true" >
-            <layout colspan="4" rowspan="20"/>
+            <layout colspan="4" rowspan="3"/>
             <info mapping="DoorOpenClose">
               <layout colspan="4"/>
               <label>Fenster</label>
@@ -6487,7 +6560,7 @@
         <group>
           <layout colspan="3"/>
           <group nowidget="true">
-            <layout colspan="3" rowspan="13"/>
+            <layout colspan="3" rowspan="2"/>
             <text>
               <layout colspan="2"/>
               <label>Licht</label>
@@ -6509,7 +6582,7 @@
         <group>
           <layout colspan="3"/>
           <group nowidget="true">
-            <layout colspan="3" rowspan="13"/>
+            <layout colspan="3" rowspan="2"/>
             <switch mapping="OnOff" bind_click_to_widget="false">
               <layout colspan="3"/>
               <label>Deckenspots</label>
@@ -6537,7 +6610,7 @@
         <group>
           <layout colspan="3"/>
           <group nowidget="true">
-            <layout colspan="3" rowspan="13"/>
+            <layout colspan="3" rowspan="2"/>
             <switch mapping="OnOff" bind_click_to_widget="false">
               <label>Spiegel</label>
               <address transform="DPT:1.001" mode="write">11/3/220</address>
@@ -6558,7 +6631,7 @@
         <group>
           <layout colspan="3"/>
           <group nowidget="true" >
-            <layout colspan="3" rowspan="20"/>
+            <layout colspan="3" rowspan="3"/>
             <info mapping="DoorOpenClose">
               <layout colspan="3"/>
               <label>Fenster</label>
@@ -6630,7 +6703,7 @@
         <group>
           <layout colspan="4"/>
           <group nowidget="true">
-            <layout colspan="4" rowspan="13"/>
+            <layout colspan="4" rowspan="2"/>
             <text>
               <layout colspan="2"/>
               <label>Licht</label>
@@ -6659,7 +6732,7 @@
         <group>
           <layout colspan="3"/>
           <group nowidget="true">
-            <layout colspan="3" rowspan="13"/>
+            <layout colspan="3" rowspan="2"/>
             <text>
               <layout colspan="2"/>
               <label>Licht</label>
@@ -6689,7 +6762,7 @@
         <group>
           <layout colspan="4"/>
           <group nowidget="true">
-            <layout colspan="4" rowspan="13"/>
+            <layout colspan="4" rowspan="2"/>
             <switch mapping="OnOff" bind_click_to_widget="false">
               <label>Wandleuchte</label>
               <address transform="DPT:1.001" mode="write">11/4/20</address>
@@ -6727,7 +6800,7 @@
         <group>
           <layout colspan="3"/>
           <group nowidget="true">
-            <layout colspan="3" rowspan="13"/>
+            <layout colspan="3" rowspan="2"/>
             <switch mapping="OnOff" bind_click_to_widget="false">
               <label>Wandleuchte</label>
               <address transform="DPT:1.001" mode="write">11/4/20</address>
@@ -6767,7 +6840,7 @@
         <group>
           <layout colspan="4"/>
           <group nowidget="true">
-            <layout colspan="4" rowspan="13"/>
+            <layout colspan="4" rowspan="2"/>
             <switch mapping="OnOff" bind_click_to_widget="false">
               <label>Wandleuchte</label>
               <address transform="DPT:1.001" mode="write">11/4/50</address>
@@ -6805,7 +6878,7 @@
         <group>
           <layout colspan="3"/>
           <group nowidget="true">
-            <layout colspan="3" rowspan="13"/>
+            <layout colspan="3" rowspan="2"/>
             <switch mapping="OnOff" bind_click_to_widget="false">
               <label>Wandleuchte</label>
               <address transform="DPT:1.001" mode="write">11/4/50</address>
@@ -6847,7 +6920,7 @@
         <group>
           <layout colspan="4"/>
           <group nowidget="true">
-            <layout colspan="4" rowspan="13"/>
+            <layout colspan="4" rowspan="2"/>
             <text>
               <layout colspan="2"/>
               <label>Licht</label>
@@ -6874,7 +6947,7 @@
         <group>
           <layout colspan="4"/>
           <group nowidget="true" >
-            <layout colspan="4" rowspan="20"/>
+            <layout colspan="4" rowspan="3"/>
             <text>
               <layout colspan="4"/>
               <label>Sonnenschutz</label>
@@ -6892,7 +6965,7 @@
         <group>
           <layout colspan="3"/>
           <group nowidget="true">
-            <layout colspan="3" rowspan="13"/>
+            <layout colspan="3" rowspan="2"/>
             <text>
               <layout colspan="2"/>
               <label>Licht</label>
@@ -6920,7 +6993,7 @@
         <group>
           <layout colspan="3"/>
           <group nowidget="true" >
-            <layout colspan="3" rowspan="20"/>
+            <layout colspan="3" rowspan="3"/>
             <text>
               <layout colspan="3"/>
               <label>Sonnenschutz</label>
@@ -6939,7 +7012,7 @@
         <group>
           <layout colspan="4"/>
           <group nowidget="true">
-            <layout colspan="4" rowspan="13"/>
+            <layout colspan="4" rowspan="2"/>
             <switch mapping="OnOff" bind_click_to_widget="false">
               <label>Deckenlicht</label>
               <address transform="DPT:1.001" mode="write">11/5/20</address>
@@ -6959,7 +7032,7 @@
         <group>
           <layout colspan="4"/>
           <group nowidget="true" >
-            <layout colspan="4" rowspan="20"/>
+            <layout colspan="4" rowspan="3"/>
             <text>
               <layout colspan="4"/>
               <label>Garagentor</label>
@@ -6993,7 +7066,7 @@
         <group>
           <layout colspan="3"/>
           <group nowidget="true">
-            <layout colspan="3" rowspan="13"/>
+            <layout colspan="3" rowspan="2"/>
             <switch mapping="OnOff" bind_click_to_widget="false">
               <label>Deckenlicht</label>
               <address transform="DPT:1.001" mode="write">11/5/20</address>
@@ -7014,7 +7087,7 @@
         <group>
           <layout colspan="3"/>
           <group nowidget="true" >
-            <layout colspan="3" rowspan="20"/>
+            <layout colspan="3" rowspan="3"/>
             <text>
               <layout colspan="3"/>
               <label>Garagentor</label>
@@ -7050,7 +7123,7 @@
         <group>
           <layout colspan="4"/>
           <group nowidget="true">
-            <layout colspan="4" rowspan="13"/>
+            <layout colspan="4" rowspan="2"/>
             <switch mapping="OnOff" bind_click_to_widget="false">
               <label>Deckenspots</label>
               <address transform="DPT:1.001" mode="write">11/5/40</address>
@@ -7072,7 +7145,7 @@
         <group>
           <layout colspan="3"/>
           <group nowidget="true">
-            <layout colspan="3" rowspan="13"/>
+            <layout colspan="3" rowspan="2"/>
             <switch mapping="OnOff" bind_click_to_widget="false">
               <label>Deckenspots</label>
               <address transform="DPT:1.001" mode="write">11/5/40</address>
@@ -7095,7 +7168,7 @@
         <group>
           <layout colspan="4"/>
           <group nowidget="true">
-            <layout colspan="4" rowspan="13"/>
+            <layout colspan="4" rowspan="2"/>
             <switch mapping="OnOff" bind_click_to_widget="false">
               <label>Wandleuchten</label>
               <address transform="DPT:1.001" mode="write">11/5/60</address>
@@ -7115,7 +7188,7 @@
         <group>
           <layout colspan="4"/>
           <group nowidget="true" >
-            <layout colspan="4" rowspan="20"/>
+            <layout colspan="4" rowspan="3"/>
             <text>
               <layout colspan="4"/>
               <label>Markise</label>
@@ -7133,7 +7206,7 @@
         <group>
           <layout colspan="3"/>
           <group nowidget="true">
-            <layout colspan="3" rowspan="13"/>
+            <layout colspan="3" rowspan="2"/>
             <switch mapping="OnOff" bind_click_to_widget="false">
               <label>Wandleuchten</label>
               <address transform="DPT:1.001" mode="write">11/5/60</address>
@@ -7154,7 +7227,7 @@
         <group>
           <layout colspan="3"/>
           <group nowidget="true" >
-            <layout colspan="3" rowspan="20"/>
+            <layout colspan="3" rowspan="3"/>
             <text>
               <layout colspan="3"/>
               <label>Markise</label>
@@ -7173,7 +7246,7 @@
         <group>
           <layout colspan="4"/>
           <group nowidget="true">
-            <layout colspan="4" rowspan="13"/>
+            <layout colspan="4" rowspan="2"/>
             <switch mapping="OnOff" bind_click_to_widget="false">
               <label>Wandleuchte</label>
               <address transform="DPT:1.001" mode="write">11/5/100</address>
@@ -7195,7 +7268,7 @@
         <group>
           <layout colspan="3"/>
           <group nowidget="true">
-            <layout colspan="3" rowspan="13"/>
+            <layout colspan="3" rowspan="2"/>
             <switch mapping="OnOff" bind_click_to_widget="false">
               <label>Wandleuchte</label>
               <address transform="DPT:1.001" mode="write">11/5/100</address>
@@ -7218,7 +7291,7 @@
         <group>
           <layout colspan="4"/>
           <group nowidget="true">
-            <layout colspan="4" rowspan="13"/>
+            <layout colspan="4" rowspan="2"/>
             <switch mapping="OnOff" bind_click_to_widget="false">
               <label>Pool LED</label>
               <address transform="DPT:1.001" mode="write">11/5/120</address>
@@ -7240,7 +7313,7 @@
         <group>
           <layout colspan="3"/>
           <group nowidget="true">
-            <layout colspan="3" rowspan="13"/>
+            <layout colspan="3" rowspan="2"/>
             <switch mapping="OnOff" bind_click_to_widget="false">
               <label>Pool LED</label>
               <address transform="DPT:1.001" mode="write">11/5/120</address>

@@ -17,7 +17,7 @@
 
 /**
  * <popup>
- * 	<popuptrigger>
+ *  <popuptrigger>
  * 
  *  </popuptrigger>
  *  <popupcontainer>
@@ -32,44 +32,39 @@ define( ['structure_custom', 'css!plugins/popup/popup.css'  ], function( VisuDes
   VisuDesign_Custom.prototype.addCreator("popup", {
       create: function(element, path, flavour, type) {
         var $e = $(element);
-
-        // create the main structure
-        var ret_val = templateEngine.design.createDefaultWidget('popup', $e, path, flavour, type);
-        // and fill in widget specific data
-        var data = templateEngine.widgetDataInsert( path, {
-          content           : getWidgetElements($e, path)
-        } );
-        ret_val += data.content;
         
-        return ret_val + '</div>';
+        //widgets in popup
+        var childWidgets = $e.find("popupcontainer").children().not('layout');
+        var containerClasses = 'clearfix popupcontent actor' + VisuDesign_Custom.prototype.setWidgetLayout( $e, path + '_1' );
+        
+        var container = '<div class="' + containerClasses + '" id="' + path + '_1" data-type="text" style="display:none">';
+        
+        $( childWidgets ).each( function(i){
+          container += templateEngine.create_pages( childWidgets[i], path + '_1_' + i, flavour );
+        } );
+
+        container += '</div>';
+        $('#popupcontainer').append(container);
+        
+        //widgets in trigger
+        var classes = 'clearfix popupTrigger actor' + VisuDesign_Custom.prototype.setWidgetLayout( $e, path );
+        var childTriggerWidgets = $e.find("popuptrigger").children().not('layout');
+        var triggerContainer = '<div class="clearfix">';                         
+        $( childTriggerWidgets ).each( function(i){
+          triggerContainer += templateEngine.create_pages( childTriggerWidgets[i], path + '_0_' + i, flavour );
+        } );
+        triggerContainer += '</div>';
+        
+        return '<div class="' + classes + '" style="width: 100%;">' + triggerContainer + '</div>';
       },
       action: function( path, actor, isCanceled ) {
+        $('#popupcontainer .active').hide();
+        $('#popupcontainer .active').removeClass('active');
         
-        if($(actor).hasClass("popupcontainer")){
-          $(actor).hide();
-        } else {
-          $(actor).parent().children('.popupcontainer').show();
-        }
+        $('#popupcontainer #' + path + '_1').addClass('active');
+        $('#popupcontainer #' + path + '_1').show();
+        $('#popupcontainer').fadeIn(600);
+        $('#popup').show("clip", 10);
       } 
     });
-   
-    function getWidgetElements(xmlElement, path, flavour, type) {
-      var popuptrigger = $('popuptrigger > *', xmlElement).first()[0];
-      var popupcontainer = $('popupcontainer > *', xmlElement).first()[0];
-      var data = templateEngine.widgetDataInsert( path+"_0", {
-        containerClass           : "actor"
-      } );
-      var ret_val = templateEngine.create_pages(popuptrigger, path+"_0", flavour, popuptrigger.nodeName);
-      
-      var childs = $(xmlElement).find("popupcontainer").children().not('layout');
-      var container = '<div class="popupcontainer actor" id="' + path + '_1" data-type="text" style="display:none">';
-      
-      $( childs ).each( function(i){
-        container += templateEngine.create_pages( childs[i], path + '_1_' + i, flavour );
-      } );
-      container += '</div>';
-      
-      ret_val += container;
-      return ret_val;
-    }
 });

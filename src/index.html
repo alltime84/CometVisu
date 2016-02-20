@@ -69,6 +69,10 @@
           window.location.href.indexOf('forceReload=true') < 0 ? '' : '_=' + (+new Date)
       };
       
+      function hidePopup(){
+        $('#popup').hide();
+        $('#popupcontainer').hide();
+      }
     </script>
     <script data-main="lib/templateengine" src="dependencies/require-2.1.15.min.js" type="text/javascript"></script>
     <style type="text/css">
@@ -78,6 +82,8 @@
     <style type="text/css" id="rowspanStyle"></style>
   </head>
   <body>
+    <div id="popup" onclick="hidePopup()" style="display: none"></div>
+    <div id="popupcontainer" class="page" style="display: none"></div>
     <div id="top" class="loading">
       <div class="nav_path">-</div>
     </div>

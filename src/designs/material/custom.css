@@ -30,6 +30,15 @@ body{
 
 
 /************************************************************/
+/*                           popup                          */
+/************************************************************/
+
+#popupcontainer .flavour_popuptitle {
+  background-color: #3F51B5;
+  color: #FFFFFF;
+}
+
+/************************************************************/
 /*                           widgets                          */
 /************************************************************/
 
@@ -39,9 +48,14 @@ body{
 
 .widget
 {
-  background-color: #FFFFFF;
   border-top-color: #e5e5e5;
   border-bottom-color: #e5e5e5;
+}
+
+.widget.trigger .actor,
+.widget.multitrigger .actor
+{
+  background-color: #FFFFFF;
 }
 
 .widget.text.flavour_headline {
