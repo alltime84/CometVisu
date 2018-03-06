@@ -1,0 +1,438 @@
+@import "colors.css";
+
+@font-face
+{
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  src: url("fonts/Roboto-Medium.ttf");
+}
+
+body 
+{ 
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  margin:0;
+  -webkit-font-smoothing: antialiased;
+}
+
+.page
+{
+  padding: 0px 0px 0px 0px;
+  margin: 0px 0px 0px 0px;
+  overflow-y: auto;
+}
+
+h1
+{
+  font-size: 1.5em;
+  margin-left: 10px;
+}
+
+h2
+{
+  font-size: 1.1em;
+}
+
+body hr
+{
+  clear:both;
+  height: 1px;
+  border: none;
+  padding:0px;
+  margin: 10px 5px 0px 5px;
+}
+
+/************************************************************/
+/*                         loading                          */
+/************************************************************/
+/*
+.loading {
+  display: block !important;
+}
+*/
+
+div#loading
+{
+  display: none !important;
+}
+
+/************************************************************/
+/*                         Top                              */
+/************************************************************/
+
+#top {
+  margin-left: 200px;
+  padding: 10px;
+  position: relative;
+  z-index: 9;
+  -webkit-box-shadow: 0px 4px 5px 0px rgba(0,0,0,.26);
+  -moz-box-shadow: 0px 4px 5px 0px rgba(0,0,0,.26);
+  box-shadow: 0px 4px 5px 0px rgba(0,0,0,.26);
+}
+
+/************************************************************/
+/*                         Navbar Top                      */
+/************************************************************/
+
+#navbarTop {
+  border-bottom: none;
+  -webkit-box-shadow: 0px 4px 5px 0px rgba(0,0,0,.26);
+  -moz-box-shadow: 0px 4px 5px 0px rgba(0,0,0,.26);
+  box-shadow: 0px 4px 5px 0px rgba(0,0,0,.26);
+  margin-left: 200px;
+  height: 60px;
+  position: relative;
+  z-index: 10;
+}
+
+#navbarTop .widget {
+  background: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
+/************************************************************/
+/*                         Navbar Left                      */
+/************************************************************/
+
+#navbarLeft {
+  position:absolute !important;
+  height: 100%;
+  top:0;
+  right:0;
+  bottom:0;
+  left:0;
+  overflow-y: visible;
+  overflow-x: hidden;
+  border-right: 1px solid #cccccc;
+  z-index: 30;
+}
+
+#navbarLeft .widget_container {
+
+}
+
+#navbarLeft .widget {
+  margin: 0px 12px 0px 12px;
+  padding: 12px 1px 12px 1px;
+  border-top: solid 1px #EBEBEB;
+
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  
+  overflow: auto;
+  display: block;
+  
+  min-height: 32px;
+}
+
+
+/************************************************************/
+/*                         Main                            */
+/************************************************************/
+
+#main{
+  left: 200px;
+  margin-top: -5px;
+}
+
+#pages
+{
+
+}
+
+/************************************************************/
+/*                         bottom                         */
+/************************************************************/
+
+#bottom {
+  left: 200px;
+  -webkit-box-shadow: 0px -4px 5px 0px rgba(0,0,0,.26);
+  -moz-box-shadow: 0px -4px 5px 0px rgba(0,0,0,.26);
+  box-shadow: 0px -4px 5px 0px rgba(0,0,0,.26);
+  overflow: auto;
+  padding: 10px;
+}
+
+#bottom > hr {
+  height: 0px;
+  margin: 0px;
+}
+
+.footer {
+  margin-right: 210px;
+  width: auto;
+}
+
+/************************************************************/
+/*                         Widgets                          */
+/************************************************************/
+
+.widget_container {
+  float: left;
+}
+
+.group .widget_container.break_container {
+  min-height: 0px;
+}
+
+.widget {
+  margin: 10px 5px 0px 5px;
+  padding: 12px 12px 12px 12px;
+  border-bottom: none;
+  -webkit-border-radius: 2px;
+  -khtml-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  -webkit-box-shadow: 0px 1px 3px gray;
+  -moz-box-shadow: 0px 1px 3px gray;
+  box-shadow: 0px 1px 3px gray;
+
+  overflow: auto;
+  display: block;
+  
+  min-height: 32px;
+}
+
+.widget > .label {
+  width: 50%;
+  float: left;
+  height: 100%;
+  line-height: 30px;
+}
+
+.widget > .actor {
+  text-align: center;
+}
+
+.widget > .actor .value {
+  -webkit-border-radius: 2px;
+  -khtml-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  border-top: solid 1px #EBEBEB;
+  -webkit-box-shadow: 0px 1px 1px gray;
+  -moz-box-shadow: 0px 1px 1px gray;
+  box-shadow: 0px 1px 1px gray;
+  min-width: 32px;
+  padding: 5px 10px 5px 10px;
+  float: right;
+}
+
+/************************************************************/
+/*                         Group                             */
+/************************************************************/
+
+.widget.group {
+  padding: 0px 12px 0px 12px;
+}
+
+.widget.group .widget {
+  margin: 0px 0px 0px 0px;
+  padding: 12px 1px 12px 1px;
+  border-top: solid 1px #EBEBEB;
+
+  -webkit-box-shadow: 0px 0px 0px gray;
+  -moz-box-shadow: 0px 0px 0px gray;
+  box-shadow: 0px 0px 0px gray;
+  
+  overflow: auto;
+  display: block;
+  
+  min-height: 32px;
+}
+
+/************************************************************/
+/*                         Text                             */
+/************************************************************/
+
+.widget.text div{
+  margin-top: 8px;
+}
+
+/************************************************************/
+/*                         Icons                            */
+/************************************************************/
+
+.icon {
+  vertical-align: middle;
+}
+
+/************************************************************/
+/*                         Multitrigger                     */
+/************************************************************/
+
+.widget > .actor_container {
+  width: 50%;
+}
+
+.widget > .actor_container > .actor {
+  float: left;
+  text-align: right;
+  min-width: 50%;
+  -webkit-border-radius: 2px;
+  -khtml-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  border-top: solid 1px #EBEBEB;
+  -webkit-box-shadow: 0px 1px 1px gray;
+  -moz-box-shadow: 0px 1px 1px gray;
+  box-shadow: 0px 1px 1px gray;
+
+}
+
+.widget > .actor_container > .actor .value {
+  margin: 6px;
+  text-align: center;
+}
+
+/************************************************************/
+/*                         diagram                     */
+/************************************************************/
+
+.diagram_preview {
+    width: 240px;
+    height: 2em;
+}
+
+.diagram .actor {
+    width: 50%;
+    float: left;
+}
+
+/************************************************************/
+/*                         Infotrigger                      */
+/************************************************************/
+
+.widget.infotrigger > div {
+  width: 50%;
+}
+
+.widget.infotrigger .actor {
+  width: 33%;
+  float: left;
+  -webkit-border-radius: 2px;
+  -khtml-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  border-top: solid 1px #EBEBEB;
+  -webkit-box-shadow: 0px 1px 1px gray;
+  -moz-box-shadow: 0px 1px 1px gray;
+  box-shadow: 0px 1px 1px gray;
+}
+
+.widget.infotrigger .actor .value, .widget.infotrigger .actor .label {
+  margin: 6px;
+  text-align: center;
+}
+/************************************************************/
+/*                           Slide                            */
+/************************************************************/
+
+.widget.slide {
+  overflow: visible;
+}
+
+ .ui-slider .ui-slider-range {
+  
+}
+
+.ui-slider { position: relative; top: 10px; text-align: left;}
+.ui-slider .ui-slider-handle { position: absolute; z-index: 2; width: 36px; height: 36px; cursor: default; margin-top: -17px; font-size: 0px;}
+.ui-slider .ui-slider-handle:not(.ui-state-active):after {
+	width: 12px;
+	height: 12px;
+
+  content:"";
+  position: absolute;
+  top: 10px;
+  left: 10px;
+	-moz-border-radius: 18px;
+	-webkit-border-radius: 18px;
+	border-radius: 18px;
+  border-style:  solid;
+  border-width: 2px;
+  border-color: #FFFFFF;
+}
+.ui-slider .ui-slider-handle.ui-state-active { position: absolute; z-index: 2; width: 28px; height: 28px; cursor: default; font-size: 10px; margin-top: -41px; border-width: 1px;}
+.ui-slider .ui-slider-handle.ui-state-active:before {
+  content:"";
+  position: absolute;
+  right: 100%;
+  top: 21px;
+  left: 2px;
+  width: 0;
+  height: 0;
+  border-left: 12px solid transparent;
+	border-right: 12px solid transparent;
+  border-top-style: solid;
+  border-top-width: 16px;
+}
+.ui-slider .ui-slider-range { position: absolute; z-index: 1; font-size: .7em; display: block; border: 0; }
+.ui-slider-horizontal { height: 3px;  margin: 0 auto; }
+.ui-slider-horizontal .ui-slider-handle {  }
+.ui-slider-horizontal .ui-slider-range { top: 0px; height: 100%; }
+.ui-slider-horizontal .ui-slider-range-min { left: 0; }
+.ui-slider-horizontal .ui-slider-range-max { right: 10px; }
+.ui-slider-vertical { width: .8em; height: 100px; }
+.ui-slider-vertical .ui-slider-handle { left: -.3em; margin-left: 0; margin-bottom: -.6em; }
+.ui-slider-vertical .ui-slider-range { left: 0; width: 100%; }
+.ui-slider-vertical .ui-slider-range-min { bottom: 0; }
+.ui-slider-vertical .ui-slider-range-max { top: 0; }
+.ui-widget-content { border: none; }
+.ui-widget-content a {  }
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default { border: none; font-weight: bold;  }
+.ui-state-default a, .ui-state-default a:link, .ui-state-default a:visited {  text-decoration: none; }
+.ui-corner-all {  }
+
+.widget .ui-slider
+{
+  width: 50%;
+  float: left;
+  margin: 0 auto;
+}
+
+.widget .ui-slider-handle
+{
+  border-style:  solid;
+  border-width: 0px;
+  border-color: #FFFFFF;
+  -moz-border-radius: 18px;
+  -webkit-border-radius: 18px;
+  border-radius: 18px;
+  /*
+  border-top: 1px solid #DDDDDD;
+  border-left: none;
+  border-bottom: 1px solid #555555;
+  border-right: none;
+  */
+  padding: 0px;
+
+  text-decoration: none;
+  font-weight: 100;
+  text-align: center;
+  
+  line-height: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+
+  /*
+  -webkit-box-shadow: 0px 1px 4px gray;
+  -moz-box-shadow: 0px 1px 4px gray;
+  box-shadow: 0px 1px 4px gray;
+  */
+  cursor: pointer;
+  
+}
+
+#pages .page .widget .ui-slider-horizontal:first-child  {
+  width: 100%;
+  
+}
