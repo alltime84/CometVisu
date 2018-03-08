@@ -1,1 +1,20 @@
+/*
+#navbarLeft
+{
+  width: 100% !important;
+  overflow-y: scroll !important;
+  background-color: rgba(0,0,0,0.3) !important;
+}
 
+#navbarLeft .navbar {
+  width: 90%;
+  background-color: rgba(255,255,255,1);
+  min-height: 100%; 
+  height: auto !important; 
+  height: 100%; 
+  overflow: hidden !important; 
+  -webkit-box-shadow: 1px 0px 16px gray;
+  -moz-box-shadow: 1px 0px 16px gray;
+  box-shadow: 1px 0px 16px gray;
+} 
+*/

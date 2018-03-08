@@ -240,7 +240,7 @@ div#loading
   -moz-box-shadow: 0px 0px 0px gray;
   box-shadow: 0px 0px 0px gray;
   
-  overflow: auto;
+  overflow: visible;
   display: block;
   
   min-height: 32px;
@@ -301,6 +301,16 @@ div#loading
 .widget > .actor_container > .actor .value {
   margin: 6px;
   text-align: center;
+}
+
+/************************************************************/
+/*                         infoaction                     */
+/************************************************************/
+
+#navbarLeft .infoaction .widgetinfo .info, .infoaction .widgetinfo .info {
+  padding: 0px;
+  margin: 0px;
+  border: none;
 }
 
 /************************************************************/
