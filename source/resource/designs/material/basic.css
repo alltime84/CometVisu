@@ -209,7 +209,7 @@ div#loading
   text-align: center;
 }
 
-.widget > .actor .value {
+.widget > .actor.switchUnpressed .value {
   -webkit-border-radius: 2px;
   -khtml-border-radius: 2px;
   -moz-border-radius: 2px;
@@ -218,6 +218,20 @@ div#loading
   -webkit-box-shadow: 0px 1px 1px gray;
   -moz-box-shadow: 0px 1px 1px gray;
   box-shadow: 0px 1px 1px gray;
+  min-width: 32px;
+  padding: 5px 10px 5px 10px;
+  float: right;
+}
+
+.widget > .actor.switchPressed .value {
+  -webkit-border-radius: 2px;
+  -khtml-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  border-bottom: solid 1px #EBEBEB;
+  -webkit-box-shadow: 0px 1px 1px gray inset;
+  -moz-box-shadow: 0px 1px 1px gray inset;
+  box-shadow: 0px 1px 1px gray inset;
   min-width: 32px;
   padding: 5px 10px 5px 10px;
   float: right;
@@ -236,9 +250,9 @@ div#loading
   padding: 12px 1px 12px 1px;
   border-top: solid 1px #EBEBEB;
 
-  -webkit-box-shadow: 0px 0px 0px gray;
-  -moz-box-shadow: 0px 0px 0px gray;
-  box-shadow: 0px 0px 0px gray;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
   
   overflow: visible;
   display: block;
@@ -255,7 +269,7 @@ div#loading
 }
 
 /************************************************************/
-/*                         Text                             */
+/*                         Info                             */
 /************************************************************/
 
 .widget.info > .actor .value {
@@ -286,22 +300,51 @@ div#loading
 .widget > .actor_container > .actor {
   float: left;
   text-align: right;
-  min-width: 50%;
+  width: 50%;
+}
+
+
+.widget > .actor_container > .actor.switchUnpressed .value {
+  margin: 2px;
+  padding: 5px;
+  text-align: center;
+  
   -webkit-border-radius: 2px;
   -khtml-border-radius: 2px;
   -moz-border-radius: 2px;
   border-radius: 2px;
+  
   border-top: solid 1px #EBEBEB;
+  border-left: solid 1px #FFFFFF;
+  border-bottom: solid 1px #FFFFFF;
+  border-right: solid 1px #FFFFFF;
+
   -webkit-box-shadow: 0px 1px 1px gray;
   -moz-box-shadow: 0px 1px 1px gray;
   box-shadow: 0px 1px 1px gray;
-
 }
 
-.widget > .actor_container > .actor .value {
-  margin: 6px;
+.widget > .actor_container > .actor.switchPressed .value {
+  margin: 2px;
+  padding: 5px;
+
   text-align: center;
+  
+  -webkit-border-radius: 2px;
+  -khtml-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  
+  border-top: solid 1px #FFFFFF;
+  border-left: solid 1px #FFFFFF;
+  border-bottom: solid 1px #EBEBEB;
+  border-right: solid 1px #FFFFFF;
+
+  -webkit-box-shadow: 0px 1px 1px gray inset;
+  -moz-box-shadow: 0px 1px 1px gray inset;
+  box-shadow: 0px 1px 1px gray inset;
 }
+
 
 /************************************************************/
 /*                         infoaction                     */
@@ -336,8 +379,26 @@ div#loading
 }
 
 .widget.infotrigger .actor {
+  margin: 0px;
   width: 33%;
   float: left;
+  
+}
+
+.widget.infotrigger .actor .value, .widget.infotrigger .actor .label{
+  margin: 2px;
+  padding: 6px;
+  text-align: center;
+}
+
+.widget.infotrigger .actor.switchInvisible .value, .widget.infotrigger .actor.switchInvisible .label {
+  border: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
+.widget.infotrigger .actor.switchUnpressed:not(.switchInvisible) .value, .widget.infotrigger .actor.switchUnpressed:not(.switchInvisible) .label {
   -webkit-border-radius: 2px;
   -khtml-border-radius: 2px;
   -moz-border-radius: 2px;
@@ -348,10 +409,17 @@ div#loading
   box-shadow: 0px 1px 1px gray;
 }
 
-.widget.infotrigger .actor .value, .widget.infotrigger .actor .label {
-  margin: 6px;
-  text-align: center;
+.widget.infotrigger .actor.switchPressed:not(.switchInvisible) .value, .widget.infotrigger .actor.switchPressed:not(.switchInvisible) .label {
+  -webkit-border-radius: 2px;
+  -khtml-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  border-bottom: solid 1px #EBEBEB;
+  -webkit-box-shadow: 0px 1px 1px gray inset;
+  -moz-box-shadow: 0px 1px 1px gray inset;
+  box-shadow: 0px 1px 1px gray inset;
 }
+
 /************************************************************/
 /*                           Slide                            */
 /************************************************************/
